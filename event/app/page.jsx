@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -16,31 +17,21 @@ export default function Home() {
             </div>
 
             <div className={styles.eventitems}>
-                <a
-                    href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                    className={styles.card}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <Link href="/triathalon" className={styles.card}>
                     <div className={styles.calendar}>16 Aug.</div>
                     <h2>
                         Triathalon <span>-&gt;</span>
                     </h2>
                     <p>Stockholm. Även ett mini olympiskt triathalon.</p>
-                </a>
+                </Link>
 
-                <a
-                    href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                    className={styles.card}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <Link href="#" className={styles.card}>
                     <div className={styles.calendar}>N/A</div>
                     <h2>
                         E-Sport Challange <span>-&gt;</span>
                     </h2>
                     <p>Detta event planeras fortfarande.</p>
-                </a>
+                </Link>
             </div>
             <div className={styles.video}>
                 <video muted autoPlay loop>
