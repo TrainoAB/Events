@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Traino Events",
+    title: "TRAINO Events",
     description: "Upcoming events created by Traino",
 };
 
