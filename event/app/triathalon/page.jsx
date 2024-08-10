@@ -1,13 +1,28 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import "./page.css";
 
 export default function Triathalon() {
+    const [showMenu, setShowMenu] = useState(false);
+
+    const handleOpenMenu = () => {
+        setShowMenu(true);
+    };
+
+    const handleCloseMenu = () => {
+        setShowMenu(false);
+    };
+
     return (
         <main id="eventpage">
             <nav>
                 <div className="logo">Logo</div>
-                <ul>
+                <div className="icon-menu" onClick={handleOpenMenu}></div>
+                <ul className={showMenu ? "showmenu" : ""}>
+                    <li>
+                        <div className="btn-close" onClick={handleCloseMenu}></div>
+                    </li>
                     <li>
                         <Link href="#">Start</Link>
                     </li>

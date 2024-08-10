@@ -152,10 +152,26 @@ nav ul li {
     text-transform: uppercase;
     font-family: "Inter", sans-serif;
     font-weight: bold;
+}
+
+nav ul li a {
+    display: block;
     padding: 1.5rem;
 }
+
+nav ul li a:hover {
+    color: var(--maincolor);
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
     }
+}
+
+.icon-menu {
+    background: url("/icon-hamburger.svg");
+    background-size: 1.5rem;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
