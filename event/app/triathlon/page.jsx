@@ -46,8 +46,8 @@ export default function Triathlon() {
                     <h1>Traino Triathlon</h1>
                     <h2>16 Aug 2025, Stockholm</h2>
                     <p>
-                        Traino anordnar sitt första event 2025. Ett helt Triathlon, placerat i Stockholm helt gratis.
-                        Det kommer även finnas ett mini Triathlon kallat Olympiska Triathlon.
+                        Traino anordnar sitt första event 2025. Ett helt Triathlon, placerat i Stockholm. Det kommer
+                        även finnas ett mini Triathlon kallat Olympiska Triathlon.
                     </p>
                     <button>Registrera mig</button>
                     <div className="videocover"></div>
