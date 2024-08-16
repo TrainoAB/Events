@@ -25,12 +25,12 @@ export default function Home() {
                 </div>
 
                 <div className={styles.eventitems}>
-                    <Link href="/triathalon" className={styles.card}>
+                    <Link href="/triathlon" className={styles.card}>
                         <div className={styles.calendar}>16 Aug.</div>
                         <h2>
-                            Triathalon <span>-&gt;</span>
+                            Triathlon <span>-&gt;</span>
                         </h2>
-                        <p>Stockholm. Även ett mini olympiskt triathalon.</p>
+                        <p>Stockholm. Även ett mini olympiskt triathlon.</p>
                     </Link>
 
                     <Link href="#" className={styles.card}>
