@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import "./page.css";
 
-export default function Triathalon() {
+export default function Triathlon() {
     const [showMenu, setShowMenu] = useState(false);
 
     const handleOpenMenu = () => {
@@ -43,11 +43,11 @@ export default function Triathalon() {
                     </ul>
                 </nav>
                 <div className="video-container">
-                    <h1>Traino Triathalon</h1>
+                    <h1>Traino Triathlon</h1>
                     <h2>16 Aug 2025, Stockholm</h2>
                     <p>
-                        Traino anordnar sitt första event 2025. Ett helt Triathalon, placerat i Stockholm helt gratis.
-                        Det kommer även finnas ett mini Triathalon kallat Olympiska Triathalon.
+                        Traino anordnar sitt första event 2025. Ett helt Triathlon, placerat i Stockholm helt gratis.
+                        Det kommer även finnas ett mini Triathlon kallat Olympiska Triathlon.
                     </p>
                     <button>Registrera mig</button>
                     <div className="videocover"></div>
