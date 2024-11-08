@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
-export default function Login() {
+export default function DevLoginForm() {
     const [password, setPassword] = useState("");
 
     const router = useRouter();
@@ -16,7 +16,7 @@ export default function Login() {
             if (data.success) {
                 // If the password is correct, set it as a cookie
                 document.cookie = `password=${password}; path=/;`;
-                router.push("/"); // Redirect to the requested page
+                router.refresh();
             } else {
                 // If the password is incorrect, show an error message
                 alert("Password is incorrect. Please try again.");
