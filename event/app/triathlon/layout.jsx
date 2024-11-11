@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 export default function EventLayout({children}) {
@@ -5,7 +6,7 @@ export default function EventLayout({children}) {
     <>
       <Header />
       {children}
+      <Footer />
     </>
-    /* Footer */
   )
 }

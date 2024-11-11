@@ -98,6 +98,10 @@
 
         & .icon-menu {
             display: block;
+            background: url("/icon-hamburger.svg");
+            background-size: 1.5rem;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
 
         & .logo {
