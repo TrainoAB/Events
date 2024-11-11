@@ -1,0 +1,41 @@
+#rulespage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+    gap: 4rem;
+    margin-bottom: 5rem;
+
+    h1 {
+        margin-top: 5rem;
+    }
+
+    section {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        h2 {
+            width: 1rem;
+            font-size: 24px;
+        }
+
+        hr {
+            border: 1px solid;
+            height: 4rem;
+        }
+
+        p {
+            align-self: flex-start;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #rulespage {
+        section {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
