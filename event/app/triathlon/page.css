@@ -4,6 +4,87 @@
     display: flex;
     flex-direction: column;
     position: relative;
+
+    button {
+        font-family: "Barlow", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-weight: bold;
+    }
+
+    .video-container {
+        width: 100dvw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Inter", sans-serif;
+            font-style: italic;
+            font-size: 4rem;
+            font-weight: bold;
+            line-height: 3.8rem;
+            letter-spacing: -0.15rem;
+            margin: 0;
+            text-indent: -1000rem;
+            overflow: hidden;
+            background: url("/triathalonlogo.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            width: 100%;
+            height: 10rem;
+            filter: grayscale(1) brightness(6) contrast(10);
+        }
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Inter", sans-serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            font-weight: bolder;
+            line-height: 2.8rem;
+        }
+
+        p {
+            max-width: 40rem;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            color: rgb(215, 215, 215);
+            font-size: 1.5rem;
+            font-family: "Barlow", sans-serif;
+            line-height: 2rem;
+            font-weight: 500;
+        }
+
+        .videocover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            content: "";
+            display: block;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.33);
+        }
+    }
 }
 
 h1,
@@ -14,174 +95,24 @@ h5 {
     font-family: "Barlow", sans-serif;
 }
 
-#eventpage nav .logo {
-    text-indent: -1000rem;
-    overflow: hidden;
-    background: url("/triathalonlogo.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    height: 4rem;
-    margin-left: 1rem;
-    width: 9rem;
-    content: "";
-    display: block;
-}
-
-#eventpage .video-container {
-    width: 100dvw;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#eventpage .video-container h1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Inter", sans-serif;
-    font-style: italic;
-    font-size: 4rem;
-    font-weight: bold;
-    line-height: 3.8rem;
-    letter-spacing: -0.15rem;
-    margin: 0;
-    text-indent: -1000rem;
-    overflow: hidden;
-    background: url("/triathalonlogo.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    width: 100%;
-    height: 10rem;
-    filter: grayscale(1) brightness(6) contrast(10);
-}
-
-#eventpage .video-container h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Inter", sans-serif;
-    font-style: italic;
-    font-size: 2.5rem;
-    font-weight: bolder;
-    line-height: 2.8rem;
-}
-
-#eventpage .video-container p {
-    max-width: 40rem;
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    color: rgb(215, 215, 215);
-    font-size: 1.5rem;
-    font-family: "Barlow", sans-serif;
-    line-height: 2rem;
-    font-weight: 500;
-}
-
-#eventpage button {
-    font-family: "Barlow", sans-serif;
-    text-transform: uppercase;
-
-    letter-spacing: 0.1rem;
-    font-weight: bold;
-}
-
-#eventpage .video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -2;
-}
-
-#eventpage .video-container .videocover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    content: "";
-    display: block;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.33);
-}
-
-#eventpage nav .icon-menu {
-    width: 4rem;
-    height: 4rem;
-    position: absolute;
-    right: 0;
-    background-size: 2rem;
-    display: none;
-}
-
-#eventpage nav .showmenu {
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-}
-
-#eventpage nav .btn-closemenu {
-    display: none;
-}
-
-#eventpage nav .showmenu .btn-close {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 4rem;
-    height: 4rem;
-    background: url("/icon-x.svg");
-    background-size: 2rem;
-    background-repeat: no-repeat;
-    background-position: center center;
-    display: block;
-    z-index: 10;
-}
-
 @media (max-width: 700px) {
-    #eventpage nav ul {
-        padding: 1rem;
-    }
-    #eventpage nav ul li a {
-        padding: 0.5rem 1rem;
-    }
-    #eventpage nav .icon-menu {
-        display: block;
-    }
+    #eventpage {
+        .video-container {
+            h1 {
+                width: 80dvw;
+                height: 6rem;
+            }
 
-    #eventpage nav ul {
-        display: none;
-    }
+            h2 {
+                font-size: 1.5rem;
+                line-height: 0.5rem;
+            }
 
-    #eventpage .video-container h1 {
-        width: 80dvw;
-        height: 6rem;
-    }
-
-    #eventpage .video-container h2 {
-        font-size: 1.5rem;
-        line-height: 0.5rem;
-    }
-
-    #eventpage .video-container p {
-        width: calc(100% - 2rem);
-        font-size: 1.2rem;
-        line-height: 1.4rem;
-    }
-    #eventpage nav .logo {
-        left: 50%;
-        position: absolute;
-        transform: translateX(-50%);
-        margin-left: 0 !important;
+            p {
+                width: calc(100% - 2rem);
+                font-size: 1.2rem;
+                line-height: 1.4rem;
+            }
+        }
     }
 }
