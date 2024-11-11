@@ -2,7 +2,6 @@
 
 :root {
     --max-width: 1000px;
-    --border-radius: 12px;
     --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono",
         "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono",
         "Courier New", monospace;
@@ -62,8 +61,6 @@ body {
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-        rgb(var(--background-start-rgb));
 }
 
 h1 {
@@ -79,12 +76,12 @@ a {
 input {
     padding: 0.8rem;
     font-size: 1rem;
-    color: var(--foreground-rgb);
+    color: var(--black);
     font-family: var(--font-inter);
     width: 100%;
     max-width: 20rem;
-    border: none;
-    background: var(--background-start-rgb);
+    border: 1px solid var(--secondary-light-grey);
+    background: var(--white);
     border-radius: var(--radius);
 }
 
