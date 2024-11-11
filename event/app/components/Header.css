@@ -1,8 +1,8 @@
 #header {
     width: 100vw;
     height: 4.5rem;
-    background: rgb(var(--foreground-rgb));
-    color: rgb(var(--background-end-rgb));
+    background: var(--white);
+    color: var(--black);
 
     ul {
         position: absolute;
