@@ -11,7 +11,7 @@ export default function Accordion({ heading, text }) {
     };
 
     return (
-        <section id="accordion" className="box-shadow" onClick={handleToggle}>
+        <section className="accordion box-shadow" onClick={handleToggle}>
             <h2 className="accordion__heading"> 
                 { isShowing ? 
                     <img src='/minus-icon.png' alt="hide content icon" className="accordion__image" /> : 
