@@ -6,23 +6,19 @@
     font-size: 1.8rem;
     text-align: center;
 
-    figure {
+    .confirmation__figure {
         margin-top: 10rem;
-        width: 7rem;
+        width: 8rem;
         background-color: #10b223;
         border-radius: 100%;
         padding: 1rem;
-
-        img {
-            width: 100%;
-        }
     }
 
-    h3 {
+    .confirmation__heading {
         font-weight: bold;
     }
 
-    button {
-        width: 11rem;
+    .confirmation__button {
+        width: 11rem;       /** Use global width instead **/
     }
 }

@@ -4,18 +4,18 @@
     align-items: center;
     margin-bottom: 5rem;
 
-    h1 {
+    .rules__title {
         margin-top: 5rem;
     }
 
-    section {
+    .rule-wrapper {
         display: flex;
         align-items: center;
         gap: 2rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
 
-        h2 {
+        .rule__number {
             width: 1rem;
             font-size: 24px;
         }
@@ -25,7 +25,7 @@
             height: 4rem;
         }
 
-        p {
+        .rule__text {
             align-self: flex-start;
         }
     }
