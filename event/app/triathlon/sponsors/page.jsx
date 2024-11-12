@@ -27,6 +27,7 @@ export default function SponsorsPage() {
                         image={sponsor.image}
                         title={sponsor.name}
                         description={sponsor.description}
+                        key={sponsor.name}
                     />
                 ))}
             </section>

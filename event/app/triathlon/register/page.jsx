@@ -22,7 +22,7 @@ export default function RegisterPage() {
                     <input id="age" name="age" type="text" />
                 </div>
                 <div className="input-wrapper">
-                    <span classname="gender-label">Kön</span>
+                    <span className="gender-label">Kön</span>
                     <div className="radio-wrapper">
                         <input id="man" name="gender" type="radio" value="man" />
                         <label htmlFor="man">Man</label>
@@ -39,7 +39,7 @@ export default function RegisterPage() {
                     <input id="city" name="city" type="text" />
                 </div>
                 <div className="input-wrapper">
-                    <span classname="gender-label">Tävling</span>
+                    <span className="gender-label">Tävling</span>
                     <div className="radio-wrapper">
                         <input id="triathlon" name="competition" type="radio" value="triathlon" />
                         <label htmlFor="triathlon">Triathlon</label>
