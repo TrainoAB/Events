@@ -4,17 +4,17 @@
     align-items: center;
     margin-bottom: 5rem;
 
-    .rules__title {
+    & .rules__title {
         margin-top: 5rem;
     }
 
-    .rule-wrapper {
+    & .rule-wrapper {
         display: flex;
         gap: 2rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
 
-        .rule__number {
+        & .rule__number {
             width: 1rem;
             font-size: 24px;
         }
@@ -24,14 +24,14 @@
             height: 4rem;
         }
 
-        .rule-number-wrapper {
+        & .rule-number-wrapper {
             display: flex;
             gap: 2rem;
             align-self: flex-start;
             align-items: center;
         }
 
-        .rule__text {
+        & .rule__text {
             align-self: flex-start;
         }
     }

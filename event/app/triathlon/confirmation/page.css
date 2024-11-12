@@ -6,7 +6,7 @@
     font-size: 1.8rem;
     text-align: center;
 
-    .confirmation__figure {
+    & .confirmation__figure {
         margin-top: 10rem;
         width: 8rem;
         background-color: #10b223;  /** Set as global color instead **/
@@ -14,11 +14,11 @@
         padding: 1rem;
     }
 
-    .confirmation__heading {
+    & .confirmation__heading {
         font-weight: bold;
     }
 
-    .confirmation__button {
+    & .confirmation__button {
         width: 11rem;       /** Use global width instead **/
     }
 }
