@@ -31,8 +31,10 @@ export default function RulesPage() {
 
             {RULES.map((rule, index) => 
                 <section key={index} className="rule-wrapper max-width">
-                    <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
-                    <hr/>
+                    <div className="rule-number-wrapper">
+                        <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
+                        <hr/>
+                    </div>
                     <p className="rule__text"> {rule} </p>
                 </section>
             )}

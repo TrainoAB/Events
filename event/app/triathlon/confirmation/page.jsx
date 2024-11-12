@@ -13,7 +13,7 @@ export default function ConfirmationPage() {
     return (
         <main id="confirmationpage" className="gap">
             <figure className='confirmation__figure box-shadow'>
-                <img src={'/checkmark.png'} alt="confirmation checkmark" />
+                <img src='/checkmark.png' alt="confirmation checkmark" />
             </figure>
 
             <div>

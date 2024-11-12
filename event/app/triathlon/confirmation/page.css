@@ -9,7 +9,7 @@
     .confirmation__figure {
         margin-top: 10rem;
         width: 8rem;
-        background-color: #10b223;
+        background-color: #10b223;  /** Set as global color instead **/
         border-radius: 100%;
         padding: 1rem;
     }

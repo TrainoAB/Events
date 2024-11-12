@@ -1,0 +1,10 @@
+#faqpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+
+    .faq__title {
+        margin-top: 5rem;
+    }
+}

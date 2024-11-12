@@ -10,7 +10,6 @@
 
     .rule-wrapper {
         display: flex;
-        align-items: center;
         gap: 2rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
@@ -23,6 +22,13 @@
         hr {
             border: 1px solid;
             height: 4rem;
+        }
+
+        .rule-number-wrapper {
+            display: flex;
+            gap: 2rem;
+            align-self: flex-start;
+            align-items: center;
         }
 
         .rule__text {
