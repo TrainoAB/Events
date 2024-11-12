@@ -1,0 +1,14 @@
+#discountspage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 3rem;
+    margin-inline: auto;
+}
+
+@media (max-width: 1000px) {
+    #discountspage {
+        margin-inline: 0.5rem;
+    }
+}

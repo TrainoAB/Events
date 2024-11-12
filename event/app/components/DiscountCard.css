@@ -1,0 +1,38 @@
+.discount-card {
+    display: flex;
+
+    & .discount-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        background-color: var(--secondary-light-grey-alternative);
+        border-radius: var(--radius) 0 0 var(--radius);
+
+        & .discount-card__title {
+            font-size: 1.4rem;
+        }
+
+        & .discount-card__expiration {
+            margin-top: 2rem;
+            align-self: flex-end;
+            font-style: italic;
+        }
+    }
+
+    & .discount-card__percent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--maincolor);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        font-size: 2rem;
+        border-left: 2px dashed var(--white);
+        padding: 1rem;
+        width: 4.5rem;
+
+        & .discount-card__percent--text {
+            rotate: 90deg;
+        }
+    }
+}
