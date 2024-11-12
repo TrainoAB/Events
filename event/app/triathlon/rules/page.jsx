@@ -27,13 +27,13 @@ export default function RulesPage() {
 
     return (
         <main id="rulespage" className="gap">
-            <h1>Regler</h1>
+            <h1 className="rules__title">Regler</h1>
 
             {RULES.map((rule, index) => 
-                <section key={index} className="max-width">
-                    <h2> {setRuleNumber(index + 1)} </h2>
+                <section key={index} className="rule-wrapper max-width">
+                    <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
                     <hr/>
-                    <p> {rule} </p>
+                    <p className="rule__text"> {rule} </p>
                 </section>
             )}
         </main>

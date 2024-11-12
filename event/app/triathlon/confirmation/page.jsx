@@ -12,19 +12,19 @@ export default function ConfirmationPage() {
 
     return (
         <main id="confirmationpage" className="gap">
-            <figure className='box-shadow '>
+            <figure className='confirmation__figure box-shadow'>
                 <img src={'/checkmark.png'} alt="confirmation checkmark" />
             </figure>
 
             <div>
-                <h3>Tack!</h3>
+                <h3 className="confirmation__heading">Tack!</h3>
                 <p className='max-width'>
                     Du har nu blivit anmäld till tävlingen. Du kommer att
                     få en bekräftelse skickad till den angivna mailen.
                 </p>
             </div>
             
-            <button onClick={handleNavigate}>
+            <button className="confirmation__button" onClick={handleNavigate}>
                 Visa deltagare
             </button>
         </main>
