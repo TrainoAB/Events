@@ -1,0 +1,29 @@
+#merchpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+
+    & .merch__title {
+        margin-top: 5rem;
+    }
+
+    & .merch__gallery {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    & .merch__button {
+        text-align: center;
+        padding: 1.2rem 0.8rem;
+        color: var(--white);
+        font-weight: bold;
+        width: 12rem;
+        background: var(--mainpurple);
+        border-radius: 99px;
+    }
+}
