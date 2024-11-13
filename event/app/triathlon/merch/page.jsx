@@ -27,7 +27,7 @@ export default function MerchPage() {
                 )}
             </section>
 
-            <a href="http://traino.redbubble.com" target="_blank" className="merch__button box-shadow">Gå till butik</a>
+            <a href="http://traino.redbubble.com" target="_blank" className="link-btn box-shadow">Gå till butik</a>
         </main>
     );
 }
