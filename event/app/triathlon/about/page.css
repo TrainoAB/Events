@@ -1,0 +1,82 @@
+#aboutpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 3rem;
+    margin-inline: auto;
+
+    & .aboutpage-titles {
+        text-align: center;
+    }
+
+    & .event-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1rem;
+        width: 100%;
+
+        & .event-info__figure {
+            display: flex;
+        }
+    }
+
+    & .event-image-gallery {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .event-image-gallery__title {
+            margin-bottom: 2rem;
+        }
+    }
+
+    & .traino-funnel,
+    .volunteer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    & .traino-funnel {
+        & .traino-funnel__text {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    & .volunteer {
+        width: 100%;
+
+        & .volunteer-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 80%;
+
+            & .input-wrapper {
+                width: 100%;
+            }
+
+            & label {
+                display: block;
+                margin-bottom: 0.5rem;
+
+                &::after {
+                    content: "*";
+                }
+            }
+
+            & .volunteer-form__submit {
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #aboutpage {
+        margin-inline: 0.5rem;
+    }
+}
