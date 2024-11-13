@@ -14,8 +14,8 @@ export default function FAQPage() {
         <main id="faqpage" className="gap">
             <h1 className="faq__title">FAQ</h1>
 
-            {FAQ.map(faq => 
-                <Accordion heading={faq.question} text={faq.answer} />
+            {FAQ.map((faq, index) => 
+                <Accordion heading={faq.question} text={faq.answer} key={index} />
             )}
         </main>
     );
