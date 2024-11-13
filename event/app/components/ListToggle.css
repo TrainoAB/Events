@@ -1,0 +1,23 @@
+.list-toggle {
+    width: 70%;
+
+    & .list-toggle__titles {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 3rem;
+
+        & .list-toggle__title1, .list-toggle__title2 {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        & .list-toggle__title--active {
+            background-color: #DDD6F8;
+            border-radius: 99px;
+            padding: 0.5rem 2rem;
+            cursor: default;
+        }
+    }
+}
