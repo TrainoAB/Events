@@ -3,16 +3,14 @@
 import { useState } from "react";
 import "./ListToggle.css";
 
+/**
+ * setIsFirstTitleShown is a function taking a boolean as a parameter. This function is
+ * used to inform a parent about which title is toggled.
+ */
 export default function ListToggle({ title1, title2, setIsFirstTitleShown }) {
     const [isShowFirst, setShowFirst] = useState(true);
 
-    const handleToggle = (event) => {
-        const clickedTitle = event.target;
-
-        if (clickedTitle.className.includes('title2') && !isShowFirst || clickedTitle.className.includes('title1') && isShowFirst) {
-            return;   // If the clicked title is already active, do nothing
-        }
-
+    const handleToggle = () => {
         setIsFirstTitleShown(!isShowFirst);
         setShowFirst(!isShowFirst);
     };
@@ -20,14 +18,16 @@ export default function ListToggle({ title1, title2, setIsFirstTitleShown }) {
     return (
         <section className="list-toggle max-width">
             <div className="list-toggle__titles">
-                <h2 onClick={handleToggle} 
-                    className={isShowFirst ? 'list-toggle__title1 list-toggle__title--active' : 'list-toggle__title1'}>
+                <button onClick={handleToggle}
+                        disabled={isShowFirst}
+                        className='list-toggle__title'>
                     {title1}
-                </h2>
-                <h2 onClick={handleToggle} 
-                    className={!isShowFirst ? 'list-toggle__title2 list-toggle__title--active' : 'list-toggle__title2'}>
+                </button>
+                <button onClick={handleToggle} 
+                        disabled={!isShowFirst}
+                        className='list-toggle__title'>
                     {title2}
-                </h2>
+                </button>
             </div>
         </section>
     )
