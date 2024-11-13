@@ -1,29 +1,41 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import ListToggle from "@/app/components/ListToggle";
 
 import "./page.css";
 
 export default function ParticipantsPage() {
-    const [nrListRows, setNrListRows] = useState(PARTICIPANTS.filter(el => el.competition === 'triathlon').length);
+    const [nrParticipants, setNrParticipants] = useState();
+    const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
+
+    useEffect(() => {
+        setNrParticipants(isFirstTitleShown ? amountParticipants('triathlon') : amountParticipants('olympic'));
+    });
+
+    const amountParticipants = (competition) => {
+        return participantList(competition).length;
+    }
+
+    const participantList = (competition) => {
+        return PARTICIPANTS.filter(el => el.competition === competition);
+    }
 
     const createList = (competition) => {
         return (
-            <section>
-                <div className="participants-list__heading box-shadow">
+            <ul className="participants-list max-width">
+                <li className="participants-list__heading box-shadow">
                     <h3 className="participants-list__heading-participants">Deltagare</h3> 
                     <h3 className="participants-list__heading-city">Stad</h3>
-                </div>
-                { PARTICIPANTS
-                .filter(el => el.competition === competition)
-                .map(el => <div className="participants-list__row box-shadow">
-                                <p className="participants-list__name">{el.name}</p> 
-                                <p className="participants-list__city">{el.city}</p>
-                            </div>)
+                </li>
+                { participantList(competition)
+                    .map((el, index) => <li className="participants-list__row box-shadow" key={index}>
+                                            <p className="participants-list__name">{el.name}</p> 
+                                            <p className="participants-list__city">{el.city}</p>
+                                        </li>)
                 }
-            </section>
+            </ul>
         );
     }
 
@@ -31,16 +43,16 @@ export default function ParticipantsPage() {
         <main id="participantspage" className="gap">
             <h1 className="participants__title">Deltagare</h1>
             <h2 className="participants-numbers">
-                <div className="participants__confirmed">{nrListRows}</div>
+                <div className="participants__confirmed"> {nrParticipants} </div>
                 /100
             </h2>
             <ListToggle 
                 title1="Triathlon" 
-                list1={createList("triathlon")} 
                 title2="Olympiskt triathlon" 
-                list2={createList("olympic")}
-                getNrListRows={setNrListRows}
+                setIsFirstTitleShown={setIsFirstTitleShown}
             />
+
+            { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
 
             <div className="traino-funnel">
                 <p className="traino-funnel__text">

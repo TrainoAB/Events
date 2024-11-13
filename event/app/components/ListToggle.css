@@ -1,5 +1,4 @@
 .list-toggle {
-    width: 70%;
 
     & .list-toggle__titles {
         display: flex;

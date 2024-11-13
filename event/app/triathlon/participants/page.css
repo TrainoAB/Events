@@ -8,24 +8,28 @@
         margin-top: 5rem;
     }
 
-    & .participants-list__heading, .participants-list__row {
-        display: flex;
-        justify-content: space-between;
-        border-radius: 15px;
-        padding: 0.5rem 2rem;
-        font-size: 2rem;
-    }
+    & .participants-list {
+        width: 70%;
 
-    & .participants-list__heading {
-        background-color: #7252e7;
-        color: var(--white);
-    }
-
-    & .participants-list__row {
-        margin: 1rem 0;
-
-        & .participants-list__name {
-            font-weight: bold;
+        & .participants-list__heading, .participants-list__row {
+            display: flex;
+            justify-content: space-between;
+            border-radius: 15px;
+            padding: 0.5rem 2rem;
+            font-size: 2rem;
+        }
+    
+        & .participants-list__heading {
+            background-color: #7252e7;
+            color: var(--white);
+        }
+    
+        & .participants-list__row {
+            margin: 1rem 0;
+    
+            & .participants-list__name {
+                font-weight: bold;
+            }
         }
     }
 
