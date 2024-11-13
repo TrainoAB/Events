@@ -1,0 +1,10 @@
+#participantspage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+
+    & .participants__title {
+        margin-top: 5rem;
+    }
+}
