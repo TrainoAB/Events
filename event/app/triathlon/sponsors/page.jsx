@@ -7,19 +7,19 @@ const SPONSORS = [
         name: "McDonald's",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus doloribus ex, omnis nulla similique itaque reprehenderit, ut nemo hic cupiditate molestias voluptatem necessitatibus quibusdam ea incidunt ipsum eveniet maiores adipisci assumenda numquam! Dolore quasi exercitationem saepe aperiam, id ut. Ullam alias obcaecati eum error dignissimos commodi excepturi qui nam cumque?",
-        image: "../next.svg",
+        image: "https://picsum.photos/200",
     },
     {
         name: "Lamborghini",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus doloribus ex, omnis nulla similique itaque reprehenderit, ut nemo hic cupiditate molestias voluptatem necessitatibus quibusdam ea incidunt ipsum eveniet maiores adipisci assumenda numquam! Dolore quasi exercitationem saepe aperiam, id ut. Ullam alias obcaecati eum error dignissimos commodi excepturi qui nam cumque?",
-        image: "../next.svg",
+        image: "https://picsum.photos/200",
     },
 ];
 
 export default function SponsorsPage() {
     return (
-        <main id="sponsorspage" className="max-width">
+        <main id="sponsorspage" className="max-width gap">
             <section className="sponsors">
                 <h1 className="sponsors__title">Sponsorer</h1>
                 {SPONSORS.map((sponsor) => (

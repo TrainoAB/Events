@@ -2,8 +2,8 @@ import "./page.css";
 
 export default function RegisterPage() {
     return (
-        <main id="registerpage">
-            <h1>Registrera</h1>
+        <main id="registerpage" className="max-width gap">
+            <h1 className="register-title">Registrera</h1>
             <form className="register-form">
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
@@ -21,14 +21,18 @@ export default function RegisterPage() {
                     <label htmlFor="age">Ålder</label>
                     <input id="age" name="age" type="text" />
                 </div>
-                <div className="input-wrapper">
+                <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Kön</span>
-                    <div className="radio-wrapper">
+                    <label className="radio-wrapper" htmlFor="man">
                         <input id="man" name="gender" type="radio" value="man" />
-                        <label htmlFor="man">Man</label>
+                        <div className="radio-btn"></div>
+                        <span className="radio-label">Man</span>
+                    </label>
+                    <label className="radio-wrapper" htmlFor="woman">
                         <input id="woman" name="gender" type="radio" value="woman" />
-                        <label htmlFor="woman">Kvinna</label>
-                    </div>
+                        <div className="radio-btn"></div>
+                        <span>Kvinna</span>
+                    </label>
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="phonenumber">Telefonnummer</label>
@@ -38,19 +42,23 @@ export default function RegisterPage() {
                     <label htmlFor="city">Stad</label>
                     <input id="city" name="city" type="text" />
                 </div>
-                <div className="input-wrapper">
+                <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Tävling</span>
-                    <div className="radio-wrapper">
+                    <label className="radio-wrapper" htmlFor="triathlon">
                         <input id="triathlon" name="competition" type="radio" value="triathlon" />
-                        <label htmlFor="triathlon">Triathlon</label>
+                        <div className="radio-btn"></div>
+                        <span>Triathlon</span>
+                    </label>
+                    <label className="radio-wrapper" htmlFor="olympic-triathlon">
                         <input
                             id="olympic-triathlon"
                             name="competition"
                             type="radio"
                             value="olympic-triathlon"
                         />
-                        <label htmlFor="olympic-triathlon">Olympiskt Triathlon</label>
-                    </div>
+                        <div className="radio-btn"></div>
+                        <span>Olympiskt Triathlon</span>
+                    </label>
                 </div>
                 <button className="register-form__submit" type="submit">
                     Registrera mig
