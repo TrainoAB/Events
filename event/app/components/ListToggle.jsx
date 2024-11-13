@@ -3,14 +3,22 @@
 import { useState } from "react";
 import "./ListToggle.css";
 
-export default function ListToggle({ title1, list1, title2, list2 }) {
+export default function ListToggle({ title1, list1, title2, list2, getNrListRows }) {
     const [isShowFirst, setShowFirst] = useState(true);
+    const [currentList, setCurrentList] = useState(list1);
 
     const handleToggle = (event) => {
-        if (event.target.className.includes('title2') && !isShowFirst || event.target.className.includes('title1') && isShowFirst) {
+        const clickedTitle = event.target;
+
+        if (clickedTitle.className.includes('title2') && !isShowFirst || clickedTitle.className.includes('title1') && isShowFirst) {
             return;   // If the clicked title is already active, do nothing
         }
 
+        const chosenList = clickedTitle.className.includes('title2') ? list2 : list1;
+        setCurrentList(chosenList);
+        if (getNrListRows) {
+            getNrListRows(chosenList.props.children[1].length);
+        }
         setShowFirst(!isShowFirst);
     };
 
@@ -26,7 +34,7 @@ export default function ListToggle({ title1, list1, title2, list2 }) {
                     {title2}
                 </h2>
             </div>
-            { isShowFirst ? list1 : list2 }
+            { currentList }
         </section>
     )
 }
