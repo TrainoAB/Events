@@ -1,4 +1,5 @@
 .list-toggle {
+    width: 90%;
 
     & .list-toggle__titles {
         display: flex;
@@ -22,6 +23,14 @@
             border-radius: 99px;
             padding: 0.5rem 2rem;
             cursor: default;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .list-toggle {
+        & .list-toggle__titles {
+            flex-direction: column;
         }
     }
 }
