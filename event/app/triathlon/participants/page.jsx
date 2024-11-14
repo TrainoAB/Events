@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ListToggle from "@/app/components/ListToggle";
-
 import "./page.css";
 
 export default function ParticipantsPage() {
@@ -46,11 +45,7 @@ export default function ParticipantsPage() {
                 <div className="participants__confirmed"> {nrParticipants} </div>
                 /100
             </h2>
-            <ListToggle 
-                title1="Triathlon" 
-                title2="Olympiskt triathlon" 
-                setIsFirstTitleShown={setIsFirstTitleShown}
-            />
+            <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
 
