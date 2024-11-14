@@ -1,0 +1,36 @@
+.list-toggle {
+    width: 90%;
+
+    & .list-toggle__titles {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 3rem;
+
+        & .list-toggle__title {
+            cursor: pointer;
+            font-weight: 500;
+            background-color: var(--white);
+            box-shadow: none;
+            color: var(--black);
+            font-size: 2rem;
+            min-width: fit-content;
+        }
+
+        & .list-toggle__title:disabled {
+            background-color: #DDD6F8;
+            border-radius: 99px;
+            padding: 0.5rem 2rem;
+            cursor: default;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .list-toggle {
+        & .list-toggle__titles {
+            flex-direction: column;
+        }
+    }
+}
