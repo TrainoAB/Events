@@ -38,6 +38,9 @@ export default function WinnersPage() {
             <h1 className="winners__title">Vinnare</h1>
 
             <section className="winner-podium">
+                <h3 className="winner-podium__winner"> { isFirstTitleShown ? winnersList("triathlon")[0].name : winnersList("olympic")[0].name } </h3>
+                <h3> { isFirstTitleShown ? winnersList("triathlon")[1].name : winnersList("olympic")[1].name } </h3>
+                <h3 className="winner-podium__third"> { isFirstTitleShown ? winnersList("triathlon")[2].name : winnersList("olympic")[2].name } </h3>
                 <Image
                     src='/winner-podium.png'
                     width={430}
