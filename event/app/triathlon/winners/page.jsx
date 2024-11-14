@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ListToggle from "@/app/components/ListToggle";
+import ImageGallery from "@/app/components/ImageGallery";
 import "./page.css";
 
 export default function WinnersPage() {
@@ -13,16 +14,19 @@ export default function WinnersPage() {
 
     const createList = (competition) => {
         return (
-            <ul className="participants-list max-width">
-                <li className="participants-list__heading box-shadow">
-                    <h3 className="participants-list__heading-participants">Deltagare</h3> 
-                    <h3 className="participants-list__heading-city">Stad</h3>
+            <ul className="winners-list max-width">
+                <li className="winners-list__heading box-shadow">
+                    <h3>Tid</h3>
+                    <h3>Deltagare</h3> 
+                    <h3>Stad</h3>
                 </li>
                 { winnersList(competition)
-                    .map((el, index) => <li className="participants-list__row box-shadow" key={index}>
-                                            <p className="participants-list__name">{el.name}</p> 
-                                            <p className="participants-list__city">{el.city}</p>
-                                        </li>)
+                    .map((el, index) => 
+                        <li className="winners-list__row box-shadow" key={index}>
+                            <p>{el.time}</p>
+                            <p>{el.name}</p> 
+                            <p>{el.city}</p>
+                        </li>)
                 }
             </ul>
         );
@@ -34,6 +38,11 @@ export default function WinnersPage() {
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
+
+            <section className="event-video-gallery max-width">
+                <h2 className="event-video-gallery__title">Ögonblick Från Eventet</h2>
+                <ImageGallery images={["video1", "video2", "video3", "video4"]} />      {/**Should be a Video-Gallery instead*/}
+            </section>
         </main>
     );
 }

@@ -8,10 +8,10 @@
         margin-top: 5rem;
     }
 
-    & .participants-list {
+    & .winners-list {
         width: 70%;
 
-        & .participants-list__heading, .participants-list__row {
+        & .winners-list__heading, .winners-list__row {
             display: flex;
             justify-content: space-between;
             border-radius: 15px;
@@ -19,17 +19,26 @@
             font-size: 2rem;
         }
     
-        & .participants-list__heading {
+        & .winners-list__heading {
             background-color: #7252e7;
             color: var(--white);
         }
     
-        & .participants-list__row {
+        & .winners-list__row {
             margin: 1rem 0;
-    
-            & .participants-list__name {
-                font-weight: bold;
-            }
+        }
+    }
+
+    & .event-video-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        & .event-video-gallery__title {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 40px;
         }
     }
 }

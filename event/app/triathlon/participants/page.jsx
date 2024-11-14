@@ -25,14 +25,15 @@ export default function ParticipantsPage() {
         return (
             <ul className="participants-list max-width">
                 <li className="participants-list__heading box-shadow">
-                    <h3 className="participants-list__heading-participants">Deltagare</h3> 
-                    <h3 className="participants-list__heading-city">Stad</h3>
+                    <h3>Deltagare</h3> 
+                    <h3>Stad</h3>
                 </li>
                 { participantList(competition)
-                    .map((el, index) => <li className="participants-list__row box-shadow" key={index}>
-                                            <p className="participants-list__name">{el.name}</p> 
-                                            <p className="participants-list__city">{el.city}</p>
-                                        </li>)
+                    .map((participant, index) => 
+                        <li className="participants-list__row box-shadow" key={index}>
+                            <p className="participants-list__name"> {participant.name} </p> 
+                            <p> {participant.city} </p>
+                        </li>)
                 }
             </ul>
         );
