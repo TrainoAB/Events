@@ -17,3 +17,12 @@
         margin: 1rem;
     }
 }
+
+@media (max-width: 750px) {
+    #alleventspage {
+        & .alleventspage__logo {
+            margin: 5rem 0;
+            width: 20rem;
+        }
+    }
+}
