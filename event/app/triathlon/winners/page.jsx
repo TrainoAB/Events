@@ -18,15 +18,19 @@ export default function WinnersPage() {
             <ul className="winners-list max-width">
                 <li className="winners-list__heading box-shadow">
                     <h3>Tid</h3>
-                    <h3>Deltagare</h3> 
-                    <h3>Stad</h3>
+                    <div className="winners-wrapper">
+                        <h3>Deltagare</h3> 
+                        <h3>Stad</h3>
+                    </div>
                 </li>
                 { winnersList(competition)
                     .map((el, index) => 
                         <li className="winners-list__row box-shadow" key={index}>
                             <p>{el.time}</p>
-                            <p>{el.name}</p> 
-                            <p>{el.city}</p>
+                            <div className="winners-wrapper">
+                                <p>{el.name}</p> 
+                                <p>{el.city}</p>
+                            </div>
                         </li>)
                 }
             </ul>

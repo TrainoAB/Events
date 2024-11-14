@@ -31,6 +31,12 @@
             border-radius: 15px;
             padding: 0.5rem 2rem;
             font-size: 2rem;
+
+            & .winners-wrapper {
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+            }
         }
     
         & .winners-list__heading {
