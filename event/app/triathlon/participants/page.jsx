@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ListToggle from "@/app/components/ListToggle";
-
 import "./page.css";
 
 export default function ParticipantsPage() {
@@ -26,14 +25,15 @@ export default function ParticipantsPage() {
         return (
             <ul className="participants-list max-width">
                 <li className="participants-list__heading box-shadow">
-                    <h3 className="participants-list__heading-participants">Deltagare</h3> 
-                    <h3 className="participants-list__heading-city">Stad</h3>
+                    <h3>Deltagare</h3> 
+                    <h3>Stad</h3>
                 </li>
                 { participantList(competition)
-                    .map((el, index) => <li className="participants-list__row box-shadow" key={index}>
-                                            <p className="participants-list__name">{el.name}</p> 
-                                            <p className="participants-list__city">{el.city}</p>
-                                        </li>)
+                    .map((participant, index) => 
+                        <li className="participants-list__row box-shadow" key={index}>
+                            <p className="participants-list__name"> {participant.name} </p> 
+                            <p> {participant.city} </p>
+                        </li>)
                 }
             </ul>
         );
@@ -46,11 +46,7 @@ export default function ParticipantsPage() {
                 <div className="participants__confirmed"> {nrParticipants} </div>
                 /100
             </h2>
-            <ListToggle 
-                title1="Triathlon" 
-                title2="Olympiskt triathlon" 
-                setIsFirstTitleShown={setIsFirstTitleShown}
-            />
+            <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
 
