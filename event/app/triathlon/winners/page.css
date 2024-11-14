@@ -62,3 +62,30 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+    #winnerspage {
+        & .winners-list {
+            width: 100%;
+
+            & .winners-list__heading, .winners-list__row {
+                margin: 0 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #winnerspage {
+        & .winners-list {
+            & .winners-list__heading, .winners-list__row {
+                flex-direction: column;
+    
+                & .winners-wrapper {
+                    flex-direction: column;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
