@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Image from "next/image";
 import ListToggle from "@/app/components/ListToggle";
 import ImageGallery from "@/app/components/ImageGallery";
 import "./page.css";
@@ -35,6 +36,16 @@ export default function WinnersPage() {
     return (
         <main id="winnerspage" className="gap">
             <h1 className="winners__title">Vinnare</h1>
+
+            <section className="winner-podium">
+                <Image
+                    src='/winner-podium.png'
+                    width={430}
+                    height={242}
+                    alt="Winner podium"
+                />
+            </section>
+
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }

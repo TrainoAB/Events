@@ -8,6 +8,10 @@
         margin-top: 5rem;
     }
 
+    & .winner-podium {
+        margin: 5rem 0;
+    }
+
     & .winners-list {
         width: 70%;
 
