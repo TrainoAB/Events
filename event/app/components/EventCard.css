@@ -1,0 +1,14 @@
+.event-card {
+    display: flex;
+    flex-direction: column;
+
+    & .event-card__image {
+        border-radius: 15px;
+    }
+
+    & .event-card__headings {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+    }
+}

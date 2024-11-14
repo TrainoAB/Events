@@ -1,0 +1,19 @@
+#alleventspage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+
+    & .alleventspage__logo {
+        margin: 10rem 0;
+        width: revert-layer;
+    }
+
+    & .alleventspage__events {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1rem;
+    }
+}
