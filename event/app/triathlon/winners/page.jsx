@@ -23,13 +23,16 @@ export default function WinnersPage() {
                         <h3>Stad</h3>
                     </div>
                 </li>
+                <li className="winners-list__heading--mobile box-shadow">
+                    <h3>Vinnare</h3>
+                </li>
                 { winnersList(competition)
                     .map((el, index) => 
                         <li className="winners-list__row box-shadow" key={index}>
-                            <p>{el.time}</p>
+                            <p><div className="winners-list__row--mobile">Tid: </div>{ el.time}</p>
                             <div className="winners-wrapper">
-                                <p>{el.name}</p> 
-                                <p>{el.city}</p>
+                                <p><div className="winners-list__row--mobile">Deltagare: </div>{ el.name}</p> 
+                                <p><div className="winners-list__row--mobile">Stad: </div>{ el.city}</p>
                             </div>
                         </li>)
                 }
@@ -46,6 +49,7 @@ export default function WinnersPage() {
                 <h3> { isFirstTitleShown ? winnersList("triathlon")[1].name : winnersList("olympic")[1].name } </h3>
                 <h3 className="winner-podium__third"> { isFirstTitleShown ? winnersList("triathlon")[2].name : winnersList("olympic")[2].name } </h3>
                 <Image
+                    className="winner-podium__image"
                     src='/winner-podium.png'
                     width={430}
                     height={242}
