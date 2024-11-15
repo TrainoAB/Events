@@ -9,8 +9,12 @@ import "./page.css";
 export default function WinnersPage() {
     const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
 
-    const winnersList = (competition) => {
-        return WINNERS.filter(el => el.competition === competition);
+    // Placement 0 is winner, placement 1 is silver, placement 2 is bronze
+    const podiumName = (competition, placement) => {
+        const winner = WINNERS.filter(el => el.competition === competition);
+        const name = winner[placement].name.split(' ');
+
+        return name[0] + " " + name[1][0] + ".";
     }
 
     const createList = (competition) => {
@@ -26,13 +30,13 @@ export default function WinnersPage() {
                 <li className="winners-list__heading--mobile box-shadow">
                     <h3>Vinnare</h3>
                 </li>
-                { winnersList(competition)
-                    .map((el, index) => 
+                { WINNERS.filter(winner => winner.competition === competition)
+                    .map((winner, index) => 
                         <li className="winners-list__row box-shadow" key={index}>
-                            <p><div className="winners-list__row--mobile">Tid: </div>{ el.time}</p>
+                            <p><div className="winners-list__row--mobile">Tid: </div> { winner.time} </p>
                             <div className="winners-wrapper">
-                                <p><div className="winners-list__row--mobile">Deltagare: </div>{ el.name}</p> 
-                                <p><div className="winners-list__row--mobile">Stad: </div>{ el.city}</p>
+                                <p><div className="winners-list__row--mobile">Deltagare: </div> { winner.name} </p> 
+                                <p><div className="winners-list__row--mobile">Stad: </div> { winner.city} </p>
                             </div>
                         </li>)
                 }
@@ -45,9 +49,9 @@ export default function WinnersPage() {
             <h1 className="winners__title">Vinnare</h1>
 
             <section className="winner-podium">
-                <h3 className="winner-podium__winner"> { isFirstTitleShown ? winnersList("triathlon")[0].name : winnersList("olympic")[0].name } </h3>
-                <h3> { isFirstTitleShown ? winnersList("triathlon")[1].name : winnersList("olympic")[1].name } </h3>
-                <h3 className="winner-podium__third"> { isFirstTitleShown ? winnersList("triathlon")[2].name : winnersList("olympic")[2].name } </h3>
+                <h3 className="winner-podium__winner"> { isFirstTitleShown ? podiumName("triathlon", 0) : podiumName("olympic", 0) } </h3>
+                <h3 className="winner-podium__second"> { isFirstTitleShown ? podiumName("triathlon", 1) : podiumName("olympic", 1) } </h3>
+                <h3 className="winner-podium__third"> { isFirstTitleShown ? podiumName("triathlon", 2) : podiumName("olympic", 2) } </h3>
                 <Image
                     className="winner-podium__image"
                     src='/winner-podium.png'

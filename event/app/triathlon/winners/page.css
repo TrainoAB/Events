@@ -21,8 +21,13 @@
             align-self: center;
         }
 
+        & .winner-podium__second {
+            margin-left: 2rem;
+        }
+
         & .winner-podium__third {
             align-self: flex-end;
+            margin-right: 2rem;
         }
     }
 
