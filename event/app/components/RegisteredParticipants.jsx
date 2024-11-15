@@ -1,7 +1,16 @@
+import Link from "next/link";
+
 import "./RegisteredParticipants.css";
 
-export default function RegisteredParticipants() {
+export default function RegisteredParticipants({ registered, total }) {
   return (
-    <div>RegisteredParticipants</div>
+    <article className="registered-participants b-radius box-shadow">
+        <h2 className="registered-participants__title">Registrerade Deltagare</h2>
+        <strong className="registered-participants__count"><span className="confirmed-participants">{registered}</span>{`/${total}`}</strong>
+        <div className="registered-participants__bar-container b-radius">
+            <div className="registered-participants__bar b-radius"></div>
+        </div>
+        <Link className="link-btn" href={"triathlon/register"}>Registrera mig</Link>
+    </article>
   )
 }

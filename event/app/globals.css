@@ -40,6 +40,7 @@
     --weight: 700;
     --text-size: 0.88rem;
     --radius: 15px;
+    --box-shadow: -7px 7px 8px var(--shadow-color);
 
     --font-regular: 1rem;
     --font-big: 1.33rem;
@@ -107,8 +108,12 @@ img {
     height: auto;
 }
 
+figure {
+    display: flex;
+}
+
 .box-shadow {
-    box-shadow: -7px 7px 8px var(--shadow-color);
+    box-shadow: var(--box-shadow);
 }
 
 .b-radius {
@@ -132,4 +137,5 @@ img {
     width: 12rem;
     background: var(--mainpurple);
     border-radius: 99px;
+    box-shadow: var(--box-shadow);
 }

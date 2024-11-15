@@ -9,6 +9,7 @@ export default function Footer() {
                 <section className="event-links link-wrapper">
                     <h3 className="event-links__title">Eventlänkar</h3>
                     <div className="event-links__wrapper">
+                        <Link href="/triathlon">Start</Link>
                         <Link href="/triathlon/about">Om Eventet</Link>
                         <Link href="/triathlon/participants">Deltagare</Link>
                         <Link href="/triathlon/winners">Vinnare</Link>
