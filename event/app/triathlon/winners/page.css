@@ -13,6 +13,10 @@
         flex-direction: column;
         margin: 5rem 0;
 
+        & .winner-podium__image {
+            width: revert-layer;
+        }
+
         & .winner-podium__winner {
             align-self: center;
         }
@@ -25,7 +29,7 @@
     & .winners-list {
         width: 70%;
 
-        & .winners-list__heading, .winners-list__row {
+        & .winners-list__heading, .winners-list__heading--mobile, .winners-list__row {
             display: flex;
             justify-content: space-between;
             border-radius: 15px;
@@ -39,9 +43,13 @@
             }
         }
     
-        & .winners-list__heading {
+        & .winners-list__heading, .winners-list__heading--mobile {
             background-color: #7252e7;
             color: var(--white);
+        }
+
+        & .winners-list__heading--mobile, .winners-list__row--mobile {
+            display: none;
         }
     
         & .winners-list__row {
@@ -77,8 +85,28 @@
 
 @media (max-width: 700px) {
     #winnerspage {
+        & .winner-podium {
+            & .winner-podium__image {
+                width: 21rem;
+            }
+        }
+
         & .winners-list {
-            & .winners-list__heading, .winners-list__row {
+            & .winners-list__heading--mobile {
+                display: flex;
+                margin: 0 1rem;
+            }
+
+            & .winners-list__row--mobile  {
+                display: inline;
+                font-weight: bold;
+            }
+
+            & .winners-list__heading {
+                display: none;
+            }
+
+            & .winners-list__row {
                 flex-direction: column;
     
                 & .winners-wrapper {
