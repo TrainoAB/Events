@@ -1,23 +1,90 @@
+import Link from "next/link";
+import Image from "next/image";
+import CountdownTimer from "../components/CountdownTimer";
+import ProductCard from "../components/ProductCard";
+import RegisteredParticipants from "../components/RegisteredParticipants";
+
 import "./page.css";
 
-export default function Triathlon() {
+const SPONSORS = [
+    "https://picsum.photos/200?random=1",
+    "https://picsum.photos/200?random=2",
+    "https://picsum.photos/200?random=3",
+    "https://picsum.photos/200?random=4",
+];
 
+export default function TriathlonPage() {
     return (
         <>
-            <main id="eventpage">
-                <div className="video-container">
-                    <h1>Traino Triathlon</h1>
-                    <h2>16 Aug 2025, Stockholm</h2>
-                    <p>
-                        Traino anordnar sitt första event 2025. Ett helt Triathlon, placerat i Stockholm. Det kommer
-                        även finnas ett mini Triathlon kallat Olympiska Triathlon.
-                    </p>
-                    <button>Registrera mig</button>
+            <main id="eventpage" className="gap">
+                <div className="video-container gap">
+                    <h1 className="video-container__title">Traino Triathlon</h1>
+                    <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
+                    <RegisteredParticipants registered={22} total={100} />
                     <div className="videocover"></div>
                     <video muted autoPlay loop>
                         <source src="/videobg.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
+                </div>
+                <div className="info-container max-width gap">
+                    <CountdownTimer />
+                    <section className="event-about">
+                        <h2 className="event-about__title">Om Eventet</h2>
+                        <div className="event-about__info-wrapper">
+                            <p className="event-about__text">
+                                Traino anordnar sitt första event som går av stapeln lördagen den
+                                16:e augusti 2025.
+                            </p>
+                            <Link className="event-about__link link-btn" href={"triathlon/about"}>
+                                Läs mer
+                            </Link>
+                        </div>
+                        <figure className="event-about__figure">
+                            <Image
+                                src={"https://picsum.photos/430/242"}
+                                width={430}
+                                height={242}
+                                alt="Karta som visar rutten för Triathlon tävlingen"
+                                className="event-about__image"
+                            />
+                        </figure>
+                    </section>
+                    <section className="event-sponsors">
+                        <h2 className="event-sponsors__title">Sponsorer</h2>
+                        <figure className="event-sponsors__figure">
+                            {SPONSORS.map(sponsor => (
+                                <Image
+                                    className="event-sponsors__img"
+                                    src={sponsor}
+                                    width={200}
+                                    height={200}
+                                    alt="Sponsor image"
+                                    key={sponsor}
+                                />
+                            ))}
+                        </figure>
+                    </section>
+                    <section className="traino-funnel">
+                        <p className="traino-funnel__cta">
+                            Sugen på att delta? Förbered inför eventet.
+                        </p>
+                        <Link className="link-btn" href={"https://traino.nu/"}>
+                            Träna
+                        </Link>
+                    </section>
+                    <section className="featured-product">
+                        <h2 className="featured-product__title">Utvald Produkt</h2>
+                        <ProductCard
+                            image={"/white-tshirt.png"}
+                            url={
+                                "https://www.redbubble.com/i/t-shirt/Traino-Logo-Small-Color-by-TRAINO/165255437.WFLAH"
+                            }
+                        />
+                        <Link className="link-btn" href={"http://traino.redbubble.com"}>
+                            Visa fler
+                        </Link>
+                    </section>
                 </div>
             </main>
         </>

@@ -1,0 +1,35 @@
+.countdown-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--black);
+    width: clamp(400px, 600px, 60%);
+    padding: 2rem 4rem;
+    color: var(--white);
+    font-size: 1.5rem;
+
+    & .timer-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        & .countdown-time {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & .countdown-time__number {
+                font-size: 4.5rem;
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .countdown-timer {
+        width: 100%;
+        padding: 1rem;
+    }
+}
