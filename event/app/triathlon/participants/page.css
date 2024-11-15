@@ -34,7 +34,12 @@
     }
 
     & .participants-numbers {
-        font-size: 48px;
+        display: flex;
+        font-size: 3rem;
+
+        & .participants__total {
+            align-self: flex-end;
+        }
 
         & .participants__confirmed {
             display: inline;
