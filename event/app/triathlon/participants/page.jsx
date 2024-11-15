@@ -44,7 +44,7 @@ export default function ParticipantsPage() {
             <h1 className="participants__title">Deltagare</h1>
             <h2 className="participants-numbers">
                 <div className="participants__confirmed"> {nrParticipants} </div>
-                /100
+                <p className="participants__total">/100</p>
             </h2>
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
