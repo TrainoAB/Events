@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ListToggle from "@/app/components/ListToggle";
 import ImageGallery from "@/app/components/ImageGallery";
+import WinnerCard from "@/app/components/WinnerCard";
 
 import "./page.css";
 
@@ -11,7 +12,14 @@ export default function EventFinishedPage() {
 
     const createList = (competition) => {
         return (
-            <h1> {competition} </h1>
+            <ul className="winners-list max-width">
+                { WINNERS.filter(winner => winner.competition === competition)
+                .map((winner, index) => 
+                    <li key={index}>
+                        <WinnerCard placement={index+1} winner={winner} />
+                    </li>
+                )}
+            </ul>
         );
     }
 
@@ -29,7 +37,7 @@ export default function EventFinishedPage() {
 
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
-            { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
+            { isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon") }
 
             <section className="event-video-gallery max-width">
                 <h2 className="event-video-gallery__title">Ögonblick Från Eventet</h2>
@@ -38,3 +46,13 @@ export default function EventFinishedPage() {
         </main>
     );
 }
+
+// Temporary Winners
+const WINNERS = [
+    {name: "Greger Artursson", time: "1:02:43", city: "Luleå", competition: "Olympiskt Triathlon"},
+    {name: "Pelle Jöns", time: "1:02:51", city: "Stockholm", competition: "Triathlon"},
+    {name: "Sonja Andersson", time: "1:02:59", city: "Växjö", competition: "Triathlon"},
+    {name: "Arne Björnsson", time: "1:03:15", city: "Karlstad", competition: "Olympiskt Triathlon"},
+    {name: "Karl Bengtsson", time: "1:03:56", city: "Halmstad", competition: "Triathlon"},
+    {name: "Sara Viktorsson", time: "1:03:57", city: "Göteborg", competition: "Olympiskt Triathlon"}
+];

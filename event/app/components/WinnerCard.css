@@ -1,0 +1,54 @@
+#winnerCard-wrapper {
+    padding: 4rem 2rem 0 2rem;
+    text-align: center;
+
+    #winnerCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 220px;
+        height: 350px;
+        border-radius: 15px;
+    
+        .gold {
+            background-color: #FFCB22;
+        }
+    
+        .silver {
+            background-color: #C8C8C8;
+        }
+    
+        .bronze {
+            background-color: #FF8922;
+        }
+    
+        & .winnerCard-placement {
+            position: relative;
+            top: -40px;
+            align-content: center;
+            font-weight: bold;
+            font-size: 4rem;
+            border-radius: 100%;
+            width: 7rem;
+            height: 7rem;
+        }
+
+        & .winnerCard-name-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            color: var(--white);
+            background-color: var(--maincolor);
+            width: 115%;
+            height: 5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        & .winnerCard-competition {
+            font-weight: normal;
+            padding: 1rem;
+        }
+    }
+}
