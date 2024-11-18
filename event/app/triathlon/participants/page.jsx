@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ListToggle from "@/app/components/ListToggle";
+
 import "./page.css";
 
 export default function ParticipantsPage() {
@@ -46,6 +47,7 @@ export default function ParticipantsPage() {
                 <div className="participants__confirmed"> {nrParticipants} </div>
                 <p className="participants__total">/100</p>
             </h2>
+            
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
