@@ -26,8 +26,10 @@ export default function WinnerCard({ placement, winner }) {
     return (
         <div id="winnerCard-wrapper">
             <section id="winnerCard" className="box-shadow">
-                <div className={`winnerCard-placement box-shadow ${winnerColor(placement)}`}> {placement} </div>
-                <div className="winnerCard-name-wrapper">
+                <div className="winnerCard-placement-wrapper box-shadow">
+                    <div className={`winnerCard-placement ${winnerColor(placement)}`}> {placement} </div>
+                </div>
+                <div className="winnerCard-name-wrapper box-shadow">
                     <h2> {firstName(winner.name)} </h2>
                     <h2> {lastName(winner.name)} </h2>
                 </div>
