@@ -11,16 +11,16 @@ export default function AddSponsorPage({ params }) {
                     <input id="sponsor" name="sponsor" type="text" />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="description">Beskrivning</label>
-                    <textarea id="description" name="description" rows={10} cols={100} />
-                </div>
-                <div className="input-wrapper">
                     <label htmlFor="image">Bild (text länk)</label>
                     <input id="image" name="image" type="text" />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="link">Sponsorlänk</label>
                     <input id="link" name="link" type="text" />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="description">Beskrivning</label>
+                    <textarea id="description" name="description" rows={10} cols={100} />
                 </div>
 
                 <button className="add-sponsor-form__submit">Lägg till</button>
