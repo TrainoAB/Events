@@ -19,11 +19,12 @@ export default function AddSponsorPage({ params }) {
                     <input id="image" name="image" type="text" />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="link">Länk till sponsorsida</label>
+                    <label htmlFor="link">Sponsorlänk</label>
                     <input id="link" name="link" type="text" />
                 </div>
+
                 <button className="add-sponsor-form__submit">Lägg till</button>
             </form>
         </main>
-    )
+    );
 }
