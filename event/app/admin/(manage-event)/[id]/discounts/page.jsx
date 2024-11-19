@@ -32,7 +32,10 @@ export default function ManageDiscountsPage({ params }) {
                     </div>
                 ))}
             </div>
-            <button className="add-discount-btn"></button>
+
+            <Link href="/admin/1/discounts/add" className="manage-discounts__add-link">
+                <button className="add-discount-btn"></button>
+            </Link>
         </main>
     );
 }
