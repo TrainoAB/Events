@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SponsorCard from "@/app/components/SponsorCard";
 
 import "./page.css";
@@ -7,20 +8,24 @@ export default function ManageSponsorsPage() {
         <main id="manage-sponsors-page" className="gap">
             <h1 className="manage-sponsors__title">Hantera sponsorer</h1>
 
-            <section className="sponsors max-width">
-                {SPONSORS.map((sponsor, index) => (
-                    <div className="sponsor-wrapper" key={index} >
-                        <SponsorCard
-                            image={sponsor.image}
-                            title={sponsor.name}
-                            description={sponsor.description}
-                        />
-                        <button className="delete-sponsor-btn">Radera</button>
-                    </div>
-                ))}
-            </section>
+            <Link href="/admin/1/sponsors/edit">
+                <section className="sponsors max-width">
+                    {SPONSORS.map((sponsor, index) => (
+                        <div className="sponsor-wrapper" key={index} >
+                            <SponsorCard
+                                image={sponsor.image}
+                                title={sponsor.name}
+                                description={sponsor.description}
+                            />
+                            <button className="delete-sponsor-btn">Radera</button>
+                        </div>
+                    ))}
+                </section>
+            </Link>
 
-            <button className="add-sponsor-btn"></button>
+            <Link href="/admin/1/sponsors/add">
+                <button className="add-sponsor-btn"></button>
+            </Link>
         </main>
     )
 }
