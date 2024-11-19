@@ -37,17 +37,21 @@
         }
     }
 
-    & .add-discount-btn {
-        background-image: url("../../../../assets/add_plus_icon.svg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-color: #CEEA68;
-        padding: 1rem;
-        border-radius: 50%;
-        width: 5rem;
-        height: 5rem;
-        position: fixed;
-        bottom: 2rem;
+    & .manage-discounts__add-link {
+        display: contents;
+        
+        & .add-discount-btn {
+            background-image: url("../../../../assets/add_plus_icon.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: #CEEA68;
+            padding: 1rem;
+            border-radius: 50%;
+            width: 5rem;
+            height: 5rem;
+            position: fixed;
+            bottom: 2rem;
+        }
     }
 }
 

@@ -1,7 +1,30 @@
-export default function AddDiscountPage() {
-  return (
-    <main id="add-discount-page">
-        Add discount
-    </main>
-  )
+import "./page.css";
+
+export default function AddDiscountPage({ params }) {
+    return (
+        <main id="add-discount-page">
+            <h1 className="add-discount-page__title">Lägg till Rabatt {params.id}</h1>
+
+            <form className="add-discount-form">
+                <div className="input-wrapper">
+                    <label htmlFor="title">Rubrik</label>
+                    <input id="title" name="title" type="text" />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="discount">Rabatt</label>
+                    <input id="discount" name="discount" type="number" step={1} min={1} max={100} />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="link">Länk</label>
+                    <input id="link" name="link" type="text" />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="description">Beskrivning</label>
+                    <textarea id="description" name="description" rows={10} cols={100} />
+                </div>
+
+                <button className="add-discount-form__submit">Lägg till</button>
+            </form>
+        </main>
+    );
 }
