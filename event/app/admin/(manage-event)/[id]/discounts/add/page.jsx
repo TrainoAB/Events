@@ -1,9 +1,9 @@
 import "./page.css";
 
-export default function AddDiscountPage({ params }) {
+export default function AddDiscountPage() {
     return (
         <main id="add-discount-page">
-            <h1 className="add-discount-page__title">Lägg till Rabatt {params.id}</h1>
+            <h1 className="add-discount-page__title">Lägg till Rabatt</h1>
 
             <form className="add-discount-form">
                 <div className="input-wrapper">

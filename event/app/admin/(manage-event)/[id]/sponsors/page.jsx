@@ -6,7 +6,7 @@ import "./page.css";
 export default function ManageSponsorsPage({ params }) {
     return (
         <main id="manage-sponsors-page" className="gap">
-            <h1 className="manage-sponsors__title">Hantera sponsorer {params.id}</h1>
+            <h1 className="manage-sponsors__title">Sponsorer: {params.id}</h1>
 
             <Link href="/admin/1/sponsors/edit">
                 <section className="sponsors max-width">
