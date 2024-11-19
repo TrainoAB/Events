@@ -1,0 +1,25 @@
+#admin-header {
+    & .admin-header-list {
+        display: flex;
+        list-style: none;
+
+        & .admin-header-list__element {
+            text-transform: uppercase;
+            font-family: "Inter", sans-serif;
+            font-weight: bold;
+
+            a {
+                display: block;
+                padding: 1.5rem;
+            }
+
+            a:hover {
+                color: var(--maincolor);
+            }
+
+            a:focus {                           /** only temporary */
+                color: var(--mainpurple);
+            }
+        }
+    }
+}
