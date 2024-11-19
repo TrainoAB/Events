@@ -23,7 +23,7 @@ export default function ManageSponsorsPage() {
                 </section>
             </Link>
 
-            <Link href="/admin/1/sponsors/add">
+            <Link href="/admin/1/sponsors/add" className="manage-sponsors__add-link">
                 <button className="add-sponsor-btn"></button>
             </Link>
         </main>
