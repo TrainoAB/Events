@@ -1,9 +1,9 @@
 import "./page.css";
 
-export default function EditSponsorPage({ params }) {
+export default function EditSponsorPage() {
     return (
         <main id="edit-sponsor-page">
-            <h1 className="edit-sponsor__title">Redigera sponsor {params.id}</h1>
+            <h1 className="edit-sponsor__title">Redigera sponsor</h1>
 
             <form className="edit-sponsor-form">
                 <div className="input-wrapper">

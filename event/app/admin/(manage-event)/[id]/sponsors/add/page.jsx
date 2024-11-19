@@ -1,9 +1,9 @@
 import "./page.css";
 
-export default function AddSponsorPage({ params }) {
+export default function AddSponsorPage() {
     return (
         <main id="add-sponsor-page" className="gap">
-            <h1 className="add-sponsor__title">Lägg till sponsor {params.id}</h1>
+            <h1 className="add-sponsor__title">Lägg till sponsor</h1>
 
             <form className="add-sponsor-form">
                 <div className="input-wrapper">
