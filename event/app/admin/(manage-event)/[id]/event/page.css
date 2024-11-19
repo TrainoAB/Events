@@ -1,0 +1,33 @@
+#edit-event-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 3rem;
+
+    & .edit-event-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        & .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            & label::after {
+                content: "*";
+            }
+        }
+
+        & .edit-event-form__submit {
+            align-self: flex-end;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #edit-event-page {
+        margin-inline: 0.5rem;
+    }
+}
