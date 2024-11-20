@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
+
+import "./DevLoginForm.css";
 
 export default function DevLoginForm() {
     const [password, setPassword] = useState("");
@@ -28,7 +29,7 @@ export default function DevLoginForm() {
     };
 
     return (
-        <div className={styles.login}>
+        <div className="dev-login">
             <h1>Password</h1>
 
             <input

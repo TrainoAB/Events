@@ -1,9 +1,14 @@
-.login {
-    width: 100%;
-    height: 100%;
+.dev-login {
+    width: 50%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-inline: auto;
+
+    & input {
+        width: 35ch;
+    }
 }
