@@ -6,6 +6,7 @@
     margin-inline: auto;
     min-height: 100vh;
     padding-block: 3rem 9rem;
+    width: 100%;
 
     & .events {
         width: 100%;
@@ -28,8 +29,6 @@
 
 @media (max-width: 1000px) {
     #admin-page {
-        margin-inline: 0.5rem;
-
         & .admin-page__title {
             font-size: 2.5rem;
         }
