@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EventCard from "../components/EventCard";
 
 import "./page.css";
@@ -31,8 +32,10 @@ export default function AdminPage() {
                     </div>
                 ))}
             </div>
-            {/* TODO: Push/link to an add event form */}
-            <button className="add-event-btn"></button>
+            
+            <Link href="/admin/add" className="manage-sponsors__add-link">
+                <button className="add-event-btn"></button>
+            </Link>
         </main>
     );
 }
