@@ -28,13 +28,13 @@ export default function ManageDiscountsPage({ params }) {
                         <Link href="discounts/edit">
                             <DiscountCard discount={discount} />
                         </Link>
-                        <button className="delete-discount-btn">Radera</button>
+                        <button className="delete-btn">Radera</button>
                     </div>
                 ))}
             </div>
 
             <Link href="/admin/1/discounts/add" className="manage-discounts__add-link">
-                <button className="add-discount-btn"></button>
+                <button className="add-btn"></button>
             </Link>
         </main>
     );

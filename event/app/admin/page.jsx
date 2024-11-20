@@ -28,13 +28,13 @@ export default function AdminPage() {
                 {EVENTS.map((event, i) => (
                     <div className="event-wrapper" key={i} >
                         <EventCard event={event} />
-                        <button className="delete-event-btn">Radera</button>
+                        <button className="delete-btn">Radera</button>
                     </div>
                 ))}
             </div>
             
-            <Link href="/admin/add" className="manage-sponsors__add-link">
-                <button className="add-event-btn"></button>
+            <Link href="/admin/add" className="admin-page__add-link">
+                <button className="add-btn"></button>
             </Link>
         </main>
     );
