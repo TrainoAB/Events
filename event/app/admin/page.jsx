@@ -4,7 +4,7 @@ import "./page.css";
 
 const EVENTS = [
     {
-        url: "/admin/manage-event",
+        url: "/admin/1/event",
         image: "https://picsum.photos/484/272",
         date: "16 Aug. 2024",
         competition: "Triathlon",
