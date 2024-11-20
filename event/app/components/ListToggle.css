@@ -16,12 +16,15 @@
             color: var(--black);
             font-size: 2rem;
             min-width: fit-content;
+
+            &:hover {
+                scale: unset;
+            }
         }
 
         & .list-toggle__title:disabled {
             background-color: #DDD6F8;
             border-radius: 99px;
-            padding: 0.5rem 2rem;
             cursor: default;
         }
     }
