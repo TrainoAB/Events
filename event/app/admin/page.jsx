@@ -1,5 +1,9 @@
+'use client';
+
+import { useState } from "react";
 import Link from "next/link";
 import EventCard from "../components/EventCard";
+import { Modal } from "../components/Modal";
 
 import "./page.css";
 
@@ -21,17 +25,41 @@ const EVENTS = [
 ];
 
 export default function AdminPage() {
+    const [ showModal, setShowModal ] = useState(false);
+    const [ event, setEvent ] = useState();
+
+    const handleDeleteClick = (event) => {
+        setEvent(event);
+        setShowModal(!showModal);
+    }
+
+    const handleDeleteEvent = () => {
+        console.log(`delete ${event.competition}`);
+    }
+
+    const handleToggleModal = () => {
+        setShowModal(!showModal);
+    }
+
     return (
         <main id="admin-page" className="max-width gap">
-            <h1 className="admin-page__title">Manage Events</h1>
+            <h1 className="admin-page__title">Hantera Events</h1>
+
             <div className="events">
                 {EVENTS.map((event, i) => (
                     <div className="event-wrapper" key={i} >
                         <EventCard event={event} />
-                        <button className="delete-event-btn">Radera</button>
+                        <button className="delete-event-btn" onClick={() => handleDeleteClick(event)}> Radera </button>
                     </div>
                 ))}
             </div>
+
+            {showModal ? <Modal 
+                            title={event.competition}
+                            closeModal={handleToggleModal} 
+                            confirm={handleDeleteEvent} 
+                        /> : <></> 
+            }
             
             <Link href="/admin/add" className="manage-sponsors__add-link">
                 <button className="add-event-btn"></button>
