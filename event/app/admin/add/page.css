@@ -20,8 +20,9 @@
             }
         }
 
-        & .add-event-form__submit {
-            align-self: flex-end;
+        & .add-event-form__buttons {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
@@ -29,5 +30,17 @@
 @media (max-width: 1000px) {
     #add-event-page {
         margin-inline: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #add-event-page {
+        & .add-event-form {
+            & .add-event-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
     }
 }
