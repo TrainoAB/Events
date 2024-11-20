@@ -34,6 +34,9 @@
     --black: #242424;
     --white: #fff;
     --shadow-color: rgba(0, 0, 0, 0.2);
+    --light-green: #ceea68;
+    --warning-col: #ff3737;
+    --success-col: #45ca4e;
     --font: "Inter", sans-serif;
     --big-size: 1.5rem;
     --heading-size: 1.25rem;
@@ -41,6 +44,7 @@
     --text-size: 0.88rem;
     --radius: 15px;
     --box-shadow: -7px 7px 8px var(--shadow-color);
+    --btn-transition: all 0.3s ease-out;
 
     --font-regular: 1rem;
     --font-big: 1.33rem;
@@ -71,6 +75,11 @@ h1 {
 a {
     color: inherit;
     text-decoration: none;
+    transition: var(--btn-transition);
+
+    &:hover {
+        color: var(--maincolor);
+    }
 }
 
 input,
@@ -102,10 +111,12 @@ button {
     border-radius: 99px;
     cursor: pointer;
     box-shadow: -7px 7px 8px var(--shadow-color);
-}
+    transition: var(--btn-transition);
 
-button:hover {
-    background: var(--maincolor);
+    &:hover {
+        filter: brightness(0.9);
+        scale: 1.05;
+    }
 }
 
 img {
@@ -117,6 +128,7 @@ figure {
     display: flex;
 }
 
+/* Utility */
 .box-shadow {
     box-shadow: var(--box-shadow);
 }
@@ -143,4 +155,41 @@ figure {
     background: var(--mainpurple);
     border-radius: 99px;
     box-shadow: var(--box-shadow);
+    transition: var(--btn-transition);
+
+    &:hover {
+        filter: brightness(0.9);
+        scale: 1.05;
+        color: var(--white);
+    }
+}
+
+.add-btn {
+    background-image: url("/add_plus_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: var(--light-green);
+    padding: 1rem;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+}
+
+.delete-btn {
+    align-self: center;
+    background-color: var(--warning-col);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+        background-image: url("/trashcan_icon.svg");
+        background-repeat: no-repeat;
+        filter: invert(1);
+        display: inline-block;
+        content: "";
+        height: 1.5rem;
+        width: 1.5rem;
+    }
 }
