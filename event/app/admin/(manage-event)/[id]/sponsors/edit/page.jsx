@@ -1,6 +1,16 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+
 import "./page.css";
 
 export default function EditSponsorPage() {
+    const router = useRouter();
+
+    const handleCancel = () => {
+        router.back();
+    }
+
     return (
         <main id="edit-sponsor-page">
             <h1 className="edit-sponsor__title">Redigera sponsor</h1>
@@ -23,7 +33,10 @@ export default function EditSponsorPage() {
                     <textarea id="description" name="description" rows={10} cols={100} />
                 </div>
                 
-                <button className="edit-sponsor-form__submit">Spara</button>
+                <div className="edit-sponsor-form__buttons">
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button> Spara </button>
+                </div>
             </form>
         </main>
     );
