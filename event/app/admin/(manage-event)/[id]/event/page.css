@@ -20,8 +20,9 @@
             }
         }
 
-        & .edit-event-form__submit {
-            align-self: flex-end;
+        & .edit-event-form__buttons {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
@@ -29,5 +30,17 @@
 @media (max-width: 1000px) {
     #edit-event-page {
         margin-inline: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #edit-event-page {
+        & .edit-event-form {
+            & .edit-event-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
     }
 }

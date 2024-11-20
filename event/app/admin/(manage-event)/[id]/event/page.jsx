@@ -1,6 +1,16 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+
 import "./page.css";
 
 export default function EditEventPage({ params }) {
+    const router = useRouter();
+
+    const handleCancel = () => {
+        router.back();
+    }
+
     return (
         <main id="edit-event-page">
             <h1 className="edit-event-page__title">Redigera eventet {params.id}</h1>
@@ -23,7 +33,10 @@ export default function EditEventPage({ params }) {
                     <textarea id="description" name="description" rows={10} cols={100} />
                 </div>
 
-                <button className="edit-event-form__submit">Spara</button>
+                <div className="edit-event-form__buttons">
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button> Spara </button>
+                </div>
             </form>
         </main>
     );
