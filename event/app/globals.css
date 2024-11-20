@@ -64,7 +64,10 @@ body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     color: rgb(var(--foreground-rgb));
+    min-height: 100vh;
 }
 
 h1 {
