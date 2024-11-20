@@ -1,6 +1,16 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+
 import "./page.css";
 
 export default function EditDiscountPage() {
+    const router = useRouter();
+
+    const handleCancel = () => {
+        router.back();
+    }
+
     return (
         <main id="edit-discount-page">
             <h1 className="edit-discount-page__title">Redigera Rabatt</h1>
@@ -23,7 +33,10 @@ export default function EditDiscountPage() {
                     <textarea id="description" name="description" rows={10} cols={100} />
                 </div>
                 
-                <button className="edit-discount-form__submit">Spara</button>
+                <div className="edit-discount-form__buttons">
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button> Spara </button>
+                </div>
             </form>
         </main>
     );

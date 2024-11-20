@@ -24,8 +24,21 @@
             }
         }
 
-        & .edit-discount-form__submit {
-            align-self: flex-end;
+        & .edit-discount-form__buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #edit-discount-page {
+        & .edit-discount-form {
+            & .edit-discount-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
         }
     }
 }
