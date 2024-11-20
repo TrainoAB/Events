@@ -47,6 +47,10 @@
                     mask-size: contain;
                     mask-position: center;
 
+                    &:hover {
+                        filter: brightness(0.7);
+                    }
+
                     &.social-icon--facebook {
                         mask-image: url("../assets/facebook_icon.svg");
                     }
