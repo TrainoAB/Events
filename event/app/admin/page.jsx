@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import EventCard from "../components/EventCard";
-import { Modal } from "../components/Modal";
+import EventCard from "@/app/components/EventCard";
+import { Modal } from "@/app/components/Modal";
 
 import "./page.css";
 
