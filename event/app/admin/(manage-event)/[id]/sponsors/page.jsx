@@ -1,9 +1,29 @@
+'use client';
+
+import { useState } from "react";
 import Link from "next/link";
 import SponsorCard from "@/app/components/SponsorCard";
+import { Modal } from "@/app/components/Modal";
 
 import "./page.css";
 
 export default function ManageSponsorsPage({ params }) {
+    const [ showModal, setShowModal ] = useState(false);
+    const [ sponsor, setSponsor ] = useState();
+
+    const handleDeleteClick = (sponsor) => {
+        setSponsor(sponsor);
+        setShowModal(!showModal);
+    }
+
+    const handleDeleteSponsor = () => {
+        console.log(`delete ${sponsor.name}`);
+    }
+
+    const handleToggleModal = () => {
+        setShowModal(!showModal);
+    }
+
     return (
         <main id="manage-sponsors-page" className="gap">
             <h1 className="manage-sponsors__title">Sponsorer: {params.id}</h1>
@@ -11,17 +31,24 @@ export default function ManageSponsorsPage({ params }) {
             <section className="sponsors max-width">
                 {SPONSORS.map((sponsor, index) => (
                     <div className="sponsor-wrapper" key={index}>
-                        <Link href="/admin/1/sponsors/edit">
+                        <Link href="sponsors/edit">
                             <SponsorCard
                                 image={sponsor.image}
                                 title={sponsor.name}
                                 description={sponsor.description}
                             />
                         </Link>
-                        <button className="delete-btn">Radera</button>
+                        <button className="delete-btn" onClick={() => handleDeleteClick(sponsor)}> Radera </button>
                     </div>
                 ))}
             </section>
+
+            {showModal ? <Modal 
+                            title={sponsor.name}
+                            closeModal={handleToggleModal} 
+                            confirm={handleDeleteSponsor} 
+                        /> : <></> 
+            }
 
             <Link href="/admin/1/sponsors/add" className="manage-sponsors__add-link">
                 <button className="add-btn"></button>
