@@ -1,6 +1,16 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+
 import "./page.css";
 
 export default function AddEventPage() {
+    const router = useRouter();
+
+    const handleCancel = () => {
+        router.back();
+    }
+
     return (
         <main id="add-event-page">
             <h1 className="add-event-page__title">Lägg till Event</h1>
@@ -23,7 +33,10 @@ export default function AddEventPage() {
                     <textarea id="description" name="description" rows={10} cols={100} />
                 </div>
 
-                <button className="add-event-form__submit">Lägg till</button>
+                <div className="add-event-form__buttons">
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button> Lägg till </button>
+                </div>
             </form>
         </main>
     );

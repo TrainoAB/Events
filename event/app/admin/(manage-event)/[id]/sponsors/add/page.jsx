@@ -1,6 +1,16 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+
 import "./page.css";
 
 export default function AddSponsorPage() {
+    const router = useRouter();
+
+    const handleCancel = () => {
+        router.back();
+    }
+
     return (
         <main id="add-sponsor-page" className="gap">
             <h1 className="add-sponsor__title">Lägg till sponsor</h1>
@@ -23,7 +33,10 @@ export default function AddSponsorPage() {
                     <textarea id="description" name="description" rows={10} cols={100} />
                 </div>
 
-                <button className="add-sponsor-form__submit">Lägg till</button>
+                <div className="add-sponsor-form__buttons">
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button> Lägg till </button>
+                </div>
             </form>
         </main>
     );

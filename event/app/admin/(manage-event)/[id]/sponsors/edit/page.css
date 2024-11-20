@@ -26,8 +26,9 @@
             }
         }
 
-        & .edit-sponsor-form__submit {
-            align-self: flex-end;
+        & .edit-sponsor-form__buttons {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
@@ -35,5 +36,17 @@
 @media (max-width: 1000px) {
     #edit-sponsor-page {
         margin-inline: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #edit-sponsor-page {
+        & .edit-sponsor-form {
+            & .edit-sponsor-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
     }
 }
