@@ -1,16 +1,30 @@
 'use client'
- 
+
+import { useState } from "react";
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 import "./AdminHeader.css";
 
 export default function AdminHeader() {
+    const [showMenu, setShowMenu] = useState(false);
     const pathname = usePathname();
+
+    const handleOpenMenu = () => {
+        setShowMenu(true);
+    };
+
+    const handleCloseMenu = () => {
+        setShowMenu(false);
+    };
 
     return (
         <nav id="admin-header">
-            <ul className="admin-header-list">
+            <div className="icon-menu" onClick={handleOpenMenu}></div>
+            <ul className={showMenu ? "showmenu" : "admin-header-list"}>
+                <li>
+                    <div className="btn-close" onClick={handleCloseMenu}></div>
+                </li>
                 <li className='admin-header-list__element'>
                     <Link href="/admin">Alla Event</Link>
                 </li>
