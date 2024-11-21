@@ -9,12 +9,14 @@ import "./page.css";
 
 const DISCOUNTS = [
     {
+        url: "discounts/edit",
         title: "Radison hotell",
         description: "Få 20% rabatt på ett köp när du visar upp ett TRAINO kort.",
         discount: 20,
         expiration: "15-17 aug. 2025",
     },
     {
+        url: "discounts/edit",
         title: "Stadshotellet",
         description: "Få 15% rabatt på ett köp när du visar upp ett TRAINO kort.",
         discount: 15,
@@ -43,11 +45,9 @@ export default function ManageDiscountsPage({ params }) {
         <main id="manage-discounts-page">
             <h1 className="manage-discounts-page__title">{`Rabatter: ${params.id}`}</h1>
             <div className="discount-list">
-                {DISCOUNTS.map((discount) => (
-                    <div className="discount-wrapper" key={discount.title}>
-                        <Link href="discounts/edit">
-                            <DiscountCard discount={discount} />
-                        </Link>
+                {DISCOUNTS.map((discount, index) => (
+                    <div className="discount-wrapper" key={index}>
+                        <DiscountCard discount={discount} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(discount)}> Radera </button>
                     </div>
                 ))}
