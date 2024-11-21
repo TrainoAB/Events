@@ -18,7 +18,7 @@ export default function MerchPage() {
     ];
 
     return (
-        <main id="merchpage" className="gap">
+        <main id="merchpage" className="gap flex-col align-c">
             <h1 className="merch__title">Merch</h1>
 
             <section className="merch__gallery">

@@ -26,7 +26,7 @@ export default function RulesPage() {
     }
 
     return (
-        <main id="rulespage" className="gap">
+        <main id="rulespage" className="gap flex-col align-c">
             <h1 className="rules__title">Regler</h1>
 
             {RULES.map((rule, index) => 

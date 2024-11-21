@@ -1,7 +1,4 @@
 #confirmationpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 5rem;
     font-size: 1.8rem;
     text-align: center;

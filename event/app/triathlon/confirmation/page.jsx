@@ -11,7 +11,7 @@ export default function ConfirmationPage() {
     };
 
     return (
-        <main id="confirmationpage" className="gap">
+        <main id="confirmationpage" className="gap flex-col align-c">
             <figure className='confirmation__figure box-shadow'>
                 <img src='/checkmark.png' alt="confirmation checkmark" />
             </figure>

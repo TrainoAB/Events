@@ -2,9 +2,9 @@ import "./page.css";
 
 export default function RegisterPage() {
     return (
-        <main id="registerpage" className="max-width gap">
+        <main id="registerpage" className="max-width gap flex-col align-c">
             <h1 className="register-title">Registrera</h1>
-            <form className="register-form">
+            <form className="register-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
                     <input id="email" name="email" type="email" />

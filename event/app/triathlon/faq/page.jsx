@@ -11,7 +11,7 @@ export default function FAQPage() {
     ];
 
     return (
-        <main id="faqpage" className="gap">
+        <main id="faqpage" className="gap flex-col align-c">
             <h1 className="faq__title">FAQ</h1>
 
             {FAQ.map((faq, index) => 

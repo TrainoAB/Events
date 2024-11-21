@@ -1,14 +1,9 @@
 #sponsorspage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-inline: auto;
     padding-block: 3rem;
 
     & .sponsors {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        gap: var(--gap);
 
         & .sponsors__title {
             text-align: center;
@@ -16,10 +11,7 @@
     }
 
     & .sponsor-event {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        gap: var(--gap);
         width: 100%;
 
         & .sponsor-event__cta {
@@ -29,7 +21,7 @@
         & .sponsor-event__form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: var(--gap);
             width: 80%;
 
             & .input-wrapper {

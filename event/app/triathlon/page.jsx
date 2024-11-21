@@ -16,8 +16,8 @@ const SPONSORS = [
 export default function TriathlonPage() {
     return (
         <>
-            <main id="eventpage" className="gap">
-                <div className="video-container gap">
+            <main id="eventpage" className="gap flex-col align-c">
+                <div className="video-container gap flex-col align-c">
                     <h1 className="video-container__title">Traino Triathlon</h1>
                     <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
                     <RegisteredParticipants registered={22} total={100} />
@@ -27,11 +27,11 @@ export default function TriathlonPage() {
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <div className="info-container max-width gap">
+                <div className="info-container max-width gap flex-col align-c">
                     <CountdownTimer />
                     <section className="event-about">
                         <h2 className="event-about__title">Om Eventet</h2>
-                        <div className="event-about__info-wrapper">
+                        <div className="event-about__info-wrapper flex-col">
                             <p className="event-about__text">
                                 Traino anordnar sitt första event som går av stapeln lördagen den
                                 16:e augusti 2025.
@@ -50,7 +50,7 @@ export default function TriathlonPage() {
                             />
                         </figure>
                     </section>
-                    <section className="event-sponsors">
+                    <section className="event-sponsors flex-col align-c">
                         <h2 className="event-sponsors__title">Sponsorer</h2>
                         <figure className="event-sponsors__figure">
                             {SPONSORS.map(sponsor => (
@@ -65,7 +65,7 @@ export default function TriathlonPage() {
                             ))}
                         </figure>
                     </section>
-                    <section className="traino-funnel">
+                    <section className="traino-funnel flex-col align-c">
                         <p className="traino-funnel__cta">
                             Sugen på att delta? Förbered inför eventet.
                         </p>
@@ -73,7 +73,7 @@ export default function TriathlonPage() {
                             Träna
                         </Link>
                     </section>
-                    <section className="featured-product">
+                    <section className="featured-product flex-col align-c">
                         <h2 className="featured-product__title">Utvald Produkt</h2>
                         <ProductCard
                             image={"/white-tshirt.png"}

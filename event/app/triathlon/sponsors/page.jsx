@@ -21,14 +21,14 @@ const SPONSORS = [
 
 export default function SponsorsPage() {
     return (
-        <main id="sponsorspage" className="max-width gap">
-            <section className="sponsors">
+        <main id="sponsorspage" className="max-width gap flex-col align-c">
+            <section className="sponsors flex-col">
                 <h1 className="sponsors__title">Sponsorer</h1>
                 {SPONSORS.map((sponsor, index) => (
                     <SponsorCard sponsor={sponsor} target="_blank" key={index} />
                 ))}
             </section>
-            <section className="sponsor-event">
+            <section className="sponsor-event flex-col align-c">
                 <h2 className="sponsor-event__title">Sponsra Eventet</h2>
                 <p className="sponsor-event__cta">
                     Fyll i er kontaktinformation så kontaktar vi er.

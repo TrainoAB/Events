@@ -49,6 +49,10 @@
     --font-regular: 1rem;
     --font-big: 1.33rem;
     --font-small: 0.66rem;
+
+    --small-gap: 0.5rem;
+    --gap: 1rem;
+    --large-gap: 3rem;
 }
 
 * {
@@ -178,7 +182,7 @@ figure {
 }
 
 .gap {
-    gap: 3rem;
+    gap: var(--large-gap);
 }
 
 .link-btn {
@@ -217,7 +221,7 @@ figure {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--small-gap);
 
     &::before {
         background-image: url("/trashcan_icon.svg");
@@ -228,4 +232,13 @@ figure {
         height: 1.5rem;
         width: 1.5rem;
     }
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-c {
+    align-items: center;
 }
