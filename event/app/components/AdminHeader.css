@@ -23,4 +23,72 @@
             color: var(--mainpurple);
         }
     }
+
+    & .icon-menu {
+        width: 4rem;
+        height: 4rem;
+        position: absolute;
+        right: 0;
+        background-size: 2rem;
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #admin-header {
+        & .admin-header-list {
+            display: none;
+            padding: 1rem;
+
+            & li {
+                & a {
+                    padding: 0.5rem 1rem;
+                }
+            }
+        }
+
+        .showmenu {
+            display: flex;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            text-transform: uppercase;
+            font-family: "Inter", sans-serif;
+            font-weight: bold;
+
+            .active {
+                color: var(--mainpurple);
+            }
+
+            a {
+                display: block;
+                padding: 1.5rem;
+            }
+    
+            & .btn-close {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 4rem;
+                height: 4rem;
+                background: url("/icon-x.svg");
+                background-size: 2rem;
+                background-repeat: no-repeat;
+                background-position: center center;
+                display: block;
+                z-index: 10;
+            }
+        }
+
+        & .icon-menu {
+            display: block;
+            background: url("/icon-hamburger.svg");
+            background-size: 1.5rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
 }
