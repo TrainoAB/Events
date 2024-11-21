@@ -142,8 +142,7 @@ figure {
 }
 
 .participants-list__heading, 
-.participants-list__row, 
-.participants-list__heading--mobile {
+.participants-list__row {
     display: flex;
     justify-content: space-between;
     border-radius: 15px;
@@ -151,8 +150,7 @@ figure {
     font-size: 2rem;
 }
 
-.participants-list__heading,
-.participants-list__heading--mobile {
+.participants-list__heading {
     background-color: #7252e7;
     color: var(--white);
 }

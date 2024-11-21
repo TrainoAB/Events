@@ -33,19 +33,19 @@
 
     & .participants-list {
         & .participants-list__heading, .participants-list__row {
+            & .mobile-heading {
+                background-color: #7252e7;
+                color: var(--white);
+            }
+
             & .winners-wrapper {
                 width: 70%;
                 display: flex;
                 justify-content: space-between;
             }
         }
-    
-        & .participants-list__heading--mobile {
-            background-color: #7252e7;
-            color: var(--white);
-        }
 
-        & .participants-list__heading--mobile, .participants-list__row--mobile {
+        & .mobile-heading, .mobile-row {
             display: none;
         }
     }
@@ -66,18 +66,18 @@
 
 @media (max-width: 1000px) {
     #winnerspage {
+        margin: 0 1rem;
+
         & .participants-list {
             width: 100%;
-
-            & .participants-list__heading, .participants-list__row {
-                margin: 0 1rem;
-            }
         }
     }
 }
 
+
 @media (max-width: 700px) {
     #winnerspage {
+
         & .winner-podium {
             & .winner-podium__image {
                 width: 21rem;
@@ -85,18 +85,13 @@
         }
 
         & .participants-list {
-            & .participants-list__heading--mobile {
-                display: flex;
-                margin: 0 1rem;
-            }
-
-            & .participants-list__row--mobile  {
-                display: inline;
-                font-weight: bold;
-            }
-
             & .participants-list__heading {
                 display: none;
+            }
+
+            & .mobile-heading {
+                display: flex;
+                margin: 0 1rem;
             }
 
             & .participants-list__row {
@@ -106,6 +101,37 @@
                     flex-direction: column;
                     width: 100%;
                 }
+
+                & .list-row-wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                & .mobile-row  {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 0;
+                    margin: 0.2rem 0;
+                    font-weight: bold;
+
+                    & > * {
+                        font-weight: normal;
+                        margin-left: 0.5rem;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #winnerspage {
+        & .participants-list {
+            & .participants-list__row {
+                font-size: 24px;
             }
         }
     }

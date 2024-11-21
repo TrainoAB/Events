@@ -27,16 +27,23 @@ export default function WinnersPage() {
                         <h3>Stad</h3>
                     </div>
                 </li>
-                <li className="participants-list__heading--mobile box-shadow">
+                <li className="participants-list__heading mobile-heading box-shadow">
                     <h3>Vinnare</h3>
                 </li>
                 { WINNERS.filter(winner => winner.competition === competition)
                     .map((winner, index) => 
                         <li className="participants-list__row box-shadow" key={index}>
-                            <p><div className="participants-list__row--mobile">Tid: </div> { winner.time} </p>
+                            <div className="list-row-wrapper">
+                                <div className="participants-list__row mobile-row">Tid: </div> <p> { winner.time} </p> 
+                            </div>
+                            
                             <div className="winners-wrapper">
-                                <p><div className="participants-list__row--mobile">Deltagare: </div> { winner.name} </p> 
-                                <p><div className="participants-list__row--mobile">Stad: </div> { winner.city} </p>
+                                <div className="list-row-wrapper">
+                                    <div className="participants-list__row mobile-row">Deltagare: </div> <p> { winner.name} </p>
+                                </div>
+                                <div className="list-row-wrapper">
+                                    <div className="participants-list__row mobile-row">Stad: </div> <p> { winner.city} </p>
+                                </div>
                             </div>
                         </li>)
                 }
