@@ -17,10 +17,10 @@
             a:hover {
                 color: var(--maincolor);
             }
+        }
 
-            a:focus {                           /** only temporary */
-                color: var(--mainpurple);
-            }
+        .active {
+            color: var(--mainpurple);
         }
     }
 }
