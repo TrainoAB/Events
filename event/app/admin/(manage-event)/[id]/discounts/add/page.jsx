@@ -12,10 +12,10 @@ export default function AddDiscountPage() {
     }
 
     return (
-        <main id="add-discount-page">
+        <main id="add-discount-page" className="flex-col align-c">
             <h1 className="add-discount-page__title">Lägg till Rabatt</h1>
 
-            <form className="add-discount-form">
+            <form className="add-discount-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="title">Rubrik</label>
                     <input id="title" name="title" type="text" />

@@ -42,11 +42,11 @@ export default function AdminPage() {
     }
 
     return (
-        <main id="admin-page" className="max-width gap">
+        <main id="admin-page" className="max-width gap flex-col align-c">
             <h1 className="admin-page__title">Hantera Events</h1>
             <div className="events">
                 {EVENTS.map((event, i) => (
-                    <div className="event-wrapper" key={i} >
+                    <div className="event-wrapper flex-col" key={i} >
                         <EventCard event={event} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(event)}> Radera </button>
                     </div>

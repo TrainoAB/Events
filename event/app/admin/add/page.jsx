@@ -12,7 +12,7 @@ export default function AddEventPage() {
     }
 
     return (
-        <main id="add-event-page">
+        <main id="add-event-page" className="flex-col align-c">
             <h1 className="add-event-page__title">Lägg till Event</h1>
 
             <form className="add-event-form">

@@ -12,10 +12,10 @@ export default function EditSponsorPage() {
     }
 
     return (
-        <main id="edit-sponsor-page">
+        <main id="edit-sponsor-page" className="flex-col align-c">
             <h1 className="edit-sponsor__title">Redigera sponsor</h1>
 
-            <form className="edit-sponsor-form">
+            <form className="edit-sponsor-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="sponsor">Sponsor</label>
                     <input id="sponsor" name="sponsor" type="text" />
