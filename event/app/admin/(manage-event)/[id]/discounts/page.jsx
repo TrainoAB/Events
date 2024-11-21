@@ -54,7 +54,7 @@ export default function ManageDiscountsPage({ params }) {
             </div>
 
             {showModal ? <Modal 
-                            title={discount.title}
+                            title={`rabatten ${discount.title}`}
                             closeModal={handleToggleModal} 
                             confirm={handleDeleteDiscount} 
                         /> : <></> 
