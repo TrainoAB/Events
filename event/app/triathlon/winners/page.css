@@ -31,16 +31,8 @@
         }
     }
 
-    & .winners-list {
-        width: 70%;
-
-        & .winners-list__heading, .winners-list__heading--mobile, .winners-list__row {
-            display: flex;
-            justify-content: space-between;
-            border-radius: 15px;
-            padding: 0.5rem 2rem;
-            font-size: 2rem;
-
+    & .participants-list {
+        & .participants-list__heading, .participants-list__row {
             & .winners-wrapper {
                 width: 70%;
                 display: flex;
@@ -48,17 +40,13 @@
             }
         }
     
-        & .winners-list__heading, .winners-list__heading--mobile {
+        & .participants-list__heading--mobile {
             background-color: #7252e7;
             color: var(--white);
         }
 
-        & .winners-list__heading--mobile, .winners-list__row--mobile {
+        & .participants-list__heading--mobile, .participants-list__row--mobile {
             display: none;
-        }
-    
-        & .winners-list__row {
-            margin: 1rem 0;
         }
     }
 
@@ -78,10 +66,10 @@
 
 @media (max-width: 1000px) {
     #winnerspage {
-        & .winners-list {
+        & .participants-list {
             width: 100%;
 
-            & .winners-list__heading, .winners-list__row {
+            & .participants-list__heading, .participants-list__row {
                 margin: 0 1rem;
             }
         }
@@ -96,22 +84,22 @@
             }
         }
 
-        & .winners-list {
-            & .winners-list__heading--mobile {
+        & .participants-list {
+            & .participants-list__heading--mobile {
                 display: flex;
                 margin: 0 1rem;
             }
 
-            & .winners-list__row--mobile  {
+            & .participants-list__row--mobile  {
                 display: inline;
                 font-weight: bold;
             }
 
-            & .winners-list__heading {
+            & .participants-list__heading {
                 display: none;
             }
 
-            & .winners-list__row {
+            & .participants-list__row {
                 flex-direction: column;
     
                 & .winners-wrapper {

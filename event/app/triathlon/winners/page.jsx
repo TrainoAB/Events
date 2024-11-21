@@ -19,24 +19,24 @@ export default function WinnersPage() {
 
     const createList = (competition) => {
         return (
-            <ul className="winners-list max-width">
-                <li className="winners-list__heading box-shadow">
+            <ul className="participants-list max-width">
+                <li className="participants-list__heading box-shadow">
                     <h3>Tid</h3>
                     <div className="winners-wrapper">
                         <h3>Deltagare</h3> 
                         <h3>Stad</h3>
                     </div>
                 </li>
-                <li className="winners-list__heading--mobile box-shadow">
+                <li className="participants-list__heading--mobile box-shadow">
                     <h3>Vinnare</h3>
                 </li>
                 { WINNERS.filter(winner => winner.competition === competition)
                     .map((winner, index) => 
-                        <li className="winners-list__row box-shadow" key={index}>
-                            <p><div className="winners-list__row--mobile">Tid: </div> { winner.time} </p>
+                        <li className="participants-list__row box-shadow" key={index}>
+                            <p><div className="participants-list__row--mobile">Tid: </div> { winner.time} </p>
                             <div className="winners-wrapper">
-                                <p><div className="winners-list__row--mobile">Deltagare: </div> { winner.name} </p> 
-                                <p><div className="winners-list__row--mobile">Stad: </div> { winner.city} </p>
+                                <p><div className="participants-list__row--mobile">Deltagare: </div> { winner.name} </p> 
+                                <p><div className="participants-list__row--mobile">Stad: </div> { winner.city} </p>
                             </div>
                         </li>)
                 }
