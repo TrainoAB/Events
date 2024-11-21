@@ -12,10 +12,10 @@ export default function AddSponsorPage() {
     }
 
     return (
-        <main id="add-sponsor-page" className="gap">
+        <main id="add-sponsor-page" className="gap flex-col align-c">
             <h1 className="add-sponsor__title">Lägg till sponsor</h1>
 
-            <form className="add-sponsor-form">
+            <form className="add-sponsor-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="sponsor">Sponsor</label>
                     <input id="sponsor" name="sponsor" type="text" />

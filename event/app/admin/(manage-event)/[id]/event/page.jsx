@@ -12,10 +12,10 @@ export default function EditEventPage({ params }) {
     }
 
     return (
-        <main id="edit-event-page">
+        <main id="edit-event-page" className="flex-col align-c">
             <h1 className="edit-event-page__title">Redigera eventet {params.id}</h1>
 
-            <form className="edit-event-form">
+            <form className="edit-event-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="event">Event</label>
                     <input id="event" name="event" type="text" />

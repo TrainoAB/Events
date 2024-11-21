@@ -25,12 +25,12 @@ export default function ManageSponsorsPage({ params }) {
     };
 
     return (
-        <main id="manage-sponsors-page" className="gap">
+        <main id="manage-sponsors-page" className="gap flex-col align-c">
             <h1 className="manage-sponsors__title">Sponsorer: {params.id}</h1>
 
-            <section className="sponsors max-width">
+            <section className="sponsors max-width flex-col">
                 {SPONSORS.map((sponsor, index) => (
-                    <div className="sponsor-wrapper" key={index}>
+                    <div className="sponsor-wrapper flex-col" key={index}>
                         <SponsorCard sponsor={sponsor} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(sponsor)}>
                             Radera

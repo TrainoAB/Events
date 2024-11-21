@@ -12,10 +12,10 @@ export default function EditDiscountPage() {
     }
 
     return (
-        <main id="edit-discount-page">
+        <main id="edit-discount-page" className="flex-col align-c">
             <h1 className="edit-discount-page__title">Redigera Rabatt</h1>
 
-            <form className="edit-discount-form">
+            <form className="edit-discount-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="title">Rubrik</label>
                     <input id="title" name="title" type="text" />

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -25,40 +25,46 @@ const DISCOUNTS = [
 ];
 
 export default function ManageDiscountsPage({ params }) {
-    const [ showModal, setShowModal ] = useState(false);
-    const [ discount, setDiscount ] = useState();
+    const [showModal, setShowModal] = useState(false);
+    const [discount, setDiscount] = useState();
 
     const handleDeleteClick = (discount) => {
         setDiscount(discount);
         setShowModal(!showModal);
-    }
+    };
 
     const handleDeleteDiscount = () => {
         console.log(`delete ${discount.title}`);
-    }
+    };
 
     const handleToggleModal = () => {
         setShowModal(!showModal);
-    }
+    };
 
     return (
-        <main id="manage-discounts-page">
+        <main id="manage-discounts-page" className="flex-col align-c">
             <h1 className="manage-discounts-page__title">{`Rabatter: ${params.id}`}</h1>
-            <div className="discount-list">
+            <div className="discount-list flex-col">
                 {DISCOUNTS.map((discount, index) => (
                     <div className="discount-wrapper" key={index}>
                         <DiscountCard discount={discount} />
-                        <button className="delete-btn" onClick={() => handleDeleteClick(discount)}> Radera </button>
+                        <button className="delete-btn" onClick={() => handleDeleteClick(discount)}>
+                            {" "}
+                            Radera{" "}
+                        </button>
                     </div>
                 ))}
             </div>
 
-            {showModal ? <Modal 
-                            title={`rabatten ${discount.title}`}
-                            closeModal={handleToggleModal} 
-                            confirm={handleDeleteDiscount} 
-                        /> : <></> 
-            }
+            {showModal ? (
+                <Modal
+                    title={`rabatten ${discount.title}`}
+                    closeModal={handleToggleModal}
+                    confirm={handleDeleteDiscount}
+                />
+            ) : (
+                <></>
+            )}
 
             <Link href="/admin/1/discounts/add" className="manage-discounts__add-link">
                 <button className="add-btn"></button>
