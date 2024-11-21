@@ -15,7 +15,7 @@
 
         & .modal-buttons-wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
         }
@@ -38,11 +38,12 @@
 
 @media (max-width: 1000px) {
     #modal {
-        height: 60%;
+        height: 50%;
 
         & form {
             & .modal-buttons-wrapper {
                 flex-direction: column;
+                align-items: center;
                 gap: 2rem;
             }
 

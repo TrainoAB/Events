@@ -54,7 +54,7 @@ export default function AdminPage() {
             </div>
 
             {showModal ? <Modal 
-                            title={event.competition}
+                            title={`eventet ${event.competition}`}
                             closeModal={handleToggleModal} 
                             confirm={handleDeleteEvent} 
                         /> : <></> 

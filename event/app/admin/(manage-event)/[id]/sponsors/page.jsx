@@ -41,7 +41,7 @@ export default function ManageSponsorsPage({ params }) {
 
             {showModal ? (
                 <Modal
-                    title={sponsor.name}
+                    title={`sponsoren ${sponsor.name}`}
                     closeModal={handleToggleModal}
                     confirm={handleDeleteSponsor}
                 />
