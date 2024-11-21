@@ -1,6 +1,6 @@
 #manage-discounts-page {
     gap: var(--gap);
-    padding-block: 3rem 8rem;
+    padding-block: var(--main-block-padding) 8rem;
     min-height: 100vh;
 
     & .discount-list {

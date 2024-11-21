@@ -1,6 +1,6 @@
 #discountspage {
     gap: var(--gap);
-    padding-bottom: 3rem;
+    padding-block: var(--main-block-padding);
     margin-inline: auto;
 }
 

@@ -1,9 +1,5 @@
 #participantspage {
-    margin-bottom: 5rem;
-
-    & .participants__title {
-        margin-top: 5rem;
-    }
+    padding-block: var(--main-block-padding);
 
     & .participants-numbers {
         display: flex;

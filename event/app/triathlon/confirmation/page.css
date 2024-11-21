@@ -1,7 +1,7 @@
 #confirmationpage {
-    margin-bottom: 5rem;
     font-size: 1.8rem;
     text-align: center;
+    padding-block: var(--main-block-padding);
 
     & .confirmation__figure {
         margin-top: 10rem;

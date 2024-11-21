@@ -1,9 +1,5 @@
 #winnerspage {
-    margin-bottom: 5rem;
-
-    & .winners__title {
-        margin-top: 5rem;
-    }
+    padding-block: var(--main-block-padding);
 
     & .winner-podium {
         margin: 5rem 0;
@@ -27,7 +23,8 @@
     }
 
     & .participants-list {
-        & .participants-list__heading, .participants-list__row {
+        & .participants-list__heading,
+        .participants-list__row {
             & .mobile-heading {
                 background-color: #7252e7;
                 color: var(--white);
@@ -40,7 +37,8 @@
             }
         }
 
-        & .mobile-heading, .mobile-row {
+        & .mobile-heading,
+        .mobile-row {
             display: none;
         }
     }
@@ -66,10 +64,8 @@
     }
 }
 
-
 @media (max-width: 700px) {
     #winnerspage {
-
         & .winner-podium {
             & .winner-podium__image {
                 width: 21rem;
@@ -88,7 +84,7 @@
 
             & .participants-list__row {
                 flex-direction: column;
-    
+
                 & .winners-wrapper {
                     flex-direction: column;
                     width: 100%;
@@ -100,7 +96,7 @@
                     align-items: center;
                 }
 
-                & .mobile-row  {
+                & .mobile-row {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;

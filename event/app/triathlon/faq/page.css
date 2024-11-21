@@ -1,7 +1,3 @@
 #faqpage {
-    margin-bottom: 5rem;
-
-    & .faq__title {
-        margin-top: 5rem;
-    }
+    padding-block: var(--main-block-padding);
 }

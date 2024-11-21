@@ -1,6 +1,6 @@
 #registerpage {
     margin-inline: auto;
-    padding-block: 3rem;
+    padding-block: var(--main-block-padding);
     width: 100%;
 
     & .register-form {

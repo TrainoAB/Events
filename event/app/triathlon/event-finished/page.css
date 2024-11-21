@@ -1,5 +1,5 @@
 #eventfinishedpage {
-    margin-bottom: 5rem;
+    margin-bottom: var(--main-block-padding);
 
     & .video-container {
         width: 100dvw;
