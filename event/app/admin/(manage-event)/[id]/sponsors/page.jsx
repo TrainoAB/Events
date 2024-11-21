@@ -31,7 +31,7 @@ export default function ManageSponsorsPage({ params }) {
             <section className="sponsors max-width">
                 {SPONSORS.map((sponsor, index) => (
                     <div className="sponsor-wrapper" key={index}>
-                        <SponsorCard sponsor={sponsor} external={false} />
+                        <SponsorCard sponsor={sponsor} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(sponsor)}>
                             Radera
                         </button>

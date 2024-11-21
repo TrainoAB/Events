@@ -3,9 +3,9 @@ import Link from "next/link";
 
 import "./SponsorCard.css";
 
-export default function SponsorCard({ sponsor, external }) {
+export default function SponsorCard({ sponsor, target="_self" }) {
     return (
-        <Link className="sponsor-card-link" href={sponsor.url} target={external ? "_blank" : ""}>
+        <Link className="sponsor-card-link" href={sponsor.url} target={target}>
             <article className="sponsor-card box-shadow b-radius">
                 <figure className="sponsor-card__figure">
                     <Image

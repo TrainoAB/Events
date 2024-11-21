@@ -25,7 +25,7 @@ export default function SponsorsPage() {
             <section className="sponsors">
                 <h1 className="sponsors__title">Sponsorer</h1>
                 {SPONSORS.map((sponsor, index) => (
-                    <SponsorCard sponsor={sponsor} external={true} key={index} />
+                    <SponsorCard sponsor={sponsor} target="_blank" key={index} />
                 ))}
             </section>
             <section className="sponsor-event">
