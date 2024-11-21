@@ -4,7 +4,7 @@ import "./RegisteredParticipants.css";
 
 export default function RegisteredParticipants({ registered, total }) {
   return (
-    <article className="registered-participants b-radius box-shadow">
+    <article className="registered-participants b-radius box-shadow flex-col align-c">
         <h2 className="registered-participants__title">Registrerade Deltagare</h2>
         <strong className="registered-participants__count"><span className="confirmed-participants">{registered}</span>{`/${total}`}</strong>
         <div className="registered-participants__bar-container b-radius">

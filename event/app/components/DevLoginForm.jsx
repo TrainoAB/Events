@@ -29,7 +29,7 @@ export default function DevLoginForm() {
     };
 
     return (
-        <div className="dev-login">
+        <div className="dev-login flex-col align-c">
             <h1>Password</h1>
 
             <input

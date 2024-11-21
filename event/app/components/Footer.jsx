@@ -4,9 +4,9 @@ import "./Footer.css";
 
 export default function Footer() {
     return (
-        <footer id="footer">
+        <footer id="footer" className="flex-col align-c">
             <div className="footer-container max-width">
-                <section className="event-links link-wrapper">
+                <section className="event-links link-wrapper flex-col">
                     <h3 className="event-links__title">Eventlänkar</h3>
                     <div className="event-links__wrapper">
                         <Link href="/triathlon">Start</Link>

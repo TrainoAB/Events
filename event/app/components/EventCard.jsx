@@ -5,7 +5,7 @@ import "./EventCard.css";
 
 export default function EventCard({ event }) {
     return (
-        <section className="event-card">
+        <section className="event-card flex-col">
             <Link href={event.url}>
                 <figure className="event-card__figure">
                     <Image

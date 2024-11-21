@@ -3,7 +3,7 @@ import "./CountdownTimer.css";
 // TODO: Write code for counting down
 export default function CountdownTimer() {
     return (
-        <div className="countdown-timer b-radius box-shadow">
+        <div className="countdown-timer b-radius box-shadow flex-col align-c">
             <div className="timer-wrapper">
                 <div className="countdown-time countdown-time--days">
                     <strong className="countdown-time__number">50</strong>

@@ -15,7 +15,7 @@ export default function SponsorCard({ sponsor, target="_self" }) {
                         alt={`${sponsor.name} sponsor image`}
                     />
                 </figure>
-                <div className="sponsor-card-wrapper">
+                <div className="sponsor-card-wrapper flex-col">
                     <h3 className="sponsor-card__title">{sponsor.name}</h3>
                     <p className="sponsor-card__description">{sponsor.description}</p>
                 </div>

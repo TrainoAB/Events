@@ -4,7 +4,7 @@ import "./ProductCard.css";
 
 export default function ProductCard({ image, url }) {
     return (
-        <section className="product-card">
+        <section className="product-card flex-col">
             <figure className="product-card__figure">
                 <Image
                     src={image}

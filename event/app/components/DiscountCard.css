@@ -9,9 +9,7 @@
         display: flex;
     
         & .discount-info-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            gap: var(--small-gap);
             padding: 1rem;
             background-color: var(--secondary-light-grey-alternative);
             border-radius: var(--radius) 0 0 var(--radius);
