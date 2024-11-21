@@ -1,17 +1,12 @@
 #eventpage {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
     position: relative;
     padding-bottom: 3rem;
 
     & .video-container {
         width: 100dvw;
         height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
 
         & video {
@@ -66,10 +61,7 @@
     }
 
     & .info-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-inline: auto;
+        padding-inline: 0.5rem;
         width: 100%;
 
         & .event-about {
@@ -78,7 +70,7 @@
                 "title title"
                 "info  img  ";
             grid-auto-columns: 1fr;
-            gap: 1rem;
+            gap: var(--gap);
 
             & .event-about__title {
                 text-align: center;
@@ -87,8 +79,6 @@
 
             & .event-about__info-wrapper {
                 grid-area: info;
-                display: flex;
-                flex-direction: column;
                 justify-content: space-between;
 
                 & .event-about__link {
@@ -102,10 +92,7 @@
         }
 
         & .event-sponsors {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            gap: var(--gap);
             width: 100%;
 
             & .event-sponsors__figure {
@@ -119,18 +106,9 @@
             }
         }
 
-        & .traino-funnel {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
+        & .traino-funnel,
         & .featured-product {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            gap: var(--gap);
         }
     }
 }
@@ -138,7 +116,7 @@
 @media (max-width: 1000px) {
     #eventpage {
         & .video-container {
-            padding-inline: 0.5rem;
+            padding-inline: 1rem;
 
             & h1.video-container__title {
                 height: 8rem;
@@ -150,9 +128,6 @@
         }
 
         & .info-container {
-            margin-inline: 0.5rem;
-            width: auto;
-
             & .event-about {
                 grid-template-areas:
                     "title"
@@ -165,7 +140,7 @@
                 }
 
                 & .event-about__info-wrapper {
-                    gap: 1rem;
+                    gap: var(--gap);
 
                     & .event-about__text {
                         text-align: center;
@@ -181,7 +156,7 @@
                 & .event-sponsors__figure {
                     flex-direction: column;
                     align-items: center;
-                    gap: 1rem;
+                    gap: var(--gap);
                 }
             }
         }

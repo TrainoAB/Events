@@ -21,7 +21,7 @@ const DISCOUNTS = [
 
 export default function DiscountsPage() {
     return (
-        <main id="discountspage" className="max-width">
+        <main id="discountspage" className="max-width flex-col align-c">
             <h1>Rabatter</h1>
             {DISCOUNTS.map((discount, index) => (
                 <DiscountCard discount={discount} target="_blank" key={index} />

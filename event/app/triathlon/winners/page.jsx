@@ -52,10 +52,10 @@ export default function WinnersPage() {
     }
 
     return (
-        <main id="winnerspage" className="gap">
+        <main id="winnerspage" className="gap flex-col align-c">
             <h1 className="winners__title">Vinnare</h1>
 
-            <section className="winner-podium">
+            <section className="winner-podium flex-col">
                 <h3 className="winner-podium__winner"> { isFirstTitleShown ? podiumName("triathlon", 0) : podiumName("olympic", 0) } </h3>
                 <h3 className="winner-podium__second"> { isFirstTitleShown ? podiumName("triathlon", 1) : podiumName("olympic", 1) } </h3>
                 <h3 className="winner-podium__third"> { isFirstTitleShown ? podiumName("triathlon", 2) : podiumName("olympic", 2) } </h3>
@@ -72,7 +72,7 @@ export default function WinnersPage() {
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
 
-            <section className="event-video-gallery max-width">
+            <section className="event-video-gallery max-width flex-col align-c">
                 <h2 className="event-video-gallery__title">Ögonblick Från Eventet</h2>
                 <ImageGallery images={["video1", "video2", "video3", "video4"]} />      {/**Should be a Video-Gallery instead*/}
             </section>

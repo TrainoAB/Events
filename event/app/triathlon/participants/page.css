@@ -1,7 +1,4 @@
 #participantspage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 5rem;
 
     & .participants__title {
@@ -25,10 +22,7 @@
     }
 
     & .traino-funnel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        gap: var(--small-gap);
 
         & .traino-funnel__text {
             margin-bottom: 0.5rem;

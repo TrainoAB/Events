@@ -24,8 +24,8 @@ export default function EventFinishedPage() {
     }
 
     return (
-        <main id="eventfinishedpage" className="gap">
-            <div className="video-container gap">
+        <main id="eventfinishedpage" className="gap flex-col align-c">
+            <div className="video-container gap flex-col align-c">
                 <h1 className="video-container__title">Traino Triathlon</h1>
                 <h2 className="video-container__subtitle">Tävlingen Avslutad</h2>
                 <div className="videocover"></div>

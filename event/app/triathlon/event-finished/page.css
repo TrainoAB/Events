@@ -1,15 +1,9 @@
 #eventfinishedpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 5rem;
 
     & .video-container {
         width: 100dvw;
         height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
 
         & video {
@@ -67,7 +61,7 @@
         flex-wrap: wrap;
         justify-content: center;
         list-style: none;
-        gap: 3rem;
+        gap: var(--large-gap);
     }
 
     & .event-video-gallery {

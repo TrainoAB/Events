@@ -11,7 +11,7 @@ const LOCATION_IMAGES = ["../next.svg", "../next.svg", "../next.svg", "../next.s
 
 export default function AboutPage() {
     return (
-        <main id="aboutpage" className="max-width gap">
+        <main id="aboutpage" className="max-width gap flex-col align-c">
             <div className="aboutpage-titles">
                 <h1>Om Eventet</h1>
                 <h2>16 Aug 2025, Stockholm</h2>
@@ -32,11 +32,11 @@ export default function AboutPage() {
                     />
                 </figure>
             </section>
-            <section className="event-image-gallery">
+            <section className="event-image-gallery flex-col align-c">
                 <h2 className="event-image-gallery__title">Platsbilder</h2>
                 <ImageGallery images={LOCATION_IMAGES} />
             </section>
-            <div className="traino-funnel">
+            <div className="traino-funnel flex-col align-c">
                 <p className="traino-funnel__text">
                     Nu när du vet mer om eventet kan du börja träna inför det!
                 </p>
@@ -44,9 +44,9 @@ export default function AboutPage() {
                     Träna
                 </Link>
             </div>
-            <section className="volunteer">
+            <section className="volunteer flex-col align-c">
                 <h2 className="volunteer__title">Anmäl Dig Som Volontär</h2>
-                <form className="volunteer-form">
+                <form className="volunteer-form flex-col align-c">
                     <div className="input-wrapper">
                         <label htmlFor="volunteer-email">Email</label>
                         <input id="volunteer-email" name="volunteer-email" type="email" required />

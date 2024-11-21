@@ -41,7 +41,7 @@ export default function ParticipantsPage() {
     }
 
     return (
-        <main id="participantspage" className="gap">
+        <main id="participantspage" className="gap flex-col align-c">
             <h1 className="participants__title">Deltagare</h1>
             <h2 className="participants-numbers">
                 <div className="participants__confirmed"> {nrParticipants} </div>
@@ -52,7 +52,7 @@ export default function ParticipantsPage() {
 
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
 
-            <div className="traino-funnel">
+            <div className="traino-funnel flex-col align-c">
                 <p className="traino-funnel__text">
                     Taggad på att träna efter du sett motståndet?
                 </p>
