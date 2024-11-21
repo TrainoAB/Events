@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import ListToggle from "@/app/components/ListToggle";
-import ImageGallery from "@/app/components/ImageGallery";
+import VideoGallery from "@/app/components/VideoGallery";
 import WinnerCard from "@/app/components/WinnerCard";
 
 import "./page.css";
@@ -41,7 +41,7 @@ export default function EventFinishedPage() {
 
             <section className="event-video-gallery max-width">
                 <h2 className="event-video-gallery__title">Ögonblick Från Eventet</h2>
-                <ImageGallery images={["video1", "video2", "video3", "video4"]} />      {/**Should be a Video-Gallery instead*/}
+                <VideoGallery videos={["/videobg.mp4", "/videobg.mp4", "/videobg.mp4", "/videobg.mp4"]} />
             </section>
         </main>
     );
