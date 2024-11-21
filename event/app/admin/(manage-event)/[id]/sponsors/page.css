@@ -1,9 +1,7 @@
 #manage-sponsors-page {
-    margin-bottom: 5rem;
+    padding-block: var(--main-block-padding) 8rem;
 
     & .manage-sponsors__title {
-        margin-top: 5rem;
-        margin-bottom: 3rem;
         text-align: center;
     }
 

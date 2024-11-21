@@ -1,9 +1,5 @@
 #rulespage {
-    margin-bottom: 5rem;
-
-    & .rules__title {
-        margin-top: 5rem;
-    }
+    padding-block: var(--main-block-padding);
 
     & .rule-wrapper {
         display: flex;

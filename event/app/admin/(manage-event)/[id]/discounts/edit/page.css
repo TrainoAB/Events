@@ -1,6 +1,7 @@
 #edit-discount-page {
     gap: var(--gap);
-    padding: 3rem 0.5rem;
+    padding-block: var(--main-block-padding);
+    padding-inline: 0.5rem;
 
     & .edit-discount-page__title {
         text-align: center;

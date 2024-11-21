@@ -53,6 +53,8 @@
     --small-gap: 0.5rem;
     --gap: 1rem;
     --large-gap: 3rem;
+
+    --main-block-padding: 4rem;
 }
 
 * {
