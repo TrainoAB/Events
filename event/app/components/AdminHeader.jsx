@@ -8,7 +8,10 @@ export default function AdminHeader() {
         <nav id="admin-header">
             <ul className="admin-header-list">
                 <li className="admin-header-list__element">
-                    <Link href="/admin/1/event">Event</Link>
+                    <Link href="/admin">Alla Event</Link>
+                </li>
+                <li className="admin-header-list__element">
+                    <Link href="/admin/1/event">Redigera Eventet</Link>
                 </li>
                 <li className="admin-header-list__element">
                     <Link href="/admin/1/discounts">Rabatter</Link>

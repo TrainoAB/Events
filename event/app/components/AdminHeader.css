@@ -1,6 +1,7 @@
 #admin-header {
     & .admin-header-list {
         display: flex;
+        justify-content: flex-end;
         list-style: none;
 
         & .admin-header-list__element {
