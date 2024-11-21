@@ -5,7 +5,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 3rem;
+        gap: var(--large-gap);
         margin-bottom: 3rem;
 
         & .list-toggle__title {

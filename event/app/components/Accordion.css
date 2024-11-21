@@ -9,7 +9,7 @@
     & .accordion__heading {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: var(--gap);
         font-weight: normal;
 
         & .accordion__image {

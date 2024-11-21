@@ -1,7 +1,4 @@
 .event-card {
-    display: flex;
-    flex-direction: column;
-
     & a:hover {
         color: rgb(var(--foreground-rgb));
     }
