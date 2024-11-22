@@ -1,28 +1,19 @@
 #winnerCard-wrapper {
     padding: 4rem 2rem 0 2rem;
     text-align: center;
+    background-color: var(--white);
 
-    #winnerCard {
+    & #winnerCard {
         width: 220px;
         height: 350px;
-        border-radius: 15px;
-    
-        .gold {
-            background-color: #FFCB22;
-        }
-    
-        .silver {
-            background-color: #C8C8C8;
-        }
-    
-        .bronze {
-            background-color: #FF8922;
-        }
+        border-radius: var(--radius);
+        background-color: var(--white);
 
         & .winnerCard-placement-wrapper {
             position: relative;
-            align-content: center;
-            justify-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             top: -40px;
             border-radius: 100%;
             width: 8rem;
@@ -35,6 +26,18 @@
                 border-radius: 100%;
                 width: 7rem;
                 height: 7rem;
+            }
+
+            & .gold {
+                background-color: #ffcb22;
+            }
+
+            & .silver {
+                background-color: #c8c8c8;
+            }
+
+            & .bronze {
+                background-color: #ff8922;
             }
         }
 
