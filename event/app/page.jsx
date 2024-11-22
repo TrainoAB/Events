@@ -4,11 +4,22 @@ import EventCard from "./components/EventCard";
 import "./page.css";
 
 export default function Home() {
-
     // Temporary Events
     const EVENTS = [
-        {url: "/triathlon", image: "https://picsum.photos/484/272", date: "16 Aug. 2024", competition: "Triathlon", description: "Stockholm. Även ett mini olympiskt triathlon."},
-        {url: "#", image: "https://picsum.photos/484/272", date: "N/A", competition: "E-Sport Challenge", description: "Detta event planeras fortfarande."}
+        {
+            url: "/triathlon",
+            image: "https://picsum.photos/484/272",
+            date: "16 Aug. 2024",
+            competition: "Triathlon",
+            description: "Stockholm. Även ett mini olympiskt triathlon.",
+        },
+        {
+            url: "#",
+            image: "https://picsum.photos/484/272",
+            date: "N/A",
+            competition: "E-Sport Challenge",
+            description: "Detta event planeras fortfarande.",
+        },
     ];
 
     return (
@@ -23,7 +34,9 @@ export default function Home() {
             />
 
             <section className="alleventspage__events">
-                { EVENTS.map(event => <EventCard event={event} />) }
+                {EVENTS.map((event, index) => (
+                    <EventCard event={event} key={index} />
+                ))}
             </section>
         </main>
     );
