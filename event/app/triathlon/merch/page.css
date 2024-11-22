@@ -2,11 +2,19 @@
     padding-block: var(--main-block-padding);
 
     & .merch__gallery {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-items: center;
         gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-left: 2rem;
-        margin-right: 2rem;
+        width: 100%;
+        padding-inline: 2rem;
+    }
+}
+
+@media (max-width: 1600px) {
+    #merchpage {
+        & .merch__gallery {
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        }
     }
 }
