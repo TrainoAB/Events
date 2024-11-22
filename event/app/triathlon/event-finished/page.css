@@ -1,5 +1,6 @@
 #eventfinishedpage {
     margin-bottom: var(--main-block-padding);
+    position: relative;
 
     & .winners-list {
         display: flex;
