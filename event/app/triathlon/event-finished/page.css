@@ -1,61 +1,6 @@
 #eventfinishedpage {
     margin-bottom: var(--main-block-padding);
 
-    & .video-container {
-        width: 100dvw;
-        height: 100dvh;
-        justify-content: center;
-
-        & video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -2;
-        }
-
-        & h1.video-container__title {
-            text-transform: uppercase;
-            font-style: italic;
-            font-size: 4rem;
-            font-weight: bold;
-            line-height: 3.8rem;
-            letter-spacing: -0.15rem;
-            margin: 0;
-            text-indent: -1000rem;
-            overflow: hidden;
-            background: url("/triathalonlogo.svg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            width: 100%;
-            height: 14rem;
-            filter: grayscale(1) brightness(6) contrast(10);
-        }
-
-        & .video-container__subtitle {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: bolder;
-            line-height: 2.8rem;
-            color: var(--white);
-        }
-
-        & .videocover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            content: "";
-            display: block;
-            z-index: -1;
-            background: rgba(0, 0, 0, 0.33);
-        }
-    }
-
     & .winners-list {
         display: flex;
         flex-wrap: wrap;
