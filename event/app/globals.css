@@ -175,7 +175,7 @@ figure {
   * Video on start and event-finished pages *
   ******************************************/
 
-& .video-container {
+.video-container {
     width: 100dvw;
     height: 100dvh;
     justify-content: center;
