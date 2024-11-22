@@ -9,13 +9,13 @@
             font-family: "Inter", sans-serif;
             font-weight: bold;
 
-            a {
+            & a {
                 display: block;
                 padding: 1.5rem;
-            }
 
-            a:hover {
-                color: var(--maincolor);
+                &:hover {
+                    color: var(--maincolor);
+                }
             }
         }
 
@@ -50,10 +50,6 @@
         .showmenu {
             display: flex;
             flex-direction: column;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background: white;
             text-transform: uppercase;
             font-family: "Inter", sans-serif;
@@ -63,7 +59,7 @@
                 color: var(--mainpurple);
             }
 
-            a {
+            & a {
                 display: block;
                 padding: 1.5rem;
             }

@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
 import { useState } from "react";
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 import "./AdminHeader.css";
 
