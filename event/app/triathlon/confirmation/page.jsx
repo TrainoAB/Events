@@ -24,7 +24,7 @@ export default function ConfirmationPage() {
                 </p>
             </div>
             
-            <button className="confirmation__button" onClick={handleNavigate}>
+            <button onClick={handleNavigate}>
                 Visa deltagare
             </button>
         </main>
