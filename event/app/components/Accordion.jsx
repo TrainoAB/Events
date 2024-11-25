@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import plus from "../assets/plus-icon.svg";
+import minus from "../assets/minus-icon.svg";
 
 import "./Accordion.css";
 
@@ -24,14 +26,14 @@ export default function Accordion({ heading, text }) {
             <h2 className="accordion__heading" onClick={handleToggle}> 
                 { isShowing ? 
                     <Image 
-                        src='/minus-icon.svg'
+                        src={minus}
                         className="accordion__image"
                         width={32}
                         height={32}
                         alt="Hide content icon"
                     /> :
                     <Image 
-                        src='/plus-icon.svg'
+                        src={plus}
                         className="accordion__image"
                         width={32}
                         height={32}
