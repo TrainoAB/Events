@@ -8,20 +8,17 @@ import { Modal } from "@/app/components/Modal";
 import "./page.css";
 
 export default function ManageSponsorsPage({ params }) {
-    const [showModal, setShowModal] = useState(false);
-    const [sponsor, setSponsor] = useState();
+    const [ sponsor, setSponsor ] = useState();
+    const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort sponsoren?");
 
     const handleDeleteClick = (sponsor) => {
         setSponsor(sponsor);
-        setShowModal(!showModal);
+        document.querySelector("#modal").showModal();
+        setModalText(`Är du säker på att du vill ta bort sponsoren ${sponsor.name}?`);
     };
 
-    const handleDeleteSponsor = () => {
+    const handleConfirm = () => {
         console.log(`delete ${sponsor.name}`);
-    };
-
-    const handleToggleModal = () => {
-        setShowModal(!showModal);
     };
 
     return (
@@ -39,15 +36,7 @@ export default function ManageSponsorsPage({ params }) {
                 ))}
             </section>
 
-            {showModal ? (
-                <Modal
-                    title={`sponsoren ${sponsor.name}`}
-                    closeModal={handleToggleModal}
-                    confirm={handleDeleteSponsor}
-                />
-            ) : (
-                <></>
-            )}
+            <Modal title={modalText} handleConfirm={handleConfirm} />
 
             <Link href="/admin/1/sponsors/add" className="manage-sponsors__add-link">
                 <button className="add-btn"></button>

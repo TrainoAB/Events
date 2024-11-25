@@ -1,14 +1,18 @@
 import "./Modal.css";
 
-export function Modal({ title, closeModal, confirm }) {
+export function Modal({ title, handleConfirm }) {
+
+    const handleClose = (event) => {
+        event.target.closest('#modal').close();
+    }
     
     return (
-        <dialog id="modal" open>
+        <dialog id="modal">
             <form method="dialog">
-                <p className="modal__text">Är du säker på att du vill ta bort {title}?</p>
+                <p className="modal__text"> {title} </p>
                 <div className="modal-buttons-wrapper">
-                    <button onClick={closeModal}> Avbryt </button>
-                    <button onClick={confirm}> Bekräfta </button>
+                    <button onClick={handleClose}> Avbryt </button>
+                    <button onClick={handleConfirm}> Bekräfta </button>
                 </div>
             </form>
         </dialog>
