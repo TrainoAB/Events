@@ -3,8 +3,20 @@
     cursor: pointer;
     padding: 2rem;
     text-align: left;
-    transition: 0.4s;
     border-radius: 15px;
+
+    & .accordion-panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+
+        & .accordion__text {
+            font-size: x-large;
+            font-weight: 300;
+            padding-left: 3rem;
+            margin-top: 1rem;
+        }
+    }
 
     & .accordion__heading {
         display: flex;
@@ -16,17 +28,10 @@
             width: 2rem;
         }
     }
-
-    & .accordion__text {
-        font-size: x-large;
-        font-weight: 300;
-        padding-left: 3rem;
-        margin-top: 1rem;
-    }
 }
 
 @media (max-width: 500px) {
-    #accordion {
+    .accordion {
         max-width: 90%;
         padding: 1rem;
 
@@ -38,9 +43,11 @@
             }
         }
 
-        & .accordion__text {
-            font-size: large;
-            padding-left: 2rem;
+        & .accordion-panel {
+            & .accordion__text {
+                font-size: large;
+                padding-left: 2rem;
+            }
         }
     }
 }
