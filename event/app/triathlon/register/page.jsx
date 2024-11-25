@@ -7,24 +7,24 @@ export default function RegisterPage() {
             <form className="register-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" />
+                    <input id="email" name="email" type="email" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="firstname">Förnamn</label>
-                    <input id="firstname" name="firstname" type="text" />
+                    <input id="firstname" name="firstname" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="lastname">Efternamn</label>
-                    <input id="lastname" name="lastname" type="text" />
+                    <input id="lastname" name="lastname" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="age">Ålder</label>
-                    <input id="age" name="age" type="text" />
+                    <input id="age" name="age" type="text" required />
                 </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Kön</span>
                     <label className="radio-wrapper" htmlFor="man">
-                        <input id="man" name="gender" type="radio" value="man" />
+                        <input id="man" name="gender" type="radio" value="man" required />
                         <div className="radio-btn"></div>
                         <span className="radio-label">Man</span>
                     </label>
@@ -36,16 +36,22 @@ export default function RegisterPage() {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="phonenumber">Telefonnummer</label>
-                    <input id="phonenumber" name="phonenumber" type="tel" />
+                    <input id="phonenumber" name="phonenumber" type="tel" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="city">Stad</label>
-                    <input id="city" name="city" type="text" />
+                    <input id="city" name="city" type="text" required />
                 </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Tävling</span>
                     <label className="radio-wrapper" htmlFor="triathlon">
-                        <input id="triathlon" name="competition" type="radio" value="triathlon" />
+                        <input
+                            id="triathlon"
+                            name="competition"
+                            type="radio"
+                            value="triathlon"
+                            required
+                        />
                         <div className="radio-btn"></div>
                         <span>Triathlon</span>
                     </label>
