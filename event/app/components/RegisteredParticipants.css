@@ -1,8 +1,15 @@
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 .registered-participants {
     gap: var(--gap);
     background-color: var(--white);
     padding: 2rem;
     width: clamp(400px, 600px, 60%);
+    position: relative;
 
     & .registered-participants__count {
         font-size: 3rem;
@@ -20,16 +27,53 @@
         background-color: var(--secondary-light-grey);
 
         & .registered-participants__bar {
-            width: 22%;
             height: 1rem;
-            background-color: var(--maincolor);
+            background: linear-gradient(to right, var(--mainpurple), var(--maincolor) 75%)
         }
+    }
+}
+
+.event-full {
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: red;
+        background: conic-gradient(
+            from var(--angle),
+            var(--maincolor),
+            var(--mainpurple),
+            rgb(255, 125, 255),
+            var(--maincolor)
+        );
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+        padding: 6px;
+        border-radius: var(--radius);
+        animation: 6s rotate linear infinite;
+    }
+
+    &::before {
+        filter: blur(1.5rem);
     }
 }
 
 @media (max-width: 1000px) {
     .registered-participants {
-        width: 100%;
+        width: 97%;
         padding: 2rem 1rem;
+    }
+}
+
+@keyframes rotate {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
     }
 }

@@ -20,7 +20,7 @@ export default function TriathlonPage() {
                 <div className="video-container gap flex-col align-c">
                     <h1 className="video-container__title">Traino Triathlon</h1>
                     <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
-                    <RegisteredParticipants registered={22} total={100} />
+                    <RegisteredParticipants registered={100} total={100} />
                     <div className="videocover"></div>
                     <video muted autoPlay loop>
                         <source src="/videobg.mp4" type="video/mp4" />
