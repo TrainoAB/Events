@@ -36,11 +36,11 @@ export default function SponsorsPage() {
                 <form className="sponsor-event__form">
                     <div className="input-wrapper">
                         <label htmlFor="email">Email</label>
-                        <input id="email" name="email" type="email" />
+                        <input id="email" name="email" type="email" required />
                     </div>
                     <div className="input-wrapper">
                         <label htmlFor="phonenumber">Telefonnummer</label>
-                        <input id="phonenumber" name="phonenumber" type="tel" />
+                        <input id="phonenumber" name="phonenumber" type="tel" required />
                     </div>
                     <button className="sponsor-event__submit" type="submit">
                         Skicka

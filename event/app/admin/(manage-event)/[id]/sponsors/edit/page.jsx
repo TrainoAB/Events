@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useRouter } from "next/navigation";
 
@@ -9,7 +9,7 @@ export default function EditSponsorPage() {
 
     const handleCancel = () => {
         router.back();
-    }
+    };
 
     return (
         <main id="edit-sponsor-page" className="flex-col align-c">
@@ -18,24 +18,26 @@ export default function EditSponsorPage() {
             <form className="edit-sponsor-form flex-col">
                 <div className="input-wrapper">
                     <label htmlFor="sponsor">Sponsor</label>
-                    <input id="sponsor" name="sponsor" type="text" />
+                    <input id="sponsor" name="sponsor" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="image">Bild (text länk)</label>
-                    <input id="image" name="image" type="text" />
+                    <input id="image" name="image" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="link">Länk</label>
-                    <input id="link" name="link" type="text" />
+                    <input id="link" name="link" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
-                    <textarea id="description" name="description" rows={10} cols={100} />
+                    <textarea id="description" name="description" rows={10} cols={100} required />
                 </div>
-                
+
                 <div className="edit-sponsor-form__buttons">
-                    <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button> Spara </button>
+                    <button onClick={handleCancel} type="reset">
+                        Avbryt
+                    </button>
+                    <button>Spara</button>
                 </div>
             </form>
         </main>
