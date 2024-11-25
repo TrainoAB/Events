@@ -40,7 +40,7 @@ export default function EventFinishedPage() {
             { isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon") }
 
             <section className="event-video-gallery max-width">
-                <h2 className="event-video-gallery__title">Ögonblick Från Eventet</h2>
+                <h2 className="event-video-gallery__title heading-size">Ögonblick Från Eventet</h2>
                 <VideoGallery videos={["/videobg.mp4", "/videobg.mp4", "/videobg.mp4", "/videobg.mp4"]} />
             </section>
         </main>

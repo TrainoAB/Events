@@ -73,7 +73,7 @@ export default function WinnersPage() {
             { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
 
             <section className="event-video-gallery max-width flex-col align-c">
-                <h2 className="event-video-gallery__title">Ögonblick Från Eventet</h2>
+                <h2 className="event-video-gallery__title heading-size">Ögonblick Från Eventet</h2>
                 <VideoGallery videos={["/videobg.mp4", "/videobg.mp4", "/videobg.mp4", "/videobg.mp4"]} />
             </section>
         </main>

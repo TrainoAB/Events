@@ -29,7 +29,7 @@ export default function SponsorsPage() {
                 ))}
             </section>
             <section className="sponsor-event flex-col align-c">
-                <h2 className="sponsor-event__title">Sponsra Eventet</h2>
+                <h2 className="sponsor-event__title heading-size">Sponsra Eventet</h2>
                 <p className="sponsor-event__cta">
                     Fyll i er kontaktinformation så kontaktar vi er.
                 </p>

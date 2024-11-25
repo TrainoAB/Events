@@ -33,7 +33,7 @@ export default function AboutPage() {
                 </figure>
             </section>
             <section className="event-image-gallery flex-col align-c">
-                <h2 className="event-image-gallery__title">Platsbilder</h2>
+                <h2 className="event-image-gallery__title heading-size">Platsbilder</h2>
                 <ImageGallery images={LOCATION_IMAGES} />
             </section>
             <div className="traino-funnel flex-col align-c">
@@ -45,7 +45,7 @@ export default function AboutPage() {
                 </Link>
             </div>
             <section className="volunteer flex-col align-c">
-                <h2 className="volunteer__title">Anmäl Dig Som Volontär</h2>
+                <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
                 <form className="volunteer-form flex-col align-c">
                     <div className="input-wrapper">
                         <label htmlFor="volunteer-email">Email</label>
