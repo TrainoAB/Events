@@ -308,3 +308,7 @@ figure {
 .align-c {
     align-items: center;
 }
+
+.heading-size {
+    font-size: 2rem;
+}

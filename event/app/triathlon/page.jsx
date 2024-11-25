@@ -30,7 +30,7 @@ export default function TriathlonPage() {
                 <div className="info-container max-width gap flex-col align-c">
                     <CountdownTimer />
                     <section className="event-about">
-                        <h2 className="event-about__title">Om Eventet</h2>
+                        <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
                             <p className="event-about__text">
                                 Traino anordnar sitt första event som går av stapeln lördagen den
@@ -51,7 +51,7 @@ export default function TriathlonPage() {
                         </figure>
                     </section>
                     <section className="event-sponsors flex-col align-c">
-                        <h2 className="event-sponsors__title">Sponsorer</h2>
+                        <h2 className="event-sponsors__title heading-size">Sponsorer</h2>
                         <figure className="event-sponsors__figure">
                             {SPONSORS.map(sponsor => (
                                 <Image
@@ -74,7 +74,7 @@ export default function TriathlonPage() {
                         </Link>
                     </section>
                     <section className="featured-product flex-col align-c">
-                        <h2 className="featured-product__title">Utvald Produkt</h2>
+                        <h2 className="featured-product__title heading-size">Utvald Produkt</h2>
                         <ProductCard
                             image={"/white-tshirt.png"}
                             url={
