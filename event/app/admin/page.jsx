@@ -25,20 +25,17 @@ const EVENTS = [
 ];
 
 export default function AdminPage() {
-    const [ showModal, setShowModal ] = useState(false);
     const [ event, setEvent ] = useState();
+    const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort eventet?");
 
     const handleDeleteClick = (event) => {
         setEvent(event);
-        setShowModal(!showModal);
+        document.querySelector("#modal").showModal();
+        setModalText(`Är du säker på att du vill ta bort eventet ${event.competition}?`);
     }
 
-    const handleDeleteEvent = () => {
+    const handleConfirm = () => {
         console.log(`delete ${event.competition}`);
-    }
-
-    const handleToggleModal = () => {
-        setShowModal(!showModal);
     }
 
     return (
@@ -53,12 +50,7 @@ export default function AdminPage() {
                 ))}
             </div>
 
-            {showModal ? <Modal 
-                            title={`eventet ${event.competition}`}
-                            closeModal={handleToggleModal} 
-                            confirm={handleDeleteEvent} 
-                        /> : <></> 
-            }
+            <Modal title={modalText} handleConfirm={handleConfirm} />
             
             <Link href="/admin/add" className="admin-page__add-link">
                 <button className="add-btn"></button>

@@ -25,20 +25,17 @@ const DISCOUNTS = [
 ];
 
 export default function ManageDiscountsPage({ params }) {
-    const [showModal, setShowModal] = useState(false);
-    const [discount, setDiscount] = useState();
+    const [ discount, setDiscount ] = useState();
+    const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort rabatten?");
 
     const handleDeleteClick = (discount) => {
         setDiscount(discount);
-        setShowModal(!showModal);
-    };
+        document.querySelector("#modal").showModal();
+        setModalText(`Är du säker på att du vill ta bort rabatten ${discount.title}?`);
+    }
 
-    const handleDeleteDiscount = () => {
+    const handleConfirm = () => {
         console.log(`delete ${discount.title}`);
-    };
-
-    const handleToggleModal = () => {
-        setShowModal(!showModal);
     };
 
     return (
@@ -56,15 +53,7 @@ export default function ManageDiscountsPage({ params }) {
                 ))}
             </div>
 
-            {showModal ? (
-                <Modal
-                    title={`rabatten ${discount.title}`}
-                    closeModal={handleToggleModal}
-                    confirm={handleDeleteDiscount}
-                />
-            ) : (
-                <></>
-            )}
+            <Modal title={modalText} handleConfirm={handleConfirm} />
 
             <Link href="/admin/1/discounts/add" className="manage-discounts__add-link">
                 <button className="add-btn"></button>
