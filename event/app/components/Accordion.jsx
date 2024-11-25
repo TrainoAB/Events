@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from "react";
+import Image from "next/image";
+
 import "./Accordion.css";
 
 export default function Accordion({ heading, text }) {
@@ -21,8 +23,20 @@ export default function Accordion({ heading, text }) {
         <section className="accordion box-shadow max-width">
             <h2 className="accordion__heading" onClick={handleToggle}> 
                 { isShowing ? 
-                    <img src='/minus-icon.png' alt="hide content icon" className="accordion__image" /> : 
-                    <img src='/plus-icon.png' alt="show content icon" className="accordion__image" /> 
+                    <Image 
+                        src='/minus-icon.svg'
+                        className="accordion__image"
+                        width={32}
+                        height={32}
+                        alt="Hide content icon"
+                    /> :
+                    <Image 
+                        src='/plus-icon.svg'
+                        className="accordion__image"
+                        width={32}
+                        height={32}
+                        alt="Show content icon"
+                    /> 
                 } 
                 {heading}
             </h2>
