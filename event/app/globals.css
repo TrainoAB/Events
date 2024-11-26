@@ -300,6 +300,16 @@ figure {
     }
 }
 
+.disabled-btn {
+    background-color: var(--secondary-grey);
+    cursor: default;
+
+    &:hover {
+        scale: initial;
+        filter: none;
+    }
+}
+
 .flex-col {
     display: flex;
     flex-direction: column;
