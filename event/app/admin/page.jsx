@@ -1,32 +1,37 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import EventCard from "@/app/components/EventCard";
 import { Modal } from "@/app/components/Modal";
 
 import "./page.css";
 
-const EVENTS = [
-    {
-        url: "/admin/1/event",
-        image: "https://picsum.photos/484/272",
-        date: "16 Aug. 2024",
-        competition: "Triathlon",
-        description: "Stockholm. Även ett mini olympiskt triathlon.",
-    },
-    {
-        url: "#",
-        image: "https://picsum.photos/484/272",
-        date: "N/A",
-        competition: "E-Sport Challenge",
-        description: "Detta event planeras fortfarande.",
-    },
-];
-
 export default function AdminPage() {
     const [ event, setEvent ] = useState();
+    const [ events, setEvents ] = useState();
     const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort eventet?");
+
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
+    const fetchEvents = async () => {
+        const response = await fetch('/api/event');
+        const events = await response.json();
+        setEvents(events);
+    }
+
+    const deleteEvent = async (competition) => {
+        await fetch('/api/event', {
+            method:'DELETE',
+            body:JSON.stringify({
+                'competition':competition
+            })
+        });
+
+        fetchEvents();
+    }
 
     const handleDeleteClick = (event) => {
         setEvent(event);
@@ -35,19 +40,20 @@ export default function AdminPage() {
     }
 
     const handleConfirm = () => {
-        console.log(`delete ${event.competition}`);
+        deleteEvent(event.competition);
     }
 
     return (
         <main id="admin-page" className="max-width gap flex-col align-c">
             <h1 className="admin-page__title">Hantera Events</h1>
             <div className="events">
-                {EVENTS.map((event, i) => (
+                {events ? events.map((event, i) => (
                     <div className="event-wrapper flex-col" key={i} >
                         <EventCard event={event} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(event)}> Radera </button>
                     </div>
-                ))}
+                )) : <></>
+                }
             </div>
 
             <Modal title={modalText} handleConfirm={handleConfirm} />
