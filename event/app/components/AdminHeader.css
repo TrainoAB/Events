@@ -1,90 +1,67 @@
 #admin-header {
-    & .admin-header-list {
+    .admin-header-nav {
         display: flex;
         justify-content: flex-end;
-        list-style: none;
-
-        & .admin-header-list__element {
-            text-transform: uppercase;
-            font-family: "Inter", sans-serif;
-            font-weight: bold;
-
-            & a {
-                display: block;
-                padding: 1.5rem;
-
-                &:hover {
-                    color: var(--maincolor);
-                }
-            }
-        }
-
-        .active {
-            color: var(--mainpurple);
-        }
-    }
-
-    & .icon-menu {
-        width: 4rem;
-        height: 4rem;
-        position: absolute;
-        right: 0;
-        background-size: 2rem;
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    #admin-header {
-        & .admin-header-list {
+        width: 100vw;
+        
+        #hamburger {
             display: none;
-            padding: 1rem;
-
-            & li {
-                & a {
-                    padding: 0.5rem 1rem;
-                }
-            }
         }
 
-        .showmenu {
+        & .admin-header-list {
             display: flex;
-            flex-direction: column;
-            background: white;
-            text-transform: uppercase;
-            font-family: "Inter", sans-serif;
-            font-weight: bold;
-
+            justify-content: flex-end;
+            list-style: none;
+    
+            & .admin-header-list__element {
+                text-transform: uppercase;
+                font-family: "Inter", sans-serif;
+                font-weight: bold;
+    
+                & a {
+                    display: block;
+                    padding: 1.5rem;
+    
+                    &:hover {
+                        color: var(--maincolor);
+                    }
+                }
+            }
+    
             .active {
                 color: var(--mainpurple);
             }
+        }
+    }
+}
 
-            & a {
-                display: block;
-                padding: 1.5rem;
+@media (max-width: 800px) {
+    #admin-header {
+        .admin-header-nav {
+            display: block;
+            margin-top: 4.5rem;
+
+            & .admin-header-list {
+                display: none;
+                width: 100%;
+                background: var(--white);
+                text-align: center;
+                z-index: 120;
             }
     
-            & .btn-close {
+            .showmenu {
+                display: inline-table;
                 position: fixed;
-                top: 0;
-                right: 0;
-                width: 4rem;
-                height: 4rem;
-                background: url("/icon-x.svg");
-                background-size: 2rem;
-                background-repeat: no-repeat;
-                background-position: center center;
-                display: block;
-                z-index: 10;
             }
-        }
-
-        & .icon-menu {
-            display: block;
-            background: url("/icon-hamburger.svg");
-            background-size: 1.5rem;
-            background-position: center center;
-            background-repeat: no-repeat;
+    
+            #hamburger {
+                display: block;
+                position: absolute;
+                cursor: pointer;
+                top: 15px;
+                right: 0;
+                width: 3rem;
+            }
         }
     }
 }

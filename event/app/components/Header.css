@@ -58,7 +58,7 @@
                 z-index: 120;
             }
 
-            .dropdown {
+            .showmenu {
                 display: inline-table;
                 position: fixed;
             }

@@ -8,19 +8,19 @@ import Image from "next/image";
 import "./Header.css";
 
 export default function Header() {
-    const [ dropdown, setDropdown ] = useState(false);
+    const [ showMenu, setShowMenu ] = useState(false);
     const pathname = usePathname();
 
-    const handleDropdown = () => {
-        setDropdown(!dropdown);
+    const handleShowMenu = () => {
+        setShowMenu(!showMenu);
     }
 
     return (
         <header id="header">
-            <nav id="menu-toggle" className="header-nav">
+            <nav className="header-nav">
                 <div className="logo"></div>
 
-                <ul id="header-menu" className={dropdown ? `header-list dropdown` : 'header-list'}>
+                <ul className={showMenu ? `header-list showmenu` : 'header-list'}>
                     <li className={`${pathname === '/triathlon' ? 'header-list__element active' : 'header-list__element'}`}>
                         <Link href="/triathlon">Start</Link>
                     </li>
@@ -44,8 +44,8 @@ export default function Header() {
                     </li>
                 </ul>
 
-                <div id="hamburger" onClick={handleDropdown}>
-                    <Image src={dropdown ? '/icon-x.svg' : '/icon-hamburger.svg'} width={20} height={20} />
+                <div id="hamburger" onClick={handleShowMenu}>
+                    <Image src={showMenu ? '/icon-x.svg' : '/icon-hamburger.svg'} width={20} height={20} />
                 </div>
             </nav>
         </header>
