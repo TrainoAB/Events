@@ -10,15 +10,8 @@ import "./Accordion.css";
 export default function Accordion({ heading, text }) {
     const [isShowing, setIsShowing] = useState(false);
 
-    const handleToggle = (event) => {
+    const handleToggle = () => {
         setIsShowing(!isShowing);
-
-        const panel = event.target.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        }
     };
 
     return (
@@ -42,7 +35,7 @@ export default function Accordion({ heading, text }) {
                 } 
                 {heading}
             </h2>
-            <div class="accordion-panel">
+            <div className={isShowing ? 'accordion-panel dropdown' : 'accordion-panel'}>
                 <p className="accordion__text">
                     { text }
                 </p>

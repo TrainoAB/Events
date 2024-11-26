@@ -8,7 +8,7 @@
     & .accordion-panel {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease-out;
+        transition: max-height 0.4s ease-in-out;
 
         & .accordion__text {
             font-size: x-large;
@@ -16,6 +16,10 @@
             padding-left: 3rem;
             margin-top: 1rem;
         }
+    }
+
+    .dropdown {
+        max-height: 2000px;
     }
 
     & .accordion__heading {
