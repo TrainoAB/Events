@@ -28,7 +28,7 @@ export default function TriathlonPage() {
                     </video>
                 </div>
                 <div className="info-container max-width gap flex-col align-c">
-                    <CountdownTimer />
+                    <CountdownTimer dateInput={"2025-08-16 10:00:00"} />
                     <section className="event-about">
                         <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
@@ -53,7 +53,7 @@ export default function TriathlonPage() {
                     <section className="event-sponsors flex-col align-c">
                         <h2 className="event-sponsors__title heading-size">Sponsorer</h2>
                         <figure className="event-sponsors__figure">
-                            {SPONSORS.map(sponsor => (
+                            {SPONSORS.map((sponsor) => (
                                 <Image
                                     className="event-sponsors__img"
                                     src={sponsor}
