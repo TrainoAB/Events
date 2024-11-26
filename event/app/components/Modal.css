@@ -39,6 +39,7 @@
 @media (max-width: 1000px) {
     #modal {
         height: 50%;
+        width: 85%;
 
         & form {
             & .modal-buttons-wrapper {
