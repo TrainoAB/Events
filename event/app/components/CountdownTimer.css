@@ -28,5 +28,22 @@
     .countdown-timer {
         width: 100%;
         padding: 1rem;
+        
+        & .timer-wrapper {
+            justify-content: space-around;
+            gap: var(--gap);
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .countdown-timer {
+        & .timer-wrapper {
+            flex-direction: column;
+        }
+
+        & .countdown-timer__text {
+            text-align: center;
+        }
     }
 }
