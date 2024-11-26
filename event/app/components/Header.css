@@ -60,7 +60,7 @@
 
             .showmenu {
                 display: inline-table;
-                position: fixed;
+                position: absolute;
             }
 
             #hamburger {
