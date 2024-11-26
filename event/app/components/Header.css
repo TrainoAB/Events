@@ -1,102 +1,76 @@
 #header {
-    display: flex;
-    width: 100vw;
-    height: 4.5rem;
-    justify-content: space-between;
-
-    & .header-list {
+    .header-nav {
         display: flex;
-        list-style: none;
+        width: 100vw;
+        height: 4.5rem;
+        justify-content: space-between;
 
-        & .header-list__element {
-            text-transform: uppercase;
-            font-family: "Inter", sans-serif;
-            font-weight: bold;
-
-            & a {
-                display: block;
-                padding: 1.5rem;
-
-                &:hover {
-                    color: var(--maincolor);
+        #hamburger {
+            display: none;
+        }
+    
+        & .header-list {
+            display: flex;
+            list-style: none;
+    
+            & .header-list__element {
+                text-transform: uppercase;
+                font-family: "Inter", sans-serif;
+                font-weight: bold;
+    
+                & a {
+                    display: block;
+                    padding: 1.5rem;
+    
+                    &:hover {
+                        color: var(--maincolor);
+                    }
                 }
             }
+    
+            .active {
+                color: var(--mainpurple);
+            }
         }
-
-        .active {
-            color: var(--mainpurple);
+    
+        & .logo {
+            background: url("/triathalonlogo.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            height: 4rem;
+            margin-left: 1rem;
+            width: 9rem;
         }
-    }
-
-    & .logo {
-        background: url("/triathalonlogo.svg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-        height: 4rem;
-        margin-left: 1rem;
-        width: 9rem;
-    }
-
-    & .icon-menu {
-        width: 4rem;
-        height: 4rem;
-        position: absolute;
-        right: 0;
-        background-size: 2rem;
-        display: none;
-    }
+    }    
 }
 
 @media (max-width: 1000px) {
     #header {
-        & .header-list {
-            display: none;
-            padding: 1rem;
-        }
-
-        & .showmenu {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            width: 100%;
-            text-transform: uppercase;
-            font-family: "Inter", sans-serif;
-            font-weight: bold;
-            list-style: none;
-            background: white;
-            z-index: 5;
-
-            & .active {
-                color: var(--mainpurple);
-            }
-
-            & a {
-                display: block;
-                padding: 1.5rem;
-            }
-    
-            & .btn-close {
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 4rem;
-                height: 4rem;
-                background: url("/icon-x.svg");
-                background-size: 2rem;
-                background-repeat: no-repeat;
-                background-position: center center;
-                display: block;
-                z-index: 10;
-            }
-        }
-
-        & .icon-menu {
+        .header-nav {
             display: block;
-            background: url("/icon-hamburger.svg");
-            background-size: 1.5rem;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
+
+            & .header-list {
+                display: none;
+                width: 100%;
+                background: var(--white);
+                text-align: center;
+                z-index: 120;
+            }
+
+            .dropdown {
+                display: inline-table;
+                position: fixed;
+            }
+
+            #hamburger {
+                display: block;
+                position: absolute;
+                cursor: pointer;
+                top: 15px;
+                right: 0;
+                width: 3rem;
+            }
+        }    
     }
 }
