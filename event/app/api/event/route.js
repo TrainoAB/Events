@@ -13,8 +13,8 @@ export async function GET(request) {
 
 export async function DELETE(request) {
     const req = await request.json();
-    const competition = req.competition;
-    EVENTS = EVENTS.filter(event => event.competition !== competition);
+    const eventId = req.id;
+    EVENTS = EVENTS.filter(event => event.id !== eventId);
 
     return NextResponse.json({ success: true, message: "Event was deleted successfully." });
 }

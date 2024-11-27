@@ -25,11 +25,11 @@ export default function AdminPage() {
         setEvents(events);
     }
 
-    const deleteEvent = async (competition) => {
+    const deleteEvent = async (id) => {
         await fetch('/api/event', {
             method:'DELETE',
             body:JSON.stringify({
-                'competition':competition
+                'id':id
             })
         });
 
@@ -43,7 +43,7 @@ export default function AdminPage() {
     }
 
     const handleConfirm = () => {
-        deleteEvent(event.competition);
+        deleteEvent(event.id);
     }
 
     return (
