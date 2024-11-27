@@ -19,6 +19,9 @@ export default function AdminPage() {
     const fetchEvents = async () => {
         const response = await fetch('/api/event');
         const events = await response.json();
+        events.map(element => {
+            element.url = `/admin/${element.id}/event`;             // Gör denna navigering på ett snyggare sätt
+        });
         setEvents(events);
     }
 
