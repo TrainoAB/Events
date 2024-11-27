@@ -7,16 +7,18 @@ import EventCard from "./components/EventCard";
 import "./page.css";
 
 export default function Home() {
-    const [ events, setEvents ] = useState();
+    const [ events, setEvents ] = useState([]);
 
     useEffect(() => {
         fetchEvents();
     }, []);
 
     const fetchEvents = async () => {
-        const response = await fetch('/api/event');
-        const events = await response.json();
-        setEvents(events);
+        const response = await fetch('/api/event?all');
+        if (response.status === 200) {
+            const events = await response.json();
+            setEvents(events);
+        }
     }
 
     return (

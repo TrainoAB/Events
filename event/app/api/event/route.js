@@ -4,11 +4,20 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const eventId = searchParams.get("id");
 
-    if (!eventId) {
-        return NextResponse.json(EVENTS);       // Return all events if no id was supplied.
+    if (searchParams.has('all')) {
+        return NextResponse.json(EVENTS);
     }
 
-    return NextResponse.json({ success: false, message: "Retrieving single events based on ID not implemented yet" });
+    if (!eventId) {
+        return NextResponse.json({ success: false, message: "Must supply an event ID" }, { status: 400 });
+    }
+
+    const event = EVENTS.filter(event => event.id === parseInt(eventId));
+    if (event.length === 0) {
+        return NextResponse.json({ success: false, message: `No event found for id ${eventId}` }, { status: 404 });
+    }
+
+    return NextResponse.json(event[0]);
 }
 
 export async function DELETE(request) {

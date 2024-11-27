@@ -9,7 +9,7 @@ import "./page.css";
 
 export default function AdminPage() {
     const [ event, setEvent ] = useState();
-    const [ events, setEvents ] = useState();
+    const [ events, setEvents ] = useState([]);
     const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort eventet?");
 
     useEffect(() => {
@@ -17,12 +17,14 @@ export default function AdminPage() {
     }, []);
 
     const fetchEvents = async () => {
-        const response = await fetch('/api/event');
-        const events = await response.json();
-        events.map(element => {
-            element.url = `/admin/${element.id}/event`;             // Gör denna navigering på ett snyggare sätt
-        });
-        setEvents(events);
+        const response = await fetch('/api/event?all');
+        if (response.status === 200) {
+            const events = await response.json();
+            events.map(element => {
+                element.url = `/admin/${element.id}/event`;             // Gör denna navigering på ett snyggare sätt
+            });
+            setEvents(events);
+        }
     }
 
     const deleteEvent = async (id) => {
