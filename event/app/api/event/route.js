@@ -2,12 +2,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
-    const eventId = searchParams.get("id");
 
     if (searchParams.has('all')) {
         return NextResponse.json(EVENTS);
     }
 
+    const eventId = searchParams.get("id");
     if (!eventId) {
         return NextResponse.json({ success: false, message: "Must supply an event ID" }, { status: 400 });
     }
@@ -18,6 +18,12 @@ export async function GET(request) {
     }
 
     return NextResponse.json(event[0]);
+}
+
+export async function POST(request) {
+    const event = await request.json();
+    EVENTS.push(event);
+    return NextResponse.json({ success: true, message: "Event was created successfully." });
 }
 
 export async function DELETE(request) {
