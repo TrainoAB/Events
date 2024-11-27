@@ -39,7 +39,6 @@
             background-position: center center;
             background-size: contain;
             height: 4rem;
-            margin-left: 1rem;
             width: 9rem;
         }
     }    
@@ -49,6 +48,7 @@
     #header {
         .header-nav {
             display: block;
+            align-content: center;
 
             & .header-list {
                 display: none;
@@ -67,7 +67,7 @@
                 display: block;
                 position: absolute;
                 cursor: pointer;
-                top: 15px;
+                top: 12px;
                 right: 0;
                 width: 3rem;
             }
