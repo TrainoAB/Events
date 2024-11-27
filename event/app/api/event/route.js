@@ -21,13 +21,15 @@ export async function DELETE(request) {
 
 let EVENTS = [
     {
-        url: "/admin/1/event",
+        id: 1,
+        url: "/triathlon",
         image: "https://picsum.photos/484/272",
         date: "16 Aug. 2024",
         competition: "Triathlon",
         description: "Stockholm. Även ett mini olympiskt triathlon."
     },
     {
+        id: 2,
         url: "#",
         image: "https://picsum.photos/484/272",
         date: "N/A",
