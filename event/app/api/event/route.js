@@ -23,13 +23,21 @@ export async function GET(request) {
 export async function POST(request) {
     const event = await request.json();
     EVENTS.push(event);
+
     return NextResponse.json({ success: true, message: "Event was created successfully." });
 }
 
+export async function PUT(request) {
+    const event = await request.json();
+    EVENTS = EVENTS.filter(element => element.id !== event.id);
+    EVENTS.push(event);
+
+    return NextResponse.json({ success: true, message: "Event was updated successfully." });
+}
+
 export async function DELETE(request) {
-    const req = await request.json();
-    const eventId = req.id;
-    EVENTS = EVENTS.filter(event => event.id !== eventId);
+    const event = await request.json();
+    EVENTS = EVENTS.filter(element => element.id !== event.id);
 
     return NextResponse.json({ success: true, message: "Event was deleted successfully." });
 }
