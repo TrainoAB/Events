@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { DebugContextProvider } from "./context/DebugContext";
+import { TrainoContextProvider } from "./context/TrainoContext";
 import DevLogin from "./components/DevLogin";
 
 import "./globals.css";
@@ -13,12 +13,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <DebugContextProvider>
+        <TrainoContextProvider>
             <html lang="en">
                 <body className={inter.className}>
                     <DevLogin>{children}</DevLogin>
                 </body>
             </html>
-        </DebugContextProvider>
+        </TrainoContextProvider>
     );
 }
