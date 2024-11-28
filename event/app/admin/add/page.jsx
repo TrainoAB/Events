@@ -36,7 +36,7 @@ export default function AddEventPage() {
 
                 <div className="add-event-form__buttons">
                     <button type="reset" onClick={handleCancel}>Avbryt</button>
-                    <button type="submit">Lägg till</button>
+                    <button> Lägg till </button>
                 </div>
             </form>
         </main>
