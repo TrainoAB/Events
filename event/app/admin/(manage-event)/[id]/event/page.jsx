@@ -50,7 +50,7 @@ export default function EditEventPage({ params }) {
 
                 <div className="edit-event-form__buttons">
                     <button type="reset" onClick={handleCancel}> Avbryt </button>
-                    <button type="submit"> Spara </button>
+                    <button> Spara </button>
                 </div>
             </form> : <></> }
         </main>
