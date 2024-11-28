@@ -137,17 +137,15 @@ figure {
     display: flex;
 }
 
-
-  /*******************************************
+/*******************************************
   * Styling for lists (participants/winners) *
   *******************************************/
-
 
 .participants-list {
     width: 70%;
 }
 
-.participants-list__heading, 
+.participants-list__heading,
 .participants-list__row {
     display: flex;
     justify-content: space-between;
@@ -169,9 +167,7 @@ figure {
     font-weight: bold;
 }
 
-
-
-  /******************************************
+/******************************************
   * Video on start and event-finished pages *
   ******************************************/
 
@@ -230,9 +226,6 @@ figure {
         background: rgba(0, 0, 0, 0.33);
     }
 }
-
-
-
 
 /* Utility */
 .box-shadow {
@@ -321,4 +314,51 @@ figure {
 
 .heading-size {
     font-size: 2rem;
+}
+
+/* Glowing rotating border */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.border-glow {
+    position: relative;
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: red;
+        background: conic-gradient(
+            from var(--angle),
+            var(--maincolor),
+            var(--mainpurple),
+            rgb(255, 125, 255),
+            var(--maincolor)
+        );
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+        padding: 6px;
+        border-radius: var(--radius);
+        animation: 6s rotate linear infinite;
+    }
+
+    &::before {
+        filter: blur(1.5rem);
+    }
+}
+
+@keyframes rotate {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
 }

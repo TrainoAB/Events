@@ -13,7 +13,7 @@ export default function RegisteredParticipants({ registered, total }) {
                 box-shadow 
                 flex-col 
                 align-c 
-                ${eventFull ? "event-full" : ""}
+                ${eventFull ? "border-glow" : ""}
                 `}
         >
             <h2 className="registered-participants__title">Registrerade Deltagare</h2>
