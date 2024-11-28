@@ -2,7 +2,6 @@
     .header-nav {
         display: flex;
         width: 100vw;
-        height: 4.5rem;
         justify-content: space-between;
 
         #hamburger {
@@ -38,7 +37,6 @@
             background-repeat: no-repeat;
             background-position: center center;
             background-size: contain;
-            height: 4rem;
             width: 9rem;
         }
     }    
