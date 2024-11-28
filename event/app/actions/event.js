@@ -13,6 +13,7 @@ export async function createEvent(formData) {
     // validate data
 
     // add event to test data
+    console.log('Created event ' + JSON.stringify(event));
 }
 
 export async function updateEvent(id, formData) {
@@ -28,4 +29,5 @@ export async function updateEvent(id, formData) {
     // validate data
     
     // update existing event in test data
+    console.log('Updated event ' + JSON.stringify(event));
 }
