@@ -34,7 +34,7 @@ export default function AdminHeader() {
                 </ul>
 
                 <div id="hamburger" onClick={handleShowMenu}>
-                    <Image src={showMenu ? '/icon-x.svg' : '/icon-hamburger.svg'} width={20} height={20} />
+                    <Image src={showMenu ? '/icon-x.svg' : '/icon-hamburger.svg'} width={20} height={20} alt="Hamburger menu icon" />
                 </div>
             </nav>
         </header>
