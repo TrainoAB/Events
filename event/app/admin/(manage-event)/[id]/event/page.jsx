@@ -37,7 +37,7 @@ export default function EditEventPage({ params }) {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="date">Datum</label>
-                    <input id="date" name="date" type="date" required />
+                    <input id="date" name="date" type="date" defaultValue={event.date} required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="image">Bild (text länk)</label>
