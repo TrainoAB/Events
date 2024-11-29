@@ -8,8 +8,8 @@
     & .events {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-        gap: var(--gap);
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--large-gap) var(--gap);
 
         & .event-wrapper {
             gap: var(--gap);
@@ -24,10 +24,15 @@
 
 @media (max-width: 1000px) {
     #admin-page {
-        padding-inline: 0.5rem;
+        padding-inline: 1rem;
 
         & .admin-page__title {
             font-size: 2.5rem;
+            text-align: center;
+        }
+
+        & .events {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }
