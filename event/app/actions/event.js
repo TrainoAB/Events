@@ -1,6 +1,6 @@
 'use server';
 
-import { getDatabaseClient } from "@/db/db";
+import { updateEventById, insertEvent } from "@/db/db";
 
 export async function createEvent(formData) {
     const event = {
@@ -13,9 +13,7 @@ export async function createEvent(formData) {
 
     // validate data
 
-    const { error } = await getDatabaseClient()
-        .from('events')
-        .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, date: event.date });
+    const { error } = await insertEvent(event);
     if (error) {
         console.log(error);
     } else {
@@ -34,10 +32,7 @@ export async function updateEvent(id, formData) {
 
     // validate data
     
-    const { error } = await getDatabaseClient()
-        .from('events')
-        .update(event)
-        .eq('id', id);
+    const { error } = await updateEventById(event, id);
     if (error) {
         console.log(error);
     } else {
