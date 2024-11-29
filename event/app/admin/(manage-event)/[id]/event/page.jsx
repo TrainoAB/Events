@@ -26,6 +26,10 @@ export default function EditEventPage({ params }) {
         router.push("/admin");
     }
 
+    const handleConfirm = () => {
+        router.push("/admin");
+    }
+
     return (
         <main id="edit-event-page" className="flex-col align-c">
             <h1 className="edit-event-page__title">Redigera eventet {params.id}</h1>
@@ -50,7 +54,7 @@ export default function EditEventPage({ params }) {
 
                 <div className="edit-event-form__buttons">
                     <button type="reset" onClick={handleCancel}> Avbryt </button>
-                    <button> Spara </button>
+                    <button onClick={handleConfirm}> Spara </button>
                 </div>
             </form> : <></> }
         </main>
