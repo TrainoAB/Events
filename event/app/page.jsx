@@ -22,7 +22,7 @@ export default function Home() {
     }
 
     return (
-        <main id="alleventspage">
+        <main id="alleventspage" className="max-width flex-col align-c">
             <Image
                 className="alleventspage__logo"
                 src="/logo.svg"

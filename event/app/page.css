@@ -1,8 +1,8 @@
 #alleventspage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-height: 100vh;
+    margin-inline: auto;
+    width: 100%;
+    padding-bottom: 6rem;
 
     & .alleventspage__logo {
         margin: 10rem 0;
@@ -10,19 +10,24 @@
     }
 
     & .alleventspage__events {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 1rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--large-gap) var(--gap);
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
     #alleventspage {
+        padding-inline: 1rem;
+
         & .alleventspage__logo {
             margin: 5rem 0;
             width: 20rem;
+        }
+
+        & .alleventspage__events {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }
