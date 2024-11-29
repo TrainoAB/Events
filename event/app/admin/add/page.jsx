@@ -12,6 +12,10 @@ export default function AddEventPage() {
         router.push("/admin");
     }
 
+    const handleConfirm = () => {
+        router.push("/admin");
+    }
+
     return (
         <main id="add-event-page" className="flex-col align-c">
             <h1 className="add-event-page__title">Lägg till Event</h1>
@@ -36,7 +40,7 @@ export default function AddEventPage() {
 
                 <div className="add-event-form__buttons">
                     <button type="reset" onClick={handleCancel}>Avbryt</button>
-                    <button> Lägg till </button>
+                    <button onClick={handleConfirm}> Lägg till </button>
                 </div>
             </form>
         </main>

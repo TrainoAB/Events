@@ -1,11 +1,14 @@
-import { getDatabaseClient } from "@/db/db";
 import { NextResponse } from "next/server";
+import { deleteEvent, getAllEvents, getEventById } from "@/db/db";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
 
     if (searchParams.has('all')) {
-        const { data } = await getDatabaseClient().from('events').select();
+        const { error, data } = await getAllEvents();
+        if (error) {
+            console.log(error);
+        }
         return NextResponse.json(data);
     }
 
@@ -14,9 +17,9 @@ export async function GET(request) {
         return NextResponse.json({ success: false, message: "Must supply an event ID" }, { status: 400 });
     }
 
-    const { error, data } = await getDatabaseClient().from('events').select().eq('id', eventId).single();
-        
+    const { error, data } = await getEventById(eventId);
     if (error) {
+        console.log(error);
         return NextResponse.json({ success: false, message: `No event found for id ${eventId}` }, { status: 404 });
     }
 
@@ -25,9 +28,11 @@ export async function GET(request) {
 
 export async function DELETE(request) {
     const event = await request.json();
-    const { error } = await getDatabaseClient().from('events').delete().eq('id', event.id);
+    const { error } = await deleteEvent(event.id);
     if (error) {
         console.log(error);
+        return NextResponse.json({ success: false, message: "Event could not be deleted." });
     }
+
     return NextResponse.json({ success: true, message: "Event was deleted successfully." });
 }
