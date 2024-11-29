@@ -32,7 +32,7 @@ export default function EditEventPage({ params }) {
 
     return (
         <main id="edit-event-page" className="flex-col align-c">
-            <h1 className="edit-event-page__title">Redigera eventet {params.id}</h1>
+            <h1 className="edit-event-page__title">Redigera eventet</h1>
 
             { event ? <form className="edit-event-form flex-col" action={updateEvent.bind(null, event.id)}>
                 <div className="input-wrapper">
