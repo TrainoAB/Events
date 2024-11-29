@@ -3,7 +3,12 @@ import Link from "next/link";
 import "./RegisteredParticipants.css";
 
 export default function RegisteredParticipants({ registered, total }) {
-    const eventFull = registered >= total ? 100 : registered;
+    // Ensure the amount of participants don't exceed the total allowed
+    const participantCount = registered >= total ? total : registered;
+
+    // Calculate and cap the percent for the width of the registered bar
+    const percent = (registered / total) * 100;
+    const cappedPercent = percent >= 100 ? 100 : percent;
 
     return (
         <article
@@ -13,21 +18,21 @@ export default function RegisteredParticipants({ registered, total }) {
                 box-shadow 
                 flex-col 
                 align-c 
-                ${eventFull ? "border-glow" : ""}
+                ${participantCount >= total ? "border-glow" : ""}
                 `}
         >
             <h2 className="registered-participants__title">Registrerade Deltagare</h2>
             <strong className="registered-participants__count">
-                <span className="confirmed-participants">{eventFull}</span>
+                <span className="confirmed-participants">{participantCount}</span>
                 {`/${total}`}
             </strong>
             <div className="registered-participants__bar-container b-radius">
                 <div
                     className="registered-participants__bar b-radius"
-                    style={{ width: `${eventFull}%` }}
+                    style={{ width: `${cappedPercent}%` }}
                 ></div>
             </div>
-            {eventFull < 100 ? (
+            {participantCount < total ? (
                 <Link className="link-btn" href={"triathlon/register"}>
                     Registrera mig
                 </Link>
