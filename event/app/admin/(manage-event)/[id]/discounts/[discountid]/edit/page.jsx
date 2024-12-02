@@ -24,7 +24,11 @@ export default function EditDiscountPage({ params }) {
 
     const handleCancel = () => {
         router.back();
-    };
+    }
+
+    const handleConfirm = () => {
+        router.push(`/admin/${params.id}/discounts`);
+    }
 
     return (
         <main id="edit-discount-page" className="flex-col align-c">
@@ -62,10 +66,8 @@ export default function EditDiscountPage({ params }) {
                 </div>
 
                 <div className="edit-discount-form__buttons">
-                    <button onClick={handleCancel} type="reset">
-                        Avbryt
-                    </button>
-                    <button>Spara</button>
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button onClick={handleConfirm}> Spara </button>
                 </div>
             </form> : <></> }
         </main>
