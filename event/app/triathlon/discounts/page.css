@@ -2,6 +2,10 @@
     gap: var(--gap);
     padding-block: var(--main-block-padding);
     margin-inline: auto;
+    
+    & .discount-list {
+        gap: var(--gap);
+    }
 }
 
 @media (max-width: 1000px) {
