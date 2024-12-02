@@ -10,7 +10,11 @@ export default function AddDiscountPage({ params }) {
 
     const handleCancel = () => {
         router.back();
-    };
+    }
+
+    const handleConfirm = () => {
+        router.push(`/admin/${params.id}/discounts`);
+    }
 
     return (
         <main id="add-discount-page" className="flex-col align-c">
@@ -47,10 +51,8 @@ export default function AddDiscountPage({ params }) {
                 </div>
 
                 <div className="add-discount-form__buttons">
-                    <button onClick={handleCancel} type="reset">
-                        Avbryt
-                    </button>
-                    <button>Lägg till</button>
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button onClick={handleConfirm}> Lägg till </button>
                 </div>
             </form>
         </main>
