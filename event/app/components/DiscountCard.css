@@ -13,6 +13,7 @@
             padding: 1rem;
             background-color: var(--secondary-light-grey-alternative);
             border-radius: var(--radius) 0 0 var(--radius);
+            width: 100%;
     
             & .discount-card__title {
                 font-size: 1.4rem;

@@ -25,9 +25,11 @@ export default function DiscountsPage() {
     return (
         <main id="discountspage" className="max-width flex-col align-c">
             <h1>Rabatter</h1>
-            {discounts ? discounts.map((discount, index) => (
-                <DiscountCard discount={discount} target="_blank" key={index} />
-            )) : <></> }
+            <div className="discount-list flex-col">
+                {discounts ? discounts.map((discount, index) => (
+                    <DiscountCard discount={discount} target="_blank" key={index} />
+                )) : <></> }
+            </div>
         </main>
     );
 }
