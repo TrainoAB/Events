@@ -3,10 +3,11 @@
 import { updateDiscountById, insertDiscount } from "@/db/db";
 
 export async function createDiscount(id, formData) {
+    console.log('ID ' + id);
     const discount = {
         title: formData.get('title'),
         expiration: formData.get('expiration'),
-        url: formData.get('url') || "#",
+        url: formData.get('link') || "#",
         description: formData.get('description'),
         discount: formData.get('discount'),
         eventId: id
@@ -26,7 +27,7 @@ export async function updateDiscount(id, formData) {
     const discount = {
         title: formData.get('title'),
         expiration: formData.get('expiration'),
-        url: formData.get('url') || "#",
+        url: formData.get('link') || "#",
         description: formData.get('description'),
         discount: formData.get('discount')
     };

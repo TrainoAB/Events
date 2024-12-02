@@ -1,10 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { createDiscount } from "@/app/actions/discount";
 
 import "./page.css";
 
-export default function AddDiscountPage() {
+export default function AddDiscountPage({ params }) {
     const router = useRouter();
 
     const handleCancel = () => {
@@ -15,7 +16,7 @@ export default function AddDiscountPage() {
         <main id="add-discount-page" className="flex-col align-c">
             <h1 className="add-discount-page__title">Lägg till Rabatt</h1>
 
-            <form className="add-discount-form flex-col">
+            <form className="add-discount-form flex-col" action={createDiscount.bind(null, params.id)}>
                 <div className="input-wrapper">
                     <label htmlFor="title">Rubrik</label>
                     <input id="title" name="title" type="text" required />
@@ -35,6 +36,10 @@ export default function AddDiscountPage() {
                 <div className="input-wrapper">
                     <label htmlFor="link">Länk</label>
                     <input id="link" name="link" type="text" required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="expiration">Datum när rabatten slutar gälla</label>
+                    <input id="expiration" name="expiration" type="date" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>

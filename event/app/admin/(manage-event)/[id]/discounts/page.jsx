@@ -20,6 +20,9 @@ export default function ManageDiscountsPage({ params }) {
         const response = await fetch(`/api/discount?all=${params.id}`);     // Fetches all discounts for specific event id
         if (response.status === 200) {
             const discounts = await response.json();
+            discounts.map(element => {
+                element.url = `/admin/${element.eventId}/discounts/${element.id}/edit`;             // Gör denna navigering på ett snyggare sätt
+            });
             setDiscounts(discounts);
         }
     }

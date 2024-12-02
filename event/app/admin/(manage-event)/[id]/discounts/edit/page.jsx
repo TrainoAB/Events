@@ -37,6 +37,10 @@ export default function EditDiscountPage() {
                     <input id="link" name="link" type="text" required />
                 </div>
                 <div className="input-wrapper">
+                    <label htmlFor="expiration">Datum när rabatten slutar gälla</label>
+                    <input id="expiration" name="expiration" type="date" required />
+                </div>
+                <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
                     <textarea id="description" name="description" rows={10} cols={100} required />
                 </div>
