@@ -40,6 +40,10 @@ export default function EditEventPage({ params }) {
                     <input id="event" name="event" type="text" defaultValue={event.competition} required />
                 </div>
                 <div className="input-wrapper">
+                    <label htmlFor="url">Länk till eventets hemsida</label>
+                    <input id="url" name="url" type="text" defaultValue={event.url} required />
+                </div>
+                <div className="input-wrapper">
                     <label htmlFor="date">Datum</label>
                     <input id="date" name="date" type="date" defaultValue={event.date} required />
                 </div>
