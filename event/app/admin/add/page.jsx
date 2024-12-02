@@ -26,6 +26,10 @@ export default function AddEventPage() {
                     <input id="event" name="event" type="text" required />
                 </div>
                 <div className="input-wrapper">
+                    <label htmlFor="url">Länk till eventets hemsida</label>
+                    <input id="url" name="url" type="text" required />
+                </div>
+                <div className="input-wrapper">
                     <label htmlFor="date">Datum</label>
                     <input id="date" name="date" type="date" required />
                 </div>
