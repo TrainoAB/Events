@@ -17,7 +17,7 @@ export default function ManageDiscountsPage({ params }) {
     }, []);
 
     const fetchDiscounts = async () => {
-        const response = await fetch(`/api/discount?all=${params.id}`);     // Fetches all discounts for specific event id
+        const response = await fetch(`/api/discounts?id=${params.id}`);     // Fetches all discounts for specific event id
         if (response.status === 200) {
             const discounts = await response.json();
             discounts.map(element => {
