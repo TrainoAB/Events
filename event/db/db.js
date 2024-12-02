@@ -46,3 +46,17 @@ export async function getDiscountById(id) {
 export async function deleteDiscount(id) {
     return await databaseClient.from('discounts').delete().eq('id', id);
 }
+
+export async function insertDiscount(discount) {
+    return await databaseClient
+        .from('discounts')
+        .insert({ title: discount.title, url: discount.url, eventId: discount.eventId, description: discount.description, 
+            expiration: discount.expiration, discount: discount.discount });
+}
+
+export async function updateDiscountById(discount, id) {
+    return await databaseClient
+        .from('discounts')
+        .update(discount)
+        .eq('id', id);
+}

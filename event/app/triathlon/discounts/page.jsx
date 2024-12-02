@@ -13,7 +13,7 @@ export default function DiscountsPage() {
     }, []);
 
     const fetchDiscounts = async () => {
-        const response = await fetch(`/api/discount?all=1`);
+        const response = await fetch(`/api/discount?all=1`);        // Change so that id is retrieved dynamically
         if (response.status === 200) {
             const discounts = await response.json();
             setDiscounts(discounts);
