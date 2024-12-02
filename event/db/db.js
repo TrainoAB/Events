@@ -35,8 +35,13 @@ export async function updateEventById(event, id) {
         .eq('id', id);
 }
 
-export async function getAllDiscounts(eventId) {
+export async function getAllDiscountsById(eventId) {
     return await databaseClient.from('discounts').select().eq('eventId', eventId);
+}
+
+export async function getAllDiscountsByUrl(eventUrl) {
+    const { data } = await databaseClient.from('events').select().eq('url', eventUrl).single();
+    return await databaseClient.from('discounts').select().eq('eventId', data.id);
 }
 
 export async function getDiscountById(id) {

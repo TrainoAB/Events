@@ -1,19 +1,21 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation';
 import DiscountCard from "@/app/components/DiscountCard";
 
 import "./page.css";
 
 export default function DiscountsPage() {
     const [ discounts, setDiscounts ] = useState([]);
+    const pathname = usePathname();
 
     useEffect(() => {
         fetchDiscounts();
     }, []);
 
     const fetchDiscounts = async () => {
-        const response = await fetch(`/api/discount?all=1`);        // Change so that id is retrieved dynamically
+        const response = await fetch(`/api/discount?all-url=${pathname.split('/')[1]}`);        // Change so that id is used instead
         if (response.status === 200) {
             const discounts = await response.json();
             setDiscounts(discounts);
