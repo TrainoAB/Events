@@ -1,9 +1,9 @@
 import AdminHeader from "@/app/components/AdminHeader";
 
-export default function ManageLayout({ children }) {
+export default function ManageLayout({ children, params }) {
     return (
         <>
-            <AdminHeader />
+            <AdminHeader params={params} />
             {children}
         </>
     );
