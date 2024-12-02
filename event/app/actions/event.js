@@ -8,7 +8,8 @@ export async function createEvent(formData) {
         date: formData.get('date'),
         url: formData.get('url') || "#",
         description: formData.get('description'),
-        image: formData.get('image')
+        image: formData.get('image'),
+        time: formData.get('time')
     };
 
     // validate data
@@ -27,7 +28,8 @@ export async function updateEvent(id, formData) {
         date: formData.get('date'),
         url: formData.get('url') || "#",
         description: formData.get('description'),
-        image: formData.get('image')
+        image: formData.get('image'),
+        time: formData.get('time')
     };
 
     // validate data

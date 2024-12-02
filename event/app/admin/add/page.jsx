@@ -30,6 +30,10 @@ export default function AddEventPage() {
                     <input id="date" name="date" type="date" required />
                 </div>
                 <div className="input-wrapper">
+                    <label htmlFor="time">Tid när eventet startar</label>
+                    <input id="time" name="time" type="time" required />
+                </div>
+                <div className="input-wrapper">
                     <label htmlFor="image">Bild (text länk)</label>
                     <input id="image" name="image" type="text" required />
                 </div>
