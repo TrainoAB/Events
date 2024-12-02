@@ -1,12 +1,21 @@
 import { NextResponse } from "next/server";
-import { deleteDiscount, getAllDiscounts, getDiscountById } from "@/db/db";
+import { deleteDiscount, getAllDiscountsById, getAllDiscountsByUrl, getDiscountById } from "@/db/db";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
 
     if (searchParams.has('all')) {
         const eventId = searchParams.get('all');
-        const { error, data } = await getAllDiscounts(eventId);
+        const { error, data } = await getAllDiscountsById(eventId);
+        if (error) {
+            console.log(error);
+        }
+        return NextResponse.json(data);
+    }
+
+    if (searchParams.has('all-url')) {
+        const url = searchParams.get('all-url');
+        const { error, data } = await getAllDiscountsByUrl('/' + url);
         if (error) {
             console.log(error);
         }
