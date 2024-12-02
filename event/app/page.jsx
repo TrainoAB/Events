@@ -14,7 +14,7 @@ export default function Home() {
     }, []);
 
     const fetchEvents = async () => {
-        const response = await fetch('/api/event?all');
+        const response = await fetch('/api/events');
         if (response.status === 200) {
             const events = await response.json();
             setEvents(events);

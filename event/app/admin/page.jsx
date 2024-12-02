@@ -17,7 +17,7 @@ export default function AdminPage() {
     }, []);
 
     const fetchEvents = async () => {
-        const response = await fetch('/api/event?all');
+        const response = await fetch('/api/events');
         if (response.status === 200) {
             const events = await response.json();
             events.map(element => {
