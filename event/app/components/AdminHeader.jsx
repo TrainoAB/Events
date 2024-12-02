@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import "./AdminHeader.css";
 
-export default function AdminHeader() {
+export default function AdminHeader({ params }) {
     const [ showMenu, setShowMenu ] = useState(false);
     const pathname = usePathname();
 
@@ -22,14 +22,14 @@ export default function AdminHeader() {
                     <li className='admin-header-list__element'>
                         <Link href="/admin">Alla Event</Link>
                     </li>
-                    <li className={`${pathname === '/admin/1/event' ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
-                        <Link href="/admin/1/event">Redigera Eventet</Link>
+                    <li className={`${pathname === `/admin/${params.id}/event` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
+                        <Link href={`/admin/${params.id}/event`}>Redigera Eventet</Link>
                     </li>
-                    <li className={`${pathname === '/admin/1/discounts' ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
-                        <Link href="/admin/1/discounts">Rabatter</Link>
+                    <li className={`${pathname === `/admin/${params.id}/discounts` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
+                        <Link href={`/admin/${params.id}/discounts`}>Rabatter</Link>
                     </li>
-                    <li className={`${pathname === '/admin/1/sponsors' ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
-                        <Link href="/admin/1/sponsors">Sponsorer</Link>
+                    <li className={`${pathname === `/admin/${params.id}/sponsors` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
+                        <Link href={`/admin/${params.id}/sponsors`}>Sponsorer</Link>
                     </li>
                 </ul>
 
