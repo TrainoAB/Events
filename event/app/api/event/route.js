@@ -1,16 +1,8 @@
 import { NextResponse } from "next/server";
-import { deleteEvent, getAllEvents, getEventById } from "@/db/db";
+import { deleteEvent, getEventById } from "@/db/db";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
-
-    if (searchParams.has('all')) {
-        const { error, data } = await getAllEvents();
-        if (error) {
-            console.log(error);
-        }
-        return NextResponse.json(data);
-    }
 
     const eventId = searchParams.get("id");
     if (!eventId) {
