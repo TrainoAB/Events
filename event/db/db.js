@@ -34,3 +34,15 @@ export async function updateEventById(event, id) {
         .update(event)
         .eq('id', id);
 }
+
+export async function getAllDiscounts(eventId) {
+    return await databaseClient.from('discounts').select().eq('eventId', eventId);
+}
+
+export async function getDiscountById(id) {
+    return await databaseClient.from('discounts').select().eq('id', id).single();
+}
+
+export async function deleteDiscount(id) {
+    return await databaseClient.from('discounts').delete().eq('id', id);
+}
