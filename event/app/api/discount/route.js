@@ -4,24 +4,6 @@ import { deleteDiscount, getAllDiscountsById, getAllDiscountsByUrl, getDiscountB
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
 
-    if (searchParams.has('all')) {
-        const eventId = searchParams.get('all');
-        const { error, data } = await getAllDiscountsById(eventId);
-        if (error) {
-            console.log(error);
-        }
-        return NextResponse.json(data);
-    }
-
-    if (searchParams.has('all-url')) {
-        const url = searchParams.get('all-url');
-        const { error, data } = await getAllDiscountsByUrl('/' + url);
-        if (error) {
-            console.log(error);
-        }
-        return NextResponse.json(data);
-    }
-
     const id = searchParams.get("id");
     if (!id) {
         return NextResponse.json({ success: false, message: "Must supply a discount ID" }, { status: 400 });
