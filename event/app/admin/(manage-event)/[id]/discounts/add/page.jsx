@@ -42,8 +42,12 @@ export default function AddDiscountPage({ params }) {
                     <input id="link" name="link" type="text" required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="expiration">Datum när rabatten slutar gälla</label>
-                    <input id="expiration" name="expiration" type="date" required />
+                    <label htmlFor="from">Datum när rabatten börjar gälla</label>
+                    <input id="from" name="from" type="date" required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="to">Datum när rabatten slutar gälla</label>
+                    <input id="to" name="to" type="date" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>

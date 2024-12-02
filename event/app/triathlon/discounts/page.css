@@ -5,6 +5,10 @@
     
     & .discount-list {
         gap: var(--gap);
+
+        & .discount-info-wrapper {
+            max-width: 40rem;
+        }
     }
 }
 
