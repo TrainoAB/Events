@@ -13,7 +13,7 @@ export async function createDiscount(id, formData) {
         eventId: id
     };
 
-    // validate data
+    // TODO: validate data
 
     const { error } = await insertDiscount(discount);
     if (error) {
@@ -33,7 +33,7 @@ export async function updateDiscount(id, formData) {
         discount: formData.get('discount')
     };
 
-    // validate data
+    // TODO: validate data
     
     const { error } = await updateDiscountById(discount, id);
     if (error) {

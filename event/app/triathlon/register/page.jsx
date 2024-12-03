@@ -1,21 +1,23 @@
+import { createParticipant } from "@/app/actions/participant";
+
 import "./page.css";
 
 export default function RegisterPage() {
     return (
         <main id="registerpage" className="max-width gap flex-col align-c">
             <h1 className="register-title">Registrera</h1>
-            <form className="register-form flex-col">
+            <form className="register-form flex-col" action={createParticipant}>
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
                     <input id="email" name="email" type="email" required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="firstname">Förnamn</label>
-                    <input id="firstname" name="firstname" type="text" required />
+                    <label htmlFor="forename">Förnamn</label>
+                    <input id="forename" name="forename" type="text" required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="lastname">Efternamn</label>
-                    <input id="lastname" name="lastname" type="text" required />
+                    <label htmlFor="surname">Efternamn</label>
+                    <input id="surname" name="surname" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="age">Ålder</label>
@@ -24,12 +26,12 @@ export default function RegisterPage() {
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Kön</span>
                     <label className="radio-wrapper" htmlFor="man">
-                        <input id="man" name="gender" type="radio" value="man" required />
+                        <input id="man" name="gender" type="radio" value="male" required />
                         <div className="radio-btn"></div>
                         <span className="radio-label">Man</span>
                     </label>
                     <label className="radio-wrapper" htmlFor="woman">
-                        <input id="woman" name="gender" type="radio" value="woman" />
+                        <input id="woman" name="gender" type="radio" value="female" />
                         <div className="radio-btn"></div>
                         <span>Kvinna</span>
                     </label>
@@ -49,7 +51,7 @@ export default function RegisterPage() {
                             id="triathlon"
                             name="competition"
                             type="radio"
-                            value="triathlon"
+                            value="Triathlon"
                             required
                         />
                         <div className="radio-btn"></div>
@@ -60,13 +62,13 @@ export default function RegisterPage() {
                             id="olympic-triathlon"
                             name="competition"
                             type="radio"
-                            value="olympic-triathlon"
+                            value="Olympiskt Triathlon"
                         />
                         <div className="radio-btn"></div>
                         <span>Olympiskt Triathlon</span>
                     </label>
                 </div>
-                <button className="register-form__submit" type="submit">
+                <button className="register-form__submit">
                     Registrera mig
                 </button>
             </form>

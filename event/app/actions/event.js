@@ -12,7 +12,7 @@ export async function createEvent(formData) {
         time: formData.get('time')
     };
 
-    // validate data
+    // TODO: validate data
 
     const { error } = await insertEvent(event);
     if (error) {
@@ -32,7 +32,7 @@ export async function updateEvent(id, formData) {
         time: formData.get('time')
     };
 
-    // validate data
+    // TODO: validate data
     
     const { error } = await updateEventById(event, id);
     if (error) {
