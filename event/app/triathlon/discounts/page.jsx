@@ -15,7 +15,7 @@ export default function DiscountsPage() {
     }, []);
 
     const fetchDiscounts = async () => {
-        const response = await fetch(`/api/discounts?url=${pathname.split('/')[1]}`);        // Change so that id is used instead
+        const response = await fetch(`/api/discounts?url=${pathname.split('/')[1]}`);      //TODO Change so that id is used instead of url
         if (response.status === 200) {
             const discounts = await response.json();
             setDiscounts(discounts);

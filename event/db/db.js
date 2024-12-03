@@ -65,3 +65,7 @@ export async function updateDiscountById(discount, id) {
         .update(discount)
         .eq('id', id);
 }
+
+export async function getAllParticipants() {
+    return await databaseClient.from('participants').select();
+}

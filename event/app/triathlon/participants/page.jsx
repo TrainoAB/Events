@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import ListToggle from "@/app/components/ListToggle";
 
 import "./page.css";
@@ -9,9 +10,24 @@ import "./page.css";
 export default function ParticipantsPage() {
     const [nrParticipants, setNrParticipants] = useState();
     const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
+    const [ participants, setParticipants ] = useState([]);
+    const pathname = usePathname();
 
     useEffect(() => {
-        setNrParticipants(isFirstTitleShown ? amountParticipants('triathlon') : amountParticipants('olympic'));
+        fetchParticipants();
+    }, []);
+
+    const fetchParticipants = async () => {
+        const response = await fetch(`/api/participants?url=${pathname.split('/')[1]}`);      //TODO Change so that id is used instead of url
+        if (response.status === 200) {
+            const participants = await response.json();
+            setParticipants(participants);
+        }
+    }
+
+    useEffect(() => {
+        fetchParticipants();
+        setNrParticipants(isFirstTitleShown ? amountParticipants('Triathlon') : amountParticipants('Olympiskt Triathlon'));
     });
 
     const amountParticipants = (competition) => {
@@ -19,7 +35,7 @@ export default function ParticipantsPage() {
     }
 
     const participantList = (competition) => {
-        return PARTICIPANTS.filter(el => el.competition === competition);
+        return participants.filter(el => el.competition === competition);
     }
 
     const createList = (competition) => {
@@ -32,7 +48,7 @@ export default function ParticipantsPage() {
                 { participantList(competition)
                     .map((participant, index) => 
                         <li className="participants-list__row box-shadow" key={index}>
-                            <p className="participants-list__name"> {participant.name} </p> 
+                            <p className="participants-list__name"> {participant.forename} { participant.surname} </p> 
                             <p> {participant.city} </p>
                         </li>)
                 }
@@ -50,7 +66,7 @@ export default function ParticipantsPage() {
             
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
-            { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
+            { isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon") }
 
             <div className="traino-funnel flex-col align-c">
                 <p className="traino-funnel__text">
@@ -63,17 +79,3 @@ export default function ParticipantsPage() {
         </main>
     );
 }
-
-// Temporary Participants
-const PARTICIPANTS = [
-    {name: "Greger Artursson", city: "Luleå", competition: "olympic"},
-    {name: "Pelle Jöns", city: "Stockholm", competition: "olympic"},
-    {name: "Sonja Andersson", city: "Växjö", competition: "triathlon"},
-    {name: "Arne Björnsson", city: "Karlstad", competition: "olympic"},
-    {name: "Karl Bengtsson", city: "Halmstad", competition: "triathlon"},
-    {name: "Sara Viktorsson", city: "Göteborg", competition: "olympic"},
-    {name: "Jane Doe", city: "Stockholm", competition: "triathlon"},
-    {name: "John Doe", city: "Uppsala", competition: "triathlon"},
-    {name: "Göran Petterson", city: "Malmö", competition: "olympic"},
-    {name: "Lisa Tjäderstig", city: "Jönköping", competition: "olympic"}
-];
