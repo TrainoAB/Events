@@ -25,7 +25,8 @@ export async function deleteEvent(id) {
 export async function insertEvent(event) {
     return await databaseClient
         .from('events')
-        .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, date: event.date, time: event.time });
+        .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, 
+            date: event.date, time: event.time, max: event.max });
 }
 
 export async function updateEventById(event, id) {

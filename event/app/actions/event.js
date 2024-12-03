@@ -9,7 +9,8 @@ export async function createEvent(formData) {
         url: formData.get('url') || "#",
         description: formData.get('description'),
         image: formData.get('image'),
-        time: formData.get('time')
+        time: formData.get('time'),
+        max: formData.get('max-participants')
     };
 
     // TODO: validate data
@@ -29,7 +30,8 @@ export async function updateEvent(id, formData) {
         url: formData.get('url') || "#",
         description: formData.get('description'),
         image: formData.get('image'),
-        time: formData.get('time')
+        time: formData.get('time'),
+        max: formData.get('max-participants')
     };
 
     // TODO: validate data
