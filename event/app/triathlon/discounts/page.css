@@ -2,6 +2,14 @@
     gap: var(--gap);
     padding-block: var(--main-block-padding);
     margin-inline: auto;
+    
+    & .discount-list {
+        gap: var(--gap);
+
+        & .discount-info-wrapper {
+            max-width: 40rem;
+        }
+    }
 }
 
 @media (max-width: 1000px) {

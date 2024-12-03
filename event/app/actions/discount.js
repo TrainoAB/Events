@@ -3,17 +3,17 @@
 import { updateDiscountById, insertDiscount } from "@/db/db";
 
 export async function createDiscount(id, formData) {
-    console.log('ID ' + id);
     const discount = {
         title: formData.get('title'),
-        expiration: formData.get('expiration'),
+        from: formData.get('from'),
+        to: formData.get('to'),
         url: formData.get('link') || "#",
         description: formData.get('description'),
         discount: formData.get('discount'),
         eventId: id
     };
 
-    // validate data
+    // TODO: validate data
 
     const { error } = await insertDiscount(discount);
     if (error) {
@@ -26,13 +26,14 @@ export async function createDiscount(id, formData) {
 export async function updateDiscount(id, formData) {
     const discount = {
         title: formData.get('title'),
-        expiration: formData.get('expiration'),
+        from: formData.get('from'),
+        to: formData.get('to'),
         url: formData.get('link') || "#",
         description: formData.get('description'),
         discount: formData.get('discount')
     };
 
-    // validate data
+    // TODO: validate data
     
     const { error } = await updateDiscountById(discount, id);
     if (error) {

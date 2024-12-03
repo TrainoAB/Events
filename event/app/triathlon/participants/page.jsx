@@ -2,24 +2,50 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import ListToggle from "@/app/components/ListToggle";
 
 import "./page.css";
 
 export default function ParticipantsPage() {
-    const [nrParticipants, setNrParticipants] = useState();
-    const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
+    const [ nrParticipants, setNrParticipants ] = useState();
+    const [ isFirstTitleShown, setIsFirstTitleShown ] = useState(true);
+    const [ participants, setParticipants ] = useState([]);
+    const [ maxParticipants, setMaxParticipants ] = useState();
+    const pathname = usePathname();
 
     useEffect(() => {
-        setNrParticipants(isFirstTitleShown ? amountParticipants('triathlon') : amountParticipants('olympic'));
-    });
+        fetchParticipants();
+        fetchEvent();
+    }, [isFirstTitleShown]);
 
-    const amountParticipants = (competition) => {
-        return participantList(competition).length;
+    const fetchParticipants = async () => {
+        const response = await fetch('/api/participants');
+        if (response.status === 200) {
+            const participants = await response.json();
+            setParticipants(participants);
+            setNrParticipants(amountParticipants(participants));
+        }
+    }
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setMaxParticipants(event.max);
+        }
+    }
+
+    const amountParticipants = (participants) => {
+        return isFirstTitleShown ? participants.filter(el => el.competition === "Triathlon").length : participants.filter(el => el.competition === "Olympiskt Triathlon").length;
     }
 
     const participantList = (competition) => {
-        return PARTICIPANTS.filter(el => el.competition === competition);
+        return participants.filter(el => el.competition === competition);
+    }
+
+    const firstLetterUppercase = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1);
     }
 
     const createList = (competition) => {
@@ -32,8 +58,8 @@ export default function ParticipantsPage() {
                 { participantList(competition)
                     .map((participant, index) => 
                         <li className="participants-list__row box-shadow" key={index}>
-                            <p className="participants-list__name"> {participant.name} </p> 
-                            <p> {participant.city} </p>
+                            <p className="participants-list__name"> {firstLetterUppercase(participant.forename)} { firstLetterUppercase(participant.surname)} </p> 
+                            <p> {firstLetterUppercase(participant.city)} </p>
                         </li>)
                 }
             </ul>
@@ -45,12 +71,12 @@ export default function ParticipantsPage() {
             <h1 className="participants__title">Deltagare</h1>
             <h2 className="participants-numbers">
                 <div className="participants__confirmed"> {nrParticipants} </div>
-                <p className="participants__total">/100</p>
+                <p className="participants__total">/{maxParticipants}</p>
             </h2>
             
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
-            { isFirstTitleShown ? createList("triathlon") : createList("olympic") }
+            { participants && isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon") }
 
             <div className="traino-funnel flex-col align-c">
                 <p className="traino-funnel__text">
@@ -63,17 +89,3 @@ export default function ParticipantsPage() {
         </main>
     );
 }
-
-// Temporary Participants
-const PARTICIPANTS = [
-    {name: "Greger Artursson", city: "Luleå", competition: "olympic"},
-    {name: "Pelle Jöns", city: "Stockholm", competition: "olympic"},
-    {name: "Sonja Andersson", city: "Växjö", competition: "triathlon"},
-    {name: "Arne Björnsson", city: "Karlstad", competition: "olympic"},
-    {name: "Karl Bengtsson", city: "Halmstad", competition: "triathlon"},
-    {name: "Sara Viktorsson", city: "Göteborg", competition: "olympic"},
-    {name: "Jane Doe", city: "Stockholm", competition: "triathlon"},
-    {name: "John Doe", city: "Uppsala", competition: "triathlon"},
-    {name: "Göran Petterson", city: "Malmö", competition: "olympic"},
-    {name: "Lisa Tjäderstig", city: "Jönköping", competition: "olympic"}
-];

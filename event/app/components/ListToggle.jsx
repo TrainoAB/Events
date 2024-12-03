@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from "react";
+
 import "./ListToggle.css";
 
 /**
  * setIsFirstTitleShown is a function taking a boolean as a parameter. This function is
  * used to inform a parent about which title is toggled.
  */
-export default function ListToggle({ title1 = "Triathlon", title2 = "Olympiskt triathlon", setIsFirstTitleShown }) {
+export default function ListToggle({ title1 = "Triathlon", title2 = "Olympiskt Triathlon", setIsFirstTitleShown }) {
     const [isShowFirst, setShowFirst] = useState(true);
 
     const handleToggle = () => {

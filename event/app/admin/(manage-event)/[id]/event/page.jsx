@@ -40,8 +40,29 @@ export default function EditEventPage({ params }) {
                     <input id="event" name="event" type="text" defaultValue={event.competition} required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="date">Datum</label>
+                    <label htmlFor="url">Länk till eventets hemsida</label>
+                    <input id="url" name="url" type="text" defaultValue={event.url} required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="date">Datum när eventet hålls</label>
                     <input id="date" name="date" type="date" defaultValue={event.date} required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="time">Tid när eventet startar</label>
+                    <input id="time" name="time" type="time" defaultValue={event.time} required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="max-participants">Max antal deltagare</label>
+                    <input
+                        id="max-participants"
+                        name="max-participants"
+                        type="number"
+                        defaultValue={event.max}
+                        step={1}
+                        min={1}
+                        max={10000}
+                        required
+                    />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="image">Bild (text länk)</label>

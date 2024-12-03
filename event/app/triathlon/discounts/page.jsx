@@ -15,7 +15,7 @@ export default function DiscountsPage() {
     }, []);
 
     const fetchDiscounts = async () => {
-        const response = await fetch(`/api/discounts?url=${pathname.split('/')[1]}`);        // Change so that id is used instead
+        const response = await fetch(`/api/discounts?url=${pathname.split('/')[1]}`);      //TODO Change so that id is used instead of url
         if (response.status === 200) {
             const discounts = await response.json();
             setDiscounts(discounts);
@@ -25,9 +25,11 @@ export default function DiscountsPage() {
     return (
         <main id="discountspage" className="max-width flex-col align-c">
             <h1>Rabatter</h1>
-            {discounts ? discounts.map((discount, index) => (
-                <DiscountCard discount={discount} target="_blank" key={index} />
-            )) : <></> }
+            <div className="discount-list flex-col">
+                {discounts ? discounts.map((discount, index) => (
+                    <DiscountCard discount={discount} target="_blank" key={index} />
+                )) : <></> }
+            </div>
         </main>
     );
 }

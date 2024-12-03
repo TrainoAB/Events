@@ -18,6 +18,10 @@ export async function getEventById(id) {
     return await databaseClient.from('events').select().eq('id', id).single();
 }
 
+export async function getEventByUrl(url) {
+    return await databaseClient.from('events').select().eq('url', url).single();
+}
+
 export async function deleteEvent(id) {
     return await databaseClient.from('events').delete().eq('id', id);
 }
@@ -25,7 +29,8 @@ export async function deleteEvent(id) {
 export async function insertEvent(event) {
     return await databaseClient
         .from('events')
-        .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, date: event.date });
+        .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, 
+            date: event.date, time: event.time, max: event.max });
 }
 
 export async function updateEventById(event, id) {
@@ -56,7 +61,7 @@ export async function insertDiscount(discount) {
     return await databaseClient
         .from('discounts')
         .insert({ title: discount.title, url: discount.url, eventId: discount.eventId, description: discount.description, 
-            expiration: discount.expiration, discount: discount.discount });
+            from: discount.from, to: discount.to, discount: discount.discount });
 }
 
 export async function updateDiscountById(discount, id) {
@@ -64,6 +69,17 @@ export async function updateDiscountById(discount, id) {
         .from('discounts')
         .update(discount)
         .eq('id', id);
+}
+
+export async function getAllParticipants() {
+    return await databaseClient.from('participants').select();
+}
+
+export async function insertParticipant(participant) {
+    return await databaseClient
+        .from('participants')
+        .insert({ forename: participant.forename, surname: participant.surname, email: participant.email, gender: participant.gender, 
+            phone: participant.phone, city: participant.city, age: participant.age, competition: participant.competition });
 }
 
 // Get all sponsors for an event

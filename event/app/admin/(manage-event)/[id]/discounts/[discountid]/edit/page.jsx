@@ -24,7 +24,11 @@ export default function EditDiscountPage({ params }) {
 
     const handleCancel = () => {
         router.back();
-    };
+    }
+
+    const handleConfirm = () => {
+        router.push(`/admin/${params.id}/discounts`);
+    }
 
     return (
         <main id="edit-discount-page" className="flex-col align-c">
@@ -53,8 +57,12 @@ export default function EditDiscountPage({ params }) {
                     <input id="link" name="link" type="text" defaultValue={discount.url} required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="expiration">Datum när rabatten slutar gälla</label>
-                    <input id="expiration" name="expiration" type="date" defaultValue={discount.expiration} required />
+                    <label htmlFor="from">Datum när rabatten börjar gälla</label>
+                    <input id="from" name="from" type="date" defaultValue={discount.from} required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="to">Datum när rabatten slutar gälla</label>
+                    <input id="to" name="to" type="date" defaultValue={discount.to} required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
@@ -62,10 +70,8 @@ export default function EditDiscountPage({ params }) {
                 </div>
 
                 <div className="edit-discount-form__buttons">
-                    <button onClick={handleCancel} type="reset">
-                        Avbryt
-                    </button>
-                    <button>Spara</button>
+                    <button onClick={handleCancel} type="reset"> Avbryt </button>
+                    <button onClick={handleConfirm}> Spara </button>
                 </div>
             </form> : <></> }
         </main>
