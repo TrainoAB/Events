@@ -81,3 +81,34 @@ export async function insertParticipant(participant) {
         .insert({ forename: participant.forename, surname: participant.surname, email: participant.email, gender: participant.gender, 
             phone: participant.phone, city: participant.city, age: participant.age, competition: participant.competition });
 }
+
+// Get all sponsors for an event
+export async function getAllSponsorsByEventId(eventId) {
+    return await databaseClient.from("sponsors").select().eq("eventId", eventId).order("id");
+}
+
+// Add a sponsor to a specific event
+export async function addSponsor(sponsor) {
+    return await databaseClient.from("sponsors").insert({
+        name: sponsor.name,
+        image: sponsor.image,
+        url: sponsor.url,
+        description: sponsor.description,
+        eventId: sponsor.eventId,
+    });
+}
+
+// Delete a sponsor
+export async function deleteSponsor(id) {
+    return await databaseClient.from("sponsors").delete().eq("id", id);
+}
+
+// Get a sponsor by id
+export async function getSponsorById(id) {
+    return await databaseClient.from("sponsors").select().eq("id", id).single();
+}
+
+// Update a sponsor
+export async function updateSponsorById(updatedSponsor, id) {
+    return await databaseClient.from("sponsors").update(updatedSponsor).eq("id", id);
+}

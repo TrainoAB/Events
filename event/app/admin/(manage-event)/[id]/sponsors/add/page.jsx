@@ -1,10 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { createSponsor } from "@/app/actions/sponsor";
 
 import "./page.css";
 
-export default function AddSponsorPage() {
+export default function AddSponsorPage({ params }) {
     const router = useRouter();
 
     const handleCancel = () => {
@@ -15,7 +16,10 @@ export default function AddSponsorPage() {
         <main id="add-sponsor-page" className="gap flex-col align-c">
             <h1 className="add-sponsor__title">Lägg till sponsor</h1>
 
-            <form className="add-sponsor-form flex-col">
+            <form
+                className="add-sponsor-form flex-col"
+                action={createSponsor.bind(null, params.id)}
+            >
                 <div className="input-wrapper">
                     <label htmlFor="sponsor">Sponsor</label>
                     <input id="sponsor" name="sponsor" type="text" required />
