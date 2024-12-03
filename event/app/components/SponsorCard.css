@@ -12,6 +12,7 @@
         & .sponsor-card__figure {
             width: 100%;
             display: flex;
+            flex: 1;
 
             & img {
                 border-radius: var(--radius) 0 0 var(--radius);
@@ -23,6 +24,7 @@
         & .sponsor-card-wrapper {
             gap: var(--gap);
             padding: 1rem;
+            flex: 3;
         }
     }
 }
