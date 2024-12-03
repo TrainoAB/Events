@@ -38,6 +38,10 @@ export default function ParticipantsPage() {
         return participants.filter(el => el.competition === competition);
     }
 
+    const firstLetterUppercase = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+
     const createList = (competition) => {
         return (
             <ul className="participants-list max-width">
@@ -48,8 +52,8 @@ export default function ParticipantsPage() {
                 { participantList(competition)
                     .map((participant, index) => 
                         <li className="participants-list__row box-shadow" key={index}>
-                            <p className="participants-list__name"> {participant.forename} { participant.surname} </p> 
-                            <p> {participant.city} </p>
+                            <p className="participants-list__name"> {firstLetterUppercase(participant.forename)} { firstLetterUppercase(participant.surname)} </p> 
+                            <p> {firstLetterUppercase(participant.city)} </p>
                         </li>)
                 }
             </ul>
