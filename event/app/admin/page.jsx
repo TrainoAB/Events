@@ -21,7 +21,7 @@ export default function AdminPage() {
         if (response.status === 200) {
             const events = await response.json();
             events.map(element => {
-                element.url = `/admin/${element.id}/event`;             // Gör denna navigering på ett snyggare sätt
+                element.url = `/admin/${element.id}/event`;
             });
             setEvents(events);
         }
