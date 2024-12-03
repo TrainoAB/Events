@@ -18,6 +18,10 @@ export async function getEventById(id) {
     return await databaseClient.from('events').select().eq('id', id).single();
 }
 
+export async function getEventByUrl(url) {
+    return await databaseClient.from('events').select().eq('url', url).single();
+}
+
 export async function deleteEvent(id) {
     return await databaseClient.from('events').delete().eq('id', id);
 }
