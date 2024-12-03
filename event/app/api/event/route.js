@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
-import { deleteEvent, getEventById } from "@/db/db";
+import { deleteEvent, getEventByUrl } from "@/db/db";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
+
+    const eventUrl = searchParams.get("url");
+    if (eventUrl) {
+        const { error, data } = await getEventByUrl("/" + eventUrl);
+        if (error) {
+            return NextResponse.json({ success: false, message: `No event found for url ${eventUrl}` }, { status: 404 });
+        }
+        return NextResponse.json(data);
+    }
 
     const eventId = searchParams.get("id");
     if (!eventId) {

@@ -1,15 +1,39 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation';
 import { createParticipant } from "@/app/actions/participant";
 
 import "./page.css";
 
 export default function RegisterPage() {
-    const router = useRouter();
+    const [ participants, setParticipants ] = useState([]);
+    const [ maxParticipants, setMaxParticipants ] = useState();
+    const pathname = usePathname();
 
-    const handleSubmit = () => {
-        router.push("/triathlon/participants");
+    useEffect(() => {
+        fetchParticipants();
+        fetchEvent();
+    }, []);
+
+    const fetchParticipants = async () => {
+        const response = await fetch('/api/participants');
+        if (response.status === 200) {
+            const participants = await response.json();
+            setParticipants(participants);
+        }
+    }
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setMaxParticipants(event.max);
+        }
+    }
+
+    const isMaxParticipants = (competition) => {
+        return participants.filter(el => el.competition === competition).length >= maxParticipants;
     }
 
     return (
@@ -55,29 +79,31 @@ export default function RegisterPage() {
                 </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Tävling</span>
-                    <label className="radio-wrapper" htmlFor="triathlon">
+                    <label className={isMaxParticipants("Triathlon") ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="triathlon">
                         <input
                             id="triathlon"
                             name="competition"
                             type="radio"
                             value="Triathlon"
+                            disabled={isMaxParticipants("Triathlon")}
                             required
                         />
                         <div className="radio-btn"></div>
                         <span>Triathlon</span>
                     </label>
-                    <label className="radio-wrapper" htmlFor="olympic-triathlon">
+                    <label className={isMaxParticipants("Olympiskt Triathlon") ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="olympic-triathlon">
                         <input
                             id="olympic-triathlon"
                             name="competition"
                             type="radio"
+                            disabled={isMaxParticipants("Olympiskt Triathlon")}
                             value="Olympiskt Triathlon"
                         />
                         <div className="radio-btn"></div>
                         <span>Olympiskt Triathlon</span>
                     </label>
                 </div>
-                <button className="register-form__submit" onClick={handleSubmit}>
+                <button className="register-form__submit">
                     Registrera mig
                 </button>
             </form>
