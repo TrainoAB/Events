@@ -1,3 +1,7 @@
+'use client';
+
+import { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "../components/CountdownTimer";
@@ -14,13 +18,41 @@ const SPONSORS = [
 ];
 
 export default function TriathlonPage() {
+    const [ participants, setParticipants ] = useState([]);
+    const [ event, setEvent ] = useState();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        fetchParticipants();
+        fetchEvent();
+    }, []);
+
+    const fetchParticipants = async () => {
+        const response = await fetch('/api/participants');
+        if (response.status === 200) {
+            const participants = await response.json();
+            setParticipants(participants);
+        }
+    }
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setEvent(event);
+        }
+    }
+
     return (
         <>
             <main id="eventpage" className="gap flex-col align-c">
                 <div className="video-container gap flex-col align-c">
                     <h1 className="video-container__title">Traino Triathlon</h1>
                     <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
-                    <RegisteredParticipants registered={100} total={100} />
+                    {
+                    // TODO Participants are not separated by competition. Should be separated when showing registered participants.
+                    } 
+                    { participants && event ? <RegisteredParticipants registered={participants.length} total={event.max} /> : <></> }
                     <div className="videocover"></div>
                     <video muted autoPlay loop>
                         <source src="/videobg.mp4" type="video/mp4" />
@@ -28,7 +60,7 @@ export default function TriathlonPage() {
                     </video>
                 </div>
                 <div className="info-container max-width gap flex-col align-c">
-                    <CountdownTimer dateInput={"2025-08-16 10:00:00"} />
+                    { event ? <CountdownTimer dateInput={event.date + " " + event.time} /> : <></> }
                     <section className="event-about">
                         <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
