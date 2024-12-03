@@ -22,7 +22,7 @@ export default function EditSponsorPage({ params }) {
     const [sponsor, setSponsor] = useState(initialState);
 
     // Destructure the eventId and sponsorId
-    const { id: eventId, sponsorId } = params;
+    const { id: eventId, "sponsor-id": sponsorId } = params;
     DEBUG && console.log("eventId:", eventId, "sponsorId:", sponsorId);
 
     const router = useRouter();
