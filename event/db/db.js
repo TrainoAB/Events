@@ -65,3 +65,14 @@ export async function updateDiscountById(discount, id) {
         .update(discount)
         .eq('id', id);
 }
+
+export async function getAllParticipants() {
+    return await databaseClient.from('participants').select();
+}
+
+export async function insertParticipant(participant) {
+    return await databaseClient
+        .from('participants')
+        .insert({ forename: participant.forename, surname: participant.surname, email: participant.email, gender: participant.gender, 
+            phone: participant.phone, city: participant.city, age: participant.age, competition: participant.competition });
+}
