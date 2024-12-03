@@ -8,30 +8,26 @@ import ListToggle from "@/app/components/ListToggle";
 import "./page.css";
 
 export default function ParticipantsPage() {
-    const [nrParticipants, setNrParticipants] = useState();
-    const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
+    const [ nrParticipants, setNrParticipants ] = useState();
+    const [ isFirstTitleShown, setIsFirstTitleShown ] = useState(true);
     const [ participants, setParticipants ] = useState([]);
     const pathname = usePathname();
 
     useEffect(() => {
         fetchParticipants();
-    }, []);
+    }, [isFirstTitleShown]);
 
     const fetchParticipants = async () => {
         const response = await fetch(`/api/participants?url=${pathname.split('/')[1]}`);      //TODO Change so that id is used instead of url
         if (response.status === 200) {
             const participants = await response.json();
             setParticipants(participants);
+            setNrParticipants(amountParticipants(participants));
         }
     }
 
-    useEffect(() => {
-        fetchParticipants();
-        setNrParticipants(isFirstTitleShown ? amountParticipants('Triathlon') : amountParticipants('Olympiskt Triathlon'));
-    });
-
-    const amountParticipants = (competition) => {
-        return participantList(competition).length;
+    const amountParticipants = (participants) => {
+        return isFirstTitleShown ? participants.filter(el => el.competition === "Triathlon").length : participants.filter(el => el.competition === "Olympiskt Triathlon").length;
     }
 
     const participantList = (competition) => {
@@ -70,7 +66,7 @@ export default function ParticipantsPage() {
             
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
-            { isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon") }
+            { participants && isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon") }
 
             <div className="traino-funnel flex-col align-c">
                 <p className="traino-funnel__text">
