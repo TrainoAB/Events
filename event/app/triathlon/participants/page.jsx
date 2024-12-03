@@ -11,10 +11,12 @@ export default function ParticipantsPage() {
     const [ nrParticipants, setNrParticipants ] = useState();
     const [ isFirstTitleShown, setIsFirstTitleShown ] = useState(true);
     const [ participants, setParticipants ] = useState([]);
+    const [ maxParticipants, setMaxParticipants ] = useState();
     const pathname = usePathname();
 
     useEffect(() => {
         fetchParticipants();
+        fetchEvent();
     }, [isFirstTitleShown]);
 
     const fetchParticipants = async () => {
@@ -23,6 +25,14 @@ export default function ParticipantsPage() {
             const participants = await response.json();
             setParticipants(participants);
             setNrParticipants(amountParticipants(participants));
+        }
+    }
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setMaxParticipants(event.max);
         }
     }
 
@@ -61,7 +71,7 @@ export default function ParticipantsPage() {
             <h1 className="participants__title">Deltagare</h1>
             <h2 className="participants-numbers">
                 <div className="participants__confirmed"> {nrParticipants} </div>
-                <p className="participants__total">/100</p>
+                <p className="participants__total">/{maxParticipants}</p>
             </h2>
             
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />

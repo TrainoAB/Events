@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { deleteEvent, getEventByUrl } from "@/db/db";
+import { deleteEvent, getEventByUrl, getEventById } from "@/db/db";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
@@ -8,6 +8,7 @@ export async function GET(request) {
     if (eventUrl) {
         const { error, data } = await getEventByUrl("/" + eventUrl);
         if (error) {
+            console.log(error);
             return NextResponse.json({ success: false, message: `No event found for url ${eventUrl}` }, { status: 404 });
         }
         return NextResponse.json(data);
