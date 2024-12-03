@@ -60,7 +60,7 @@ export default function TriathlonPage() {
                     </video>
                 </div>
                 <div className="info-container max-width gap flex-col align-c">
-                    <CountdownTimer dateInput={"2025-08-16 10:00:00"} />
+                    { event ? <CountdownTimer dateInput={event.date + " " + event.time} /> : <></> }
                     <section className="event-about">
                         <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
