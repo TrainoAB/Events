@@ -1,8 +1,17 @@
+'use client';
+
+import { useRouter } from "next/navigation";
 import { createParticipant } from "@/app/actions/participant";
 
 import "./page.css";
 
 export default function RegisterPage() {
+    const router = useRouter();
+
+    const handleSubmit = () => {
+        router.push("/triathlon/participants");
+    }
+
     return (
         <main id="registerpage" className="max-width gap flex-col align-c">
             <h1 className="register-title">Registrera</h1>
@@ -68,7 +77,7 @@ export default function RegisterPage() {
                         <span>Olympiskt Triathlon</span>
                     </label>
                 </div>
-                <button className="register-form__submit">
+                <button className="register-form__submit" onClick={handleSubmit}>
                     Registrera mig
                 </button>
             </form>
