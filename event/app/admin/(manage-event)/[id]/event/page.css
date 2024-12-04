@@ -14,8 +14,18 @@
             flex-direction: column;
             gap: var(--small-gap);
 
-            & label::after {
+            & label:not(.checkbox):after {
                 content: "*";
+            }
+        }
+
+        & .checkbox-wrapper {
+            display: flex;
+            align-self: flex-start;
+            gap: 1rem;
+
+            & label {
+                min-width: fit-content;
             }
         }
 
