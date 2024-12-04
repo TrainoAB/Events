@@ -9,8 +9,36 @@
         & .rule-wrapper {
             display: flex;
             flex-direction: column;
-            gap: var(--gap);
+            gap: var(--large-gap);
             max-width: 40rem;
+
+            & .rule-section-wrapper {
+                display: flex;
+                gap: var(--large-gap);
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+        
+                & .rule__number {
+                    width: 1rem;
+                    font-size: 24px;
+                }
+        
+                hr {
+                    border: 1px solid;
+                    height: 4rem;
+                }
+        
+                & .rule-number-wrapper {
+                    display: flex;
+                    gap: var(--large-gap);
+                    align-self: flex-start;
+                    align-items: center;
+                }
+        
+                & .rule__text {
+                    align-self: flex-start;
+                }
+            }
         }
     }
 

@@ -44,13 +44,26 @@ export default function ManageDiscountsPage({ params }) {
         deleteRule(rule.id);
     };
 
+    const setRuleNumber = (index) => {
+        if (index < 10) {
+            return "0" + index;     // If rule number is less than 10, prefix the number with a 0
+        }
+        return index;
+    }
+
     return (
         <main id="manage-rules-page" className="flex-col align-c">
             <h1 className="manage-rules-page__title">Regler</h1>
             <div className="rule-list flex-col">
                 {rules ? rules.map((rule, index) => (
                     <div className="rule-wrapper" key={index}>
-                        
+                        <section className="rule-section-wrapper max-width">
+                            <div className="rule-number-wrapper">
+                                <h2 className="rule__number"> {setRuleNumber(rule.id)} </h2>
+                                <hr/>
+                            </div>
+                            <p className="rule__text"> {rule.rule} </p>
+                        </section>
                         <button className="delete-btn" onClick={() => handleDeleteClick(rule)}> Radera </button>
                     </div>
                 )) : <></> }
