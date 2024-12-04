@@ -1,22 +1,25 @@
+'use client';
+
+import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation';
+
 import "./page.css";
 
 export default function RulesPage() {
+    const [ rules, setRules ] = useState([]);
+    const pathname = usePathname();
 
-    /**
-     * Temporary rules
-     */
-    const RULES = ["Lorem ipsum dolor sit amet consectetur. Enim vitae nullam id tempor quis quis. Proin risus id hendrerit neque tristique. Aenean mus sagittis ornare sem morbi tellus. Ultrices ultrices tempus consectetur nulla morbi dui viverra. Commodo justo viverra neque tincidunt tincidunt pellentesque malesuada ac. Egestas ultricies adipiscing ac proin volutpat tincidunt ac.",
-        "Lorem ipsum dolor sit amet consectetur. Enim vitae nullam id tempor quis quis. Proin risus id hendrerit neque tristique. Aenean mus sagittis ornare sem morbi tellus. Ultrices ultrices tempus consectetur nulla morbi dui viverra. Commodo justo viverra neque tincidunt tincidunt pellentesque malesuada ac. Egestas ultricies adipiscing ac proin volutpat tincidunt ac.",
-        "Lorem ipsum dolor sit amet consectetur. Enim vitae nullam id tempor quis quis. Proin risus id hendrerit neque tristique. Aenean mus sagittis ornare sem morbi tellus. Ultrices ultrices tempus consectetur nulla morbi dui viverra. Commodo justo viverra neque tincidunt tincidunt pellentesque malesuada ac. Egestas ultricies adipiscing ac proin volutpat tincidunt ac.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget.",
-        "Lorem ipsum dolor sit amet consectetur. Nulla fames phasellus donec ullamcorper nam blandit tellus nullam. Nibh amet faucibus risus odio. At nunc morbi hendrerit ut urna arcu velit faucibus. Ornare dignissim sit nunc eget."
-    ];
+    useEffect(() => {
+        fetchRules();
+    }, []);
+
+    const fetchRules = async () => {
+        const response = await fetch(`/api/rules?url=${pathname.split('/')[1]}`);      //TODO Change so that id is used instead of url
+        if (response.status === 200) {
+            const rules = await response.json();
+            setRules(rules);
+        }
+    }
 
     const setRuleNumber = (index) => {
         if (index < 10) {
@@ -29,15 +32,15 @@ export default function RulesPage() {
         <main id="rulespage" className="gap flex-col align-c">
             <h1 className="rules__title">Regler</h1>
 
-            {RULES.map((rule, index) => 
+            { rules ? rules.map((rule, index) => 
                 <section key={index} className="rule-wrapper max-width">
                     <div className="rule-number-wrapper">
                         <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
                         <hr/>
                     </div>
-                    <p className="rule__text"> {rule} </p>
+                    <p className="rule__text"> {rule.rule} </p>
                 </section>
-            )}
+            ) : <></> }
         </main>
     );
 }
