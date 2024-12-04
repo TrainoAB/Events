@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Modal } from "@/app/components/Modal";
 import Accordion from "@/app/components/Accordion";
 
@@ -11,6 +12,7 @@ export default function ManageFaqsPage({ params }) {
     const [ faq, setFaq ] = useState();
     const [ faqs, setFaqs ] = useState([]);
     const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort FAQn?");
+    const router = useRouter();
 
     useEffect(() => {
         fetchFaqs();
@@ -41,6 +43,10 @@ export default function ManageFaqsPage({ params }) {
         setModalText(`Är du säker på att du vill ta bort FAQn?`);
     }
 
+    const handleEditClick = (faq) => {
+        router.push(`/admin/${faq.eventId}/faqs/${faq.id}/edit`);
+    }
+
     const handleConfirm = () => {
         deleteFaq(faq.id);
     };
@@ -52,7 +58,10 @@ export default function ManageFaqsPage({ params }) {
                 {faqs ? faqs.map((faq, index) => (
                     <div className="faq-wrapper" key={index}>
                         <Accordion heading={faq.question} text={faq.answer} />
-                        <button className="delete-btn" onClick={() => handleDeleteClick(faq)}> Radera </button>
+                        <div className="faq-buttons">
+                            <button className="delete-btn" onClick={() => handleDeleteClick(faq)}> Radera </button>
+                            <button className="edit-btn" onClick={() => handleEditClick(faq)}> Redigera </button>
+                        </div>
                     </div>
                 )) : <></> }
             </div>

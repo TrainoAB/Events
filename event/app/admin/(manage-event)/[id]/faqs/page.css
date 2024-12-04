@@ -4,12 +4,17 @@
     min-height: 100vh;
 
     & .faq-list {
-        gap: var(--gap);
+        gap: var(--large-gap);
 
         & .faq-wrapper {
             display: flex;
             flex-direction: column;
             gap: var(--gap);
+
+            & .faq-buttons {
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { updateRule } from "@/app/actions/rules";
+import { updateRule } from "@/app/actions/rule";
 
 import "./page.css";
 
