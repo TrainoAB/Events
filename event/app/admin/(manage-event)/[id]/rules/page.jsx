@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Modal } from "@/app/components/Modal";
 
 import "./page.css";
 
-export default function ManageDiscountsPage({ params }) {
+export default function ManageRulesPage({ params }) {
     const [ rule, setRule ] = useState();
     const [ rules, setRules ] = useState([]);
     const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort regeln?");
+    const router = useRouter();
 
     useEffect(() => {
         fetchRules();
@@ -51,13 +53,17 @@ export default function ManageDiscountsPage({ params }) {
         return index;
     }
 
+    const handleEditRule = (rule) => {
+        router.push(`/admin/${rule.eventId}/rules/${rule.id}/edit`);  
+    }
+
     return (
         <main id="manage-rules-page" className="flex-col align-c">
             <h1 className="manage-rules-page__title">Regler</h1>
             <div className="rule-list flex-col">
                 {rules ? rules.map((rule, index) => (
                     <div className="rule-wrapper" key={index}>
-                        <section className="rule-section-wrapper max-width">
+                        <section className="rule-section-wrapper max-width" onClick={() => handleEditRule(rule)}>
                             <div className="rule-number-wrapper">
                                 <h2 className="rule__number"> {setRuleNumber(rule.id)} </h2>
                                 <hr/>

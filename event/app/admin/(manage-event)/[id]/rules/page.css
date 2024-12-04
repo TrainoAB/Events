@@ -12,6 +12,10 @@
             gap: var(--large-gap);
             max-width: 40rem;
 
+            :hover {
+                cursor: pointer;
+            }
+
             & .rule-section-wrapper {
                 display: flex;
                 gap: var(--large-gap);
