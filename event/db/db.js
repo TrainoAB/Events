@@ -112,3 +112,37 @@ export async function getSponsorById(id) {
 export async function updateSponsorById(updatedSponsor, id) {
     return await databaseClient.from("sponsors").update(updatedSponsor).eq("id", id);
 }
+
+export async function getAllRules() {
+    return await databaseClient.from('rules').select();
+}
+
+export async function getRuleById(id) {
+    return await databaseClient.from('rules').select().eq('id', id).single();
+}
+
+export async function deleteRule(id) {
+    return await databaseClient.from('rules').delete().eq('id', id);
+}
+
+export async function getAllRulesById(eventId) {
+    return await databaseClient.from('rules').select().eq('eventId', eventId);
+}
+
+export async function getAllRulesByUrl(eventUrl) {
+    const { data } = await databaseClient.from('events').select().eq('url', eventUrl).single();
+    return await databaseClient.from('rules').select().eq('eventId', data.id);
+}
+
+export async function insertRule(rule) {
+    return await databaseClient
+        .from('rules')
+        .insert({ rule: rule.rule });
+}
+
+export async function updateRuleById(rule, id) {
+    return await databaseClient
+        .from('rules')
+        .update(rule)
+        .eq('id', id);
+}
