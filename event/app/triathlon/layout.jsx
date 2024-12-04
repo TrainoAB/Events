@@ -1,12 +1,12 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-export default function EventLayout({children}) {
-  return (
-    <>
-      <Header />
-      {children}
-      <Footer />
-    </>
-  )
+export default function EventLayout({ children }) {
+    return (
+        <>
+            <Header />
+            {children}
+            <Footer />
+        </>
+    );
 }
