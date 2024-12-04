@@ -1,0 +1,27 @@
+#manage-rules-page {
+    gap: var(--gap);
+    padding-block: var(--main-block-padding) 8rem;
+    min-height: 100vh;
+
+    & .rule-list {
+        gap: var(--gap);
+
+        & .rule-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            max-width: 40rem;
+        }
+    }
+
+    & .manage-rules__add-link {
+        position: fixed;
+        bottom: 2rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    #manage-rules-page {
+        margin-inline: 0.5rem;
+    }
+}
