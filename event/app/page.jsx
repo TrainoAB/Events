@@ -21,6 +21,13 @@ export default function Home() {
         }
     }
 
+    const setFinishedUrl = (event) => {
+        if (!event.url.includes("event-finished")) {
+            event.url = event.finished ? event.url + "/event-finished" : event.url;     // add event-finished to url if event is marked as finished
+        }
+        return event;
+    }
+
     return (
         <main id="alleventspage" className="max-width flex-col align-c">
             <Image
@@ -34,7 +41,7 @@ export default function Home() {
 
             <section className="alleventspage__events">
                 {events ? events.map((event, index) => (
-                    <EventCard event={event} key={index} />
+                    <EventCard event={setFinishedUrl(event)} key={index} />
                 )) : <></>
                 }
             </section>

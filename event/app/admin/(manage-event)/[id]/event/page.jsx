@@ -68,6 +68,10 @@ export default function EditEventPage({ params }) {
                     <label htmlFor="image">Bild (text länk)</label>
                     <input id="image" name="image" type="text" defaultValue={event.image} required />
                 </div>
+                <div className="checkbox-wrapper">
+                    <label htmlFor="finished">Markera eventet som avslutat</label>
+                    <input id="finished" name="finished" type="checkbox" defaultChecked={event.finished} />
+                </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
                     <textarea id="description" name="description" rows={10} cols={100} defaultValue={event.description} required />

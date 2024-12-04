@@ -10,6 +10,7 @@ export async function createEvent(formData) {
         description: formData.get('description'),
         image: formData.get('image'),
         time: formData.get('time'),
+        finished: formData.get('finished') || false,
         max: formData.get('max-participants')
     };
 
@@ -30,6 +31,7 @@ export async function updateEvent(id, formData) {
         url: formData.get('url') || "#",
         description: formData.get('description'),
         image: formData.get('image'),
+        finished: formData.get('finished') || false,
         time: formData.get('time'),
         max: formData.get('max-participants')
     };
