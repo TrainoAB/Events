@@ -146,3 +146,37 @@ export async function updateRuleById(rule, id) {
         .update(rule)
         .eq('id', id);
 }
+
+export async function getAllFaqs() {
+    return await databaseClient.from('faq').select();
+}
+
+export async function getFaqById(id) {
+    return await databaseClient.from('faq').select().eq('id', id).single();
+}
+
+export async function deleteFaq(id) {
+    return await databaseClient.from('faq').delete().eq('id', id);
+}
+
+export async function getAllFaqsById(eventId) {
+    return await databaseClient.from('faq').select().eq('eventId', eventId);
+}
+
+export async function getAllFaqsByUrl(eventUrl) {
+    const { data } = await databaseClient.from('events').select().eq('url', eventUrl).single();
+    return await databaseClient.from('faq').select().eq('eventId', data.id);
+}
+
+export async function insertFaq(faq) {
+    return await databaseClient
+        .from('faq')
+        .insert({ question: faq.question, answer: faq.answer });
+}
+
+export async function updateFaqById(faq, id) {
+    return await databaseClient
+        .from('faq')
+        .update(faq)
+        .eq('id', id);
+}
