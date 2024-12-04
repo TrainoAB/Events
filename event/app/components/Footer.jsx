@@ -1,8 +1,27 @@
+'use client';
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 import "./Footer.css";
 
 export default function Footer() {
+    const pathname = usePathname();
+    const [ finished, setFinished ] = useState(); 
+
+    useEffect(() => {
+        fetchEvent();
+    }, []);
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setFinished(event.finished);
+        }
+    }
+    
     return (
         <footer id="footer" className="flex-col align-c">
             <div className="footer-container max-width">
@@ -18,7 +37,9 @@ export default function Footer() {
                         <Link href="/triathlon/merch">Merch</Link>
                         <Link href="/triathlon/rules">Regler</Link>
                         <Link href="/triathlon/discounts">Rabatter</Link>
-                        <Link href="/triathlon/register">Registrera Mig</Link>
+                        { finished ? 
+                            <></> : <Link href="/triathlon/register">Registrera Mig</Link>
+                        }
                     </div>
                 </section>
                 <section className="organizer link-wrapper">

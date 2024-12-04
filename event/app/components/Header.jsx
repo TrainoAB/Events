@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
@@ -10,6 +10,19 @@ import "./Header.css";
 export default function Header() {
     const [ showMenu, setShowMenu ] = useState(false);
     const pathname = usePathname();
+    const [ finished, setFinished ] = useState(); 
+
+    useEffect(() => {
+        fetchEvent();
+    }, []);
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setFinished(event.finished);
+        }
+    }
 
     const handleShowMenu = () => {
         setShowMenu(!showMenu);
@@ -21,9 +34,16 @@ export default function Header() {
                 <div className="logo"></div>
 
                 <ul className={showMenu ? `header-list showmenu` : 'header-list'}>
-                    <li className={`${pathname === '/triathlon' ? 'header-list__element active' : 'header-list__element'}`}>
-                        <Link href="/triathlon">Start</Link>
-                    </li>
+                    { finished ? 
+                            <li className={`${pathname === '/triathlon/event-finished' ? 'header-list__element active' : 'header-list__element'}`}>
+                                <Link href="/triathlon/event-finished">Start</Link>
+                            </li>
+                            :
+                            <li className={`${pathname === '/triathlon' ? 'header-list__element active' : 'header-list__element'}`}>
+                                <Link href="/triathlon">Start</Link>
+                            </li>
+                    }
+
                     <li className={`${pathname === '/triathlon/about' ? 'header-list__element active' : 'header-list__element'}`}>
                         <Link href="/triathlon/about">Om Eventet</Link>
                     </li>
