@@ -180,3 +180,15 @@ export async function updateFaqById(faq, id) {
         .update(faq)
         .eq('id', id);
 }
+
+export async function insertSponsorApplication(application) {
+    return await databaseClient
+        .from('sponsor_application')
+        .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+}
+
+export async function insertVolunteerApplication(application) {
+    return await databaseClient
+    .from('volunteer_application')
+    .insert({ email: application.email, eventId: application.eventId });
+}

@@ -55,7 +55,7 @@ export default function TriathlonPage() {
                     <h1 className="video-container__title">Traino Triathlon</h1>
                     <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
                     {
-                    // TODO Participants are not separated by competition. Should be separated when showing registered participants.
+                    // TODO Participants are not separated by competition.
                     } 
                     { participants && event ? <RegisteredParticipants registered={participants.length} total={event.max} /> : <></> }
                     <div className="videocover"></div>

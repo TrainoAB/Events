@@ -1,6 +1,10 @@
+'use client';
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from 'next/navigation';
+import { createVolunteerApplication } from "@/app/actions/application";
 import ImageGallery from "@/app/components/ImageGallery";
 
 import "./page.css";
@@ -10,6 +14,21 @@ import "./page.css";
 const LOCATION_IMAGES = ["../next.svg", "../next.svg", "../next.svg", "../next.svg"];
 
 export default function AboutPage() {
+    const [ event, setEvent ] = useState();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        fetchEvent();
+    }, []);
+
+    const fetchEvent = async () => {
+        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const event = await response.json();
+            setEvent(event);
+        }
+    }
+
     return (
         <main id="aboutpage" className="max-width gap flex-col align-c">
             <div className="aboutpage-titles">
@@ -46,7 +65,7 @@ export default function AboutPage() {
             </div>
             <section className="volunteer flex-col align-c">
                 <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
-                <form className="volunteer-form flex-col align-c">
+                { event ? <form className="volunteer-form flex-col align-c" action={createVolunteerApplication.bind(null, event.id)}>
                     <div className="input-wrapper">
                         <label htmlFor="volunteer-email">Email</label>
                         <input id="volunteer-email" name="volunteer-email" type="email" required />
@@ -54,7 +73,7 @@ export default function AboutPage() {
                     <button className="volunteer-form__submit box-shadow" type="submit">
                         Anmäl mig
                     </button>
-                </form>
+                </form> : <></> }
             </section>
         </main>
     );
