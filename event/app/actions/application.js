@@ -5,7 +5,7 @@ import { insertSponsorApplication, insertVolunteerApplication } from "@/db/db";
 export async function createSponsorApplication(id, formData) {
     const application = {
         email: formData.get('email'),
-        phone: formData.get('phone'),
+        phone: formData.get('phonenumber'),
         eventId: id
     };
 
