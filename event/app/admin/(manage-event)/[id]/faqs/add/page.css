@@ -1,0 +1,40 @@
+#add-faq-page {
+    gap: var(--gap);
+    padding-block: var(--main-block-padding);
+    padding-inline: 0.5rem;
+
+    & .add-faq-page__title {
+        text-align: center;
+    }
+
+    & .add-faq-form {
+        gap: var(--gap);
+
+        & .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-gap);
+
+            & label::after {
+                content: "*";
+            }
+        }
+
+        & .add-faq-form__buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #add-faq-page {
+        & .add-faq-form {
+            & .add-faq-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
+    }
+}

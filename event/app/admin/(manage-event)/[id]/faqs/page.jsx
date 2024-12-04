@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Modal } from "@/app/components/Modal";
+import Accordion from "@/app/components/Accordion";
 
 import "./page.css";
 
-export default function ManageDiscountsPage({ params }) {
+export default function ManageFaqsPage({ params }) {
     const [ faq, setFaq ] = useState();
     const [ faqs, setFaqs ] = useState([]);
     const [ modalText, setModalText ] = useState("Är du säker på att du vill ta bort FAQn?");
@@ -47,10 +48,10 @@ export default function ManageDiscountsPage({ params }) {
     return (
         <main id="manage-faqs-page" className="flex-col align-c">
             <h1 className="manage-faqs-page__title">FAQ</h1>
-            <div className="faq-list flex-col">
+            <div className="faq-list flex-col gap">
                 {faqs ? faqs.map((faq, index) => (
-                    <div className="faq-wrapper">
-                        { faq.question }
+                    <div className="faq-wrapper" key={index}>
+                        <Accordion heading={faq.question} text={faq.answer} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(faq)}> Radera </button>
                     </div>
                 )) : <></> }
