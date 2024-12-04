@@ -34,6 +34,9 @@ export default function AdminHeader({ params }) {
                     <li className={`${pathname === `/admin/${params.id}/rules` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
                         <Link href={`/admin/${params.id}/rules`}>Regler</Link>
                     </li>
+                    <li className={`${pathname === `/admin/${params.id}/faqs` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
+                        <Link href={`/admin/${params.id}/faqs`}>FAQ</Link>
+                    </li>
                 </ul>
 
                 <div id="hamburger" onClick={handleShowMenu}>

@@ -54,7 +54,7 @@ export default function ManageRulesPage({ params }) {
     }
 
     const handleEditRule = (rule) => {
-        router.push(`/admin/${rule.eventId}/rules/${rule.id}/edit`);  
+        router.push(`/admin/${rule.eventId}/rules/${rule.id}/edit`);
     }
 
     return (
@@ -65,7 +65,7 @@ export default function ManageRulesPage({ params }) {
                     <div className="rule-wrapper" key={index}>
                         <section className="rule-section-wrapper max-width" onClick={() => handleEditRule(rule)}>
                             <div className="rule-number-wrapper">
-                                <h2 className="rule__number"> {setRuleNumber(rule.id)} </h2>
+                                <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
                                 <hr/>
                             </div>
                             <p className="rule__text"> {rule.rule} </p>

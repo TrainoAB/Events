@@ -1,11 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createRule } from "@/app/actions/rules";
+import { createRule } from "@/app/actions/rule";
 
 import "./page.css";
 
-export default function AddDiscountPage({ params }) {
+export default function AddRulePage({ params }) {
     const router = useRouter();
 
     const handleCancel = () => {
