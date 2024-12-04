@@ -133,3 +133,16 @@ export async function getAllRulesByUrl(eventUrl) {
     const { data } = await databaseClient.from('events').select().eq('url', eventUrl).single();
     return await databaseClient.from('rules').select().eq('eventId', data.id);
 }
+
+export async function insertRule(rule) {
+    return await databaseClient
+        .from('rules')
+        .insert({ rule: rule.rule });
+}
+
+export async function updateRuleById(rule, id) {
+    return await databaseClient
+        .from('rules')
+        .update(rule)
+        .eq('id', id);
+}

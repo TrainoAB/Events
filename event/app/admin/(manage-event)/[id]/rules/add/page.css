@@ -1,0 +1,40 @@
+#add-rule-page {
+    gap: var(--gap);
+    padding-block: var(--main-block-padding);
+    padding-inline: 0.5rem;
+
+    & .add-rule-page__title {
+        text-align: center;
+    }
+
+    & .add-rule-form {
+        gap: var(--gap);
+
+        & .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-gap);
+
+            & label::after {
+                content: "*";
+            }
+        }
+
+        & .add-rule-form__buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #add-rule-page {
+        & .add-rule-form {
+            & .add-rule-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
+    }
+}
