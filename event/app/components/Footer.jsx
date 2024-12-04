@@ -8,10 +8,13 @@ import "./Footer.css";
 
 export default function Footer() {
     const pathname = usePathname();
-    const [ finished, setFinished ] = useState(); 
+    const [ finished, setFinished ] = useState();
+    const [ maxParticipants, setMaxParticipants ] = useState();
+    const [ participants, setParticipants ] = useState();
 
     useEffect(() => {
         fetchEvent();
+        fetchParticipants();
     }, []);
 
     const fetchEvent = async () => {
@@ -19,6 +22,16 @@ export default function Footer() {
         if (response.status === 200) {
             const event = await response.json();
             setFinished(event.finished);
+            setMaxParticipants(event.max);
+        }
+    }
+
+    const fetchParticipants = async () => {
+        const response = await fetch('/api/participants');
+        if (response.status === 200) {
+            const participants = await response.json();
+            setParticipants(participants.length);
+
         }
     }
     
@@ -37,7 +50,7 @@ export default function Footer() {
                         <Link href="/triathlon/merch">Merch</Link>
                         <Link href="/triathlon/rules">Regler</Link>
                         <Link href="/triathlon/discounts">Rabatter</Link>
-                        { finished ? 
+                        { finished || (participants >= maxParticipants) ? 
                             <></> : <Link href="/triathlon/register">Registrera Mig</Link>
                         }
                     </div>
