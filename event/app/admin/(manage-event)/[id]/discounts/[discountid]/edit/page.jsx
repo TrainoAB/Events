@@ -1,5 +1,6 @@
 "use client";
 
+import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { updateDiscount } from "@/app/actions/discount";
@@ -7,8 +8,9 @@ import { updateDiscount } from "@/app/actions/discount";
 import "./page.css";
 
 export default function EditDiscountPage({ params }) {
-    const router = useRouter();
     const [ discount, setDiscount ] = useState();
+    const [state, formAction] = useFormState(updateDiscount.bind(null, params.discountid), { message: '' });
+    const router = useRouter();
 
     useEffect(() => {
         fetchDiscount();
@@ -26,15 +28,14 @@ export default function EditDiscountPage({ params }) {
         router.back();
     }
 
-    const handleConfirm = () => {
-        router.push(`/admin/${params.id}/discounts`);
-    }
-
     return (
         <main id="edit-discount-page" className="flex-col align-c">
             <h1 className="edit-discount-page__title">Redigera Rabatt</h1>
+            <h2 className="edit-discount-page__message">
+                {state?.message}
+            </h2>
 
-            { discount ? <form className="edit-discount-form flex-col" action={updateDiscount.bind(null, discount.id)}>
+            { discount ? <form className="edit-discount-form flex-col" action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="title">Rubrik</label>
                     <input id="title" name="title" type="text" defaultValue={discount.title} required />
@@ -71,7 +72,7 @@ export default function EditDiscountPage({ params }) {
 
                 <div className="edit-discount-form__buttons">
                     <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button onClick={handleConfirm}> Spara </button>
+                    <button> Spara </button>
                 </div>
             </form> : <></> }
         </main>

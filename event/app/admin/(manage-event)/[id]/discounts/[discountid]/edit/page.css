@@ -7,6 +7,10 @@
         text-align: center;
     }
 
+    & .edit-discount-page__message {
+        font-size: 2rem;
+    }
+
     & .edit-discount-form {
         gap: var(--gap);
 

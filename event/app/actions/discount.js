@@ -1,6 +1,5 @@
 'use server';
 
-import { revalidatePath } from "next/cache";
 import { updateDiscountById, insertDiscount } from "@/db/db";
 
 export async function createDiscount(id, prevState, formData) {
@@ -17,17 +16,16 @@ export async function createDiscount(id, prevState, formData) {
     // TODO: validate data
 
     const { error } = await insertDiscount(discount);
-    //revalidatePath("/");
     if (error) {
         console.log(error);
-        return { message: "Rabatten kunde inte skapas" };
+        return { message: "Rabatten kunde inte skapas." };
     } else {
         console.log('Created discount ' + JSON.stringify(discount));
         return { message: "Rabatten skapades." };
     }
 }
 
-export async function updateDiscount(id, formData) {
+export async function updateDiscount(id, prevState, formData) {
     const discount = {
         title: formData.get('title'),
         from: formData.get('from'),
@@ -42,7 +40,9 @@ export async function updateDiscount(id, formData) {
     const { error } = await updateDiscountById(discount, id);
     if (error) {
         console.log(error);
+        return { message: "Rabatten kunde inte uppdateras." };
     } else {
         console.log('Updated discount ' + JSON.stringify(discount));
+        return { message: "Rabatten har uppdaterats." };
     }
 }
