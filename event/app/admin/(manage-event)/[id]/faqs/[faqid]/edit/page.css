@@ -7,6 +7,10 @@
         text-align: center;
     }
 
+    & .edit-faq-page__message {
+        font-size: 2rem;
+    }
+
     & .edit-faq-form {
         gap: var(--gap);
 

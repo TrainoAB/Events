@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { updateFaq } from "@/app/actions/faq";
 
@@ -9,6 +10,7 @@ import "./page.css";
 export default function EditFaqPage({ params }) {
     const router = useRouter();
     const [ faq, setFaq ] = useState();
+    const [state, formAction] = useFormState(updateFaq.bind(null, params.faqid), { message: '' });
 
     useEffect(() => {
         fetchFaq();
@@ -26,15 +28,14 @@ export default function EditFaqPage({ params }) {
         router.back();
     }
 
-    const handleConfirm = () => {
-        router.push(`/admin/${params.id}/faqs`);
-    }
-
     return (
         <main id="edit-faq-page" className="flex-col align-c">
             <h1 className="edit-faq-page__title">Redigera FAQ</h1>
+            <h2 className="edit-faq-page__message">
+                {state?.message}
+            </h2>
 
-            { faq ? <form className="edit-faq-form flex-col" action={updateFaq.bind(null, faq.id)}>
+            { faq ? <form className="edit-faq-form flex-col" action={formAction}>
                         <div className="input-wrapper">
                             <label htmlFor="question">Fråga</label>
                             <textarea id="question" name="question" type="text" rows={10} cols={100} defaultValue={faq.question} required />
@@ -46,7 +47,7 @@ export default function EditFaqPage({ params }) {
 
                 <div className="edit-faq-form__buttons">
                     <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button onClick={handleConfirm}> Spara </button>
+                    <button> Spara </button>
                 </div>
             </form> : <></> }
         </main>
