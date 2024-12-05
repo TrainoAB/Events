@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { updateRule } from "@/app/actions/rule";
 
@@ -9,6 +10,7 @@ import "./page.css";
 export default function EditRulePage({ params }) {
     const router = useRouter();
     const [ rule, setRule ] = useState();
+    const [state, formAction] = useFormState(updateRule.bind(null, params.ruleid), { message: '' });
 
     useEffect(() => {
         fetchRule();
@@ -26,15 +28,14 @@ export default function EditRulePage({ params }) {
         router.back();
     }
 
-    const handleConfirm = () => {
-        router.push(`/admin/${params.id}/rules`);
-    }
-
     return (
         <main id="edit-rule-page" className="flex-col align-c">
             <h1 className="edit-rule-page__title">Redigera Regel</h1>
+            <h2 className="edit-rule-page__message">
+                {state?.message}
+            </h2>
 
-            { rule ? <form className="edit-rule-form flex-col" action={updateRule.bind(null, rule.id)}>
+            { rule ? <form className="edit-rule-form flex-col" action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="rule">Regel</label>
                     <textarea id="rule" name="rule" rows={10} cols={100} defaultValue={rule.rule} required />
@@ -42,7 +43,7 @@ export default function EditRulePage({ params }) {
 
                 <div className="edit-rule-form__buttons">
                     <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button onClick={handleConfirm}> Spara </button>
+                    <button> Spara </button>
                 </div>
             </form> : <></> }
         </main>

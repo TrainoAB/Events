@@ -1,26 +1,30 @@
 "use client";
 
+import { useRef } from "react";
+import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { createRule } from "@/app/actions/rule";
 
 import "./page.css";
 
 export default function AddRulePage({ params }) {
+    const [state, formAction] = useFormState(createRule.bind(null, params.id), { message: '' });
+    const formRef = useRef();
     const router = useRouter();
 
     const handleCancel = () => {
         router.back();
     }
 
-    const handleConfirm = () => {
-        router.push(`/admin/${params.id}/rules`);
-    }
-
     return (
         <main id="add-rule-page" className="flex-col align-c">
             <h1 className="add-rule-page__title">Lägg till Regel</h1>
+            <h2 className="add-rule-page__message">
+                {state?.message}
+                {state?.message ? formRef.current?.reset() : <></>}
+            </h2>
 
-            <form className="add-rule-form flex-col" action={createRule.bind(null, params.id)}>
+            <form className="add-rule-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="rule">Regel</label>
                     <textarea id="rule" name="rule" type="text" rows={10} cols={100} required />
@@ -28,7 +32,7 @@ export default function AddRulePage({ params }) {
 
                 <div className="add-rule-form__buttons">
                     <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button onClick={handleConfirm}> Lägg till </button>
+                    <button> Lägg till </button>
                 </div>
             </form>
         </main>

@@ -137,7 +137,7 @@ export async function getAllRulesByUrl(eventUrl) {
 export async function insertRule(rule) {
     return await databaseClient
         .from('rules')
-        .insert({ rule: rule.rule });
+        .insert({ rule: rule.rule, eventId: rule.eventId });
 }
 
 export async function updateRuleById(rule, id) {
@@ -171,7 +171,7 @@ export async function getAllFaqsByUrl(eventUrl) {
 export async function insertFaq(faq) {
     return await databaseClient
         .from('faq')
-        .insert({ question: faq.question, answer: faq.answer });
+        .insert({ question: faq.question, answer: faq.answer, eventId: faq.eventId });
 }
 
 export async function updateFaqById(faq, id) {

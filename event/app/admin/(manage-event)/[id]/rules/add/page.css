@@ -7,6 +7,10 @@
         text-align: center;
     }
 
+    & .add-rule-page__message {
+        font-size: 2rem;
+    }
+
     & .add-rule-form {
         gap: var(--gap);
 
