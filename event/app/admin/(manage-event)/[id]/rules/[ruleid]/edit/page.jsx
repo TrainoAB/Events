@@ -25,7 +25,7 @@ export default function EditRulePage({ params }) {
     }
 
     const handleCancel = () => {
-        router.back();
+        router.push(`/admin/${params.id}/rules`);
     }
 
     return (

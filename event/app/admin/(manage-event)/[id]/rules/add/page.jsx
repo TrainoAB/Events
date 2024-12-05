@@ -13,7 +13,7 @@ export default function AddRulePage({ params }) {
     const router = useRouter();
 
     const handleCancel = () => {
-        router.back();
+        router.push(`/admin/${params.id}/rules`);
     }
 
     return (

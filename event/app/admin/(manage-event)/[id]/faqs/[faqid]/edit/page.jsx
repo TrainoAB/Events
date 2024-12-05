@@ -25,7 +25,7 @@ export default function EditFaqPage({ params }) {
     }
 
     const handleCancel = () => {
-        router.back();
+        router.push(`/admin/${params.id}/faqs`);
     }
 
     return (
