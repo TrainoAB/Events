@@ -33,6 +33,8 @@ export default function ManageSponsorsPage({ params }) {
                         id,
                     }),
                 });
+                // Re-fetch sponsors to reflect new list
+                fetchSponsors();
             } catch (error) {
                 DEBUG && console.error(error);
             }
@@ -40,47 +42,56 @@ export default function ManageSponsorsPage({ params }) {
         deleteSponsor(sponsor.id);
     };
 
+    // Fetch and set sponsors
+    const fetchSponsors = async () => {
+        try {
+            // Fetch sponsors for specific event id
+            const res = await fetch(`${BASE_URL}/api/sponsors?id=${params.id}`);
+
+            if (!res.ok) {
+                throw new Error("Failed to fetch sponsors");
+            }
+
+            const sponsorsData = await res.json();
+
+            // Overwrite sponsor url to allow for editing (only on admin page)
+            sponsorsData.map(
+                (sponsor) => (sponsor.url = `/admin/${sponsor.eventId}/sponsors/${sponsor.id}/edit`)
+            );
+            setSponsors(sponsorsData);
+
+            DEBUG && console.log("Fetched sponsors:", sponsorsData);
+        } catch (error) {
+            DEBUG && console.error(error);
+        }
+    };
+
     // Get all sponsors for a specific event
     useEffect(() => {
-        const fetchSponsors = async () => {
-            try {
-                // Fetch sponsors for specific event id
-                const res = await fetch(`${BASE_URL}/api/sponsors?id=${params.id}`);
-
-                if (!res.ok) {
-                    throw new Error("Failed to fetch sponsors");
-                }
-
-                const sponsorsData = await res.json();
-                
-                // Overwrite sponsor url to allow for editing (only on admin page)
-                sponsorsData.map(sponsor => (
-                    sponsor.url = `/admin/${sponsor.eventId}/sponsors/${sponsor.id}/edit`
-                ))
-                setSponsors(sponsorsData);
-
-                DEBUG && console.log("Fetched sponsors:", sponsorsData);
-            } catch (error) {
-                DEBUG && console.error(error);
-            }
-        };
         fetchSponsors();
     }, []);
 
     return (
         <main id="manage-sponsors-page" className="gap flex-col align-c">
-            <h1 className="manage-sponsors__title">Sponsorer: {params.id}</h1>
+            <h1 className="manage-sponsors__title">Sponsorer</h1>
 
-            <section className="sponsors max-width flex-col">
-                {sponsors.map((sponsor, index) => (
-                    <div className="sponsor-wrapper flex-col" key={index}>
-                        <SponsorCard sponsor={sponsor} />
-                        <button className="delete-btn" onClick={() => handleDeleteClick(sponsor)}>
-                            Radera
-                        </button>
-                    </div>
-                ))}
-            </section>
+            {sponsors.length > 0 ? (
+                <section className="sponsors max-width flex-col">
+                    {sponsors.map((sponsor, index) => (
+                        <div className="sponsor-wrapper flex-col" key={index}>
+                            <SponsorCard sponsor={sponsor} />
+                            <button
+                                className="delete-btn"
+                                onClick={() => handleDeleteClick(sponsor)}
+                            >
+                                Radera
+                            </button>
+                        </div>
+                    ))}
+                </section>
+            ) : (
+                <p>No sponsors for this event yet.</p>
+            )}
 
             <Modal title={modalText} handleConfirm={handleConfirm} />
 

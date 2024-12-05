@@ -3,6 +3,7 @@
     padding-block: var(--main-block-padding);
 
     & .sponsors {
+        width: 100%;
         gap: var(--gap);
 
         & .sponsors__title {
