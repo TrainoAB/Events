@@ -55,7 +55,7 @@ export default function ManageFaqsPage({ params }) {
         <main id="manage-faqs-page" className="flex-col align-c">
             <h1 className="manage-faqs-page__title">FAQ</h1>
             <div className="faq-list flex-col gap">
-                {faqs ? faqs.map((faq, index) => (
+                {faqs?.length > 0 ? faqs.map((faq, index) => (
                     <div className="faq-wrapper" key={index}>
                         <Accordion heading={faq.question} text={faq.answer} />
                         <div className="faq-buttons">
@@ -63,7 +63,9 @@ export default function ManageFaqsPage({ params }) {
                             <button className="edit-btn" onClick={() => handleEditClick(faq)}> Redigera </button>
                         </div>
                     </div>
-                )) : <></> }
+                )) : (
+                    <p>Inga FAQs finns än för detta event.</p>
+                )}
             </div>
 
             <Modal title={modalText} handleConfirm={handleConfirm} />

@@ -61,7 +61,7 @@ export default function ManageRulesPage({ params }) {
         <main id="manage-rules-page" className="flex-col align-c">
             <h1 className="manage-rules-page__title">Regler</h1>
             <div className="rule-list flex-col">
-                {rules ? rules.map((rule, index) => (
+                {rules?.length > 0 ? rules.map((rule, index) => (
                     <div className="rule-wrapper" key={index}>
                         <section className="rule-section-wrapper max-width" onClick={() => handleEditRule(rule)}>
                             <div className="rule-number-wrapper">
@@ -72,7 +72,9 @@ export default function ManageRulesPage({ params }) {
                         </section>
                         <button className="delete-btn" onClick={() => handleDeleteClick(rule)}> Radera </button>
                     </div>
-                )) : <></> }
+                )) : (
+                    <p>Inga regler finns än för detta event.</p>
+                )}
             </div>
 
             <Modal title={modalText} handleConfirm={handleConfirm} />
