@@ -13,7 +13,7 @@ export default function AddDiscountPage({ params }) {
     const router = useRouter();
 
     const handleCancel = () => {
-        router.back();
+        router.push(`/admin/${params.id}/discounts`);
     }
 
     return (

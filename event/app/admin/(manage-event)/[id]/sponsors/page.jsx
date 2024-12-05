@@ -90,7 +90,7 @@ export default function ManageSponsorsPage({ params }) {
                     ))}
                 </section>
             ) : (
-                <p>No sponsors for this event yet.</p>
+                <p>Inga sponsorer finns än för detta event.</p>
             )}
 
             <Modal title={modalText} handleConfirm={handleConfirm} />

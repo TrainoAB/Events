@@ -5,15 +5,18 @@
 
     & .faq-list {
         gap: var(--large-gap);
+        width: 80%;
 
         & .faq-wrapper {
             display: flex;
             flex-direction: column;
             gap: var(--gap);
+            align-items: center;
 
             & .faq-buttons {
                 display: flex;
                 justify-content: space-between;
+                width: 80%;
             }
         }
     }

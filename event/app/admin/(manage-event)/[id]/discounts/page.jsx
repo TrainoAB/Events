@@ -52,12 +52,12 @@ export default function ManageDiscountsPage({ params }) {
         <main id="manage-discounts-page" className="flex-col align-c">
             <h1 className="manage-discounts-page__title">Rabatter</h1>
             <div className="discount-list flex-col">
-                {discounts ? discounts.map((discount, index) => (
+                {discounts?.length > 0 ? discounts.map((discount, index) => (
                     <div className="discount-wrapper" key={index}>
                         <DiscountCard discount={discount} />
                         <button className="delete-btn" onClick={() => handleDeleteClick(discount)}> Radera </button>
                     </div>
-                )) : <></> }
+                )) : (<p>Inga rabatter finns än för detta event.</p>) }
             </div>
 
             <Modal title={modalText} handleConfirm={handleConfirm} />

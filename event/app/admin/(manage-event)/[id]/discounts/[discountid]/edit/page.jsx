@@ -25,7 +25,7 @@ export default function EditDiscountPage({ params }) {
     }
 
     const handleCancel = () => {
-        router.back();
+        router.push(`/admin/${params.id}/discounts`);
     }
 
     return (
