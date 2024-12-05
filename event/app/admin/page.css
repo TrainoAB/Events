@@ -13,6 +13,7 @@
 
         & .event-wrapper {
             gap: var(--gap);
+            justify-content: space-between;
         }
     }
 
