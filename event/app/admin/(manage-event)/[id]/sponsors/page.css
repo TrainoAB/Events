@@ -6,6 +6,7 @@
     }
 
     & .sponsors {
+        width: 100%;
         gap: var(--gap);
 
         & .sponsor-wrapper {
