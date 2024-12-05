@@ -2,7 +2,7 @@
 
 import { updateDiscountById, insertDiscount } from "@/db/db";
 
-export async function createDiscount(id, formData) {
+export async function createDiscount(id, prevState, formData) {
     const discount = {
         title: formData.get('title'),
         from: formData.get('from'),
@@ -18,12 +18,14 @@ export async function createDiscount(id, formData) {
     const { error } = await insertDiscount(discount);
     if (error) {
         console.log(error);
+        return { message: "Rabatten kunde inte skapas." };
     } else {
         console.log('Created discount ' + JSON.stringify(discount));
+        return { message: "Rabatten skapades." };
     }
 }
 
-export async function updateDiscount(id, formData) {
+export async function updateDiscount(id, prevState, formData) {
     const discount = {
         title: formData.get('title'),
         from: formData.get('from'),
@@ -38,7 +40,9 @@ export async function updateDiscount(id, formData) {
     const { error } = await updateDiscountById(discount, id);
     if (error) {
         console.log(error);
+        return { message: "Rabatten kunde inte uppdateras." };
     } else {
         console.log('Updated discount ' + JSON.stringify(discount));
+        return { message: "Rabatten har uppdaterats." };
     }
 }

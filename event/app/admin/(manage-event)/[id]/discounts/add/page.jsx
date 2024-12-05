@@ -1,26 +1,30 @@
 "use client";
 
+import { useRef } from "react";
+import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { createDiscount } from "@/app/actions/discount";
 
 import "./page.css";
 
 export default function AddDiscountPage({ params }) {
+    const [state, formAction] = useFormState(createDiscount.bind(null, params.id), { message: '' });
+    const formRef = useRef();
     const router = useRouter();
 
     const handleCancel = () => {
         router.back();
     }
 
-    const handleConfirm = () => {
-        router.push(`/admin/${params.id}/discounts`);
-    }
-
     return (
         <main id="add-discount-page" className="flex-col align-c">
             <h1 className="add-discount-page__title">Lägg till Rabatt</h1>
+            <h2 className="add-discount-page__message">
+                {state?.message}
+                {state?.message ? formRef.current?.reset() : <></>}
+            </h2>
 
-            <form className="add-discount-form flex-col" action={createDiscount.bind(null, params.id)}>
+            <form className="add-discount-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="title">Rubrik</label>
                     <input id="title" name="title" type="text" required />
@@ -56,7 +60,7 @@ export default function AddDiscountPage({ params }) {
 
                 <div className="add-discount-form__buttons">
                     <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button onClick={handleConfirm}> Lägg till </button>
+                    <button> Lägg till </button>
                 </div>
             </form>
         </main>
