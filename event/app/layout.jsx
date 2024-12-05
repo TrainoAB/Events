@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { TrainoContextProvider } from "./context/TrainoContext";
-import DevLogin from "./components/DevLogin";
+import AuthLogin from "./components/AuthLogin";
+import DevLoginForm from "./components/DevLoginForm";
 
 import "./globals.css";
 
@@ -16,7 +17,13 @@ export default function RootLayout({ children }) {
         <TrainoContextProvider>
             <html lang="en">
                 <body className={inter.className}>
-                    <DevLogin>{children}</DevLogin>
+                    <AuthLogin
+                        FormComponent={DevLoginForm}
+                        cookie={"password"}
+                        envPassword={"PASSWORD"}
+                    >
+                        {children}
+                    </AuthLogin>
                 </body>
             </html>
         </TrainoContextProvider>

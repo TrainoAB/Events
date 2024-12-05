@@ -50,7 +50,7 @@ export default function AdminLoginForm() {
     };
 
     return (
-        <div className="admin-login-form max-width flex-col align-c gap">
+        <div className="admin-login-form max-width flex-col align-c">
             <h1 className="admin-login__title">Admin Login</h1>
             <form
                 className="admin-login-form__form flex-col align-c"

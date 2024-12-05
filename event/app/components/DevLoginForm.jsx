@@ -9,7 +9,9 @@ export default function DevLoginForm() {
 
     const router = useRouter();
 
-    const handleSetPassword = async () => {
+    const handleSetPassword = async (e) => {
+        e.preventDefault();
+        
         try {
             const response = await fetch(`/api/login?password=${password}`);
             const data = await response.json();
@@ -29,17 +31,19 @@ export default function DevLoginForm() {
     };
 
     return (
-        <div className="dev-login flex-col align-c">
+        <div className="dev-login-form flex-col align-c">
             <h1>Password</h1>
 
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-            />
+            <form className="dev-login-form__form flex-col" onSubmit={handleSetPassword}>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter password"
+                />
 
-            <button onClick={handleSetPassword}>Enter</button>
+                <button type="sumbit">Enter</button>
+            </form>
         </div>
     );
 }

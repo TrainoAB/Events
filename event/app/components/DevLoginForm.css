@@ -1,11 +1,15 @@
-.dev-login {
+.dev-login-form {
     width: 50%;
     height: 100vh;
     justify-content: center;
     gap: var(--gap);
     margin-inline: auto;
 
-    & input {
-        width: 35ch;
+    & .dev-login-form__form {
+        gap: var(--gap);
+        
+        & input {
+            width: 35ch;
+        }
     }
 }

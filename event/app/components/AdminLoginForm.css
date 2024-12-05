@@ -4,6 +4,7 @@
     height: 100%;
     width: 50%;
     position: relative;
+    gap: var(--gap);
 
     & .admin-login-form__form {
         gap: var(--gap);
