@@ -1,0 +1,11 @@
+.event-indicator {
+    margin-block: 1rem;
+    background-color: var(--secondary-light-grey-alternative);
+    padding: 0.5rem;
+    text-align: center;
+    box-shadow: 0 4px 4px var(--shadow-color);
+
+    & span {
+        font-weight: bold;
+    }
+}
