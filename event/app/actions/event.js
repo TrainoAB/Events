@@ -24,7 +24,7 @@ export async function createEvent(formData) {
     }
 }
 
-export async function updateEvent(id, formData) {
+export async function updateEvent(id, prevState, formData) {
     const event = {
         competition: formData.get('event'),
         date: formData.get('date'),
@@ -41,7 +41,9 @@ export async function updateEvent(id, formData) {
     const { error } = await updateEventById(event, id);
     if (error) {
         console.log(error);
+        return { message: "Eventet kunde inte uppdateras.", success: false };
     } else {
         console.log('Updated event ' + JSON.stringify(event));
+        return { message: "Eventet har uppdaterats.", success: true };
     }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { updateEvent } from "@/app/actions/event";
 
@@ -9,6 +10,7 @@ import "./page.css";
 export default function EditEventPage({ params }) {
     const router = useRouter();
     const [ event, setEvent ] = useState();
+    const [state, formAction] = useFormState(updateEvent.bind(null, params.id), { message: '', success: false });
 
     useEffect(() => {
         fetchEvent();
@@ -26,15 +28,14 @@ export default function EditEventPage({ params }) {
         router.push("/admin");
     }
 
-    const handleConfirm = () => {
-        router.push("/admin");
-    }
-
     return (
         <main id="edit-event-page" className="flex-col align-c">
             <h1 className="edit-event-page__title">Redigera eventet</h1>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
+                {state?.message}
+            </h2> : <></> }
 
-            { event ? <form className="edit-event-form flex-col" action={updateEvent.bind(null, event.id)}>
+            { event ? <form className="edit-event-form flex-col" action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="event">Event</label>
                     <input id="event" name="event" type="text" defaultValue={event.competition} required />
@@ -79,7 +80,7 @@ export default function EditEventPage({ params }) {
 
                 <div className="edit-event-form__buttons">
                     <button type="reset" onClick={handleCancel}> Avbryt </button>
-                    <button onClick={handleConfirm}> Spara </button>
+                    <button> Spara </button>
                 </div>
             </form> : <></> }
         </main>
