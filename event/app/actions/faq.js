@@ -14,10 +14,10 @@ export async function createFaq(id, prevState, formData) {
     const { error } = await insertFaq(faq);
     if (error) {
         console.log(error);
-        return { message: "FAQn kunde inte skapas." };
+        return { message: "FAQn kunde inte skapas.", success: false };
     } else {
         console.log('Created faq ' + JSON.stringify(faq));
-        return { message: "FAQn har blivit skapad." };
+        return { message: "FAQn har blivit skapad.", success: true };
     }
 }
 
@@ -32,9 +32,9 @@ export async function updateFaq(id, prevState, formData) {
     const { error } = await updateFaqById(faq, id);
     if (error) {
         console.log(error);
-        return { message: "FAQn kunde inte uppdateras." };
+        return { message: "FAQn kunde inte uppdateras.", success: false };
     } else {
         console.log('Updated faq ' + JSON.stringify(faq));
-        return { message: "FAQn har blivit uppdaterad." };
+        return { message: "FAQn har blivit uppdaterad.", success: true };
     }
 }

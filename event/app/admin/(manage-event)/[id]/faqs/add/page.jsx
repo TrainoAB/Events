@@ -8,7 +8,7 @@ import { createFaq } from "@/app/actions/faq";
 import "./page.css";
 
 export default function AddFaqPage({ params }) {
-    const [state, formAction] = useFormState(createFaq.bind(null, params.id), { message: '' });
+    const [state, formAction] = useFormState(createFaq.bind(null, params.id), { message: '', success: false });
     const formRef = useRef();
     const router = useRouter();
 
@@ -19,10 +19,10 @@ export default function AddFaqPage({ params }) {
     return (
         <main id="add-faq-page" className="flex-col align-c">
             <h1 className="add-faq-page__title">Lägg till FAQ</h1>
-            <h2 className="add-faq-page__message">
+            { state?.message ? <h2 className={state?.success ? "add-faq-page__message-success" : "add-faq-page__message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
-            </h2>
+            </h2> : <></> }
 
             <form className="add-faq-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
