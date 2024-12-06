@@ -68,7 +68,7 @@ export default function AboutPage() {
             </div>
             <section className="volunteer flex-col align-c">
                 <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
-                { state?.message ? <h2 className={state?.success ? "volunteer__message-success" : "volunteer__message-failure"}>
+                { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
             </h2> : <></> }

@@ -19,7 +19,7 @@ export default function AddFaqPage({ params }) {
     return (
         <main id="add-faq-page" className="flex-col align-c">
             <h1 className="add-faq-page__title">Lägg till FAQ</h1>
-            { state?.message ? <h2 className={state?.success ? "add-faq-page__message-success" : "add-faq-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
             </h2> : <></> }

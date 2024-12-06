@@ -42,7 +42,7 @@ export default function RegisterPage() {
     return (
         <main id="registerpage" className="max-width gap flex-col align-c">
             <h1 className="register-title">Registrera</h1>
-            { state?.message ? <h2 className={state?.success ? "register-page__message-success" : "register-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
             </h2> : <></> }

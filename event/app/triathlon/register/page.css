@@ -3,25 +3,6 @@
     padding-block: var(--main-block-padding);
     width: 100%;
 
-    & .register-page__message-success, .register-page__message-failure {
-        font-size: 2rem;
-        font-weight: bold;
-        border-radius: var(--radius);
-        padding: 1rem;
-    }
-
-    & .register-page__message-success {
-        color: var(--success-col);
-        border: 2px solid var(--success-col);
-        background-color: hsl(from var(--success-col) h s l / 0.2);
-    }
-
-    & .register-page__message-failure {
-        color: var(--warning-col);
-        border: 2px solid var(--warning-col);
-        background-color: hsl(from var(--warning-col) h s l / 0.2);
-    }
-
     & .register-form {
         gap: var(--gap);
         width: 80%;

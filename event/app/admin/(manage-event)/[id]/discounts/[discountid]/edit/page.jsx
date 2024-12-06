@@ -31,7 +31,7 @@ export default function EditDiscountPage({ params }) {
     return (
         <main id="edit-discount-page" className="flex-col align-c">
             <h1 className="edit-discount-page__title">Redigera Rabatt</h1>
-            { state?.message ? <h2 className={state?.success ? "edit-discount-page__message-success" : "edit-discount-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
             </h2> : <></> }
 
