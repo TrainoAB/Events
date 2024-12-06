@@ -7,14 +7,23 @@
         text-align: center;
     }
 
-    & .add-discount-page__message {
+    & .add-discount-page__message-success, .add-discount-page__message-failure {
         font-size: 2rem;
-        color: var(--success-col);
         font-weight: bold;
-        border: 2px solid var(--success-col);
         border-radius: var(--radius);
         padding: 1rem;
+    }
+
+    & .add-discount-page__message-success {
+        color: var(--success-col);
+        border: 2px solid var(--success-col);
         background-color: hsl(from var(--success-col) h s l / 0.2);
+    }
+
+    & .add-discount-page__message-failure {
+        color: var(--warning-col);
+        border: 2px solid var(--warning-col);
+        background-color: hsl(from var(--warning-col) h s l / 0.2);
     }
 
     & .add-discount-form {

@@ -9,7 +9,7 @@ import "./page.css";
 
 export default function EditDiscountPage({ params }) {
     const [ discount, setDiscount ] = useState();
-    const [state, formAction] = useFormState(updateDiscount.bind(null, params.discountid), { message: '' });
+    const [state, formAction] = useFormState(updateDiscount.bind(null, params.discountid), { message: '', success: false });
     const router = useRouter();
 
     useEffect(() => {
@@ -31,9 +31,9 @@ export default function EditDiscountPage({ params }) {
     return (
         <main id="edit-discount-page" className="flex-col align-c">
             <h1 className="edit-discount-page__title">Redigera Rabatt</h1>
-            <h2 className={state?.message ? "edit-discount-page__message" : ""}>
+            { state?.message ? <h2 className={state?.success ? "edit-discount-page__message-success" : "edit-discount-page__message-failure"}>
                 {state?.message}
-            </h2>
+            </h2> : <></> }
 
             { discount ? <form className="edit-discount-form flex-col" action={formAction}>
                 <div className="input-wrapper">

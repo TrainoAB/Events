@@ -18,10 +18,10 @@ export async function createDiscount(id, prevState, formData) {
     const { error } = await insertDiscount(discount);
     if (error) {
         console.log(error);
-        return { message: "Rabatten kunde inte skapas." };
+        return { message: "Rabatten kunde inte skapas.", success: false};
     } else {
         console.log('Created discount ' + JSON.stringify(discount));
-        return { message: "Rabatten skapades." };
+        return { message: "Rabatten skapades.", success: true };
     }
 }
 
@@ -40,9 +40,9 @@ export async function updateDiscount(id, prevState, formData) {
     const { error } = await updateDiscountById(discount, id);
     if (error) {
         console.log(error);
-        return { message: "Rabatten kunde inte uppdateras." };
+        return { message: "Rabatten kunde inte uppdateras.", success: false };
     } else {
         console.log('Updated discount ' + JSON.stringify(discount));
-        return { message: "Rabatten har uppdaterats." };
+        return { message: "Rabatten har uppdaterats.", success: true };
     }
 }
