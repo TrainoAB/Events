@@ -23,7 +23,8 @@ export async function createSponsorApplication(id, prevState, formData) {
 
 export async function createVolunteerApplication(id, prevState, formData) {
     const application = {
-        email: formData.get('volunteer-email'),
+        email: formData.get('email'),
+        phone: formData.get('phonenumber'),
         eventId: id
     };
 

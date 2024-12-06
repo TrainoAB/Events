@@ -249,5 +249,5 @@ export async function insertSponsorApplication(application) {
 export async function insertVolunteerApplication(application) {
     return await databaseClient
     .from(VOLUNTEER_APPLICATION_TABLE)
-    .insert({ email: application.email, eventId: application.eventId });
+    .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
 }

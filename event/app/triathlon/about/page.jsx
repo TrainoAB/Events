@@ -74,8 +74,12 @@ export default function AboutPage() {
             </h2> : <></> }
                 { event ? <form className="volunteer-form flex-col align-c" ref={formRef} action={formAction}>
                     <div className="input-wrapper">
-                        <label htmlFor="volunteer-email">Email</label>
-                        <input id="volunteer-email" name="volunteer-email" type="email" required />
+                        <label htmlFor="email">Email</label>
+                        <input id="email" name="email" type="email" required />
+                    </div>
+                    <div className="input-wrapper">
+                        <label htmlFor="phonenumber">Telefonnummer</label>
+                        <input id="phonenumber" name="phonenumber" type="tel" required />
                     </div>
                     <button className="volunteer-form__submit box-shadow" type="submit">
                         Anmäl mig
