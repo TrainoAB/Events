@@ -9,6 +9,12 @@
 
     & .edit-discount-page__message {
         font-size: 2rem;
+        color: var(--success-col);
+        font-weight: bold;
+        border: 2px solid var(--success-col);
+        border-radius: var(--radius);
+        padding: 1rem;
+        background-color: hsl(from var(--success-col) h s l / 0.2);
     }
 
     & .edit-discount-form {

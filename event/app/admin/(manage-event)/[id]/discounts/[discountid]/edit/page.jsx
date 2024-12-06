@@ -31,7 +31,7 @@ export default function EditDiscountPage({ params }) {
     return (
         <main id="edit-discount-page" className="flex-col align-c">
             <h1 className="edit-discount-page__title">Redigera Rabatt</h1>
-            <h2 className="edit-discount-page__message">
+            <h2 className={state?.message ? "edit-discount-page__message" : ""}>
                 {state?.message}
             </h2>
 
