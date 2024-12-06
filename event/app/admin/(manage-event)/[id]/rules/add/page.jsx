@@ -19,7 +19,7 @@ export default function AddRulePage({ params }) {
     return (
         <main id="add-rule-page" className="flex-col align-c">
             <h1 className="add-rule-page__title">Lägg till Regel</h1>
-            { state?.message ? <h2 className={state?.success ? "add-rule-page__message-success" : "add-rule-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
             </h2> : <></> }

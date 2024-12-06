@@ -31,7 +31,7 @@ export default function EditRulePage({ params }) {
     return (
         <main id="edit-rule-page" className="flex-col align-c">
             <h1 className="edit-rule-page__title">Redigera Regel</h1>
-            { state?.message ? <h2 className={state?.success ? "edit-rule-page__message-success" : "edit-rule-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
             </h2> : <></> }
 

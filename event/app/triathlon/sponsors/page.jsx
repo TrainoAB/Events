@@ -56,7 +56,7 @@ export default function SponsorsPage() {
                 <p className="sponsor-event__cta">
                     Fyll i er kontaktinformation så kontaktar vi er.
                 </p>
-                { state?.message ? <h2 className={state?.success ? "sponsor-event__message-success" : "sponsor-event__message-failure"}>
+                { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
             </h2> : <></> }

@@ -31,7 +31,7 @@ export default function EditFaqPage({ params }) {
     return (
         <main id="edit-faq-page" className="flex-col align-c">
             <h1 className="edit-faq-page__title">Redigera FAQ</h1>
-            { state?.message ? <h2 className={state?.success ? "edit-faq-page__message-success" : "edit-faq-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
             </h2> : <></> }
 

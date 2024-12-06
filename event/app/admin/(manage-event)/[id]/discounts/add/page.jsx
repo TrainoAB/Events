@@ -19,7 +19,7 @@ export default function AddDiscountPage({ params }) {
     return (
         <main id="add-discount-page" className="flex-col align-c">
             <h1 className="add-discount-page__title">Lägg till Rabatt</h1>
-            { state?.message ? <h2 className={state?.success ? "add-discount-page__message-success" : "add-discount-page__message-failure"}>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
             </h2> : <></> }
