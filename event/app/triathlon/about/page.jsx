@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
@@ -16,6 +17,8 @@ const LOCATION_IMAGES = ["../next.svg", "../next.svg", "../next.svg", "../next.s
 export default function AboutPage() {
     const [ event, setEvent ] = useState();
     const pathname = usePathname();
+    const formRef = useRef();
+    const [state, formAction] = useFormState(createVolunteerApplication.bind(null, event?.id), { message: '', success: false });
 
     useEffect(() => {
         fetchEvent();
@@ -65,7 +68,11 @@ export default function AboutPage() {
             </div>
             <section className="volunteer flex-col align-c">
                 <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
-                { event ? <form className="volunteer-form flex-col align-c" action={createVolunteerApplication.bind(null, event.id)}>
+                { state?.message ? <h2 className={state?.success ? "volunteer__message-success" : "volunteer__message-failure"}>
+                {state?.message}
+                {state?.message ? formRef.current?.reset() : <></>}
+            </h2> : <></> }
+                { event ? <form className="volunteer-form flex-col align-c" ref={formRef} action={formAction}>
                     <div className="input-wrapper">
                         <label htmlFor="volunteer-email">Email</label>
                         <input id="volunteer-email" name="volunteer-email" type="email" required />
