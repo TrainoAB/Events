@@ -2,7 +2,7 @@
 
 import { insertSponsorApplication, insertVolunteerApplication } from "@/db/db";
 
-export async function createSponsorApplication(id, formData) {
+export async function createSponsorApplication(id, prevState, formData) {
     const application = {
         email: formData.get('email'),
         phone: formData.get('phonenumber'),
@@ -14,12 +14,14 @@ export async function createSponsorApplication(id, formData) {
     const { error } = await insertSponsorApplication(application);
     if (error) {
         console.log(error);
+        return { message: "Du ansökan kunde inte registreras", success: false };
     } else {
         console.log('Created sponsor application ' + JSON.stringify(application));
+        return { message: "Du ansökan om att få bli sponsor har blivit registrerad", success: true };
     }
 }
 
-export async function createVolunteerApplication(id, formData) {
+export async function createVolunteerApplication(id, prevState, formData) {
     const application = {
         email: formData.get('volunteer-email'),
         eventId: id
@@ -30,7 +32,9 @@ export async function createVolunteerApplication(id, formData) {
     const { error } = await insertVolunteerApplication(application);
     if (error) {
         console.log(error);
+        return { message: "Din ansökan kunde inte registreras", success: false };
     } else {
         console.log('Created volunteer application ' + JSON.stringify(application));
+        return { message: "Du ansökan om att få bli volontär har blivit registrerad", success: true };
     }
 }
