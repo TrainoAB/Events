@@ -8,7 +8,7 @@ import { createRule } from "@/app/actions/rule";
 import "./page.css";
 
 export default function AddRulePage({ params }) {
-    const [state, formAction] = useFormState(createRule.bind(null, params.id), { message: '' });
+    const [state, formAction] = useFormState(createRule.bind(null, params.id), { message: '', success: false });
     const formRef = useRef();
     const router = useRouter();
 
@@ -19,10 +19,10 @@ export default function AddRulePage({ params }) {
     return (
         <main id="add-rule-page" className="flex-col align-c">
             <h1 className="add-rule-page__title">Lägg till Regel</h1>
-            <h2 className="add-rule-page__message">
+            { state?.message ? <h2 className={state?.success ? "add-rule-page__message-success" : "add-rule-page__message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
-            </h2>
+            </h2> : <></> }
 
             <form className="add-rule-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">

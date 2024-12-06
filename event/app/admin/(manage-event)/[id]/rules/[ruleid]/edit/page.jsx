@@ -10,7 +10,7 @@ import "./page.css";
 export default function EditRulePage({ params }) {
     const router = useRouter();
     const [ rule, setRule ] = useState();
-    const [state, formAction] = useFormState(updateRule.bind(null, params.ruleid), { message: '' });
+    const [state, formAction] = useFormState(updateRule.bind(null, params.ruleid), { message: '', success: false });
 
     useEffect(() => {
         fetchRule();
@@ -31,9 +31,9 @@ export default function EditRulePage({ params }) {
     return (
         <main id="edit-rule-page" className="flex-col align-c">
             <h1 className="edit-rule-page__title">Redigera Regel</h1>
-            <h2 className="edit-rule-page__message">
+            { state?.message ? <h2 className={state?.success ? "edit-rule-page__message-success" : "edit-rule-page__message-failure"}>
                 {state?.message}
-            </h2>
+            </h2> : <></> }
 
             { rule ? <form className="edit-rule-form flex-col" action={formAction}>
                 <div className="input-wrapper">
