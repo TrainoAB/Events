@@ -19,6 +19,9 @@ export async function createParticipant(prevState, formData) {
     const { error } = await insertParticipant(participant);
     if (error) {
         console.log(error);
+        if (error.code == '23505') {
+            return { message: `${participant.email} är redan anmäld till tävlingen`, success: false };
+        }
         return { message: "Du kunde inte registreras som deltagare", success: false };
     } else {
         console.log('Created participant ' + JSON.stringify(participant));
