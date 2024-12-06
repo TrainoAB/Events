@@ -8,7 +8,7 @@ import { createDiscount } from "@/app/actions/discount";
 import "./page.css";
 
 export default function AddDiscountPage({ params }) {
-    const [state, formAction] = useFormState(createDiscount.bind(null, params.id), { message: '' });
+    const [state, formAction] = useFormState(createDiscount.bind(null, params.id), { message: '', success: false });
     const formRef = useRef();
     const router = useRouter();
 
@@ -19,10 +19,10 @@ export default function AddDiscountPage({ params }) {
     return (
         <main id="add-discount-page" className="flex-col align-c">
             <h1 className="add-discount-page__title">Lägg till Rabatt</h1>
-            <h2 className="add-discount-page__message">
+            { state?.message ? <h2 className={state?.success ? "add-discount-page__message-success" : "add-discount-page__message-failure"}>
                 {state?.message}
                 {state?.message ? formRef.current?.reset() : <></>}
-            </h2>
+            </h2> : <></> }
 
             <form className="add-discount-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">

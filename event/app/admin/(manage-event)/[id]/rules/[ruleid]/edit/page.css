@@ -7,8 +7,23 @@
         text-align: center;
     }
 
-    & .edit-rule-page__message {
+    & .edit-rule-page__message-success, .edit-rule-page__message-failure {
         font-size: 2rem;
+        font-weight: bold;
+        border-radius: var(--radius);
+        padding: 1rem;
+    }
+
+    & .edit-rule-page__message-success {
+        color: var(--success-col);
+        border: 2px solid var(--success-col);
+        background-color: hsl(from var(--success-col) h s l / 0.2);
+    }
+
+    & .edit-rule-page__message-failure {
+        color: var(--warning-col);
+        border: 2px solid var(--warning-col);
+        background-color: hsl(from var(--warning-col) h s l / 0.2);
     }
 
     & .edit-rule-form {

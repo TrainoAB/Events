@@ -10,7 +10,7 @@ import "./page.css";
 export default function EditFaqPage({ params }) {
     const router = useRouter();
     const [ faq, setFaq ] = useState();
-    const [state, formAction] = useFormState(updateFaq.bind(null, params.faqid), { message: '' });
+    const [state, formAction] = useFormState(updateFaq.bind(null, params.faqid), { message: '', success: false });
 
     useEffect(() => {
         fetchFaq();
@@ -31,9 +31,9 @@ export default function EditFaqPage({ params }) {
     return (
         <main id="edit-faq-page" className="flex-col align-c">
             <h1 className="edit-faq-page__title">Redigera FAQ</h1>
-            <h2 className="edit-faq-page__message">
+            { state?.message ? <h2 className={state?.success ? "edit-faq-page__message-success" : "edit-faq-page__message-failure"}>
                 {state?.message}
-            </h2>
+            </h2> : <></> }
 
             { faq ? <form className="edit-faq-form flex-col" action={formAction}>
                         <div className="input-wrapper">
