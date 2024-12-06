@@ -39,6 +39,25 @@
     & .volunteer {
         width: 100%;
 
+        & .volunteer__message-success, .volunteer__message-failure {
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: var(--radius);
+            padding: 1rem;
+        }
+    
+        & .volunteer__message-success {
+            color: var(--success-col);
+            border: 2px solid var(--success-col);
+            background-color: hsl(from var(--success-col) h s l / 0.2);
+        }
+    
+        & .volunteer__message-failure {
+            color: var(--warning-col);
+            border: 2px solid var(--warning-col);
+            background-color: hsl(from var(--warning-col) h s l / 0.2);
+        }
+
         & .volunteer-form {
             gap: var(--gap);
             width: 80%;

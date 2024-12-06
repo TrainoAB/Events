@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
 import { usePathname } from 'next/navigation';
 import SponsorCard from "@/app/components/SponsorCard";
 import { createSponsorApplication } from "@/app/actions/application";
@@ -27,6 +28,8 @@ const SPONSORS = [
 export default function SponsorsPage() {
     const [ event, setEvent ] = useState();
     const pathname = usePathname();
+    const formRef = useRef();
+    const [state, formAction] = useFormState(createSponsorApplication.bind(null, event?.id), { message: '', success: false });
 
     useEffect(() => {
         fetchEvent();
@@ -53,7 +56,11 @@ export default function SponsorsPage() {
                 <p className="sponsor-event__cta">
                     Fyll i er kontaktinformation så kontaktar vi er.
                 </p>
-                { event ? <form className="sponsor-event__form" action={createSponsorApplication.bind(null, event.id)}>
+                { state?.message ? <h2 className={state?.success ? "sponsor-event__message-success" : "sponsor-event__message-failure"}>
+                {state?.message}
+                {state?.message ? formRef.current?.reset() : <></>}
+            </h2> : <></> }
+                { event ? <form className="sponsor-event__form" ref={formRef} action={formAction}>
                     <div className="input-wrapper">
                         <label htmlFor="email">Email</label>
                         <input id="email" name="email" type="email" required />
