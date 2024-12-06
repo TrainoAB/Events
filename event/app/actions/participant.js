@@ -2,7 +2,7 @@
 
 import { insertParticipant } from "@/db/db";
 
-export async function createParticipant(formData) {
+export async function createParticipant(prevState, formData) {
     const participant = {
         forename: formData.get('forename'),
         surname: formData.get('surname'),
@@ -19,7 +19,9 @@ export async function createParticipant(formData) {
     const { error } = await insertParticipant(participant);
     if (error) {
         console.log(error);
+        return { message: "Du kunde inte registreras som deltagare", success: false };
     } else {
         console.log('Created participant ' + JSON.stringify(participant));
+        return { message: "Du har blivit registrerad som deltagare", success: true };
     }
 }

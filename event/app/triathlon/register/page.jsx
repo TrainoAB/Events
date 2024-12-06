@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
 import { usePathname } from 'next/navigation';
 import { createParticipant } from "@/app/actions/participant";
 
@@ -9,6 +10,8 @@ import "./page.css";
 export default function RegisterPage() {
     const [ participants, setParticipants ] = useState([]);
     const [ maxParticipants, setMaxParticipants ] = useState();
+    const [state, formAction] = useFormState(createParticipant, { message: '', success: false });
+    const formRef = useRef();
     const pathname = usePathname();
 
     useEffect(() => {
@@ -39,7 +42,12 @@ export default function RegisterPage() {
     return (
         <main id="registerpage" className="max-width gap flex-col align-c">
             <h1 className="register-title">Registrera</h1>
-            <form className="register-form flex-col" action={createParticipant}>
+            { state?.message ? <h2 className={state?.success ? "register-page__message-success" : "register-page__message-failure"}>
+                {state?.message}
+                {state?.message ? formRef.current?.reset() : <></>}
+            </h2> : <></> }
+
+            <form className="register-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
                     <input id="email" name="email" type="email" required />
