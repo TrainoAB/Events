@@ -1,11 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useFormState } from "react-dom";
 import { useTrainoContext } from "@/app/context/TrainoContext";
+import { updateSponsor } from "@/app/actions/sponsor";
+import SubmitButton from "@/app/components/SubmitButton";
 
 import "./page.css";
-import { useEffect, useState } from "react";
-import { updateSponsor } from "@/app/actions/sponsor";
 
 const initialState = {
     eventId: 0,
@@ -16,20 +18,33 @@ const initialState = {
     description: "",
 };
 
+const initialActionState = {
+    message: "",
+    success: false,
+};
+
 export default function EditSponsorPage({ params }) {
     const { BASE_URL, DEBUG } = useTrainoContext();
-
-    const [sponsor, setSponsor] = useState(initialState);
-
     // Destructure the eventId and sponsorId
     const { id: eventId, "sponsor-id": sponsorId } = params;
     DEBUG && console.log("eventId:", eventId, "sponsorId:", sponsorId);
 
+    const [sponsor, setSponsor] = useState(initialState);
+    const [state, formAction] = useFormState(
+        updateSponsor.bind(null, sponsorId),
+        initialActionState
+    );
+    const [showMessage, setShowMessage] = useState();
+    const formRef = useRef(null);
+
     const router = useRouter();
+
+    const message = state?.message;
+    // Set classname based on success
+    const computedMessage = state?.success ? "message-success" : "message-failure";
 
     // Fetch a sponsor when loading the edit page
     useEffect(() => {
-
         // Fetch sponsor based on the sponsorId
         const fetchSponsorById = async (sponsorId) => {
             try {
@@ -47,7 +62,22 @@ export default function EditSponsorPage({ params }) {
             }
         };
         fetchSponsorById(sponsorId);
-    }, [eventId, sponsorId]);
+    }, [eventId, sponsorId, state]);
+
+    // Display a message for 5s
+    useEffect(() => {
+        setShowMessage(true);
+
+        const timeoutId = setTimeout(() => {
+            // Only hide the message if adding was successful
+            if (state?.success) {
+                setShowMessage(false);
+            }
+        }, 5000);
+
+        // Cleanup the timeout
+        return () => clearTimeout(timeoutId);
+    }, [state]);
 
     const handleCancel = () => {
         router.back();
@@ -56,8 +86,16 @@ export default function EditSponsorPage({ params }) {
     return (
         <main id="edit-sponsor-page" className="flex-col align-c">
             <h1 className="edit-sponsor__title">Redigera sponsor</h1>
-
-            <form className="edit-sponsor-form flex-col" action={updateSponsor.bind(null, sponsorId)}>
+            {showMessage && message && (
+                <h2
+                    className={`${computedMessage} ${
+                        showMessage && state?.success ? "message-fade" : ""
+                    }`}
+                >
+                    {message}
+                </h2>
+            )}
+            <form className="edit-sponsor-form flex-col" action={formAction} ref={formRef}>
                 <div className="input-wrapper">
                     <label htmlFor="sponsor">Sponsor</label>
                     <input
@@ -98,7 +136,7 @@ export default function EditSponsorPage({ params }) {
                     <button onClick={handleCancel} type="reset">
                         Avbryt
                     </button>
-                    <button>Spara</button>
+                    <SubmitButton message={{ pending: "Sparar...", default: "Spara" }} />
                 </div>
             </form>
         </main>
