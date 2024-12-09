@@ -50,7 +50,7 @@ export default function ManageWinnersPage({ params }) {
             <div className="winners-list flex-col">
                 {winners?.length > 0 ? winners.map((winner, index) => (
                     <div className="winners-wrapper" key={index}>
-                        <Link href={`/admin/${params.id}/winners/${params.winnerid}/edit`}>
+                        <Link href={`/admin/${params.id}/winners/${winner.id}/edit`}>
                             <section className="participants-list__row box-shadow">
 
                                 <div className="list-row-wrapper">

@@ -290,3 +290,16 @@ export async function getWinnerById(id) {
 export async function deleteWinner(id) {
     return await databaseClient.from(WINNERS_TABLE).delete().eq('id', id);
 }
+
+export async function insertWinner(winner) {
+    return await databaseClient
+        .from(WINNERS_TABLE)
+        .insert({ finished_time: winner.finished_time, participants_id: winner.participants_id, event_id: winner.event_id });
+}
+
+export async function updateWinnerById(winner, id) {
+    return await databaseClient
+        .from(WINNERS_TABLE)
+        .update(winner)
+        .eq('id', id);
+}

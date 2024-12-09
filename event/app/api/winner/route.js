@@ -15,7 +15,9 @@ export async function GET(request) {
         return NextResponse.json({ success: false, message: `No winner found for id ${id}` }, { status: 404 });
     }
 
-    return NextResponse.json(data);
+    data.participants.finish_time = data.finish_time;
+
+    return NextResponse.json(data.participants);
 }
 
 export async function DELETE(request) {
