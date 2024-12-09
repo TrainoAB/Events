@@ -2,7 +2,7 @@
 
 import { addSponsor, updateSponsorById } from "@/db/db";
 
-export async function createSponsor(eventId, formData) {
+export async function createSponsor(eventId, _prevState, formData) {
     // Create a sponsor object, with collected data
     const sponsor = {
         name: formData.get("sponsor"),
@@ -19,8 +19,10 @@ export async function createSponsor(eventId, formData) {
             throw error;
         }
         console.log(`Added sponsor: ${JSON.stringify(sponsor)}`);
+        return { message: `${sponsor.name} har lagts till`, success: true };
     } catch (error) {
         console.error(error);
+        return { message: "Sponsoren kunde inte läggas till", success: false };
     }
 }
 
