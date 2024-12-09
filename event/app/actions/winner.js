@@ -5,8 +5,11 @@ import { updateWinnerById, insertWinner } from "@/db/db";
 export async function createWinner(id, prevState, formData) {
     const winner = {
         finish_time: formData.get('finish_time'),
-        participant_id: formData.get('participant_id'),
-        eventId: id
+        forename: formData.get('forename'),
+        surname: formData.get('surname'),
+        competition: formData.get('competition'),
+        city: formData.get('city'),
+        event_id: id
     };
 
     // TODO: validate data
@@ -23,7 +26,11 @@ export async function createWinner(id, prevState, formData) {
 
 export async function updateWinner(id, prevState, formData) {
     const winner = {
-        finish_time: formData.get('finish_time')
+        finish_time: formData.get('finish_time'),
+        forename: formData.get('forename'),
+        surname: formData.get('surname'),
+        competition: formData.get('competition'),
+        city: formData.get('city')
     };
 
     // TODO: validate data

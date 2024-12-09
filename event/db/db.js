@@ -263,28 +263,11 @@ export async function insertVolunteerApplication(application) {
  ***********/
 
 export async function getAllWinnersById(eventId) {
-    return await databaseClient.from(WINNERS_TABLE).select(`
-        id,
-        finish_time,
-        participants (
-            forename,
-            surname,
-            competition,
-            city
-        )
-    `).eq('event_id', eventId).order('finish_time');
+    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', eventId).order('finish_time');
 }
 
 export async function getWinnerById(id) {
-    return await databaseClient.from(WINNERS_TABLE).select(`
-        finish_time,
-        participants (
-            forename,
-            surname,
-            competition,
-            city
-        )
-    `).eq('id', id).single();
+    return await databaseClient.from(WINNERS_TABLE).select().eq('id', id).single();
 }
 
 export async function deleteWinner(id) {
@@ -294,7 +277,8 @@ export async function deleteWinner(id) {
 export async function insertWinner(winner) {
     return await databaseClient
         .from(WINNERS_TABLE)
-        .insert({ finished_time: winner.finished_time, participants_id: winner.participants_id, event_id: winner.event_id });
+        .insert({ finish_time: winner.finish_time, surname: winner.surname, forename: winner.forename, 
+            competition: winner.competition, city: winner.city, event_id: winner.event_id });
 }
 
 export async function updateWinnerById(winner, id) {

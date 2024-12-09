@@ -1,56 +1,41 @@
 "use client";
 
+import { useRef } from "react";
 import { useFormState } from "react-dom";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { updateWinner } from "@/app/actions/winner";
+import { createWinner } from "@/app/actions/winner";
 
 import "./page.css";
 
-export default function EditWinnerPage({ params }) {
-    const [ winner, setWinner ] = useState();
-    const [state, formAction] = useFormState(updateWinner.bind(null, params.winnerid), { message: '', success: false });
+export default function AddWinnerPage({ params }) {
+    const [state, formAction] = useFormState(createWinner.bind(null, params.id), { message: '', success: false });
+    const formRef = useRef();
     const router = useRouter();
-
-    useEffect(() => {
-        fetchWinner();
-    }, []);
-
-    const fetchWinner = async () => {
-        const response = await fetch(`/api/winner?id=${params.winnerid}`);
-        if (response.status === 200) {
-            const winner = await response.json();
-            setWinner(winner);
-        }
-    }
 
     const handleCancel = () => {
         router.push(`/admin/${params.id}/winners`);
     }
 
-    const isDefault = (competition) => {
-        return competition === winner.competition;
-    }
-
     return (
-        <main id="edit-winner-page" className="flex-col align-c">
-            <h1 className="edit-winner-page__title">Redigera Vinnare</h1>
+        <main id="add-winner-page" className="flex-col align-c">
+            <h1 className="add-winner-page__title">Lägg till Vinnare</h1>
             { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
+                {state?.success ? formRef.current?.reset() : <></>}
             </h2> : <></> }
 
-            { winner ? <form className="edit-winner-form flex-col" action={formAction}>
-            <div className="input-wrapper">
+            <form className="add-winner-form flex-col" ref={formRef} action={formAction}>
+                <div className="input-wrapper">
                     <label htmlFor="forename">Förnamn</label>
-                    <input id="forename" name="forename" type="text" defaultValue={winner.forename} required />
+                    <input id="forename" name="forename" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="surname">Efternamn</label>
-                    <input id="surname" name="surname" type="text" defaultValue={winner.surname} required />
+                    <input id="surname" name="surname" type="text" required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="city">Stad</label>
-                    <input id="city" name="city" type="text" defaultValue={winner.city} required />
+                    <input id="city" name="city" type="text" required />
                 </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Tävling</span>
@@ -59,7 +44,6 @@ export default function EditWinnerPage({ params }) {
                             id="triathlon"
                             name="competition"
                             type="radio"
-                            defaultChecked={isDefault("Triathlon")}
                             value="Triathlon"
                             required
                         />
@@ -71,7 +55,6 @@ export default function EditWinnerPage({ params }) {
                             id="olympic-triathlon"
                             name="competition"
                             type="radio"
-                            defaultChecked={isDefault("Olympiskt Triathlon")}
                             value="Olympiskt Triathlon"
                         />
                         <div className="radio-btn"></div>
@@ -80,14 +63,14 @@ export default function EditWinnerPage({ params }) {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="finish_time">Sluttiden</label>
-                    <input id="finish_time" name="finish_time" type="time" defaultValue={winner.finish_time} required />
+                    <input id="finish_time" name="finish_time" type="time" step={2} required />
                 </div>
 
-                <div className="edit-winner-form__buttons">
+                <div className="add-winner-form__buttons">
                     <button onClick={handleCancel} type="reset"> Avbryt </button>
-                    <button> Spara </button>
+                    <button> Lägg till </button>
                 </div>
-            </form> : <></> }
+            </form>
         </main>
     );
 }

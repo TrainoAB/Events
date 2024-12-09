@@ -1,13 +1,13 @@
-#edit-winner-page {
+#add-winner-page {
     gap: var(--gap);
     padding-block: var(--main-block-padding);
     padding-inline: 0.5rem;
 
-    & .edit-winner-page__title {
+    & .add-winner-page__title {
         text-align: center;
     }
 
-    & .edit-winner-form {
+    & .add-winner-form {
         gap: var(--gap);
         width: 60%;
 
@@ -57,7 +57,7 @@
             width: 12rem;
         }
 
-        & .edit-winner-form__buttons {
+        & .add-winner-form__buttons {
             display: flex;
             justify-content: space-between;
         }
@@ -65,9 +65,9 @@
 }
 
 @media (max-width: 600px) {
-    #edit-winner-page {
-        & .edit-winner-form {
-            & .edit-winner-form__buttons {
+    #add-winner-page {
+        & .add-winner-form {
+            & .add-winner-form__buttons {
                 flex-direction: column;
                 gap: 2rem;
                 align-items: center;
