@@ -19,10 +19,7 @@ export default function WinnersPage() {
         const response = await fetch('/api/winners?id=1');
         if (response.status === 200) {
             const winners = await response.json();
-            winners.map(winner => winner.participants.finish_time = winner.finish_time);
-            const mappedWinners = [];
-            winners.map(winner => mappedWinners.push(winner.participants));
-            setWinners(mappedWinners);
+            setWinners(winners);
         }
     }
 

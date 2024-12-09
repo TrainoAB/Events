@@ -14,5 +14,11 @@ export async function GET(request) {
         console.log(error);
         return NextResponse.json({ success: false, message: "An error occurred while retrieving winners by event id" }, { status: 500 });
     }
-    return NextResponse.json(data);
+
+    data.map(winner => winner.participants.finish_time = winner.finish_time);
+    data.map(winner => winner.participants.id = winner.id);
+    const mappedWinners = [];
+    data.map(winner => mappedWinners.push(winner.participants));
+
+    return NextResponse.json(mappedWinners);
 }
