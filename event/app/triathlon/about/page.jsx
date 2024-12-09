@@ -70,7 +70,7 @@ export default function AboutPage() {
                 <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
                 { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
-                {state?.message ? formRef.current?.reset() : <></>}
+                {state?.success ? formRef.current?.reset() : <></>}
             </h2> : <></> }
                 { event ? <form className="volunteer-form flex-col align-c" ref={formRef} action={formAction}>
                     <div className="input-wrapper">

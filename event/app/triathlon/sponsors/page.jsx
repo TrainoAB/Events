@@ -58,7 +58,7 @@ export default function SponsorsPage() {
                 </p>
                 { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
                 {state?.message}
-                {state?.message ? formRef.current?.reset() : <></>}
+                {state?.success ? formRef.current?.reset() : <></>}
             </h2> : <></> }
                 { event ? <form className="sponsor-event__form" ref={formRef} action={formAction}>
                     <div className="input-wrapper">

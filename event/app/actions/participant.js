@@ -1,5 +1,6 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { insertParticipant } from "@/db/db";
 
 export async function createParticipant(prevState, formData) {
@@ -25,6 +26,6 @@ export async function createParticipant(prevState, formData) {
         return { message: "Du kunde inte registreras som deltagare", success: false };
     } else {
         console.log('Created participant ' + JSON.stringify(participant));
-        return { message: "Du har blivit registrerad som deltagare", success: true };
+        redirect('/triathlon/confirmation');
     }
 }
