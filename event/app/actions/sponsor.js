@@ -26,7 +26,7 @@ export async function createSponsor(eventId, _prevState, formData) {
     }
 }
 
-export async function updateSponsor(sponsorId, formData) {
+export async function updateSponsor(sponsorId, _prevState, formData) {
     // Create a sponsor object, with collected data
     const sponsor = {
         name: formData.get("sponsor"),
@@ -42,7 +42,9 @@ export async function updateSponsor(sponsorId, formData) {
             throw error;
         }
         console.log(`Updated sponsor: ${JSON.stringify(sponsor)}`);
+        return { message: `${sponsor.name} har uppdaterats`, success: true };
     } catch (error) {
         console.error(error);
+        return { message: `Misslyckades uppdatera sponsor`, success: false };
     }
 }
