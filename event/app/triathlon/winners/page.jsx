@@ -26,7 +26,7 @@ export default function WinnersPage() {
     // Placement 0 is winner, placement 1 is silver, placement 2 is bronze
     const podiumName = (competition, placement) => {
         const winner = winners.filter(el => el.competition === competition)[placement];
-        return winner.forename + " " + winner.surname[0] + ".";
+        return winner ? winner.forename + " " + winner.surname[0] + "." : "";
     }
 
     const createList = (competition) => {
