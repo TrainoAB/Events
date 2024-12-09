@@ -1,4 +1,5 @@
 #footer {
+    padding-top: 2rem;
     color: var(--white);
     background-color: var(--black);
     margin-top: auto;
@@ -40,11 +41,8 @@
                     background-color: var(--white);
                     mask-repeat: no-repeat;
                     mask-size: contain;
+                    filter: brightness(0.3);
                     mask-position: center;
-
-                    &:hover {
-                        filter: brightness(0.7);
-                    }
 
                     &.social-icon--facebook {
                         mask-image: url("../assets/facebook_icon.svg");
@@ -69,7 +67,28 @@
 
     & .copyright {
         padding-block: 1rem;
+        font-size: 0.8125rem;
+        color: var(--secondary-grey);
     }
+}
+
+#footer .socials a:hover {
+    filter: brightness(1) !important;
+}
+
+#footer {
+    transition: none;
+}
+#footer a {
+    font-weight: 500;
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+#footer h3 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    color: var(--secondary-grey);
 }
 
 @media (max-width: 1000px) {
