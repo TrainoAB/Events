@@ -18,6 +18,7 @@ const RULES_TABLE = "rules";
 const FAQ_TABLE = "faq";
 const SPONSOR_APPLICATION_TABLE = 'sponsor_application';
 const VOLUNTEER_APPLICATION_TABLE = 'volunteer_application';
+const WINNERS_TABLE = "winners";
 
 
 
@@ -248,6 +249,27 @@ export async function insertSponsorApplication(application) {
 
 export async function insertVolunteerApplication(application) {
     return await databaseClient
-    .from(VOLUNTEER_APPLICATION_TABLE)
-    .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+        .from(VOLUNTEER_APPLICATION_TABLE)
+        .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+}
+
+
+
+
+
+
+/***********
+ * WINNERS *
+ ***********/
+
+export async function getAllWinnersById(eventId) {
+    return await databaseClient.from(WINNERS_TABLE).select(`
+        finish_time,
+        participants (
+            forename,
+            surname,
+            competition,
+            city
+        )
+    `).eq('event_id', eventId).order('finish_time');
 }
