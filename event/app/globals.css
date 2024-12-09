@@ -389,3 +389,14 @@ figure {
     border: 2px solid var(--warning-col);
     background-color: hsl(from var(--warning-col) h s l / 0.2);
 }
+
+.message-fade {
+    animation: fade 5s ease-in-out;
+}
+
+@keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    80% {opacity: 1;}
+    100% {opacity: 0;}
+}
