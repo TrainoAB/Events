@@ -12,6 +12,7 @@
             gap: var(--gap);
 
             & .participants-list__row {
+                flex-direction: column;
                 gap: 1rem;
 
                 &:hover {
@@ -21,6 +22,12 @@
 
                 & .list-row-wrapper__bold {
                     font-weight: bold;
+                }
+
+                & .participant-info {
+                    & .winners-wrapper {
+                        flex-direction: row;
+                    }
                 }
             }
         }

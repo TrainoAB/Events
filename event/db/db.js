@@ -287,3 +287,8 @@ export async function updateWinnerById(winner, id) {
         .update(winner)
         .eq('id', id);
 }
+
+export async function getAllWinnersByUrl(eventUrl) {
+    const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
+    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', data.id);
+}

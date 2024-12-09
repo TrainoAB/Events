@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from 'next/navigation';
 import ListToggle from "@/app/components/ListToggle";
 import VideoGallery from "@/app/components/VideoGallery";
 
@@ -10,13 +11,14 @@ import "./page.css";
 export default function WinnersPage() {
     const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
     const [ winners, setWinners ] = useState([]);
+    const pathname = usePathname();
 
     useEffect(() => {
         fetchWinners();
     }, []);
 
     const fetchWinners = async () => {
-        const response = await fetch('/api/winners?id=1');
+        const response = await fetch(`/api/winners?url=${pathname.split('/')[1]}`); //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const winners = await response.json();
             setWinners(winners);

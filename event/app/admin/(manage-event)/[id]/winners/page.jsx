@@ -53,22 +53,24 @@ export default function ManageWinnersPage({ params }) {
                         <Link href={`/admin/${params.id}/winners/${winner.id}/edit`}>
                             <section className="participants-list__row box-shadow">
 
-                                <div className="list-row-wrapper">
-                                    <p className="list-row-wrapper__bold"> { winner.finish_time } </p> 
-                                </div>
-                                
-                                <div className="winners-wrapper">
+                                <article className="participant-info">
                                     <div className="list-row-wrapper">
-                                        <p> { winner.forename } </p>
+                                        <p className="list-row-wrapper__bold"> { winner.finish_time } </p> 
                                     </div>
-                                    <div className="list-row-wrapper">
-                                        <p> { winner.surname } </p>
+                                    
+                                    <div className="winners-wrapper">
+                                        <div className="list-row-wrapper">
+                                            <p> { winner.forename } </p>
+                                        </div>
+                                        <div className="list-row-wrapper">
+                                            <p> { winner.surname } </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="list-row-wrapper">
-                                        <p> { winner.city } </p>
-                                </div>
+                                    <div className="list-row-wrapper">
+                                            <p> { winner.city } </p>
+                                    </div>
+                                </article>
 
                                 <div className="list-row-wrapper">
                                         <p className="list-row-wrapper__bold"> { winner.competition } </p>
