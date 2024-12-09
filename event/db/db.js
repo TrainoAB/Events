@@ -18,6 +18,7 @@ const RULES_TABLE = "rules";
 const FAQ_TABLE = "faq";
 const SPONSOR_APPLICATION_TABLE = 'sponsor_application';
 const VOLUNTEER_APPLICATION_TABLE = 'volunteer_application';
+const WINNERS_TABLE = "winners";
 
 
 
@@ -248,6 +249,46 @@ export async function insertSponsorApplication(application) {
 
 export async function insertVolunteerApplication(application) {
     return await databaseClient
-    .from(VOLUNTEER_APPLICATION_TABLE)
-    .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+        .from(VOLUNTEER_APPLICATION_TABLE)
+        .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+}
+
+
+
+
+
+
+/***********
+ * WINNERS *
+ ***********/
+
+export async function getAllWinnersById(eventId) {
+    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', eventId).order('finish_time');
+}
+
+export async function getWinnerById(id) {
+    return await databaseClient.from(WINNERS_TABLE).select().eq('id', id).single();
+}
+
+export async function deleteWinner(id) {
+    return await databaseClient.from(WINNERS_TABLE).delete().eq('id', id);
+}
+
+export async function insertWinner(winner) {
+    return await databaseClient
+        .from(WINNERS_TABLE)
+        .insert({ finish_time: winner.finish_time, surname: winner.surname, forename: winner.forename, 
+            competition: winner.competition, city: winner.city, event_id: winner.event_id });
+}
+
+export async function updateWinnerById(winner, id) {
+    return await databaseClient
+        .from(WINNERS_TABLE)
+        .update(winner)
+        .eq('id', id);
+}
+
+export async function getAllWinnersByUrl(eventUrl) {
+    const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
+    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', data.id);
 }

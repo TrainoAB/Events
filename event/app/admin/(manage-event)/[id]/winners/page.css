@@ -1,0 +1,54 @@
+#manage-winners-page {
+    gap: var(--gap);
+    padding-block: var(--main-block-padding) 8rem;
+    min-height: 100vh;
+
+    & .winners-list {
+        gap: var(--gap);
+
+        & .winners-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+
+            & .participants-list__row {
+                flex-direction: column;
+                gap: 1rem;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.05);
+                }
+
+                & .list-row-wrapper__bold {
+                    font-weight: bold;
+                }
+
+                & .participant-info {
+                    & .winners-wrapper {
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+    }
+
+    & .manage-winners__add-link {
+        position: fixed;
+        bottom: 2rem;
+    }
+}
+
+@media (max-width: 700px) {
+    #manage-winners-page {
+        margin-inline: 0.5rem;
+        
+        & .winners-list {
+            & .winners-wrapper {
+                & .participants-list__row {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+#add-winner-page {
+    gap: var(--gap);
+    padding-block: var(--main-block-padding);
+    padding-inline: 0.5rem;
+
+    & .add-winner-page__title {
+        text-align: center;
+    }
+
+    & .add-winner-form {
+        gap: var(--gap);
+        width: 60%;
+
+        & .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-gap);
+
+            & label::after {
+                content: "*";
+            }
+
+            & label:not(.radio-wrapper)::after,
+            .gender-label::after {
+                content: "*";
+            }
+
+            & .radio-wrapper {
+                display: flex;
+                gap: var(--small-gap);
+                cursor: pointer;
+                margin-right: 1rem;
+            }
+
+            &.input-wrapper--radio {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                gap: var(--small-gap);
+
+                & .gender-label {
+                    flex: 1 0 100%;
+                }
+            }
+
+            & input[type="radio"] {
+                display: block;
+                width: fit-content;
+
+                &:checked ~ .radio-btn {
+                    background-color: var(--mainpurple);
+                }
+            }
+        }
+
+        #finish_time {
+            width: 12rem;
+        }
+
+        & .add-winner-form__buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #add-winner-page {
+        & .add-winner-form {
+            & .add-winner-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
+    }
+}
