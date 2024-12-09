@@ -9,6 +9,8 @@
 
         & .confirmed-participants {
             font-size: 4rem;
+            line-height: 3rem;
+            margin-right: 0.4rem;
             font-weight: 800;
             color: var(--maincolor);
         }

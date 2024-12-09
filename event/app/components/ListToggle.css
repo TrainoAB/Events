@@ -1,29 +1,44 @@
 .list-toggle {
-    width: 90%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & .list-toggle__titles {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: var(--large-gap);
-        margin-bottom: 3rem;
+        gap: var(--gap);
+        margin-bottom: 1rem;
+        width: auto;
+        border-radius: 10rem;
+        background: #efefef;
+        padding: 0.5rem 0.7rem;
+        box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2) inset, 0 2px 0 white;
 
         & .list-toggle__title {
             cursor: pointer;
             font-weight: 500;
-            background-color: var(--white);
+            background: transparent;
             box-shadow: none;
-            color: var(--black);
-            font-size: 2rem;
+            color: var(--maincolor);
+            font-size: 1.2rem;
+            font-weight: 600;
             min-width: fit-content;
+            padding: 1rem 2rem;
 
             &:hover {
                 scale: unset;
             }
         }
 
+        & .list-toggle__title:hover {
+            color: var(--black);
+        }
+
         & .list-toggle__title:disabled {
-            background-color: #DDD6F8;
+            color: var(--black);
+            background-color: var(--white);
             border-radius: 99px;
             cursor: default;
         }
@@ -33,7 +48,7 @@
 @media (max-width: 600px) {
     .list-toggle {
         & .list-toggle__titles {
-            flex-direction: column;
+            flex-direction: row;
         }
     }
 }

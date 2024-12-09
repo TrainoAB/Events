@@ -85,6 +85,18 @@ a {
     }
 }
 
+main:before {
+    content: "";
+    background: linear-gradient(0deg, #f8f8f8, #e3d4ffa6);
+    display: block;
+    width: 100%;
+    height: 40rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
 input,
 textarea {
     padding: 0.8rem;
@@ -167,7 +179,7 @@ figure {
 
 .video-container {
     width: 100dvw;
-    height: 100dvh;
+    height: 60dvh;
     justify-content: center;
 
     & video {
@@ -175,7 +187,7 @@ figure {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 60vh;
         object-fit: cover;
         z-index: -2;
     }
@@ -202,10 +214,14 @@ figure {
     & .video-container__subtitle {
         text-align: center;
         text-transform: uppercase;
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         font-weight: bolder;
-        line-height: 2.8rem;
         color: var(--white);
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5) inset, 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.5);
+        padding: 1rem 2rem;
+        border-radius: 10rem;
     }
 
     & .videocover {
@@ -213,7 +229,7 @@ figure {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 60vh;
         content: "";
         display: block;
         z-index: -1;

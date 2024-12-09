@@ -1,7 +1,6 @@
 #winnerCard-wrapper {
     padding: 4rem 2rem 0 2rem;
     text-align: center;
-    background-color: var(--white);
 
     & #winnerCard {
         width: 220px;
