@@ -12,6 +12,7 @@
     }
 
     & .alleventspage__events {
+        padding: 2rem;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -27,6 +28,10 @@
 }
 
 @media (max-width: 1000px) {
+    .logo {
+        scale: 0.6;
+        height: 6rem;
+    }
     #alleventspage {
         padding-inline: 1rem;
 
@@ -36,6 +41,7 @@
         }
 
         & .alleventspage__events {
+            padding: 0;
             grid-template-columns: repeat(1, 1fr);
         }
     }

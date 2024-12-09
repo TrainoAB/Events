@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import EventCard from "@/app/components/EventCard";
-import FooterMain from "@/app/components/FooterMain";
+import Footer from "@/app/components/Footer";
 
 import "./page.css";
 
@@ -51,7 +51,7 @@ export default function Home() {
                     )}
                 </section>
             </main>
-            <FooterMain />
+            <Footer startPage="true" />
         </>
     );
 }
