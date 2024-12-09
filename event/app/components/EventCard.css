@@ -12,9 +12,10 @@
             aspect-ratio: 16 / 9;
             object-fit: cover;
             object-position: center;
-            
+
             &:hover {
                 scale: 1.1;
+                animation: flash 0.2s ease-out;
             }
         }
     }
