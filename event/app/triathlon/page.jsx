@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "../components/CountdownTimer";
@@ -22,7 +21,6 @@ export default function TriathlonPage() {
     const [ participants, setParticipants ] = useState([]);
     const [ event, setEvent ] = useState();
     const pathname = usePathname();
-    const router = useRouter();
 
     useEffect(() => {
         fetchParticipants();
@@ -41,9 +39,6 @@ export default function TriathlonPage() {
         const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const event = await response.json();
-            if (event.finished) {
-                router.push("/triathlon/event-finished");
-            }
             setEvent(event);
         }
     }
@@ -57,7 +52,7 @@ export default function TriathlonPage() {
                     {
                     // TODO Participants are not separated by competition.
                     } 
-                    { participants && event ? <RegisteredParticipants registered={participants.length} total={event.max} /> : <></> }
+                    { participants && event ? <RegisteredParticipants registered={participants.length} total={event.max * 2} /> : <></> }
                     <div className="videocover"></div>
                     <video muted autoPlay loop>
                         <source src="/videobg.mp4" type="video/mp4" />

@@ -1,0 +1,10 @@
+#notfound-page {
+    height: 100vh;
+    justify-content: center;
+    padding-block: var(--main-block-padding);
+    margin-inline: auto;
+
+    & .notfound-page__title {
+        text-align: center;
+    }
+}

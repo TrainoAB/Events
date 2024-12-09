@@ -22,7 +22,7 @@ export default function Footer() {
         if (response.status === 200) {
             const event = await response.json();
             setFinished(event.finished);
-            setMaxParticipants(event.max);
+            setMaxParticipants(event.max * 2);
         }
     }
 
@@ -44,7 +44,9 @@ export default function Footer() {
                         <Link href="/triathlon">Start</Link>
                         <Link href="/triathlon/about">Om Eventet</Link>
                         <Link href="/triathlon/participants">Deltagare</Link>
-                        <Link href="/triathlon/winners">Vinnare</Link>
+                        
+                        { finished ? <Link href="/triathlon/winners">Vinnare</Link> : <></> }
+                        
                         <Link href="/triathlon/sponsors">Sponsorer</Link>
                         <Link href="/triathlon/faq">FAQ</Link>
                         <Link href="/triathlon/merch">Merch</Link>

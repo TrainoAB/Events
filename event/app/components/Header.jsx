@@ -50,9 +50,13 @@ export default function Header() {
                     <li className={`${pathname === '/triathlon/participants' ? 'header-list__element active' : 'header-list__element'}`}>
                         <Link href="/triathlon/participants">Deltagare</Link>
                     </li>
-                    <li className={`${pathname === '/triathlon/winners' ? 'header-list__element active' : 'header-list__element'}`}>
-                        <Link href="/triathlon/winners">Vinnare</Link>
-                    </li>
+                    { finished ? 
+                        <li className={`${pathname === '/triathlon/winners' ? 'header-list__element active' : 'header-list__element'}`}>
+                            <Link href="/triathlon/winners">Vinnare</Link>
+                        </li>
+                        :
+                        <></>
+                    }
                     <li className={`${pathname === '/triathlon/sponsors' ? 'header-list__element active' : 'header-list__element'}`}>
                         <Link href="/triathlon/sponsors">Sponsorer</Link>
                     </li>
