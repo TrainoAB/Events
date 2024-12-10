@@ -27,6 +27,7 @@ export default function WinnerCard({ placement, winner }) {
                     <h2>{winner.surname}</h2>
                 </div>
                 <h2>{winner.city}</h2>
+                <h2>{ winner.result }</h2>
                 <h2 className="winnerCard-competition">{winner.competition}</h2>
             </section>
         </div>

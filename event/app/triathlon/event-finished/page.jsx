@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import ListToggle from "@/app/components/ListToggle";
 import VideoGallery from "@/app/components/VideoGallery";
@@ -22,7 +22,9 @@ export default function EventFinishedPage() {
         if (response.status === 200) {
             const winners = await response.json();
             winners.sort((a, b) => a.result.localeCompare(b.result));
-            setWinners(winners);
+            const triathlon = winners.filter(winner => winner.competition === "Triathlon").slice(0, 3);
+            const olympic = winners.filter(winner => winner.competition === "Olympiskt Triathlon").slice(0, 3);
+            setWinners([...triathlon, ...olympic]);
         }
     }
 
