@@ -29,7 +29,7 @@ const WINNERS_TABLE = "winners";
  **********/
 
 export async function getAllEvents() {
-    return await databaseClient.from(EVENTS_TABLE).select().order("id");
+    return await databaseClient.from(EVENTS_TABLE).select().order("start_date");
 }
 
 export async function getEventById(id) {
@@ -48,7 +48,7 @@ export async function insertEvent(event) {
     return await databaseClient
         .from(EVENTS_TABLE)
         .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, 
-            date: event.date, time: event.time, max: event.max, finished: event.finished });
+            start_date: event.start_date, start_time: event.start_time, max: event.max, finished: event.finished });
 }
 
 export async function updateEventById(event, id) {
@@ -150,6 +150,12 @@ export async function getSponsorById(id) {
 export async function updateSponsorById(updatedSponsor, id) {
     return await databaseClient.from(SPONSORS_TABLE).update(updatedSponsor).eq("id", id);
 }
+
+export async function getAllSponsorsByUrl(eventUrl) {
+    const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
+    return await databaseClient.from(SPONSORS_TABLE).select().eq('eventId', data.id);
+}
+
 
 
 
@@ -263,7 +269,7 @@ export async function insertVolunteerApplication(application) {
  ***********/
 
 export async function getAllWinnersById(eventId) {
-    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', eventId).order('finish_time');
+    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', eventId).order('result');
 }
 
 export async function getWinnerById(id) {
@@ -277,7 +283,7 @@ export async function deleteWinner(id) {
 export async function insertWinner(winner) {
     return await databaseClient
         .from(WINNERS_TABLE)
-        .insert({ finish_time: winner.finish_time, surname: winner.surname, forename: winner.forename, 
+        .insert({ result: winner.result, surname: winner.surname, forename: winner.forename, 
             competition: winner.competition, city: winner.city, event_id: winner.event_id });
 }
 

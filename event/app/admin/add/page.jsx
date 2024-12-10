@@ -30,15 +30,15 @@ export default function AddEventPage() {
                     <input id="url" name="url" type="text" required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="date">Datum när eventet hålls</label>
-                    <input id="date" name="date" type="date" required />
+                    <label htmlFor="start_date">Datum när eventet hålls</label>
+                    <input id="start_date" name="start_date" type="date" required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="time">Tid när eventet startar</label>
-                    <input id="time" name="time" type="time" required />
+                    <label htmlFor="start_time">Tid när eventet startar</label>
+                    <input id="start_time" name="start_time" type="time" required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="max-participants">Max antal deltagare</label>
+                    <label htmlFor="max-participants">Max antal deltagare per tävling</label>
                     <input
                         id="max-participants"
                         name="max-participants"

@@ -70,10 +70,9 @@ export default function Footer({ startPage = false }) {
                 <section className="socials">
                     <h3>Sociala Medier</h3>
                     <div className="socials__links-wrapper">
-                        <Link className="social-icon social-icon--facebook" href="#"></Link>
-                        <Link className="social-icon social-icon--instagram" href="#"></Link>
-                        <Link className="social-icon social-icon--twitter-x" href="#"></Link>
-                        <Link className="social-icon social-icon--linkedin" href="#"></Link>
+                        <Link className="social-icon social-icon--youtube" href="https://www.youtube.com/@trainoofficial" target="_blank"></Link>
+                        <Link className="social-icon social-icon--instagram" href="https://www.instagram.com/trainoofficial" target="_blank"></Link>
+                        <Link className="social-icon social-icon--tiktok" href="https://www.tiktok.com/@trainoofficial" target="_blank"></Link>
                     </div>
                 </section>
             </div>

@@ -81,6 +81,9 @@ export default function AboutPage() {
                         <label htmlFor="phonenumber">Telefonnummer</label>
                         <input id="phonenumber" name="phonenumber" type="tel" required />
                     </div>
+                    <div className="input-wrapper">
+                        <input id="webpage" name="webpage" type="hidden" />
+                    </div>
                     <button className="volunteer-form__submit box-shadow" type="submit">
                         Anmäl mig
                     </button>
