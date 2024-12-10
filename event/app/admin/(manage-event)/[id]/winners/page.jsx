@@ -55,7 +55,7 @@ export default function ManageWinnersPage({ params }) {
 
                                 <article className="participant-info">
                                     <div className="list-row-wrapper">
-                                        <p className="list-row-wrapper__bold"> { winner.finish_time } </p> 
+                                        <p className="list-row-wrapper__bold"> { winner.result } </p> 
                                     </div>
                                     
                                     <div className="winners-wrapper">
