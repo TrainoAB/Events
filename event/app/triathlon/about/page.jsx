@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { createVolunteerApplication } from "@/app/actions/application";
+import { useTrainoContext } from "@/app/context/TrainoContext";
+import { formatDate } from "@/app/functions/functions";
 import ImageGallery from "@/app/components/ImageGallery";
 
 import "./page.css";
@@ -23,6 +25,8 @@ export default function AboutPage() {
         success: false,
     });
 
+    const { eventDate, setEventDate } = useTrainoContext();
+
     useEffect(() => {
         fetchEvent();
     }, []);
@@ -32,6 +36,8 @@ export default function AboutPage() {
         if (response.status === 200) {
             const event = await response.json();
             setEvent(event);
+            const newEventDate = formatDate(event.date);
+            setEventDate(newEventDate);
         }
     };
 
@@ -39,11 +45,11 @@ export default function AboutPage() {
         <main id="aboutpage" className="max-width gap flex-col align-c">
             <div className="aboutpage-titles">
                 <h1>Om Eventet</h1>
-                <h2>16 Aug 2025, Stockholm</h2>
+                {eventDate ? <h2>{eventDate}, Stockholm</h2> : null}
             </div>
             <section className="event-info">
                 <p className="event-info__description">
-                    TRAINO anordnar sitt första event som går av stapeln lördagen den 16:e augusti 2025. Ett helt
+                    TRAINO anordnar sitt första event som går av stapeln {eventDate ? eventDate : "..."}. Ett helt
                     Triathlon, placerat i Stockholm. Det kommer även att finnas ett mini Triathlon kallat Olympiska
                     Triathlon.
                 </p>

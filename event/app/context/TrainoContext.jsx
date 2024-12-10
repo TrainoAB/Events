@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 // Get the DEBUG and BASE_URL value from .env.local
 const DEBUG = process.env.NEXT_PUBLIC_DEBUG === "true";
@@ -11,7 +11,11 @@ const TrainoContext = createContext(null);
 
 // Create the context provider component
 export function TrainoContextProvider({ children }) {
-    return <TrainoContext.Provider value={{ DEBUG, BASE_URL }}>{children}</TrainoContext.Provider>;
+    const [eventDate, setEventDate] = useState("");
+
+    return (
+        <TrainoContext.Provider value={{ DEBUG, BASE_URL, eventDate, setEventDate }}>{children}</TrainoContext.Provider>
+    );
 }
 
 // Create custom hook for using the context value(s)

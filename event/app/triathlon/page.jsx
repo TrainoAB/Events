@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { formatDate } from "@/app/functions/functions";
+import { useTrainoContext } from "../context/TrainoContext";
 import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "../components/CountdownTimer";
@@ -21,8 +22,9 @@ const SPONSORS = [
 export default function TriathlonPage() {
     const [participants, setParticipants] = useState([]);
     const [event, setEvent] = useState();
-    const [eventDate, setEventDate] = useState("");
     const pathname = usePathname();
+
+    const { eventDate, setEventDate } = useTrainoContext();
 
     useEffect(() => {
         fetchParticipants();
