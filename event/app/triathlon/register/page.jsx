@@ -91,6 +91,9 @@ export default function RegisterPage() {
                     <label htmlFor="city">Stad</label>
                     <input id="city" name="city" type="text" required />
                 </div>
+                <div className="input-wrapper">
+                    <input id="webpage" name="webpage" type="hidden" />
+                </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Tävling</span>
                     <label className={isMaxParticipants("Triathlon") ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="triathlon">

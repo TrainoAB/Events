@@ -62,6 +62,9 @@ export default function SponsorsPage() {
                         <label htmlFor="phonenumber">Telefonnummer</label>
                         <input id="phonenumber" name="phonenumber" type="tel" required />
                     </div>
+                    <div className="input-wrapper">
+                        <input id="webpage" name="webpage" type="hidden" />
+                    </div>
                     <button className="sponsor-event__submit" type="submit">
                         Skicka
                     </button>
