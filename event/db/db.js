@@ -32,6 +32,10 @@ export async function getAllEvents() {
     return await databaseClient.from(EVENTS_TABLE).select().order("start_date");
 }
 
+export async function getAllEventsByUrl(eventUrl) {
+    return await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).order("start_date");
+}
+
 export async function getEventById(id) {
     return await databaseClient.from(EVENTS_TABLE).select().eq('id', id).single();
 }
