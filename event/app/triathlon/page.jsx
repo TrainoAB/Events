@@ -32,7 +32,7 @@ export default function TriathlonPage() {
     }, []);
 
     const fetchParticipants = async () => {
-        const response = await fetch("/api/participants");
+        const response = await fetch(`/api/participants?url=${pathname.split("/")[1]}`);
         if (response.status === 200) {
             const participants = await response.json();
             setParticipants(participants);
