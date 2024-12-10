@@ -22,7 +22,7 @@ export default function Footer({ startPage = false }) {
         if (response.status === 200) {
             const event = await response.json();
             setFinished(event.finished);
-            setMaxParticipants(event.max * 2);
+            setMaxParticipants(event.max_participants * 2);
         }
     };
 
