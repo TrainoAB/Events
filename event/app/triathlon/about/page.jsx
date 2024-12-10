@@ -91,7 +91,7 @@ export default function AboutPage() {
                         </div>
                         <div className="input-wrapper">
                             <label htmlFor="phonenumber">Telefonnummer</label>
-                            <input id="phonenumber" name="phonenumber" type="tel" required />
+                            <input id="phonenumber" name="phonenumber" type="tel" minLength={6} maxLength={12} pattern="[0-9]{6,12}" required />
                         </div>
                         <div className="input-wrapper">
                             <input id="webpage" name="webpage" type="hidden" />
