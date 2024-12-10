@@ -15,12 +15,12 @@ export default function ParticipantsPage() {
     const pathname = usePathname();
 
     useEffect(() => {
-        fetchParticipants();
         fetchEvent();
+        fetchParticipants();
     }, [isFirstTitleShown]);
 
     const fetchParticipants = async () => {
-        const response = await fetch("/api/participants");
+        const response = await fetch(`/api/participants?url=${pathname.split("/")[1]}`);       //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const participants = await response.json();
             setParticipants(participants);
