@@ -11,7 +11,7 @@ export async function createEvent(formData) {
         image: formData.get('image'),
         start_time: formData.get('start_time'),
         finished: formData.get('finished') || false,
-        max: formData.get('max-participants')
+        max_participants: formData.get('max_participants')
     };
 
     // TODO: validate data
@@ -33,7 +33,7 @@ export async function updateEvent(id, prevState, formData) {
         image: formData.get('image'),
         finished: formData.get('finished') || false,
         start_time: formData.get('start_time'),
-        max: formData.get('max-participants')
+        max_participants: formData.get('max_participants')
     };
 
     // TODO: validate data

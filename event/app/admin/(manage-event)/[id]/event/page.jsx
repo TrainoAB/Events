@@ -53,12 +53,12 @@ export default function EditEventPage({ params }) {
                     <input id="start_time" name="start_time" type="time" defaultValue={event.start_time} required />
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="max-participants">Max antal deltagare per tävling</label>
+                    <label htmlFor="max_participants">Max antal deltagare per tävling</label>
                     <input
-                        id="max-participants"
-                        name="max-participants"
+                        id="max_participants"
+                        name="max_participants"
                         type="number"
-                        defaultValue={event.max}
+                        defaultValue={event.max_participants}
                         step={1}
                         min={1}
                         max={10000}

@@ -30,7 +30,7 @@ export default function RegisterPage() {
         const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const event = await response.json();
-            setMaxParticipants(event.max);
+            setMaxParticipants(event.max_participants);
         }
     }
 
