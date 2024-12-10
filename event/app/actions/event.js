@@ -5,11 +5,11 @@ import { updateEventById, insertEvent } from "@/db/db";
 export async function createEvent(formData) {
     const event = {
         competition: formData.get('event'),
-        date: formData.get('date'),
+        start_date: formData.get('start_date'),
         url: formData.get('url') || "#",
         description: formData.get('description'),
         image: formData.get('image'),
-        time: formData.get('time'),
+        start_time: formData.get('start_time'),
         finished: formData.get('finished') || false,
         max: formData.get('max-participants')
     };
@@ -27,12 +27,12 @@ export async function createEvent(formData) {
 export async function updateEvent(id, prevState, formData) {
     const event = {
         competition: formData.get('event'),
-        date: formData.get('date'),
+        start_date: formData.get('start_date'),
         url: formData.get('url') || "#",
         description: formData.get('description'),
         image: formData.get('image'),
         finished: formData.get('finished') || false,
-        time: formData.get('time'),
+        start_time: formData.get('start_time'),
         max: formData.get('max-participants')
     };
 
