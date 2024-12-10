@@ -7,6 +7,7 @@
         flex-direction: column;
         gap: var(--small-gap);
         width: 100%;
+        margin-top: 1rem;
 
         & .interested-list__headings,
         & .interested-item {
@@ -38,7 +39,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1440px) {
     #interested-page {
         margin-inline: 0.5rem;
 

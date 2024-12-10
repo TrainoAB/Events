@@ -63,7 +63,7 @@ export default function InterestedPage({ params }) {
     };
 
     return (
-        <main id="interested-page" className="flex-col align-c gap">
+        <main id="interested-page" className="flex-col align-c">
             <h1 className="interested-page__title">Intressenter</h1>
             <ListToggle
                 title1="Sponsorer"
