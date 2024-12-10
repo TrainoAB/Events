@@ -81,10 +81,17 @@ export default function TriathlonPage() {
                     )}
 
                     <section className="event-about">
-                        <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
+                            <h2 className="event-about__title heading-size">TRAINO Triathlon</h2>
                             <p className="event-about__text">
-                                Traino anordnar sitt första event som går av stapeln {eventDate}.
+                                Är ett spännande triathlon-event baserat i hjärtat av Stockholm, Sverige. Tävlingen
+                                erbjuder en utmaning för alla med ett huvudtriathlon samt ett olympiskt triathlon – en
+                                något lättare variant för de som vill prova på sporten.{" "}
+                            </p>
+                            <p className="event-about__text">
+                                Evenemanget syftar till att främja hälsa och välbefinnande bland det svenska folket och
+                                lockar deltagare från alla nivåer. Missa inte chansen att delta i detta inspirerande
+                                evenemang som kombinerar motion, gemenskap och Stockholms fantastiska natur!
                             </p>
                             <Link className="event-about__link link-btn" href={"triathlon/about"}>
                                 Läs mer
@@ -92,10 +99,10 @@ export default function TriathlonPage() {
                         </div>
                         <figure className="event-about__figure">
                             <Image
-                                src={"https://picsum.photos/430/242"}
-                                width={430}
-                                height={242}
-                                alt="Karta som visar rutten för Triathlon tävlingen"
+                                src={"https://picsum.photos/1602/1206"}
+                                width={1600}
+                                height={1200}
+                                alt="Bild över eventets plats"
                                 className="event-about__image"
                             />
                         </figure>
@@ -116,22 +123,49 @@ export default function TriathlonPage() {
                         </figure>
                     </section>
                     <section className="traino-funnel flex-col align-c">
-                        <p className="traino-funnel__cta">Sugen på att delta? Förbered inför eventet.</p>
-                        <Link className="link-btn" href={"https://traino.nu/"}>
-                            Träna
+                        <h2>Sugen på att delta?</h2>
+                        <p className="traino-funnel__cta">
+                            Förbered inför eventet genom att träna. <br />
+                            Hitta din personliga tränare via TRAINO.
+                        </p>
+                        <Link className="link-btn" href="https://traino.nu/" target="_blank">
+                            Hitta tränare
                         </Link>
                     </section>
                     <section className="featured-product flex-col align-c">
-                        <h2 className="featured-product__title heading-size">Utvald Produkt</h2>
-                        <ProductCard
-                            image={"/white-tshirt.png"}
-                            url={
-                                "https://www.redbubble.com/i/t-shirt/Traino-Logo-Small-Color-by-TRAINO/165255437.WFLAH"
-                            }
-                        />
-                        <Link className="link-btn" href={"http://traino.redbubble.com"}>
-                            Visa fler
-                        </Link>
+                        <div className="featured-product__wrapper">
+                            <div>
+                                <ProductCard
+                                    image={"/white-tshirt.png"}
+                                    url={
+                                        "https://www.redbubble.com/i/t-shirt/Traino-Logo-Small-Color-by-TRAINO/165255437.WFLAH"
+                                    }
+                                />
+                            </div>
+                            <div>
+                                <h2 className="featured-product__title heading-size">
+                                    Stöd TRAINO Triathlon med vår exklusiva merch!
+                                </h2>
+                                <p>
+                                    Visa ditt engagemang för hälsa, sport och gemenskap genom att bära Traino Triathlons
+                                    officiella merch! När du köper våra utvalda produkter sponsrar du inte bara eventet
+                                    – du hjälper också till att göra det möjligt för fler att delta och uppleva glädjen
+                                    i triathlon.
+                                </p>
+                                <p>
+                                    En del av intäkterna går dessutom till välgörenhet för att stödja initiativ som
+                                    främjar hälsa och aktiv livsstil i Sverige. Genom ditt stöd bidrar du till att göra
+                                    skillnad både på och utanför banan.
+                                </p>
+                                <p>
+                                    Köp din merch idag och hjälp Traino Triathlon att bli ännu bättre – tillsammans
+                                    skapar vi något stort!
+                                </p>
+                                <Link className="link-btn" href={"http://traino.redbubble.com"}>
+                                    Visa fler produkter
+                                </Link>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </main>

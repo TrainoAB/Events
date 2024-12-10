@@ -7,6 +7,7 @@
     background: linear-gradient(45deg, #110637, #8468ea);
     padding: 6rem 4rem;
     width: 100%;
+    border-radius: var(--big-radius);
 
     & h2 {
         text-transform: uppercase;
