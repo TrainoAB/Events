@@ -5,11 +5,14 @@
     padding-bottom: 6rem;
 
     & .alleventspage__logo {
-        margin: 10rem 0;
+        margin: 2rem 0;
         width: revert-layer;
+        max-width: 16rem;
+        margin-right: 1rem;
     }
 
     & .alleventspage__events {
+        padding: 2rem;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -17,7 +20,18 @@
     }
 }
 
+.logo {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1000px) {
+    .logo {
+        scale: 0.6;
+        height: 6rem;
+    }
     #alleventspage {
         padding-inline: 1rem;
 
@@ -27,6 +41,7 @@
         }
 
         & .alleventspage__events {
+            padding: 0;
             grid-template-columns: repeat(1, 1fr);
         }
     }

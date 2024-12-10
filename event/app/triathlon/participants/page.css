@@ -12,7 +12,9 @@
         & .participants__confirmed {
             display: inline;
             color: var(--maincolor);
-            font-size: 4rem;
+            font-size: 5rem;
+            line-height: 3.2rem;
+            margin-right: 0.3rem;
             font-weight: 900;
         }
     }

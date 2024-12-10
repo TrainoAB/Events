@@ -4,6 +4,10 @@ import { redirect } from 'next/navigation';
 import { insertParticipant } from "@/db/db";
 
 export async function createParticipant(prevState, formData) {
+    if (formData.get('webpage')) {
+        return { message: `En icke giltig ansökan ${formData.get('webpage')}`, success: false };
+    }
+    
     const participant = {
         forename: formData.get('forename'),
         surname: formData.get('surname'),

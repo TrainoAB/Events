@@ -1,23 +1,33 @@
 .registered-participants {
-    gap: var(--gap);
-    background-color: var(--white);
-    padding: 2rem;
-    width: clamp(400px, 600px, 60%);
+    margin-top: 4rem;
+    color: var(--white);
+    gap: var(--large-gap);
+    background: rgb(10, 20, 45);
+    background: linear-gradient(133deg, rgba(10, 20, 45, 1) 0%, rgba(13, 34, 87, 1) 100%);
+    padding: 6rem 4rem;
+    width: 100%;
+
+    & h2 {
+        text-transform: uppercase;
+        color: #cdc2ff;
+    }
 
     & .registered-participants__count {
         font-size: 3rem;
 
         & .confirmed-participants {
             font-size: 4rem;
+            line-height: 3rem;
+            margin-right: 0.4rem;
             font-weight: 800;
-            color: var(--maincolor);
+            color: #cdc2ff;
         }
     }
 
     & .registered-participants__bar-container {
         width: 100%;
         height: 1rem;
-        background-color: var(--secondary-light-grey);
+        background-color: black;
 
         & .registered-participants__bar {
             height: 1rem;

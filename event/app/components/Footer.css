@@ -1,4 +1,5 @@
 #footer {
+    padding: 2rem;
     color: var(--white);
     background-color: var(--black);
     margin-top: auto;
@@ -9,6 +10,7 @@
         justify-content: space-between;
         margin-inline: auto;
         padding-block: 1rem;
+        max-width: 86rem;
 
         & .link-wrapper {
             display: flex;
@@ -40,27 +42,19 @@
                     background-color: var(--white);
                     mask-repeat: no-repeat;
                     mask-size: contain;
+                    filter: brightness(0.3);
                     mask-position: center;
 
-                    &:hover {
-                        filter: brightness(0.7);
-                    }
-
-                    &.social-icon--facebook {
-                        mask-image: url("../assets/facebook_icon.svg");
+                    &.social-icon--youtube {
+                        mask-image: url("../assets/youtube_icon.svg");
                     }
 
                     &.social-icon--instagram {
                         mask-image: url("../assets/instagram_icon.svg");
                     }
 
-                    &.social-icon--twitter-x {
-                        mask-image: url("../assets/twitter_x_icon.svg");
-                        mask-size: 80%;
-                    }
-
-                    &.social-icon--linkedin {
-                        mask-image: url("../assets/linkedin_icon.svg");
+                    &.social-icon--tiktok {
+                        mask-image: url("../assets/tiktok_icon.svg");
                     }
                 }
             }
@@ -69,11 +63,33 @@
 
     & .copyright {
         padding-block: 1rem;
+        font-size: 0.8125rem;
+        color: var(--secondary-grey);
     }
+}
+
+#footer .socials a:hover {
+    filter: brightness(1) !important;
+}
+
+#footer {
+    transition: none;
+}
+#footer a {
+    font-weight: 500;
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+#footer h3 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    color: var(--secondary-grey);
 }
 
 @media (max-width: 1000px) {
     #footer {
+        padding: 2rem 1rem;
         & .footer-container {
             flex-direction: column;
             align-items: center;

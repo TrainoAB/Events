@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "../components/CountdownTimer";
@@ -18,8 +18,8 @@ const SPONSORS = [
 ];
 
 export default function TriathlonPage() {
-    const [ participants, setParticipants ] = useState([]);
-    const [ event, setEvent ] = useState();
+    const [participants, setParticipants] = useState([]);
+    const [event, setEvent] = useState();
     const pathname = usePathname();
 
     useEffect(() => {
@@ -28,31 +28,32 @@ export default function TriathlonPage() {
     }, []);
 
     const fetchParticipants = async () => {
-        const response = await fetch('/api/participants');
+        const response = await fetch("/api/participants");
         if (response.status === 200) {
             const participants = await response.json();
             setParticipants(participants);
         }
-    }
+    };
 
     const fetchEvent = async () => {
-        const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
+        const response = await fetch(`/api/event?url=${pathname.split("/")[1]}`); //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const event = await response.json();
             setEvent(event);
         }
-    }
+    };
 
     return (
         <>
             <main id="eventpage" className="gap flex-col align-c">
-                <div className="video-container gap flex-col align-c">
+                <div className="video-container flex-col align-c">
                     <h1 className="video-container__title">Traino Triathlon</h1>
-                    <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
+
                     {
-                    // TODO Participants are not separated by competition.
-                    } 
-                    { participants && event ? <RegisteredParticipants registered={participants.length} total={event.max * 2} /> : <></> }
+                        // TODO Participants are not separated by competition.
+                    }
+                    {event ? <CountdownTimer dateInput={event.date + " " + event.time} /> : <></>}
+                    <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
                     <div className="videocover"></div>
                     <video muted autoPlay loop>
                         <source src="/videobg.mp4" type="video/mp4" />
@@ -60,13 +61,17 @@ export default function TriathlonPage() {
                     </video>
                 </div>
                 <div className="info-container max-width gap flex-col align-c">
-                    { event ? <CountdownTimer dateInput={event.date + " " + event.time} /> : <></> }
+                    {participants && event ? (
+                        <RegisteredParticipants registered={participants.length} total={event.max * 2} />
+                    ) : (
+                        <></>
+                    )}
+
                     <section className="event-about">
                         <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
                             <p className="event-about__text">
-                                Traino anordnar sitt första event som går av stapeln lördagen den
-                                16:e augusti 2025.
+                                Traino anordnar sitt första event som går av stapeln lördagen den 16:e augusti 2025.
                             </p>
                             <Link className="event-about__link link-btn" href={"triathlon/about"}>
                                 Läs mer
@@ -98,9 +103,7 @@ export default function TriathlonPage() {
                         </figure>
                     </section>
                     <section className="traino-funnel flex-col align-c">
-                        <p className="traino-funnel__cta">
-                            Sugen på att delta? Förbered inför eventet.
-                        </p>
+                        <p className="traino-funnel__cta">Sugen på att delta? Förbered inför eventet.</p>
                         <Link className="link-btn" href={"https://traino.nu/"}>
                             Träna
                         </Link>

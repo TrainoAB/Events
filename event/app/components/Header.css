@@ -1,37 +1,43 @@
 #header {
+    display: flex;
+    justify-content: center;
+    background: var(--white);
+    z-index: 1000;
+
     .header-nav {
         display: flex;
-        width: 100vw;
+        width: 100%;
+        max-width: 90rem;
         justify-content: space-between;
 
         #hamburger {
             display: none;
         }
-    
+
         & .header-list {
             display: flex;
             list-style: none;
-    
+
             & .header-list__element {
                 text-transform: uppercase;
                 font-family: "Inter", sans-serif;
                 font-weight: bold;
-    
+
                 & a {
                     display: block;
                     padding: 1.5rem;
-    
+
                     &:hover {
                         color: var(--maincolor);
                     }
                 }
             }
-    
+
             .active {
                 color: var(--mainpurple);
             }
         }
-    
+
         & .logo {
             background: url("/triathalonlogo.svg");
             background-repeat: no-repeat;
@@ -39,7 +45,10 @@
             background-size: contain;
             width: 9rem;
         }
-    }    
+        & .logo:hover {
+            filter: grayscale(1) brightness(0.5) contrast(1.4);
+        }
+    }
 }
 
 @media (max-width: 1000px) {
@@ -59,6 +68,7 @@
             .showmenu {
                 display: inline-table;
                 position: absolute;
+                height: 100vh;
             }
 
             #hamburger {

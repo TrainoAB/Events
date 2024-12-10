@@ -57,6 +57,10 @@
     }
 }
 
+.video-container {
+    gap: 2rem;
+}
+
 @media (max-width: 1000px) {
     #eventpage {
         & .video-container {
