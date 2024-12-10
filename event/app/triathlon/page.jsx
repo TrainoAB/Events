@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { formatDate } from "@/app/functions/functions";
+import { useTrainoContext } from "../context/TrainoContext";
 import Link from "next/link";
 import Image from "next/image";
 import CountdownTimer from "../components/CountdownTimer";
@@ -22,6 +24,8 @@ export default function TriathlonPage() {
     const [event, setEvent] = useState();
     const pathname = usePathname();
 
+    const { eventDate, setEventDate } = useTrainoContext();
+
     useEffect(() => {
         fetchParticipants();
         fetchEvent();
@@ -40,6 +44,8 @@ export default function TriathlonPage() {
         if (response.status === 200) {
             const event = await response.json();
             setEvent(event);
+            const newEventDate = formatDate(event.date);
+            setEventDate(newEventDate);
         }
     };
 
@@ -52,8 +58,15 @@ export default function TriathlonPage() {
                     {
                         // TODO Participants are not separated by competition.
                     }
-                    {event ? <CountdownTimer dateInput={event.date + " " + event.time} /> : <></>}
-                    <h2 className="video-container__subtitle">16 Aug 2025, Stockholm</h2>
+                    {event ? (
+                        <>
+                            <CountdownTimer dateInput={event.date + " " + event.time} />
+                            <h2 className="video-container__subtitle">{eventDate}, Stockholm</h2>
+                        </>
+                    ) : (
+                        <></>
+                    )}
+
                     <div className="videocover"></div>
                     <video muted autoPlay loop>
                         <source src="/videobg.mp4" type="video/mp4" />
@@ -71,7 +84,7 @@ export default function TriathlonPage() {
                         <h2 className="event-about__title heading-size">Om Eventet</h2>
                         <div className="event-about__info-wrapper flex-col">
                             <p className="event-about__text">
-                                Traino anordnar sitt första event som går av stapeln lördagen den 16:e augusti 2025.
+                                Traino anordnar sitt första event som går av stapeln {eventDate}.
                             </p>
                             <Link className="event-about__link link-btn" href={"triathlon/about"}>
                                 Läs mer

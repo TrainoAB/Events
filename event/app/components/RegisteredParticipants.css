@@ -3,7 +3,8 @@
     color: var(--white);
     gap: var(--large-gap);
     background: rgb(10, 20, 45);
-    background: linear-gradient(133deg, rgba(10, 20, 45, 1) 0%, rgba(13, 34, 87, 1) 100%);
+    /* background: linear-gradient(133deg, rgba(10, 20, 45, 1) 0%, rgba(13, 34, 87, 1) 100%); */
+    background: linear-gradient(45deg, #110637, #8468ea);
     padding: 6rem 4rem;
     width: 100%;
 

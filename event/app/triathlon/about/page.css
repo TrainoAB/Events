@@ -38,8 +38,18 @@
 
     & .volunteer {
         width: 100%;
+        border-radius: var(--radius);
+        background: linear-gradient(45deg, #110637, #8468ea);
+        padding: 6rem 10rem;
+        color: var(--white);
+
+        & .heading-size {
+            padding-bottom: 3rem;
+        }
 
         & .volunteer-form {
+            max-width: 20rem;
+            justify-content: center;
             gap: var(--gap);
             width: 80%;
 
@@ -47,7 +57,12 @@
                 width: 100%;
             }
 
+            & input {
+                border: none !important;
+            }
+
             & label {
+                font-weight: 500;
                 display: block;
                 margin-bottom: 0.5rem;
 
