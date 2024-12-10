@@ -36,7 +36,7 @@ export default function AboutPage() {
         if (response.status === 200) {
             const event = await response.json();
             setEvent(event);
-            const newEventDate = formatDate(event.date);
+            const newEventDate = formatDate(event.start_date);
             setEventDate(newEventDate);
         }
     };
