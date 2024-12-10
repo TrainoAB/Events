@@ -60,7 +60,7 @@ export default function TriathlonPage() {
                     }
                     {event ? (
                         <>
-                            <CountdownTimer dateInput={event.date + " " + event.time} />
+                            <CountdownTimer dateInput={event.start_date + " " + event.start_time} />
                             <h2 className="video-container__subtitle">{eventDate}, Stockholm</h2>
                         </>
                     ) : (
