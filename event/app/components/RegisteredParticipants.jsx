@@ -15,7 +15,6 @@ export default function RegisteredParticipants({ registered, total }) {
             className={`
                 registered-participants 
                 b-radius 
-                box-shadow 
                 flex-col 
                 align-c 
                 ${participantCount >= total ? "border-glow" : ""}
@@ -27,10 +26,7 @@ export default function RegisteredParticipants({ registered, total }) {
                 {`/${total}`}
             </strong>
             <div className="registered-participants__bar-container b-radius">
-                <div
-                    className="registered-participants__bar b-radius"
-                    style={{ width: `${cappedPercent}%` }}
-                ></div>
+                <div className="registered-participants__bar b-radius" style={{ width: `${cappedPercent}%` }}></div>
             </div>
             {participantCount < total ? (
                 <Link className="link-btn" href={"triathlon/register"}>
