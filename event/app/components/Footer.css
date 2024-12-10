@@ -45,21 +45,16 @@
                     filter: brightness(0.3);
                     mask-position: center;
 
-                    &.social-icon--facebook {
-                        mask-image: url("../assets/facebook_icon.svg");
+                    &.social-icon--youtube {
+                        mask-image: url("../assets/youtube_icon.svg");
                     }
 
                     &.social-icon--instagram {
                         mask-image: url("../assets/instagram_icon.svg");
                     }
 
-                    &.social-icon--twitter-x {
-                        mask-image: url("../assets/twitter_x_icon.svg");
-                        mask-size: 80%;
-                    }
-
-                    &.social-icon--linkedin {
-                        mask-image: url("../assets/linkedin_icon.svg");
+                    &.social-icon--tiktok {
+                        mask-image: url("../assets/tiktok_icon.svg");
                     }
                 }
             }

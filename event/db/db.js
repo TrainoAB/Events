@@ -29,7 +29,7 @@ const WINNERS_TABLE = "winners";
  **********/
 
 export async function getAllEvents() {
-    return await databaseClient.from(EVENTS_TABLE).select().order("id");
+    return await databaseClient.from(EVENTS_TABLE).select().order("start_date");
 }
 
 export async function getEventById(id) {
@@ -48,7 +48,7 @@ export async function insertEvent(event) {
     return await databaseClient
         .from(EVENTS_TABLE)
         .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, 
-            date: event.date, time: event.time, max: event.max, finished: event.finished });
+            start_date: event.start_date, start_time: event.start_time, max: event.max, finished: event.finished });
 }
 
 export async function updateEventById(event, id) {

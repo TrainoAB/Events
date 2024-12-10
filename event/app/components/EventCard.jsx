@@ -14,7 +14,7 @@ export default function EventCard({ event }) {
                 <div className="event-info">
                     <div className="event-card__headings">
                         <h2>{event.competition}</h2>
-                        <h3 className="date">{event.date}</h3>
+                        <h3 className="date">{event.start_date}</h3>
                     </div>
 
                     <p>{event.description}</p>
