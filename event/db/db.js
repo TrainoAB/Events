@@ -113,6 +113,17 @@ export async function insertParticipant(participant) {
             phone: participant.phone, city: participant.city, age: participant.age, competition: participant.competition });
 }
 
+export async function getAllParticipantsById(eventId) {
+    return await databaseClient.from(PARTICIPANTS_TABLE).select().eq("event_id", eventId);
+}
+
+export async function getAllParticipantsByUrl(eventUrl) {
+    const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
+    return await databaseClient.from(PARTICIPANTS_TABLE).select().eq('event_id', data.id);
+}
+
+
+
 
 
 
