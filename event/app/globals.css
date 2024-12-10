@@ -121,16 +121,15 @@ button {
     font-weight: 600;
     width: 100%;
     max-width: 20rem;
-    background: var(--mainpurple);
+    background: var(--maincolor);
     border: none;
-    border-radius: 99px;
+    border-radius: var(--radius);
     cursor: pointer;
-    box-shadow: -7px 7px 8px var(--shadow-color);
-    transition: var(--btn-transition);
+    /*  box-shadow: -7px 7px 8px var(--shadow-color); 
+    transition: var(--btn-transition);*/
 
     &:hover {
-        filter: brightness(0.9);
-        scale: 1.05;
+        background: var(--mainpurple);
     }
 }
 
@@ -187,7 +186,7 @@ figure {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 60vh;
+        height: 65vh;
         object-fit: cover;
         z-index: -2;
     }
@@ -217,9 +216,9 @@ figure {
         font-size: 1.5rem;
         font-weight: bolder;
         color: var(--white);
-        background: rgba(0, 0, 0, 0.5);
+        /* background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(6px);
-        box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.5) inset, 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.2) inset, 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.5); */
         padding: 1rem 2rem;
         border-radius: 10rem;
     }
@@ -229,7 +228,7 @@ figure {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 60vh;
+        height: 65vh;
         content: "";
         display: block;
         z-index: -1;
@@ -257,19 +256,16 @@ figure {
 .link-btn {
     text-decoration: none;
     text-align: center;
-    padding: 1.2rem 0.8rem;
+    padding: 1.2rem 2rem;
+    text-transform: uppercase;
     color: var(--white);
-    font-weight: bold;
-    width: 12rem;
-    background: var(--mainpurple);
-    border-radius: 99px;
-    box-shadow: var(--box-shadow);
-    transition: var(--btn-transition);
+    font-weight: 600;
+    background: var(--maincolor);
+    border-radius: var(--radius);
 
     &:hover {
-        filter: brightness(0.9);
-        scale: 1.05;
-        color: var(--white);
+        color: white;
+        background: var(--mainpurple);
     }
 }
 

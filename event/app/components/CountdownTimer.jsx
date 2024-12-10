@@ -72,11 +72,7 @@ export default function CountdownTimer({ dateInput }) {
 
     // Check if the event has started
     if (isEventStarted) {
-        return (
-            <h2 className="countdown-timer b-radius box-shadow event-started border-glow">
-                Eventet har startat
-            </h2>
-        );
+        return <h2 className="countdown-timer b-radius box-shadow event-started border-glow">Eventet har startat</h2>;
     }
 
     return (
@@ -107,7 +103,6 @@ export default function CountdownTimer({ dateInput }) {
                     <span className="countdown-time__type">Sekunder</span>
                 </div>
             </div>
-            <p className="countdown-timer__text">Tid kvar tills eventet börjar</p>
         </div>
     );
 }
