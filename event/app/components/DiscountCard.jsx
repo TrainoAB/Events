@@ -9,7 +9,7 @@ export default function DiscountCard({ discount, target="_self" }) {
                 <div className="discount-info-wrapper flex-col">
                     <h3 className="discount-card__title">{discount.title}</h3>
                     <p className="discount-card__description">{discount.description}</p>
-                    <small className="discount-card__expiration">{`Gäller från ${discount.from} till ${discount.to}`}</small>
+                    <small className="discount-card__expiration">{`Gäller från ${discount.valid_from} till ${discount.valid_to}`}</small>
                 </div>
                 <strong className="discount-card__percent"><span className="discount-card__percent--text">{`${discount.discount}%`}</span></strong>
             </article>

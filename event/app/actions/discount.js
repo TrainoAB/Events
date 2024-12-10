@@ -5,8 +5,8 @@ import { updateDiscountById, insertDiscount } from "@/db/db";
 export async function createDiscount(id, prevState, formData) {
     const discount = {
         title: formData.get('title'),
-        from: formData.get('from'),
-        to: formData.get('to'),
+        valid_from: formData.get('valid_from'),
+        valid_to: formData.get('valid_to'),
         url: formData.get('link') || "#",
         description: formData.get('description'),
         discount: formData.get('discount'),
@@ -28,8 +28,8 @@ export async function createDiscount(id, prevState, formData) {
 export async function updateDiscount(id, prevState, formData) {
     const discount = {
         title: formData.get('title'),
-        from: formData.get('from'),
-        to: formData.get('to'),
+        valid_from: formData.get('valid_from'),
+        valid_to: formData.get('valid_to'),
         url: formData.get('link') || "#",
         description: formData.get('description'),
         discount: formData.get('discount')
