@@ -85,7 +85,7 @@ export async function insertDiscount(discount) {
     return await databaseClient
         .from(DISCOUNTS_TABLE)
         .insert({ title: discount.title, url: discount.url, eventId: discount.eventId, description: discount.description, 
-            from: discount.from, to: discount.to, discount: discount.discount });
+            valid_from: discount.valid_from, valid_to: discount.valid_to, discount: discount.discount });
 }
 
 export async function updateDiscountById(discount, id) {
