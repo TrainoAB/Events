@@ -79,8 +79,8 @@ export default function EditWinnerPage({ params }) {
                     </label>
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="finish_time">Sluttiden</label>
-                    <input id="finish_time" name="finish_time" type="time" defaultValue={winner.finish_time} required />
+                    <label htmlFor="result">Resultat</label>
+                    <input id="result" name="result" type="text" defaultValue={winner.result} required />
                 </div>
 
                 <div className="edit-winner-form__buttons">

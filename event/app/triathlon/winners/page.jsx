@@ -21,6 +21,7 @@ export default function WinnersPage() {
         const response = await fetch(`/api/winners?url=${pathname.split('/')[1]}`); //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const winners = await response.json();
+            winners.sort((a, b) => a.result.localeCompare(b.result));
             setWinners(winners);
         }
     }
@@ -48,7 +49,7 @@ export default function WinnersPage() {
                     .map((winner, index) => 
                         <li className="participants-list__row box-shadow" key={index}>
                             <div className="list-row-wrapper">
-                                <div className="participants-list__row mobile-row">Tid: </div> <p> { winner.finish_time} </p> 
+                                <div className="participants-list__row mobile-row">Tid: </div> <p> { winner.result} </p> 
                             </div>
                             
                             <div className="winners-wrapper">

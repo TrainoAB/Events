@@ -62,8 +62,8 @@ export default function AddWinnerPage({ params }) {
                     </label>
                 </div>
                 <div className="input-wrapper">
-                    <label htmlFor="finish_time">Sluttiden</label>
-                    <input id="finish_time" name="finish_time" type="time" step={2} required />
+                    <label htmlFor="result">Resultat</label>
+                    <input id="result" name="result" type="text" required />
                 </div>
 
                 <div className="add-winner-form__buttons">

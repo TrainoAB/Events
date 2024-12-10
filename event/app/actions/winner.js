@@ -4,7 +4,7 @@ import { updateWinnerById, insertWinner } from "@/db/db";
 
 export async function createWinner(id, prevState, formData) {
     const winner = {
-        finish_time: formData.get('finish_time'),
+        result: formData.get('result'),
         forename: formData.get('forename'),
         surname: formData.get('surname'),
         competition: formData.get('competition'),
@@ -26,7 +26,7 @@ export async function createWinner(id, prevState, formData) {
 
 export async function updateWinner(id, prevState, formData) {
     const winner = {
-        finish_time: formData.get('finish_time'),
+        result: formData.get('result'),
         forename: formData.get('forename'),
         surname: formData.get('surname'),
         competition: formData.get('competition'),
