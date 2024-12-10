@@ -60,7 +60,15 @@ export default function RegisterPage() {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="age">Ålder</label>
-                    <input id="age" name="age" type="text" required />
+                    <input
+                        id="age"
+                        name="age"
+                        type="number"
+                        step={1}
+                        min={1}
+                        max={120}
+                        required
+                    />
                 </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Kön</span>
