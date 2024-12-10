@@ -3,7 +3,7 @@
         display: flex;
         justify-content: flex-end;
         width: 100vw;
-        
+
         #hamburger {
             display: none;
         }
@@ -12,23 +12,25 @@
             display: flex;
             justify-content: flex-end;
             list-style: none;
-    
+
             & .admin-header-list__element {
                 text-transform: uppercase;
                 font-family: "Inter", sans-serif;
                 font-weight: bold;
-    
+
                 & a {
                     display: block;
                     padding: 1.5rem;
-    
+                    border-bottom: 4px solid transparent;
+
                     &:hover {
                         color: var(--maincolor);
                     }
                 }
             }
-    
+
             .active {
+                border-bottom: 4px solid var(--black);
                 color: var(--mainpurple);
             }
         }
@@ -48,12 +50,12 @@
                 text-align: center;
                 z-index: 120;
             }
-    
+
             .showmenu {
                 display: inline-table;
                 position: absolute;
             }
-    
+
             #hamburger {
                 display: block;
                 position: absolute;

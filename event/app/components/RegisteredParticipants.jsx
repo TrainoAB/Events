@@ -14,7 +14,6 @@ export default function RegisteredParticipants({ registered, total }) {
         <article
             className={`
                 registered-participants 
-                b-radius 
                 flex-col 
                 align-c 
                 ${participantCount >= total ? "border-glow" : ""}
