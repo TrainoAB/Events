@@ -151,6 +151,12 @@ export async function updateSponsorById(updatedSponsor, id) {
     return await databaseClient.from(SPONSORS_TABLE).update(updatedSponsor).eq("id", id);
 }
 
+export async function getAllSponsorsByUrl(eventUrl) {
+    const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
+    return await databaseClient.from(SPONSORS_TABLE).select().eq('eventId', data.id);
+}
+
+
 
 
 
