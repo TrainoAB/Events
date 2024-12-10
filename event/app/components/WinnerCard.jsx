@@ -24,11 +24,9 @@ export default function WinnerCard({ placement, winner }) {
 
     return (
         <div id="winnerCard-wrapper">
-            <section id="winnerCard" className="box-shadow flex-col align-c">
-                <div className="winnerCard-placement-wrapper box-shadow">
-                    <div className={`winnerCard-placement ${winnerColor(placement)}`}>
-                        {placement}
-                    </div>
+            <section id="winnerCard" className=" flex-col align-c">
+                <div className="winnerCard-placement-wrapper ">
+                    <div className={`winnerCard-placement ${winnerColor(placement)}`}>{placement}</div>
                 </div>
                 <div className="winnerCard-name-wrapper box-shadow flex-col">
                     <h2>{firstName(winner.name)}</h2>

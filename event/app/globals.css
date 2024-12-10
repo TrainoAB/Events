@@ -33,7 +33,7 @@
     --heading-size: 1.25rem;
     --weight: 700;
     --text-size: 0.88rem;
-    --radius: 15px;
+    --radius: 0.75rem;
     --box-shadow: -7px 7px 8px var(--shadow-color);
     --btn-transition: all 0.2s ease-out;
 
@@ -99,7 +99,7 @@ main:before {
 
 input,
 textarea {
-    padding: 0.8rem;
+    padding: 1.2rem;
     font-size: 1rem;
     color: var(--black);
     font-family: var(--font-inter);
