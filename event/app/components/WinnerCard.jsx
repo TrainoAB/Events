@@ -14,14 +14,6 @@ export default function WinnerCard({ placement, winner }) {
         }
     };
 
-    const firstName = (name) => {
-        return name.split(" ")[0];
-    };
-
-    const lastName = (name) => {
-        return name.split(" ")[1];
-    };
-
     return (
         <div id="winnerCard-wrapper">
             <section id="winnerCard" className="box-shadow flex-col align-c">
@@ -31,10 +23,11 @@ export default function WinnerCard({ placement, winner }) {
                     </div>
                 </div>
                 <div className="winnerCard-name-wrapper box-shadow flex-col">
-                    <h2>{firstName(winner.name)}</h2>
-                    <h2>{lastName(winner.name)}</h2>
+                    <h2>{winner.forename}</h2>
+                    <h2>{winner.surname}</h2>
                 </div>
                 <h2>{winner.city}</h2>
+                <h2>{ winner.result }</h2>
                 <h2 className="winnerCard-competition">{winner.competition}</h2>
             </section>
         </div>
