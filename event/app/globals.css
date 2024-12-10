@@ -85,6 +85,10 @@ a {
     }
 }
 
+main {
+    padding: 2rem;
+}
+
 main:before {
     content: "";
     background: linear-gradient(0deg, #f8f8f8, #e3d4ffa6);
@@ -257,7 +261,7 @@ figure {
     text-decoration: none;
     text-align: center;
     padding: 1.2rem 2rem;
-    text-transform: uppercase;
+
     color: var(--white);
     font-weight: 600;
     background: var(--maincolor);

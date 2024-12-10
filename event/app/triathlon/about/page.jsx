@@ -43,7 +43,7 @@ export default function AboutPage() {
             </div>
             <section className="event-info">
                 <p className="event-info__description">
-                    Traino anordnar sitt första event som går av stapeln lördagen den 16:e augusti 2025. Ett helt
+                    TRAINO anordnar sitt första event som går av stapeln lördagen den 16:e augusti 2025. Ett helt
                     Triathlon, placerat i Stockholm. Det kommer även att finnas ett mini Triathlon kallat Olympiska
                     Triathlon.
                 </p>

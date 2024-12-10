@@ -63,20 +63,32 @@ export default function Footer({ startPage = false }) {
                 <section className="organizer link-wrapper">
                     <h3>Organisatör</h3>
                     <Link href="https://traino.nu" target="_blank">
-                        Traino
+                        TRAINO
                     </Link>
                     {!startPage && <Link href="/">Alla Event</Link>}
                 </section>
                 <section className="socials">
                     <h3>Sociala Medier</h3>
                     <div className="socials__links-wrapper">
-                        <Link className="social-icon social-icon--youtube" href="https://www.youtube.com/@trainoofficial" target="_blank"></Link>
-                        <Link className="social-icon social-icon--instagram" href="https://www.instagram.com/trainoofficial" target="_blank"></Link>
-                        <Link className="social-icon social-icon--tiktok" href="https://www.tiktok.com/@trainoofficial" target="_blank"></Link>
+                        <Link
+                            className="social-icon social-icon--youtube"
+                            href="https://www.youtube.com/@trainoofficial"
+                            target="_blank"
+                        ></Link>
+                        <Link
+                            className="social-icon social-icon--instagram"
+                            href="https://www.instagram.com/trainoofficial"
+                            target="_blank"
+                        ></Link>
+                        <Link
+                            className="social-icon social-icon--tiktok"
+                            href="https://www.tiktok.com/@trainoofficial"
+                            target="_blank"
+                        ></Link>
                     </div>
                 </section>
             </div>
-            <p className="copyright">&copy; Copyright 2024 Traino</p>
+            <p className="copyright">&copy; Copyright 2024 TRAINO</p>
         </footer>
     );
 }

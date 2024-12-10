@@ -41,7 +41,6 @@
         border-radius: var(--radius);
         background: linear-gradient(45deg, #110637, #8468ea);
         padding: 6rem 10rem;
-        width: calc(100% - 4rem);
         color: var(--white);
 
         & .heading-size {
