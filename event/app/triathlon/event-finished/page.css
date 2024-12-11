@@ -3,11 +3,26 @@
     position: relative;
 
     & .winners-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-areas: "second first third";
         list-style: none;
-        gap: var(--large-gap);
+        justify-content: space-between;
+        margin-block: 2rem;
+        max-width: 1000px;
+        width: 100%;
+
+        & li:first-child {
+            grid-area: first;
+            scale: 1.2;
+        }
+
+        & li:nth-child(2) {
+            grid-area: second;
+        }
+
+        & li:last-child {
+            grid-area: third;
+        }
     }
 
     & .event-video-gallery {
@@ -19,6 +34,23 @@
         & .event-video-gallery__title {
             text-align: center;
             margin: 2rem 0;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #eventfinishedpage {
+        & .winners-list {
+            justify-content: center;
+            grid-template-areas:
+                "first"
+                "second"
+                "third";
+            gap: 3rem;
+
+            & li:first-child {
+                scale: 1;
+            }
         }
     }
 }

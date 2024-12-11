@@ -1,59 +1,64 @@
-#winnerCard-wrapper {
-    padding: 4rem 2rem 0 2rem;
-    text-align: center;
+#winnerCard {
+    gap: var(--small-gap);
+    border-radius: 40px;
+    background-color: var(--white);
+    padding: 1rem 1.4rem;
+    box-shadow: 4px 6px 10px var(--shadow-color);
 
-    & #winnerCard {
-        width: 220px;
-        height: 350px;
-        border-radius: var(--radius);
-        background-color: var(--white);
+    & .winnerCard-placement {
+        position: relative;
+        width: 15rem;
+        height: 15rem;
+        top: -15px;
+        scale: 1.1;
+        margin-bottom: 0.5rem;
+    }
 
-        & .winnerCard-placement-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: -40px;
-            border-radius: 100%;
-            width: 8rem;
-            height: 8rem;
+    & :is(.gold, .silver, .bronze) {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0 0 6px var(--shadow-color));
+    }
 
-            & .winnerCard-placement {
-                align-content: center;
-                font-weight: bold;
-                font-size: 4rem;
-                border-radius: 100%;
-                width: 7rem;
-                height: 7rem;
-            }
+    & .gold {
+        background-image: url("/medals/medal_gold.png");
+    }
 
-            & .gold {
-                background-color: #ffcb22;
-            }
+    & .silver {
+        background-image: url("/medals/medal_silver.png");
+    }
 
-            & .silver {
-                background-color: #c8c8c8;
-            }
+    & .bronze {
+        background-image: url("/medals/medal_bronze.png");
+    }
 
-            & .bronze {
-                background-color: #ff8922;
-            }
-        }
+    & .winnerCard-name-wrapper {
+        width: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+        overflow-wrap: break-word;
+        max-width: 240px;
+    }
 
-        & .winnerCard-name-wrapper {
-            justify-content: center;
-            position: relative;
-            color: var(--white);
-            background-color: var(--maincolor);
-            width: 115%;
-            height: 5rem;
-            border-radius: var(--radius);
-            margin-bottom: 2rem;
-        }
+    & .winnerCard-city {
+        font-style: italic;
+    }
 
-        & .winnerCard-competition {
-            font-weight: normal;
-            padding: 1rem;
-        }
+    & .winnerCard-competition {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: var(--white);
+        text-align: center;
+        width: fit-content;
+        padding: 0.4rem 2rem;
+        border-radius: 50px;
+        background: linear-gradient(to right, var(--mainpurple) -10%, var(--maincolor) 30%, rgb(199, 106, 241) 120%);
+        filter: drop-shadow(0 6px 8px var(--maincolor));
+        margin-block: 1rem 2rem;
+    }
+
+    & p {
+        margin: auto;
     }
 }
