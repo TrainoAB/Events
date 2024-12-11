@@ -28,20 +28,22 @@ const WINNERS_TABLE = "winners";
  * EVENTS *
  **********/
 
+const EVENT_COLUMNS = 'id, competition, url, image, description, start_date, start_time, max_participants, finished';
+
 export async function getAllEvents() {
-    return await databaseClient.from(EVENTS_TABLE).select().order("start_date");
+    return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).order("start_date");
 }
 
 export async function getAllEventsByUrl(eventUrl) {
-    return await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).order("start_date");
+    return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).eq('url', eventUrl).order("start_date");
 }
 
 export async function getEventById(id) {
-    return await databaseClient.from(EVENTS_TABLE).select().eq('id', id).single();
+    return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).eq('id', id).single();
 }
 
 export async function getEventByUrl(url) {
-    return await databaseClient.from(EVENTS_TABLE).select().eq('url', url).single();
+    return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).eq('url', url).single();
 }
 
 export async function deleteEvent(id) {
@@ -68,17 +70,19 @@ export async function updateEventById(event, id) {
  * DISCOUNTS *
  *************/
 
+const DISCOUNT_COLUMNS = 'id, title, url, eventId, description, valid_from, valid_to, discount';
+
 export async function getAllDiscountsById(eventId) {
-    return await databaseClient.from(DISCOUNTS_TABLE).select().eq('eventId', eventId).order("id");
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', eventId).order("id");
 }
 
 export async function getAllDiscountsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(DISCOUNTS_TABLE).select().eq('eventId', data.id);
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', data.id);
 }
 
 export async function getDiscountById(id) {
-    return await databaseClient.from(DISCOUNTS_TABLE).select().eq('id', id).single();
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('id', id).single();
 }
 
 export async function deleteDiscount(id) {
@@ -102,9 +106,12 @@ export async function updateDiscountById(discount, id) {
 
 
 
+
 /****************
  * PARTICIPANTS *
  ****************/
+
+const PARTICIPANT_COLUMNS = 'id, forename, surname, email, gender, phone, age, city, competition';
 
 export async function getAllParticipants() {
     return await databaseClient.from(PARTICIPANTS_TABLE).select();
@@ -118,12 +125,12 @@ export async function insertParticipant(participant) {
 }
 
 export async function getAllParticipantsById(eventId) {
-    return await databaseClient.from(PARTICIPANTS_TABLE).select().eq("event_id", eventId);
+    return await databaseClient.from(PARTICIPANTS_TABLE).select(PARTICIPANT_COLUMNS).eq("event_id", eventId);
 }
 
 export async function getAllParticipantsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(PARTICIPANTS_TABLE).select().eq('event_id', data.id);
+    return await databaseClient.from(PARTICIPANTS_TABLE).select(PARTICIPANT_COLUMNS).eq('event_id', data.id);
 }
 
 
@@ -135,9 +142,11 @@ export async function getAllParticipantsByUrl(eventUrl) {
  * SPONSORS *
  ************/
 
+const SPONSOR_COLUMNS = 'id, name, image, url, description, eventId';
+
 // Get all sponsors for an event
 export async function getAllSponsorsByEventId(eventId) {
-    return await databaseClient.from(SPONSORS_TABLE).select().eq("eventId", eventId).order("id");
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("eventId", eventId).order("id");
 }
 
 // Add a sponsor to a specific event
@@ -158,7 +167,7 @@ export async function deleteSponsor(id) {
 
 // Get a sponsor by id
 export async function getSponsorById(id) {
-    return await databaseClient.from(SPONSORS_TABLE).select().eq("id", id).single();
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("id", id).single();
 }
 
 // Update a sponsor
@@ -168,7 +177,7 @@ export async function updateSponsorById(updatedSponsor, id) {
 
 export async function getAllSponsorsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(SPONSORS_TABLE).select().eq('eventId', data.id);
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq('eventId', data.id);
 }
 
 
@@ -179,12 +188,14 @@ export async function getAllSponsorsByUrl(eventUrl) {
  * RULES *
  **********/
 
+const RULE_COLUMNS = 'id, rule, eventId';
+
 export async function getAllRules() {
-    return await databaseClient.from(RULES_TABLE).select().order("id");
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).order("id");
 }
 
 export async function getRuleById(id) {
-    return await databaseClient.from(RULES_TABLE).select().eq('id', id).single();
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('id', id).single();
 }
 
 export async function deleteRule(id) {
@@ -192,12 +203,12 @@ export async function deleteRule(id) {
 }
 
 export async function getAllRulesById(eventId) {
-    return await databaseClient.from(RULES_TABLE).select().eq('eventId', eventId).order("id");
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('eventId', eventId).order("id");
 }
 
 export async function getAllRulesByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(RULES_TABLE).select().eq('eventId', data.id);
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('eventId', data.id);
 }
 
 export async function insertRule(rule) {
@@ -220,12 +231,14 @@ export async function updateRuleById(rule, id) {
  * FAQ *
  *******/
 
+const FAQ_COLUMNS = 'id, question, answer, eventId';
+
 export async function getAllFaqs() {
-    return await databaseClient.from(FAQ_TABLE).select().order("id");
+    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).order("id");
 }
 
 export async function getFaqById(id) {
-    return await databaseClient.from(FAQ_TABLE).select().eq('id', id).single();
+    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('id', id).single();
 }
 
 export async function deleteFaq(id) {
@@ -233,12 +246,12 @@ export async function deleteFaq(id) {
 }
 
 export async function getAllFaqsById(eventId) {
-    return await databaseClient.from(FAQ_TABLE).select().eq('eventId', eventId).order("id");
+    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('eventId', eventId).order("id");
 }
 
 export async function getAllFaqsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(FAQ_TABLE).select().eq('eventId', data.id);
+    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('eventId', data.id);
 }
 
 export async function insertFaq(faq) {
@@ -262,6 +275,8 @@ export async function updateFaqById(faq, id) {
  * APPLICATIONS *
  ****************/
 
+const APPLICATION_COLUMNS = 'id, email, phone, eventId';
+
 export async function insertSponsorApplication(application) {
     return await databaseClient
         .from(SPONSOR_APPLICATION_TABLE)
@@ -276,12 +291,12 @@ export async function insertVolunteerApplication(application) {
 
 // Get all interested sponsors for an event
 export async function getInterestedSponsorsByEventId(eventId) {
-    return await databaseClient.from(SPONSOR_APPLICATION_TABLE).select().eq("eventId", eventId);
+    return await databaseClient.from(SPONSOR_APPLICATION_TABLE).select(APPLICATION_COLUMNS).eq("eventId", eventId);
 }
 
 // Get all interested volunteers for an event
 export async function getInterestedVolunteersByEventId(eventId) {
-    return await databaseClient.from(VOLUNTEER_APPLICATION_TABLE).select().eq("eventId", eventId);
+    return await databaseClient.from(VOLUNTEER_APPLICATION_TABLE).select(APPLICATION_COLUMNS).eq("eventId", eventId);
 }
 
 
@@ -293,12 +308,14 @@ export async function getInterestedVolunteersByEventId(eventId) {
  * WINNERS *
  ***********/
 
+const WINNER_COLUMNS = 'id, result, surname, forename, city, competition, event_id';
+
 export async function getAllWinnersById(eventId) {
-    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', eventId).order('result');
+    return await databaseClient.from(WINNERS_TABLE).select(WINNER_COLUMNS).eq('event_id', eventId).order('result');
 }
 
 export async function getWinnerById(id) {
-    return await databaseClient.from(WINNERS_TABLE).select().eq('id', id).single();
+    return await databaseClient.from(WINNERS_TABLE).select(WINNER_COLUMNS).eq('id', id).single();
 }
 
 export async function deleteWinner(id) {
@@ -321,5 +338,5 @@ export async function updateWinnerById(winner, id) {
 
 export async function getAllWinnersByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(WINNERS_TABLE).select().eq('event_id', data.id);
+    return await databaseClient.from(WINNERS_TABLE).select(WINNER_COLUMNS).eq('event_id', data.id);
 }
