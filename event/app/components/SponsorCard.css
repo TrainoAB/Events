@@ -1,8 +1,10 @@
 .sponsor-card-link {
-    &:hover {
-        color: inherit;
-        scale: 1.01;
-        filter: brightness(0.9);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: var(--big-radius);
+    overflow: hidden;
+
+    &:hover button {
+        background: var(--mainpurple);
     }
 
     & .sponsor-card {
@@ -12,13 +14,18 @@
         & .sponsor-card__figure {
             width: 100%;
             display: flex;
+            margin: 1rem;
             flex: 1;
 
             & img {
-                border-radius: var(--radius) 0 0 var(--radius);
+                border-radius: var(--radius);
                 object-fit: cover;
                 object-position: center;
             }
+        }
+
+        & .sponsor-card__title {
+            font-size: 2rem;
         }
 
         & .sponsor-card-wrapper {
@@ -27,6 +34,13 @@
             flex: 3;
         }
     }
+}
+.sponsor-card-link:hover .sponsor-card__title {
+    color: var(--maincolor);
+}
+
+.sponsor-card-link:hover p {
+    color: black;
 }
 
 @media (max-width: 800px) {

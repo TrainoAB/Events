@@ -38,7 +38,7 @@
 
     & .volunteer {
         width: 100%;
-        border-radius: var(--radius);
+        border-radius: var(--big-radius);
         background: linear-gradient(45deg, #110637, #8468ea);
         padding: 6rem 10rem;
         color: var(--white);
