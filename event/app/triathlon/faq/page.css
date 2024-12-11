@@ -1,3 +1,4 @@
 #faqpage {
+    gap: 1rem;
     padding-block: var(--main-block-padding);
 }

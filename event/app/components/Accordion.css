@@ -4,6 +4,8 @@
     padding: 2rem;
     text-align: left;
     border-radius: 15px;
+    background: var(--white);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 
     & .accordion-panel {
         max-height: 0;
@@ -11,8 +13,8 @@
         transition: max-height 0.4s ease-in-out;
 
         & .accordion__text {
-            font-size: x-large;
-            font-weight: 300;
+            font-size: large;
+            font-weight: 400;
             padding-left: 3rem;
             margin-top: 1rem;
         }
@@ -26,7 +28,7 @@
         display: flex;
         align-items: center;
         gap: var(--gap);
-        font-weight: normal;
+        font-weight: 600;
 
         & .accordion__image {
             width: 2rem;
@@ -41,7 +43,7 @@
 
         & .accordion__heading {
             font-size: large;
-    
+
             & .accordion__image {
                 width: 1rem;
             }
@@ -54,4 +56,12 @@
             }
         }
     }
+}
+
+.accordion:hover {
+    outline: 4px solid var(--maincolor);
+}
+
+.accordion:hover .accordion__heading {
+    color: var(--maincolor);
 }

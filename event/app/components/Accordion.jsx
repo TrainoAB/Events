@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -15,31 +15,18 @@ export default function Accordion({ heading, text }) {
     };
 
     return (
-        <section className="accordion box-shadow max-width">
-            <h2 className="accordion__heading" onClick={handleToggle}> 
-                { isShowing ? 
-                    <Image 
-                        src={minus}
-                        className="accordion__image"
-                        width={32}
-                        height={32}
-                        alt="Hide content icon"
-                    /> :
-                    <Image 
-                        src={plus}
-                        className="accordion__image"
-                        width={32}
-                        height={32}
-                        alt="Show content icon"
-                    /> 
-                } 
+        <div className="accordion max-width" onClick={handleToggle}>
+            <h2 className="accordion__heading">
+                {isShowing ? (
+                    <Image src={minus} className="accordion__image" width={32} height={32} alt="Hide content icon" />
+                ) : (
+                    <Image src={plus} className="accordion__image" width={32} height={32} alt="Show content icon" />
+                )}
                 {heading}
             </h2>
-            <div className={isShowing ? 'accordion-panel dropdown' : 'accordion-panel'}>
-                <p className="accordion__text">
-                    { text }
-                </p>
+            <div className={isShowing ? "accordion-panel dropdown" : "accordion-panel"}>
+                <p className="accordion__text">{text}</p>
             </div>
-        </section>    
+        </div>
     );
 }
