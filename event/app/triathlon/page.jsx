@@ -9,6 +9,7 @@ import Image from "next/image";
 import CountdownTimer from "../components/CountdownTimer";
 import ProductCard from "../components/ProductCard";
 import RegisteredParticipants from "../components/RegisteredParticipants";
+import TrainoFunnel from "../components/TrainoFunnel";
 
 import "./page.css";
 
@@ -49,6 +50,7 @@ export default function TriathlonPage() {
         }
     };
 
+    // MARK: Markup
     return (
         <>
             <main id="eventpage" className="gap flex-col align-c">
@@ -122,16 +124,7 @@ export default function TriathlonPage() {
                             ))}
                         </figure>
                     </section>
-                    <section className="traino-funnel flex-col align-c">
-                        <h2>Sugen på att delta?</h2>
-                        <p className="traino-funnel__cta">
-                            Förbered inför eventet genom att träna. <br />
-                            Hitta din personliga tränare via TRAINO.
-                        </p>
-                        <Link className="link-btn" href="https://traino.nu/" target="_blank">
-                            Hitta tränare
-                        </Link>
-                    </section>
+                    <TrainoFunnel />
                     <section className="featured-product flex-col align-c">
                         <div className="featured-product__wrapper">
                             <div>
