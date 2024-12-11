@@ -74,6 +74,10 @@ export default function AddSponsorPage({ params }) {
                     <label htmlFor="link">Länk</label>
                     <input id="link" name="link" type="text" required />
                 </div>
+                <div className="checkbox-wrapper">
+                    <label htmlFor="prioritized">Ska sponsoren visas på förstasidan?</label>
+                    <input id="prioritized" name="prioritized" type="checkbox" />
+                </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
                     <textarea id="description" name="description" rows={10} cols={100} required />

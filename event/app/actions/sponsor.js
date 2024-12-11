@@ -9,6 +9,7 @@ export async function createSponsor(eventId, _prevState, formData) {
         image: formData.get("image"),
         url: formData.get("link"),
         description: formData.get("description"),
+        prioritized: formData.get("prioritized") || false,
         eventId,
     };
 
@@ -33,6 +34,7 @@ export async function updateSponsor(sponsorId, _prevState, formData) {
         image: formData.get("image"),
         url: formData.get("link"),
         description: formData.get("description"),
+        prioritized: formData.get("prioritized") || false
     };
 
     // Try to update the sponsor in the db

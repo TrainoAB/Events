@@ -142,11 +142,15 @@ export async function getAllParticipantsByUrl(eventUrl) {
  * SPONSORS *
  ************/
 
-const SPONSOR_COLUMNS = 'id, name, image, url, description, eventId';
+const SPONSOR_COLUMNS = 'id, name, image, url, description, eventId, prioritized';
 
 // Get all sponsors for an event
 export async function getAllSponsorsByEventId(eventId) {
     return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("eventId", eventId).order("id");
+}
+
+export async function getAllPrioritizedSponsorsByEventId(eventId) {
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("eventId", eventId).eq('prioritized', true).order("id");
 }
 
 // Add a sponsor to a specific event
@@ -156,6 +160,7 @@ export async function addSponsor(sponsor) {
         image: sponsor.image,
         url: sponsor.url,
         description: sponsor.description,
+        prioritized: sponsor.prioritized,
         eventId: sponsor.eventId,
     });
 }

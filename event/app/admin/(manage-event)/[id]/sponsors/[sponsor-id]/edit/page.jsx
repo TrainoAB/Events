@@ -15,6 +15,7 @@ const initialState = {
     name: "",
     image: "",
     url: "",
+    prioritized: false,
     description: "",
 };
 
@@ -119,6 +120,10 @@ export default function EditSponsorPage({ params }) {
                 <div className="input-wrapper">
                     <label htmlFor="link">Länk</label>
                     <input id="link" name="link" type="text" defaultValue={sponsor.url} required />
+                </div>
+                <div className="checkbox-wrapper">
+                    <label htmlFor="prioritized">Ska sponsoren visas på förstasidan?</label>
+                    <input id="prioritized" name="prioritized" type="checkbox" defaultChecked={sponsor.prioritized} />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
