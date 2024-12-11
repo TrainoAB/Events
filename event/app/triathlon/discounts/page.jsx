@@ -18,6 +18,7 @@ export default function DiscountsPage() {
         const response = await fetch(`/api/discounts?url=${pathname.split('/')[1]}`);      //TODO Change so that id is used instead of url
         if (response.status === 200) {
             const discounts = await response.json();
+            discounts.sort((a, b) => a.valid_from.localeCompare(b.valid_from));
             setDiscounts(discounts);
         }
     }
