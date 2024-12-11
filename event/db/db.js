@@ -73,7 +73,7 @@ export async function updateEventById(event, id) {
 const DISCOUNT_COLUMNS = 'id, title, url, eventId, description, valid_from, valid_to, discount';
 
 export async function getAllDiscountsById(eventId) {
-    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', eventId).order("id");
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', eventId).order("valid_from");
 }
 
 export async function getAllDiscountsByUrl(eventUrl) {
