@@ -79,19 +79,6 @@
             }
         }
 
-        & .traino-funnel {
-            color: var(--white);
-            gap: var(--gap);
-            padding: 4rem 2rem;
-            width: 100%;
-            background: linear-gradient(45deg, #110637, #8468ea);
-            border-radius: var(--big-radius);
-
-            & h2 {
-                font-size: 2rem;
-            }
-        }
-
         & .featured-product {
             padding: 4rem 2rem;
             width: 100%;
