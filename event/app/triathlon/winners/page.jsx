@@ -62,12 +62,11 @@ export default function WinnersPage() {
 
                             <div className="winners-wrapper">
                                 <div className="list-row-wrapper">
-                                    <div className="participants-list__row mobile-row">Deltagare: </div>{" "}
-                                    <p> {winner.forename + " " + winner.surname} </p>
+                                    <div className="participants-list__row mobile-row">Deltagare: </div>
+                                    {winner.forename + " " + winner.surname}
                                 </div>
                                 <div className="list-row-wrapper">
-                                    <div className="participants-list__row mobile-row">Stad: </div>{" "}
-                                    <p> {winner.city} </p>
+                                    <div className="participants-list__row mobile-row">Stad: </div> {winner.city}
                                 </div>
                             </div>
                         </li>

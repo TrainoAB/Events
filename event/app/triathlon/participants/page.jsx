@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ListToggle from "@/app/components/ListToggle";
+import TrainoFunnel from "@/app/components/TrainoFunnel";
 
 import "./page.css";
 
@@ -20,7 +21,7 @@ export default function ParticipantsPage() {
     }, [isFirstTitleShown]);
 
     const fetchParticipants = async () => {
-        const response = await fetch(`/api/participants?url=${pathname.split("/")[1]}`);       //TODO Retrieve the event ID some other way
+        const response = await fetch(`/api/participants?url=${pathname.split("/")[1]}`); //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const participants = await response.json();
             setParticipants(participants);
@@ -55,12 +56,11 @@ export default function ParticipantsPage() {
             <ul className="participants-list max-width">
                 <li className="participants-list__heading ">
                     <h3>Deltagare</h3>
-                    <h3>Stad</h3>
+                    <h3>Från</h3>
                 </li>
                 {participantList(competition).map((participant, index) => (
                     <li className="participants-list__row " key={index}>
                         <p className="participants-list__name">
-                            {" "}
                             {firstLetterUppercase(participant.forename)} {firstLetterUppercase(participant.surname)}{" "}
                         </p>
                         <p> {firstLetterUppercase(participant.city)} </p>
@@ -70,9 +70,11 @@ export default function ParticipantsPage() {
         );
     };
 
+    // MARK: Markup
     return (
         <main id="participantspage" className="gap flex-col align-c">
             <h1 className="participants__title">Deltagare</h1>
+
             <h2 className="participants-numbers">
                 <div className="participants__confirmed"> {nrParticipants} </div>
                 <p className="participants__total">/{maxParticipants}</p>
@@ -82,12 +84,7 @@ export default function ParticipantsPage() {
 
             {participants && isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon")}
 
-            <div className="traino-funnel flex-col align-c">
-                <p className="traino-funnel__text">Taggad på att träna efter du sett motståndet?</p>
-                <Link href="https://traino.nu/" className=" link-btn">
-                    Träna
-                </Link>
-            </div>
+            <TrainoFunnel />
         </main>
     );
 }

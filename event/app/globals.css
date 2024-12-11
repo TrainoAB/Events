@@ -152,7 +152,8 @@ figure {
   *******************************************/
 
 .participants-list {
-    width: 70%;
+    max-width: 86rem !important;
+    width: 100%;
 }
 
 .participants-list__heading,
@@ -164,6 +165,10 @@ figure {
     font-size: 2rem;
 }
 
+.participants-list__row:hover {
+    background: #e9e4ff !important;
+}
+
 .participants-list__heading {
     background-color: #7252e7;
     color: var(--white);
@@ -173,8 +178,13 @@ figure {
     margin: 1rem 0;
 }
 
+.participants-list__row p {
+    margin-bottom: 0 !important;
+}
+
 .participants-list__name {
     font-weight: bold;
+    margin-bottom: 0 !important;
 }
 
 /******************************************

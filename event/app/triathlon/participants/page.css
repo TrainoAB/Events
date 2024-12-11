@@ -1,6 +1,13 @@
 #participantspage {
     padding-block: var(--main-block-padding);
 
+    & .participants-list__row {
+        margin: 0.4rem 0;
+        align-items: center;
+        background: white;
+        box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+    }
+
     & .participants-numbers {
         display: flex;
         font-size: 3rem;
