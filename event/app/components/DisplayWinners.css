@@ -1,0 +1,38 @@
+.display-winners {
+    display: grid;
+    grid-template-areas: "second first third";
+    list-style: none;
+    justify-content: space-between;
+    margin-block: 2rem;
+    max-width: 1000px;
+    width: 100%;
+    margin-top: 4rem;
+
+    & li:first-child {
+        grid-area: first;
+        scale: 1.2;
+    }
+
+    & li:nth-child(2) {
+        grid-area: second;
+    }
+
+    & li:last-child {
+        grid-area: third;
+    }
+}
+
+@media (max-width: 1000px) {
+    .display-winners {
+        justify-content: center;
+        grid-template-areas:
+            "first"
+            "second"
+            "third";
+        gap: 3rem;
+
+        & li:first-child {
+            scale: 1;
+        }
+    }
+}
