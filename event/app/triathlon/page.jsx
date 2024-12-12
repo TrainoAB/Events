@@ -79,7 +79,7 @@ export default function TriathlonPage() {
                 </div>
                 <div className="info-container max-width gap flex-col align-c">
                     {participants && event ? (
-                        <RegisteredParticipants registered={participants.length} total={event.max_participants * 2} registerLink={"triathlon/register"} />
+                        <RegisteredParticipants registered={participants.length} total={event.max_participants} registerLink={"triathlon/register"} />
                     ) : (
                         <></>
                     )}

@@ -34,8 +34,8 @@ export default function RegisterPage() {
         }
     }
 
-    const isMaxParticipants = (competition) => {
-        return participants.filter(el => el.competition === competition).length >= maxParticipants;
+    const isMaxParticipants = () => {
+        return participants.length >= maxParticipants;
     }
 
     return (
@@ -96,24 +96,24 @@ export default function RegisterPage() {
                 </div>
                 <div className="input-wrapper input-wrapper--radio">
                     <span className="gender-label">Tävling</span>
-                    <label className={isMaxParticipants("Triathlon") ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="triathlon">
+                    <label className={isMaxParticipants() ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="triathlon">
                         <input
                             id="triathlon"
                             name="competition"
                             type="radio"
                             value="Triathlon"
-                            disabled={isMaxParticipants("Triathlon")}
+                            disabled={isMaxParticipants()}
                             required
                         />
                         <div className="radio-btn"></div>
                         <span>Triathlon</span>
                     </label>
-                    <label className={isMaxParticipants("Olympiskt Triathlon") ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="olympic-triathlon">
+                    <label className={isMaxParticipants() ? "radio-wrapper disabled" : "radio-wrapper"} htmlFor="olympic-triathlon">
                         <input
                             id="olympic-triathlon"
                             name="competition"
                             type="radio"
-                            disabled={isMaxParticipants("Olympiskt Triathlon")}
+                            disabled={isMaxParticipants()}
                             value="Olympiskt Triathlon"
                         />
                         <div className="radio-btn"></div>

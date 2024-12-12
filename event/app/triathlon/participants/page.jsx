@@ -77,7 +77,7 @@ export default function ParticipantsPage() {
 
             <div className="info-container">
                     {maxParticipants ? (
-                        <RegisteredParticipants registered={participants.length} total={maxParticipants * 2} registerLink={"register"} />
+                        <RegisteredParticipants registered={participants.length} total={maxParticipants} registerLink={"register"} />
                     ) : (
                         <></>
                     )}
