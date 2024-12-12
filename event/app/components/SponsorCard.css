@@ -33,6 +33,10 @@
             padding: 1rem;
             flex: 3;
         }
+
+        & .sponsor-card__discounts {
+            
+        }
     }
 }
 .sponsor-card-link:hover .sponsor-card__title {

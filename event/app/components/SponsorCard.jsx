@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import "./SponsorCard.css";
 
-export default function SponsorCard({ sponsor, target = "_self" }) {
+export default function SponsorCard({ sponsor, discounts = [], target = "_self" }) {
     return (
         <Link className="sponsor-card-link" href={sponsor.url} target={target}>
             <article className="sponsor-card">
@@ -14,6 +14,9 @@ export default function SponsorCard({ sponsor, target = "_self" }) {
                     <h3 className="sponsor-card__title">{sponsor.name}</h3>
                     <p className="sponsor-card__description">{sponsor.description}</p>
                     <button className="button">Besök sponsor</button>
+                </div>
+                <div className="sponsor-card__discounts">
+                    { discounts.map(discount => <h2>{discount.title}</h2>) }
                 </div>
             </article>
         </Link>
