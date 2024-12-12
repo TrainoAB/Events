@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ListToggle from "@/app/components/ListToggle";
 import TrainoFunnel from "@/app/components/TrainoFunnel";
+import RegisteredParticipants from "@/app/components/RegisteredParticipants";
 
 import "./page.css";
 
@@ -75,12 +75,20 @@ export default function ParticipantsPage() {
         <main id="participantspage" className="gap flex-col align-c">
             <h1 className="participants__title">Deltagare</h1>
 
+            <div className="info-container max-width gap flex-col align-c">
+                    {maxParticipants ? (
+                        <RegisteredParticipants registered={participants.length} total={maxParticipants * 2} />
+                    ) : (
+                        <></>
+                    )}
+            </div>
+
+            <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
+
             <h2 className="participants-numbers">
                 <div className="participants__confirmed"> {nrParticipants} </div>
                 <p className="participants__total">/{maxParticipants}</p>
             </h2>
-
-            <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
             {participants && isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon")}
 
