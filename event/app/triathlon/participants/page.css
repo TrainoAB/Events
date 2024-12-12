@@ -8,6 +8,10 @@
         box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
     }
 
+    & .info-container {
+        width: 100%;
+    }
+
     & .participants-numbers {
         display: flex;
         font-size: 3rem;

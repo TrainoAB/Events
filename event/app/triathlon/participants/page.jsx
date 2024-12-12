@@ -75,9 +75,9 @@ export default function ParticipantsPage() {
         <main id="participantspage" className="gap flex-col align-c">
             <h1 className="participants__title">Deltagare</h1>
 
-            <div className="info-container max-width gap flex-col align-c">
+            <div className="info-container">
                     {maxParticipants ? (
-                        <RegisteredParticipants registered={participants.length} total={maxParticipants * 2} />
+                        <RegisteredParticipants registered={participants.length} total={maxParticipants * 2} registerLink={"register"} />
                     ) : (
                         <></>
                     )}
