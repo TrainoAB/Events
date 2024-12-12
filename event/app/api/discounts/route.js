@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllDiscountsById, getAllDiscountsByUrl} from "@/db/db";
+import { getAllDiscountsById, getAllDiscountsByUrl, getAllDiscountsBySponsorId } from "@/db/db";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
@@ -10,6 +10,16 @@ export async function GET(request) {
         if (error) {
             console.log(error);
             return NextResponse.json({ success: false, message: "An error occurred while retrieving discounts by url" }, { status: 500 });
+        }
+        return NextResponse.json(data);
+    }
+
+    if (searchParams.has('sponsorid')) {
+        const sponsorId = searchParams.get('sponsorid');
+        const { error, data } = await getAllDiscountsBySponsorId(sponsorId);
+        if (error) {
+            console.log(error);
+            return NextResponse.json({ success: false, message: "An error occurred while retrieving discounts by sponsor id" }, { status: 500 });
         }
         return NextResponse.json(data);
     }

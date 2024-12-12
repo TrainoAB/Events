@@ -70,7 +70,7 @@ export async function updateEventById(event, id) {
  * DISCOUNTS *
  *************/
 
-const DISCOUNT_COLUMNS = 'id, title, url, eventId, description, valid_from, valid_to, discount';
+const DISCOUNT_COLUMNS = 'id, title, url, eventId, description, valid_from, valid_to, discount, sponsor_id';
 
 export async function getAllDiscountsById(eventId) {
     return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', eventId).order("valid_from");
@@ -79,6 +79,10 @@ export async function getAllDiscountsById(eventId) {
 export async function getAllDiscountsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
     return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', data.id);
+}
+
+export async function getAllDiscountsBySponsorId(sponsorId) {
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('sponsor_id', sponsorId);
 }
 
 export async function getDiscountById(id) {
@@ -93,7 +97,7 @@ export async function insertDiscount(discount) {
     return await databaseClient
         .from(DISCOUNTS_TABLE)
         .insert({ title: discount.title, url: discount.url, eventId: discount.eventId, description: discount.description, 
-            valid_from: discount.valid_from, valid_to: discount.valid_to, discount: discount.discount });
+            valid_from: discount.valid_from, valid_to: discount.valid_to, discount: discount.discount, sponsor_id: discount.sponsor_id });
 }
 
 export async function updateDiscountById(discount, id) {

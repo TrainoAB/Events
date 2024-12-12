@@ -1,0 +1,40 @@
+#add-discount-page {
+    gap: var(--gap);
+    padding-block: var(--main-block-padding);
+    padding-inline: 0.5rem;
+
+    & .add-discount-page__title {
+        text-align: center;
+    }
+
+    & .add-discount-form {
+        gap: var(--gap);
+
+        & .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-gap);
+
+            & label::after {
+                content: "*";
+            }
+        }
+
+        & .add-discount-form__buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #add-discount-page {
+        & .add-discount-form {
+            & .add-discount-form__buttons {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
+    }
+}

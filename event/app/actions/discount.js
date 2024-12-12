@@ -2,7 +2,7 @@
 
 import { updateDiscountById, insertDiscount } from "@/db/db";
 
-export async function createDiscount(id, prevState, formData) {
+export async function createDiscount(id, sponsorId, _prevState, formData) {
     if (formData.get('valid_from').localeCompare(formData.get('valid_to')) > 0) {
         return { message: "Giltigheten måste börja tidigare än utgångsdatum", success: false };
     }
@@ -13,6 +13,7 @@ export async function createDiscount(id, prevState, formData) {
         valid_to: formData.get('valid_to'),
         url: formData.get('link') || "#",
         description: formData.get('description'),
+        sponsor_id: sponsorId,
         discount: formData.get('discount'),
         eventId: id
     };
@@ -29,7 +30,7 @@ export async function createDiscount(id, prevState, formData) {
     }
 }
 
-export async function updateDiscount(id, prevState, formData) {
+export async function updateDiscount(id, _prevState, formData) {
     if (formData.get('valid_from').localeCompare(formData.get('valid_to')) > 0) {
         return { message: "Giltigheten måste börja tidigare än utgångsdatum", success: false };
     }
