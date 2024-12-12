@@ -29,31 +29,37 @@ export default function WinnersPage() {
     const createList = (competition) => {
         return (
             <ul className="participants-list max-width">
-                <li className="participants-list__heading ">
+                <li className="participants-list__heading">
                     <h3>Tid</h3>
                     <div className="winners-wrapper">
                         <h3>Deltagare</h3>
-                        <h3>Stad</h3>
+                        <h3>Från</h3>
                     </div>
                 </li>
-                <li className="participants-list__heading mobile-heading ">
+                <li className="participants-list__heading mobile-heading">
                     <h3>Vinnare</h3>
                 </li>
                 {winners
                     .filter((winner) => winner.competition === competition)
                     .map((winner, index) => (
-                        <li className="participants-list__row " key={index}>
+                        <li className="participants-list__row" key={index}>
                             <div className="list-row-wrapper">
-                                <div className="participants-list__row mobile-row">Tid: </div> <p> {winner.result} </p>
+                                <div className="mobile-row">Tid: </div>{" "}
+                                <p> {winner.result} </p>
                             </div>
 
                             <div className="winners-wrapper">
                                 <div className="list-row-wrapper">
-                                    <div className="participants-list__row mobile-row">Deltagare: </div>
-                                    {winner.forename + " " + winner.surname}
+                                    <div className="mobile-row">
+                                        Deltagare:{" "}
+                                    </div>
+                                    <span className="participants-list__name">
+                                        {winner.forename + " " + winner.surname}
+                                    </span>
                                 </div>
                                 <div className="list-row-wrapper">
-                                    <div className="participants-list__row mobile-row">Stad: </div> {winner.city}
+                                    <div className="mobile-row">Från: </div>{" "}
+                                    {winner.city}
                                 </div>
                             </div>
                         </li>

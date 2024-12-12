@@ -1,30 +1,15 @@
 #winnerspage {
     padding-block: var(--main-block-padding);
 
-    & .winner-podium {
-        margin: 5rem 0;
-
-        & .winner-podium__image {
-            width: revert-layer;
-        }
-
-        & .winner-podium__winner {
-            align-self: center;
-        }
-
-        & .winner-podium__second {
-            margin-left: 2rem;
-        }
-
-        & .winner-podium__third {
-            align-self: flex-end;
-            margin-right: 2rem;
-        }
-    }
-
     & .participants-list {
+        & .participants-list__row {
+            margin: 0.4rem 0;
+            background: white;
+            box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+        }
+
         & .participants-list__heading,
-        .participants-list__row {
+        & .participants-list__row {
             & .mobile-heading {
                 background-color: #7252e7;
                 color: var(--white);
@@ -34,11 +19,12 @@
                 width: 70%;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
             }
         }
 
         & .mobile-heading,
-        .mobile-row {
+        & .mobile-row {
             display: none;
         }
     }
@@ -65,12 +51,6 @@
 
 @media (max-width: 700px) {
     #winnerspage {
-        & .winner-podium {
-            & .winner-podium__image {
-                width: 21rem;
-            }
-        }
-
         & .participants-list {
             & .participants-list__heading {
                 display: none;
@@ -78,21 +58,30 @@
 
             & .mobile-heading {
                 display: flex;
-                margin: 0 1rem;
+                padding: 0.5rem 1rem;
+                justify-content: center;
             }
 
             & .participants-list__row {
                 flex-direction: column;
+                padding: 0.5rem 1rem;
+                font-size: 1.4rem;
 
                 & .winners-wrapper {
                     flex-direction: column;
                     width: 100%;
+                    align-items: inherit;
+
                 }
 
                 & .list-row-wrapper {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
+                    & .participants-list__name {
+                        text-align: end;
+                    }
                 }
 
                 & .mobile-row {
@@ -116,9 +105,10 @@
 
 @media (max-width: 500px) {
     #winnerspage {
+        padding: 0;
         & .participants-list {
             & .participants-list__row {
-                font-size: 24px;
+                font-size: 1.1rem;
             }
         }
     }
