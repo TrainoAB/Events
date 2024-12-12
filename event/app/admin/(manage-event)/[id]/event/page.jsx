@@ -73,6 +73,10 @@ export default function EditEventPage({ params }) {
                     <label htmlFor="finished">Markera eventet som avslutat</label>
                     <input id="finished" name="finished" type="checkbox" defaultChecked={event.finished} />
                 </div>
+                <div className="checkbox-wrapper">
+                    <label htmlFor="hide">Dölj eventet för vanliga användare</label>
+                    <input id="hide" name="hide" type="checkbox" defaultChecked={event.hide} />
+                </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
                     <textarea id="description" name="description" rows={10} cols={100} defaultValue={event.description} required />

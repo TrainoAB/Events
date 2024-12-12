@@ -15,6 +15,16 @@
             }
         }
 
+        & .checkbox-wrapper {
+            display: flex;
+            align-self: flex-start;
+            gap: 1rem;
+
+            & label {
+                min-width: fit-content;
+            }
+        }
+
         & .add-event-form__buttons {
             display: flex;
             justify-content: space-between;
