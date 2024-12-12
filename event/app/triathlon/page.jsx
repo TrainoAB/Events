@@ -13,16 +13,10 @@ import TrainoFunnel from "../components/TrainoFunnel";
 
 import "./page.css";
 
-const SPONSORS = [
-    "https://picsum.photos/200?random=1",
-    "https://picsum.photos/200?random=2",
-    "https://picsum.photos/200?random=3",
-    "https://picsum.photos/200?random=4",
-];
-
 export default function TriathlonPage() {
     const [participants, setParticipants] = useState([]);
     const [event, setEvent] = useState();
+    const [ sponsors, setSponsors ] = useState();
     const pathname = usePathname();
 
     const { eventDate, setEventDate } = useTrainoContext();
@@ -30,6 +24,7 @@ export default function TriathlonPage() {
     useEffect(() => {
         fetchParticipants();
         fetchEvent();
+        fetchSponsors();
     }, []);
 
     const fetchParticipants = async () => {
@@ -50,7 +45,14 @@ export default function TriathlonPage() {
         }
     };
 
-    // MARK: Markup
+    const fetchSponsors = async () => {
+        const response = await fetch(`/api/sponsors?url=${pathname.split("/")[1]}`); //TODO Retrieve the event ID some other way
+        if (response.status === 200) {
+            const sponsors = await response.json();
+            setSponsors(sponsors.filter(sponsor => sponsor.prioritized === true));
+        }
+    }
+
     return (
         <>
             <main id="eventpage" className="gap flex-col align-c">
@@ -112,16 +114,16 @@ export default function TriathlonPage() {
                     <section className="event-sponsors flex-col align-c">
                         <h2 className="event-sponsors__title heading-size">Sponsorer</h2>
                         <figure className="event-sponsors__figure">
-                            {SPONSORS.map((sponsor) => (
+                            {sponsors ? sponsors.map((sponsor) => (
                                 <Image
                                     className="event-sponsors__img"
-                                    src={sponsor}
+                                    src={sponsor.image}
                                     width={200}
                                     height={200}
                                     alt="Sponsor image"
-                                    key={sponsor}
+                                    key={sponsor.id}
                                 />
-                            ))}
+                            )) : <></>}
                         </figure>
                     </section>
                     <TrainoFunnel />

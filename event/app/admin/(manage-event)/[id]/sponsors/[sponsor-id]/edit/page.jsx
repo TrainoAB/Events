@@ -30,6 +30,7 @@ export default function EditSponsorPage({ params }) {
     DEBUG && console.log("eventId:", eventId, "sponsorId:", sponsorId);
 
     const [sponsor, setSponsor] = useState(initialState);
+    const [ prioritized, setPrioritized ] = useState();
     const [state, formAction] = useFormState(
         updateSponsor.bind(null, sponsorId),
         initialActionState
@@ -56,13 +57,14 @@ export default function EditSponsorPage({ params }) {
                     );
                 }
                 const sponsorData = await res.json();
+                setPrioritized(sponsorData.prioritized);
                 setSponsor(sponsorData);
             } catch (error) {
                 DEBUG && console.error(error);
             }
         };
         fetchSponsorById(sponsorId);
-    }, [eventId, sponsorId, state]);
+    }, [eventId, sponsorId, state, prioritized]);
 
     // Display a message for 5s
     useEffect(() => {
@@ -120,6 +122,14 @@ export default function EditSponsorPage({ params }) {
                     <label htmlFor="link">Länk</label>
                     <input id="link" name="link" type="text" defaultValue={sponsor.url} required />
                 </div>
+                { prioritized ? <div className="checkbox-wrapper">
+                    <label htmlFor="prioritized">Ska sponsoren visas på förstasidan?</label>
+                    <input id="prioritized" name="prioritized" type="checkbox" defaultChecked={true} />
+                </div> : <></> }
+                { !prioritized ? <div className="checkbox-wrapper">
+                    <label htmlFor="prioritized">Ska sponsoren visas på förstasidan?</label>
+                    <input id="prioritized" name="prioritized" type="checkbox" />
+                </div> : <></> }
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
                     <textarea

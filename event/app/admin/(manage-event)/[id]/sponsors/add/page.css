@@ -18,6 +18,16 @@
             }
         }
 
+        & .checkbox-wrapper {
+            display: flex;
+            align-self: flex-start;
+            gap: 1rem;
+
+            & label {
+                min-width: fit-content;
+            }
+        }
+
         & .add-sponsor-form__buttons {
             display: flex;
             justify-content: space-between;
