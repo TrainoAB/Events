@@ -28,14 +28,14 @@ const WINNERS_TABLE = "winners";
  * EVENTS *
  **********/
 
-const EVENT_COLUMNS = 'id, competition, url, image, description, start_date, start_time, max_participants, finished';
+const EVENT_COLUMNS = 'id, competition, url, image, description, start_date, start_time, max_participants, finished, hide';
 
 export async function getAllEvents() {
     return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).order("start_date");
 }
 
-export async function getAllEventsByUrl(eventUrl) {
-    return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).eq('url', eventUrl).order("start_date");
+export async function getAllUnhiddenEvents() {
+    return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).eq('hide', false).order("start_date");
 }
 
 export async function getEventById(id) {
