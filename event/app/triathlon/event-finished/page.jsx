@@ -1,45 +1,14 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname } from 'next/navigation';
+import { useState } from "react";
 import ListToggle from "@/app/components/ListToggle";
 import VideoGallery from "@/app/components/VideoGallery";
-import WinnerCard from "@/app/components/WinnerCard";
+import DisplayWinners from "@/app/components/DisplayWinners";
 
 import "./page.css";
 
 export default function EventFinishedPage() {
     const [isFirstTitleShown, setIsFirstTitleShown] = useState(true);
-    const [ winners, setWinners ] = useState([]);
-    const pathname = usePathname();
-
-    useEffect(() => {
-        fetchWinners();
-    }, []);
-
-    const fetchWinners = async () => {
-        const response = await fetch(`/api/winners?url=${pathname.split('/')[1]}`); //TODO Retrieve the event ID some other way
-        if (response.status === 200) {
-            const winners = await response.json();
-            winners.sort((a, b) => a.result.localeCompare(b.result));
-            const triathlon = winners.filter(winner => winner.competition === "Triathlon").slice(0, 3);
-            const olympic = winners.filter(winner => winner.competition === "Olympiskt Triathlon").slice(0, 3);
-            setWinners([...triathlon, ...olympic]);
-        }
-    }
-
-    const createList = (competition) => {
-        return (
-            <ul className="winners-list max-width">
-                { winners.filter(winner => winner.competition === competition)
-                .map((winner, index) => 
-                    <li key={index}>
-                        <WinnerCard placement={index+1} winner={winner} />
-                    </li>
-                )}
-            </ul>
-        );
-    }
 
     return (
         <main id="eventfinishedpage" className="gap flex-col align-c">
@@ -55,7 +24,7 @@ export default function EventFinishedPage() {
 
             <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
-            { isFirstTitleShown && winners.length > 0 ? createList("Triathlon") : createList("Olympiskt Triathlon") }
+            { isFirstTitleShown ? <DisplayWinners competition={"Triathlon"} /> : <DisplayWinners competition={"Olympiskt Triathlon"} /> }
 
             <section className="event-video-gallery max-width">
                 <h2 className="event-video-gallery__title heading-size">Ögonblick Från Eventet</h2>

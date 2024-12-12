@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import ListToggle from "@/app/components/ListToggle";
 import VideoGallery from "@/app/components/VideoGallery";
+import DisplayWinners from "@/app/components/DisplayWinners";
 
 import "./page.css";
 
@@ -24,19 +24,6 @@ export default function WinnersPage() {
             winners.sort((a, b) => a.result.localeCompare(b.result));
             setWinners(winners);
         }
-    };
-
-    // Placement 0 is winner, placement 1 is silver, placement 2 is bronze
-    const podiumName = (competition, placement) => {
-        const winner = winners.filter((el) => el.competition === competition)[placement];
-        return winner ? (
-            <div>
-                <h3>{winner.forename + " " + winner.surname[0] + "."}</h3>
-                {winner.result}
-            </div>
-        ) : (
-            ""
-        );
     };
 
     const createList = (competition) => {
@@ -81,39 +68,36 @@ export default function WinnersPage() {
 
             {winners.length > 0 ? (
                 <>
-                    <section className="winner-podium flex-col">
-                        <h3 className="winner-podium__winner">
-                            {" "}
-                            {isFirstTitleShown ? podiumName("Triathlon", 0) : podiumName("Olympiskt Triathlon", 0)}{" "}
-                        </h3>
-                        <h3 className="winner-podium__second">
-                            {" "}
-                            {isFirstTitleShown ? podiumName("Triathlon", 1) : podiumName("Olympiskt Triathlon", 1)}{" "}
-                        </h3>
-                        <h3 className="winner-podium__third">
-                            {" "}
-                            {isFirstTitleShown ? podiumName("Triathlon", 2) : podiumName("Olympiskt Triathlon", 2)}{" "}
-                        </h3>
-                        <Image
-                            className="winner-podium__image"
-                            src="/winner-podium.png"
-                            width={430}
-                            height={242}
-                            alt="Winner podium"
-                        />
-                    </section>
+                    {isFirstTitleShown ? (
+                        <DisplayWinners competition={"Triathlon"} />
+                    ) : (
+                        <DisplayWinners competition={"Olympiskt Triathlon"} />
+                    )}
 
                     <ListToggle setIsFirstTitleShown={setIsFirstTitleShown} />
 
                     {winners.length > 0 ? (
-                        <>{isFirstTitleShown ? createList("Triathlon") : createList("Olympiskt Triathlon")}</>
+                        <>
+                            {isFirstTitleShown
+                                ? createList("Triathlon")
+                                : createList("Olympiskt Triathlon")}
+                        </>
                     ) : (
                         <></>
                     )}
 
                     <section className="event-video-gallery max-width flex-col align-c">
-                        <h2 className="event-video-gallery__title heading-size">Ögonblick Från Eventet</h2>
-                        <VideoGallery videos={["/videobg.mp4", "/videobg.mp4", "/videobg.mp4", "/videobg.mp4"]} />
+                        <h2 className="event-video-gallery__title heading-size">
+                            Ögonblick Från Eventet
+                        </h2>
+                        <VideoGallery
+                            videos={[
+                                "/videobg.mp4",
+                                "/videobg.mp4",
+                                "/videobg.mp4",
+                                "/videobg.mp4",
+                            ]}
+                        />
                     </section>
                 </>
             ) : (
