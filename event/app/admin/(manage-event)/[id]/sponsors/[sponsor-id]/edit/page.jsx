@@ -140,7 +140,7 @@ export default function EditSponsorPage({ params }) {
                     <input id="link" name="link" type="text" defaultValue={sponsor.url} required />
                 </div>
                 <div className="input-select-wrapper">
-                    <label for="discount-select">Befintliga rabatter:</label>
+                    <label htmlFor="discount-select">Befintliga rabatter:</label>
                     <select name="discounts" id="discount-select">
                         { discounts ? discounts.map(discount => <option key={discount.id}>{discount.title}</option>) : <></>}
                     </select>
