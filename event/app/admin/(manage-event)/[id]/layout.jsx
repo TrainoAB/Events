@@ -28,7 +28,7 @@ export default async function ManageLayout({ children, params }) {
             {!error && (
                 <p className="event-indicator">
                     <span>Event:</span>
-                    {` ${event.competition} (${event.date})`}
+                    {` ${event.competition} (${event.start_date})`}
                 </p>
             )}
             {children}
