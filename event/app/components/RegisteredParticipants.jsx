@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import "./RegisteredParticipants.css";
 
-export default function RegisteredParticipants({ registered, total }) {
+export default function RegisteredParticipants({ registered, total, registerLink }) {
     // Ensure the amount of participants don't exceed the total allowed
     const participantCount = registered >= total ? total : registered;
 
@@ -28,7 +28,7 @@ export default function RegisteredParticipants({ registered, total }) {
                 <div className="registered-participants__bar b-radius" style={{ width: `${cappedPercent}%` }}></div>
             </div>
             {participantCount < total ? (
-                <Link className="link-btn" href={"triathlon/register"}>
+                <Link className="link-btn" href={registerLink}>
                     Registrera mig
                 </Link>
             ) : (
