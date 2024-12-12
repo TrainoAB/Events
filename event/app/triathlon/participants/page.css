@@ -10,6 +10,8 @@
 
     & .info-container {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     & .participants-numbers {
@@ -39,13 +41,34 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     #participantspage {
         & .participants-list {
             width: 90%;
 
+            & .participants-list__heading {
+                padding: 0.5rem 1rem;
+            }
+
             & .participants-list__row {
                 font-size: 24px;
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #participantspage {
+        padding: 0;
+
+        & .participants-list {
+            & .participants-list__row {
+                font-size: 1.1rem;
+            }
+
+            & .participants-list__heading {
+                font-size: 1.5rem;
             }
         }
     }

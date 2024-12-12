@@ -71,7 +71,6 @@
                     flex-direction: column;
                     width: 100%;
                     align-items: inherit;
-
                 }
 
                 & .list-row-wrapper {
@@ -106,9 +105,14 @@
 @media (max-width: 500px) {
     #winnerspage {
         padding: 0;
+
         & .participants-list {
             & .participants-list__row {
                 font-size: 1.1rem;
+            }
+
+            & .mobile-heading {
+                font-size: 1.5rem;
             }
         }
     }
