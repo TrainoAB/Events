@@ -14,9 +14,10 @@ export default function SponsorCard({ sponsor, discounts = [], target = "_self" 
                     <h3 className="sponsor-card__title">{sponsor.name}</h3>
                     <p className="sponsor-card__description">{sponsor.description}</p>
                     <button className="button">Besök sponsor</button>
-                </div>
-                <div className="sponsor-card__discounts">
-                    { discounts.map(discount => <h2>{discount.title}</h2>) }
+                    <div className="sponsor-card__discounts">
+                        { discounts.length > 0 ? <h2 className="sponsor-card__discounts-title">Rabatter:</h2> : <></>}
+                        { discounts.map(discount => <h2 key={discount.id}>{discount.title + ' ' + discount.discount + '%'} </h2>) }
+                    </div>
                 </div>
             </article>
         </Link>

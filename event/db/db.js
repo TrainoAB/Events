@@ -150,7 +150,7 @@ const SPONSOR_COLUMNS = 'id, name, image, url, description, eventId, prioritized
 
 // Get all sponsors for an event
 export async function getAllSponsorsByEventId(eventId) {
-    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("eventId", eventId).order("id");
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS + `, discounts(${DISCOUNT_COLUMNS})`).eq("eventId", eventId).order("id");
 }
 
 export async function getAllPrioritizedSponsorsByEventId(eventId) {
@@ -186,7 +186,7 @@ export async function updateSponsorById(updatedSponsor, id) {
 
 export async function getAllSponsorsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq('eventId', data.id);
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS + `, discounts(${DISCOUNT_COLUMNS})`).eq('eventId', data.id);
 }
 
 

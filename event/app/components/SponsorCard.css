@@ -35,7 +35,8 @@
         }
 
         & .sponsor-card__discounts {
-            
+            display: flex;
+            gap: 3rem;
         }
     }
 }

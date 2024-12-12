@@ -41,7 +41,7 @@ export default function SponsorsPage() {
             <section className="sponsors flex-col">
                 <h1 className="sponsors__title">Sponsorer</h1>
                 {sponsors ? sponsors.map((sponsor, index) => (
-                    <SponsorCard sponsor={sponsor} target="_blank" key={index} />
+                    <SponsorCard sponsor={sponsor} discounts={sponsor.discounts} target="_blank" key={index} />
                 )) : <></>}
             </section>
             <section className="sponsor-event flex-col align-c">

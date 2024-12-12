@@ -142,7 +142,7 @@ export default function EditSponsorPage({ params }) {
                 <div className="input-select-wrapper">
                     <label for="discount-select">Befintliga rabatter:</label>
                     <select name="discounts" id="discount-select">
-                        { discounts ? discounts.map(discount => <option>{discount.title}</option>) : <></>}
+                        { discounts ? discounts.map(discount => <option key={discount.id}>{discount.title}</option>) : <></>}
                     </select>
                 </div>
                 <button onClick={handleCreateDiscount}>
