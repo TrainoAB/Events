@@ -92,6 +92,13 @@ export default function Header() {
                     </li>
                     <li
                         className={`${
+                            pathname === "/triathlon/discounts" ? "header-list__element active" : "header-list__element"
+                        }`}
+                    >
+                        <Link href="/triathlon/discounts">Rabatter</Link>
+                    </li>
+                    <li
+                        className={`${
                             pathname === "/triathlon/faq" ? "header-list__element active" : "header-list__element"
                         }`}
                     >
