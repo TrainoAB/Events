@@ -2,7 +2,7 @@
 
 import { updateEventById, insertEvent } from "@/db/db";
 
-export async function createEvent(formData) {
+export async function createEvent(_prevState, formData) {
     const event = {
         competition: formData.get('event'),
         start_date: formData.get('start_date'),
@@ -20,12 +20,14 @@ export async function createEvent(formData) {
     const { error } = await insertEvent(event);
     if (error) {
         console.log(error);
+        return { message: "Eventet kunde inte skapas.", success: false};
     } else {
         console.log('Created event ' + JSON.stringify(event));
+        return { message: "Eventet skapades.", success: true };
     }
 }
 
-export async function updateEvent(id, prevState, formData) {
+export async function updateEvent(id, _prevState, formData) {
     const event = {
         competition: formData.get('event'),
         start_date: formData.get('start_date'),

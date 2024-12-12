@@ -1,26 +1,30 @@
 'use client';
 
+import { useRef } from "react";
+import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { createEvent } from "@/app/actions/event";
 
 import "./page.css";
 
 export default function AddEventPage() {
+    const [state, formAction] = useFormState(createEvent, { message: '', success: false });
     const router = useRouter();
+    const formRef = useRef();
 
     const handleCancel = () => {
-        router.push("/admin");
-    }
-
-    const handleConfirm = () => {
         router.push("/admin");
     }
 
     return (
         <main id="add-event-page" className="flex-col align-c">
             <h1 className="add-event-page__title">Lägg till Event</h1>
+            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
+                {state?.message}
+                {state?.message ? formRef.current?.reset() : <></>}
+            </h2> : <></> }
 
-            <form className="add-event-form flex-col" action={createEvent}>
+            <form className="add-event-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
                     <label htmlFor="event">Event</label>
                     <input id="event" name="event" type="text" required />
@@ -64,7 +68,7 @@ export default function AddEventPage() {
 
                 <div className="add-event-form__buttons">
                     <button type="reset" onClick={handleCancel}>Avbryt</button>
-                    <button onClick={handleConfirm}> Lägg till </button>
+                    <button> Lägg till </button>
                 </div>
             </form>
         </main>
