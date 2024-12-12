@@ -19,6 +19,17 @@
             }
         }
 
+        & .input-select-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-gap);
+
+            & select {
+                padding: 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
         & .checkbox-wrapper {
             display: flex;
             align-self: flex-start;

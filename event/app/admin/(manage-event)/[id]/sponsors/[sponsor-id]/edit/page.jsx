@@ -30,6 +30,7 @@ export default function EditSponsorPage({ params }) {
     DEBUG && console.log("eventId:", eventId, "sponsorId:", sponsorId);
 
     const [sponsor, setSponsor] = useState(initialState);
+    const [ discounts, setDiscounts ] = useState([]);
     const [ prioritized, setPrioritized ] = useState();
     const [state, formAction] = useFormState(
         updateSponsor.bind(null, sponsorId),
@@ -81,9 +82,25 @@ export default function EditSponsorPage({ params }) {
         return () => clearTimeout(timeoutId);
     }, [state]);
 
+    useEffect(() => {
+        fetchDiscountsForSponsor();
+    }, []);
+
+    const fetchDiscountsForSponsor = async () => {
+        const response = await fetch(`/api/discounts?sponsorid=${sponsorId}`);
+        if (response.status === 200) {
+            const discounts = await response.json();
+            setDiscounts(discounts);
+        }
+    }
+
     const handleCancel = () => {
         router.back();
     };
+
+    const handleCreateDiscount = () => {
+        router.push(`/admin/${sponsor.eventId}/sponsors/${sponsor.id}/edit/add-discount`);
+    }
 
     return (
         <main id="edit-sponsor-page" className="flex-col align-c">
@@ -122,6 +139,15 @@ export default function EditSponsorPage({ params }) {
                     <label htmlFor="link">Länk</label>
                     <input id="link" name="link" type="text" defaultValue={sponsor.url} required />
                 </div>
+                <div className="input-select-wrapper">
+                    <label htmlFor="discount-select">Befintliga rabatter:</label>
+                    <select name="discounts" id="discount-select">
+                        { discounts ? discounts.map(discount => <option key={discount.id}>{discount.title}</option>) : <></>}
+                    </select>
+                </div>
+                <button onClick={handleCreateDiscount}>
+                        Lägg till rabatt
+                    </button>
                 { prioritized ? <div className="checkbox-wrapper">
                     <label htmlFor="prioritized">Ska sponsoren visas på förstasidan?</label>
                     <input id="prioritized" name="prioritized" type="checkbox" defaultChecked={true} />

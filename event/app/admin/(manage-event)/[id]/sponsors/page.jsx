@@ -79,7 +79,7 @@ export default function ManageSponsorsPage({ params }) {
                 <section className="sponsors max-width flex-col">
                     {sponsors.map((sponsor, index) => (
                         <div className="sponsor-wrapper flex-col" key={index}>
-                            <SponsorCard sponsor={sponsor} />
+                            <SponsorCard sponsor={sponsor} discounts={sponsor.discounts} />
                             <button
                                 className="delete-btn"
                                 onClick={() => handleDeleteClick(sponsor)}
