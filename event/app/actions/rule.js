@@ -5,7 +5,9 @@ import { updateRuleById, insertRule } from "@/db/db";
 export async function createRule(id, prevState, formData) {
     const rule = {
         rule: formData.get('rule'),
-        eventId: id
+        type: formData.get('type'),
+        topic: formData.get('topic'),
+        event_id: id
     };
 
     // TODO: validate data
@@ -22,7 +24,9 @@ export async function createRule(id, prevState, formData) {
 
 export async function updateRule(id, prevState, formData) {
     const rule = {
-        rule: formData.get('rule')
+        rule: formData.get('rule'),
+        type: formData.get('type'),
+        topic: formData.get('topic')
     };
 
     // TODO: validate data

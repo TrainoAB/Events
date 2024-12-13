@@ -32,6 +32,7 @@
             gap: var(--gap);
             padding: 1rem;
             flex: 3;
+            justify-content: space-between;
         }
 
         & .sponsor-card__discounts {

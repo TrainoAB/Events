@@ -68,6 +68,10 @@ export default function ManageRulesPage({ params }) {
                                 <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
                                 <hr/>
                             </div>
+                            <div>
+                            <h2>{rule.topic}</h2>
+                            <h2>{rule.type}</h2>
+                            </div>
                             <p className="rule__text"> {rule.rule} </p>
                         </section>
                         <button className="delete-btn" onClick={() => handleDeleteClick(rule)}> Radera </button>

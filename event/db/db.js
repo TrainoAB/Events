@@ -197,10 +197,10 @@ export async function getAllSponsorsByUrl(eventUrl) {
  * RULES *
  **********/
 
-const RULE_COLUMNS = 'id, rule, eventId';
+const RULE_COLUMNS = 'id, rule, event_id, topic, type';
 
 export async function getAllRules() {
-    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).order("id");
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).order("id").order('topic');
 }
 
 export async function getRuleById(id) {
@@ -212,18 +212,18 @@ export async function deleteRule(id) {
 }
 
 export async function getAllRulesById(eventId) {
-    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('eventId', eventId).order("id");
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('event_id', eventId).order("topic");
 }
 
 export async function getAllRulesByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('eventId', data.id);
+    return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).eq('event_id', data.id).order('topic');
 }
 
 export async function insertRule(rule) {
     return await databaseClient
         .from(RULES_TABLE)
-        .insert({ rule: rule.rule, eventId: rule.eventId });
+        .insert({ rule: rule.rule, event_id: rule.event_id, topic: rule.topic, type: rule.type });
 }
 
 export async function updateRuleById(rule, id) {

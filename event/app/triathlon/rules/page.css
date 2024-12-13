@@ -1,31 +1,52 @@
 #rulespage {
     padding-block: var(--main-block-padding);
 
-    & .rule-wrapper {
+    & .rules__title-text {
+        max-width: 80%;
+        font-weight: normal;
+    }
+
+    & .rules-list-wrapper {
         display: flex;
-        gap: var(--large-gap);
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
+        flex-direction: column;
+        gap: 3rem;
+        max-width: 60rem;
 
-        & .rule__number {
-            width: 1rem;
-            font-size: 24px;
+        & .rule-topic {
+            font-size: 2rem;
         }
 
-        hr {
-            border: 1px solid;
-            height: 4rem;
+        & .rule-type {
+            font-weight: normal;
         }
 
-        & .rule-number-wrapper {
+        & .rule-wrapper {
             display: flex;
             gap: var(--large-gap);
-            align-self: flex-start;
-            align-items: center;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+    
+            & .rule__number {
+                width: 1rem;
+                font-size: 24px;
+            }
+    
+            hr {
+                border: 1px solid;
+                height: 4rem;
+            }
+    
+            & .rule-number-wrapper {
+                display: flex;
+                gap: var(--large-gap);
+                align-self: flex-start;
+                align-items: center;
+            }
+    
+            & .rule__text {
+                align-self: flex-start;
+            }
         }
 
-        & .rule__text {
-            align-self: flex-start;
-        }
     }
 }
