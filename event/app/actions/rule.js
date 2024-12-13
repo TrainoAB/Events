@@ -7,7 +7,7 @@ export async function createRule(id, prevState, formData) {
         rule: formData.get('rule'),
         type: formData.get('type'),
         topic: formData.get('topic'),
-        eventId: id
+        event_id: id
     };
 
     // TODO: validate data
