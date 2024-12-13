@@ -26,6 +26,14 @@ export default function AddRulePage({ params }) {
 
             <form className="add-rule-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
+                    <label htmlFor="topic">Ämne</label>
+                    <input id="topic" name="topic" type="text" required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="type">Typ av regel</label>
+                    <input id="type" name="type" type="text" required />
+                </div>
+                <div className="input-wrapper">
                     <label htmlFor="rule">Regel</label>
                     <textarea id="rule" name="rule" type="text" rows={10} cols={100} required />
                 </div>

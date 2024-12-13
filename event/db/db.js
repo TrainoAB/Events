@@ -197,7 +197,7 @@ export async function getAllSponsorsByUrl(eventUrl) {
  * RULES *
  **********/
 
-const RULE_COLUMNS = 'id, rule, eventId';
+const RULE_COLUMNS = 'id, rule, eventId, topic, type';
 
 export async function getAllRules() {
     return await databaseClient.from(RULES_TABLE).select(RULE_COLUMNS).order("id");
@@ -223,7 +223,7 @@ export async function getAllRulesByUrl(eventUrl) {
 export async function insertRule(rule) {
     return await databaseClient
         .from(RULES_TABLE)
-        .insert({ rule: rule.rule, eventId: rule.eventId });
+        .insert({ rule: rule.rule, eventId: rule.eventId, topic: rule.topic, type: rule.type });
 }
 
 export async function updateRuleById(rule, id) {

@@ -36,6 +36,14 @@ export default function EditRulePage({ params }) {
             </h2> : <></> }
 
             { rule ? <form className="edit-rule-form flex-col" action={formAction}>
+            <div className="input-wrapper">
+                    <label htmlFor="topic">Ämne</label>
+                    <input id="topic" name="topic" type="text" defaultValue={rule.topic} required />
+                </div>
+                <div className="input-wrapper">
+                    <label htmlFor="type">Typ av regel</label>
+                    <input id="type" name="type" type="text" defaultValue={rule.type} required />
+                </div>
                 <div className="input-wrapper">
                     <label htmlFor="rule">Regel</label>
                     <textarea id="rule" name="rule" rows={10} cols={100} defaultValue={rule.rule} required />
