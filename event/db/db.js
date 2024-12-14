@@ -240,7 +240,7 @@ export async function updateRuleById(rule, id) {
  * FAQ *
  *******/
 
-const FAQ_COLUMNS = 'id, question, answer, eventId';
+const FAQ_COLUMNS = 'id, question, answer, event_id';
 
 export async function getAllFaqs() {
     return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).order("id");
@@ -255,18 +255,18 @@ export async function deleteFaq(id) {
 }
 
 export async function getAllFaqsById(eventId) {
-    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('eventId', eventId).order("id");
+    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('event_id', eventId).order("id");
 }
 
 export async function getAllFaqsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('eventId', data.id);
+    return await databaseClient.from(FAQ_TABLE).select(FAQ_COLUMNS).eq('event_id', data.id);
 }
 
 export async function insertFaq(faq) {
     return await databaseClient
         .from(FAQ_TABLE)
-        .insert({ question: faq.question, answer: faq.answer, eventId: faq.eventId });
+        .insert({ question: faq.question, answer: faq.answer, event_id: faq.event_id });
 }
 
 export async function updateFaqById(faq, id) {

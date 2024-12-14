@@ -44,7 +44,7 @@ export default function ManageFaqsPage({ params }) {
     }
 
     const handleEditClick = (faq) => {
-        router.push(`/admin/${faq.eventId}/faqs/${faq.id}/edit`);
+        router.push(`/admin/${faq.event_id}/faqs/${faq.id}/edit`);
     }
 
     const handleConfirm = () => {
