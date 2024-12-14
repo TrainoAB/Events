@@ -70,15 +70,15 @@ export async function updateEventById(event, id) {
  * DISCOUNTS *
  *************/
 
-const DISCOUNT_COLUMNS = 'id, title, url, eventId, description, valid_from, valid_to, discount, sponsor_id';
+const DISCOUNT_COLUMNS = 'id, title, url, event_id, description, valid_from, valid_to, discount, sponsor_id';
 
 export async function getAllDiscountsById(eventId) {
-    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', eventId).order("valid_from");
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('event_id', eventId).order("valid_from");
 }
 
 export async function getAllDiscountsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('eventId', data.id);
+    return await databaseClient.from(DISCOUNTS_TABLE).select(DISCOUNT_COLUMNS).eq('event_id', data.id);
 }
 
 export async function getAllDiscountsBySponsorId(sponsorId) {
@@ -96,7 +96,7 @@ export async function deleteDiscount(id) {
 export async function insertDiscount(discount) {
     return await databaseClient
         .from(DISCOUNTS_TABLE)
-        .insert({ title: discount.title, url: discount.url, eventId: discount.eventId, description: discount.description, 
+        .insert({ title: discount.title, url: discount.url, event_id: discount.event_id, description: discount.description, 
             valid_from: discount.valid_from, valid_to: discount.valid_to, discount: discount.discount, sponsor_id: discount.sponsor_id });
 }
 
@@ -146,15 +146,15 @@ export async function getAllParticipantsByUrl(eventUrl) {
  * SPONSORS *
  ************/
 
-const SPONSOR_COLUMNS = 'id, name, image, url, description, eventId, prioritized';
+const SPONSOR_COLUMNS = 'id, name, image, url, description, event_id, prioritized';
 
 // Get all sponsors for an event
 export async function getAllSponsorsByEventId(eventId) {
-    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS + `, discounts(${DISCOUNT_COLUMNS})`).eq("eventId", eventId).order("id");
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS + `, discounts(${DISCOUNT_COLUMNS})`).eq("event_id", eventId).order("id");
 }
 
 export async function getAllPrioritizedSponsorsByEventId(eventId) {
-    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("eventId", eventId).eq('prioritized', true).order("id");
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS).eq("event_id", eventId).eq('prioritized', true).order("id");
 }
 
 // Add a sponsor to a specific event
@@ -165,7 +165,7 @@ export async function addSponsor(sponsor) {
         url: sponsor.url,
         description: sponsor.description,
         prioritized: sponsor.prioritized,
-        eventId: sponsor.eventId,
+        event_id: sponsor.event_id,
     });
 }
 
@@ -186,7 +186,7 @@ export async function updateSponsorById(updatedSponsor, id) {
 
 export async function getAllSponsorsByUrl(eventUrl) {
     const { data } = await databaseClient.from(EVENTS_TABLE).select().eq('url', eventUrl).single();
-    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS + `, discounts(${DISCOUNT_COLUMNS})`).eq('eventId', data.id);
+    return await databaseClient.from(SPONSORS_TABLE).select(SPONSOR_COLUMNS + `, discounts(${DISCOUNT_COLUMNS})`).eq('event_id', data.id);
 }
 
 

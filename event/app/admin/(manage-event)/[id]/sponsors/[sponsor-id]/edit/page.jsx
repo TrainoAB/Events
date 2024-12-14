@@ -10,7 +10,7 @@ import SubmitButton from "@/app/components/SubmitButton";
 import "./page.css";
 
 const initialState = {
-    eventId: 0,
+    event_id: 0,
     id: 0,
     name: "",
     image: "",
@@ -27,7 +27,7 @@ export default function EditSponsorPage({ params }) {
     const { BASE_URL, DEBUG } = useTrainoContext();
     // Destructure the eventId and sponsorId
     const { id: eventId, "sponsor-id": sponsorId } = params;
-    DEBUG && console.log("eventId:", eventId, "sponsorId:", sponsorId);
+    DEBUG && console.log("event_id:", eventId, "sponsorId:", sponsorId);
 
     const [sponsor, setSponsor] = useState(initialState);
     const [ discounts, setDiscounts ] = useState([]);
@@ -54,7 +54,7 @@ export default function EditSponsorPage({ params }) {
 
                 if (!res.ok) {
                     throw new Error(
-                        `Failed to fetch sponsor with id: ${sponsorId} for eventId: ${eventId}`
+                        `Failed to fetch sponsor with id: ${sponsorId} for event_id: ${eventId}`
                     );
                 }
                 const sponsorData = await res.json();
@@ -99,7 +99,7 @@ export default function EditSponsorPage({ params }) {
     };
 
     const handleCreateDiscount = () => {
-        router.push(`/admin/${sponsor.eventId}/sponsors/${sponsor.id}/edit/add-discount`);
+        router.push(`/admin/${sponsor.event_id}/sponsors/${sponsor.id}/edit/add-discount`);
     }
 
     return (

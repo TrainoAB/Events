@@ -8,7 +8,7 @@ import { createDiscount } from "@/app/actions/discount";
 import "./page.css";
 
 export default function AddDiscountPage({ params }) {
-    const [state, formAction] = useFormState(createDiscount.bind(null, params.id), { message: '', success: false });
+    const [state, formAction] = useFormState(createDiscount.bind(null, params.id, null), { message: '', success: false });
     const formRef = useRef();
     const router = useRouter();
 
