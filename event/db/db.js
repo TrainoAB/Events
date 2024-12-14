@@ -172,6 +172,7 @@ export async function addSponsor(sponsor) {
 
 // Delete a sponsor
 export async function deleteSponsor(id) {
+    await databaseClient.from(DISCOUNTS_TABLE).update({ sponsor_id: null }).eq('sponsor_id', id);
     return await databaseClient.from(SPONSORS_TABLE).delete().eq("id", id);
 }
 
