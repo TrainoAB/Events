@@ -115,7 +115,7 @@ export async function updateDiscountById(discount, id) {
  * PARTICIPANTS *
  ****************/
 
-const PARTICIPANT_COLUMNS = 'id, forename, surname, email, gender, phone, age, city, competition';
+const PARTICIPANT_COLUMNS = 'id, forename, surname, email, gender, phone, age, city, competition, event_id';
 
 export async function getAllParticipants() {
     return await databaseClient.from(PARTICIPANTS_TABLE).select();
@@ -125,7 +125,8 @@ export async function insertParticipant(participant) {
     return await databaseClient
         .from(PARTICIPANTS_TABLE)
         .insert({ forename: participant.forename, surname: participant.surname, email: participant.email, gender: participant.gender, 
-            phone: participant.phone, city: participant.city, age: participant.age, competition: participant.competition });
+            phone: participant.phone, city: participant.city, age: participant.age, competition: participant.competition,
+            event_id: participant.event_id });
 }
 
 export async function getAllParticipantsById(eventId) {

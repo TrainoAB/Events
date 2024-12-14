@@ -8,9 +8,10 @@ import { createParticipant } from "@/app/actions/participant";
 import "./page.css";
 
 export default function RegisterPage() {
+    const [ event, setEvent ] = useState();
     const [ participants, setParticipants ] = useState([]);
     const [ maxParticipants, setMaxParticipants ] = useState();
-    const [state, formAction] = useFormState(createParticipant, { message: '', success: false });
+    const [state, formAction] = useFormState(createParticipant.bind(null, event?.id), { message: '', success: false });
     const pathname = usePathname();
 
     useEffect(() => {
@@ -30,6 +31,7 @@ export default function RegisterPage() {
         const response = await fetch(`/api/event?url=${pathname.split('/')[1]}`);      //TODO Retrieve the event ID some other way
         if (response.status === 200) {
             const event = await response.json();
+            setEvent(event);
             setMaxParticipants(event.max_participants);
         }
     }
