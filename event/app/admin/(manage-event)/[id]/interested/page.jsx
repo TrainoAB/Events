@@ -67,7 +67,7 @@ export default function InterestedPage({ params }) {
             <h1 className="interested-page__title">Intressenter</h1>
             <ListToggle
                 title1="Sponsorer"
-                title2="Voluntärer"
+                title2="Volontärer"
                 setIsFirstTitleShown={handleSetList}
             />
             {listToggle ? (

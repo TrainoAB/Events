@@ -284,28 +284,28 @@ export async function updateFaqById(faq, id) {
  * APPLICATIONS *
  ****************/
 
-const APPLICATION_COLUMNS = 'id, email, phone, eventId';
+const APPLICATION_COLUMNS = 'id, email, phone, event_id';
 
 export async function insertSponsorApplication(application) {
     return await databaseClient
         .from(SPONSOR_APPLICATION_TABLE)
-        .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+        .insert({ email: application.email, phone: application.phone, event_id: application.event_id });
 }
 
 export async function insertVolunteerApplication(application) {
     return await databaseClient
         .from(VOLUNTEER_APPLICATION_TABLE)
-        .insert({ email: application.email, phone: application.phone, eventId: application.eventId });
+        .insert({ email: application.email, phone: application.phone, event_id: application.event_id });
 }
 
 // Get all interested sponsors for an event
 export async function getInterestedSponsorsByEventId(eventId) {
-    return await databaseClient.from(SPONSOR_APPLICATION_TABLE).select(APPLICATION_COLUMNS).eq("eventId", eventId);
+    return await databaseClient.from(SPONSOR_APPLICATION_TABLE).select(APPLICATION_COLUMNS).eq("event_id", eventId);
 }
 
 // Get all interested volunteers for an event
 export async function getInterestedVolunteersByEventId(eventId) {
-    return await databaseClient.from(VOLUNTEER_APPLICATION_TABLE).select(APPLICATION_COLUMNS).eq("eventId", eventId);
+    return await databaseClient.from(VOLUNTEER_APPLICATION_TABLE).select(APPLICATION_COLUMNS).eq("event_id", eventId);
 }
 
 
