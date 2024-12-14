@@ -56,7 +56,7 @@ export default function ManageSponsorsPage({ params }) {
 
             // Overwrite sponsor url to allow for editing (only on admin page)
             sponsorsData.map(
-                (sponsor) => (sponsor.url = `/admin/${sponsor.eventId}/sponsors/${sponsor.id}/edit`)
+                (sponsor) => (sponsor.url = `/admin/${sponsor.event_id}/sponsors/${sponsor.id}/edit`)
             );
             setSponsors(sponsorsData);
 

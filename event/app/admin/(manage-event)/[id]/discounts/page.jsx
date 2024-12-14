@@ -21,7 +21,7 @@ export default function ManageDiscountsPage({ params }) {
         if (response.status === 200) {
             const discounts = await response.json();
             discounts.map(element => {
-                element.url = `/admin/${element.eventId}/discounts/${element.id}/edit`;             // Gör denna navigering på ett snyggare sätt
+                element.url = `/admin/${element.event_id}/discounts/${element.id}/edit`;             // Gör denna navigering på ett snyggare sätt
             });
             setDiscounts(discounts);
         }

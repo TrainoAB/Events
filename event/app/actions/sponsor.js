@@ -2,7 +2,7 @@
 
 import { addSponsor, updateSponsorById } from "@/db/db";
 
-export async function createSponsor(eventId, _prevState, formData) {
+export async function createSponsor(event_id, _prevState, formData) {
     // Create a sponsor object, with collected data
     const sponsor = {
         name: formData.get("sponsor"),
@@ -10,7 +10,7 @@ export async function createSponsor(eventId, _prevState, formData) {
         url: formData.get("link"),
         description: formData.get("description"),
         prioritized: formData.get("prioritized") || false,
-        eventId,
+        event_id,
     };
 
     // Try to add the sponsor to the db

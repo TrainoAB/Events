@@ -2,11 +2,11 @@
 
 import { updateFaqById, insertFaq } from "@/db/db";
 
-export async function createFaq(id, prevState, formData) {
+export async function createFaq(id, _prevState, formData) {
     const faq = {
         question: formData.get('question'),
         answer: formData.get('answer'),
-        eventId: id
+        event_id: id
     };
 
     // TODO: validate data
@@ -21,7 +21,7 @@ export async function createFaq(id, prevState, formData) {
     }
 }
 
-export async function updateFaq(id, prevState, formData) {
+export async function updateFaq(id, _prevState, formData) {
     const faq = {
         question: formData.get('question'),
         answer: formData.get('answer')

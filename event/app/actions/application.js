@@ -2,7 +2,7 @@
 
 import { insertSponsorApplication, insertVolunteerApplication } from "@/db/db";
 
-export async function createSponsorApplication(id, prevState, formData) {
+export async function createSponsorApplication(id, _prevState, formData) {
     if (formData.get('webpage')) {
         return { message: `En icke giltig ansökan ${formData.get('webpage')}`, success: false };
     }
@@ -10,7 +10,7 @@ export async function createSponsorApplication(id, prevState, formData) {
     const application = {
         email: formData.get('email'),
         phone: formData.get('phonenumber'),
-        eventId: id
+        event_id: id
     };
 
     // TODO: validate data
@@ -28,7 +28,7 @@ export async function createSponsorApplication(id, prevState, formData) {
     }
 }
 
-export async function createVolunteerApplication(id, prevState, formData) {
+export async function createVolunteerApplication(id, _prevState, formData) {
     if (formData.get('webpage')) {
         return { message: `En icke giltig ansökan ${formData.get('webpage')}`, success: false };
     }
@@ -36,7 +36,7 @@ export async function createVolunteerApplication(id, prevState, formData) {
     const application = {
         email: formData.get('email'),
         phone: formData.get('phonenumber'),
-        eventId: id
+        event_id: id
     };
 
     // TODO: validate data

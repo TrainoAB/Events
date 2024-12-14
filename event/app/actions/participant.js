@@ -3,7 +3,7 @@
 import { redirect } from 'next/navigation';
 import { insertParticipant } from "@/db/db";
 
-export async function createParticipant(prevState, formData) {
+export async function createParticipant(id, _prevState, formData) {
     if (formData.get('webpage')) {
         return { message: `En icke giltig ansökan ${formData.get('webpage')}`, success: false };
     }
@@ -16,7 +16,8 @@ export async function createParticipant(prevState, formData) {
         age: formData.get('age'),
         city: formData.get('city'),
         competition: formData.get('competition'),
-        gender: formData.get('gender')
+        gender: formData.get('gender'),
+        event_id: id
     };
 
     // TODO: validate data

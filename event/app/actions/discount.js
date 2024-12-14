@@ -15,7 +15,7 @@ export async function createDiscount(id, sponsorId, _prevState, formData) {
         description: formData.get('description'),
         sponsor_id: sponsorId,
         discount: formData.get('discount'),
-        eventId: id
+        event_id: id
     };
 
     // TODO: validate data
