@@ -46,7 +46,7 @@ export default function EditEventPage({ params }) {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="start_date">Datum när eventet hålls</label>
-                    <input id="start_date" name="start_date" type="date" defaultValue={event.start_date} required />
+                    <input id="start_date" name="start_date" type="date" min={new Date().toLocaleDateString('sv-SE')} defaultValue={event.start_date} required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="start_time">Tid när eventet startar</label>
