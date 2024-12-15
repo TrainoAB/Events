@@ -17,6 +17,19 @@
         }
     }
 
+    & .event-why {
+        display: flex;
+        flex-direction: column;
+
+        .event-why__list {
+            margin-left: 4rem;
+            
+            li {
+                list-style-type: circle;
+            }
+        }
+    }
+
     & .event-image-gallery {
         width: 100%;
 

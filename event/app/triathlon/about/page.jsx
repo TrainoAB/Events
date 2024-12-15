@@ -63,6 +63,41 @@ export default function AboutPage() {
                     />
                 </figure>
             </section>
+
+            <section className="event-why">
+                <h2 className="heading-size">Varför gör vi TRAINO Triathlon?</h2>
+                <p>
+                    Vi tror på att träning är en väg till gemenskap, styrka och glädje. TRAINO Triathlon är skapat för att inspirera människor 
+                    i alla nivåer – från nybörjare till erfarna atleter – att utmana sig själva, sätta mål och ha roligt tillsammans. Vi är också 
+                    trötta på de höga anmälningsavgifter som ofta följer med liknande event. Därför strävar vi efter att hålla TRAINO Triathlon prisvärt, 
+                    utan att kompromissa på kvalitet, för att fler ska kunna delta och känna sig inkluderade.
+                </p>
+                <h2>För vem?</h2>
+                <p>
+                    Det här eventet är för alla som älskar att röra på sig – oavsett om du är en erfaren triathlet eller någon som vill testa något nytt. 
+                    Vi välkomnar deltagare från hela landet att vara med på en oförglömlig dag fylld av träning, inspiration och gemenskap.
+                </p>
+                <h2>Sponsrar vi välgörenhet?</h2>
+                <p>
+                    Ja, vi vill ge tillbaka! En del av intäkterna från TRAINO Triathlon kommer att gå till barn och ungdomars tillgång till idrott. 
+                    Genom att delta bidrar du inte bara till din egen utveckling, utan också till en större sak.
+                </p>
+                <h2>Vad går pengarna till?</h2>
+                <article>
+                    Deltagaravgifterna hjälper oss att:
+                    <ul className="event-why__list">
+                        <li>Arrangera ett högkvalitativt och säkert event,</li>
+                        <li>Täcka kostnader för tillstånd, utrustning och bemanning.</li>
+                        <li><p>Stötta välgörenhetsorganisationer och lokala projekt som gör skillnad.</p></li>
+                    </ul>
+                </article>
+                <p>
+                    Vårt mål är att erbjuda ett tillgängligt och prisvärt event som fler kan delta i. Samtidigt säkerställer vi att varje krona 
+                    används effektivt för att skapa en fantastisk upplevelse för dig och bidra till välgörenhet. Observera att anmälan är 
+                    bindande och att vi inte erbjuder öppet köp.
+                </p>
+            </section>
+            
             <section className="event-image-gallery flex-col align-c">
                 <h2 className="event-image-gallery__title heading-size">Platsbilder</h2>
                 <ImageGallery images={LOCATION_IMAGES} />
