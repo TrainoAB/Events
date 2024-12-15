@@ -47,11 +47,11 @@ export default function AddDiscountPage({ params }) {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="valid_from">Datum när rabatten börjar gälla</label>
-                    <input id="valid_from" name="valid_from" type="date" required />
+                    <input id="valid_from" name="valid_from" type="date" min={new Date().toLocaleDateString('sv-SE')} required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="valid_to">Datum när rabatten slutar gälla</label>
-                    <input id="valid_to" name="valid_to" type="date" required />
+                    <input id="valid_to" name="valid_to" type="date" min={new Date().toLocaleDateString('sv-SE')} required />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
