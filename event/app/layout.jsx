@@ -17,13 +17,13 @@ export default function RootLayout({ children }) {
         <TrainoContextProvider>
             <html lang="en">
                 <body className={inter.className}>
-                    <AuthLogin
+                    {/* <AuthLogin
                         FormComponent={DevLoginForm}
                         cookie={"password"}
                         envPassword={"PASSWORD"}
-                    >
-                        {children}
-                    </AuthLogin>
+                    > */}
+                    {children}
+                    {/* </AuthLogin> */}
                 </body>
             </html>
         </TrainoContextProvider>

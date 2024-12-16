@@ -28,7 +28,7 @@ const WINNERS_TABLE = "winners";
  * EVENTS *
  **********/
 
-const EVENT_COLUMNS = 'id, competition, url, image, description, start_date, start_time, max_participants, finished, hide';
+const EVENT_COLUMNS = 'id, competition, url, image, description, start_date, start_time, max_participants, finished, hide, dev_mode';
 
 export async function getAllEvents() {
     return await databaseClient.from(EVENTS_TABLE).select(EVENT_COLUMNS).order("start_date");
@@ -54,7 +54,7 @@ export async function insertEvent(event) {
     return await databaseClient
         .from(EVENTS_TABLE)
         .insert({ competition: event.competition, url: event.url, image: event.image, description: event.description, 
-            start_date: event.start_date, start_time: event.start_time, max_participants: event.max_participants, finished: event.finished });
+            start_date: event.start_date, start_time: event.start_time, max_participants: event.max_participants, finished: event.finished, dev_mode: event.dev_mode });
 }
 
 export async function updateEventById(event, id) {
