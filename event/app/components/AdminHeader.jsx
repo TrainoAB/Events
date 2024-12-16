@@ -40,6 +40,9 @@ export default function AdminHeader({ params }) {
                     <li className={`${pathname === `/admin/${params.id}/winners` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
                         <Link href={`/admin/${params.id}/winners`}>Vinnare</Link>
                     </li>
+                    <li className={`${pathname === `/admin/${params.id}/participants` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
+                        <Link href={`/admin/${params.id}/participants`}>Deltagare</Link>
+                    </li>
                     <li className={`${pathname === `/admin/${params.id}/interested` ? 'admin-header-list__element active' : 'admin-header-list__element'}`}>
                         <Link href={`/admin/${params.id}/interested`}>Intressenter</Link>
                     </li>
