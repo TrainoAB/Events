@@ -156,7 +156,7 @@ export default function TriathlonPage() {
                                     Köp din merch idag och hjälp Traino Triathlon att bli ännu bättre – tillsammans
                                     skapar vi något stort!
                                 </p>
-                                <Link className="link-btn" href={"http://traino.redbubble.com"}>
+                                <Link className="link-btn" href={"http://traino.redbubble.com"} target="_blank">
                                     Visa fler produkter
                                 </Link>
                             </div>
