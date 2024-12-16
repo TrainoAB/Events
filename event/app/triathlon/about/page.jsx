@@ -108,7 +108,7 @@ export default function AboutPage() {
                     Träna
                 </Link>
             </div>
-            <section className="volunteer flex-col align-c">
+            { event && !event.finished ? <section className="volunteer flex-col align-c">
                 <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
                 {state?.message ? (
                     <h2 className={state?.success ? "message-success" : "message-failure"}>
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 ) : (
                     <></>
                 )}
-            </section>
+            </section> : <></> }
         </main>
     );
 }

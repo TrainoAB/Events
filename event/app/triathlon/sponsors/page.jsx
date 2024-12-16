@@ -44,7 +44,7 @@ export default function SponsorsPage() {
                     <SponsorCard sponsor={sponsor} discounts={sponsor.discounts} target="_blank" key={index} />
                 )) : <></>}
             </section>
-            { event && !event.finishied ? <section className="sponsor-event flex-col align-c">
+            { event && !event.finished ? <section className="sponsor-event flex-col align-c">
                 <h2 className="sponsor-event__title heading-size">Sponsra Eventet</h2>
                 <p className="sponsor-event__cta">
                     Fyll i er kontaktinformation så kontaktar vi er.
