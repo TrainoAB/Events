@@ -48,8 +48,17 @@
 
 @media (max-width: 600px) {
     .list-toggle {
+        width: 100%;
+
         & .list-toggle__titles {
             flex-direction: row;
+            gap: 0;
+            width: 100%;
+
+            & .list-toggle__title {
+                font-size: 0.9rem;
+                padding: 1rem;
+            }
         }
     }
 }
