@@ -11,6 +11,7 @@ export default async function EventLayout({ children }) {
     // it will need to be updated for each event that is added to the project
     const { error, data: event } = await getEventByUrl("/triathlon");
     DEBUG && console.log("(triathlon/layout) dev_mode:", event.dev_mode);
+    DEBUG && error && console.error("Error in triathlon/layout", error);
 
     return (
         <AuthLogin

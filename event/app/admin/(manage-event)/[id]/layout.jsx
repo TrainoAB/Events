@@ -6,7 +6,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const fetchEvent = async (eventId) => {
     try {
-        const res = await fetch(`${BASE_URL}/api/event?id=${eventId}`);
+        const res = await fetch(`${BASE_URL}/api/event?id=${eventId}`, {
+            cache: "no-store",
+            next: { tags: ["event-info"] },
+        });
         if (!res.ok) {
             throw new Error("Failed to fetch event");
         }

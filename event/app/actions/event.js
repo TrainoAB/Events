@@ -1,6 +1,7 @@
 "use server";
 
 import { updateEventById, insertEvent } from "@/db/db";
+import { revalidateTag } from "next/cache";
 
 export async function createEvent(_prevState, formData) {
     const event = {
@@ -16,6 +17,8 @@ export async function createEvent(_prevState, formData) {
         dev_mode: formData.get("dev_mode") || false,
     };
 
+    // Revalidate fetch in the manage-event layout file
+    revalidateTag("event-info");
     // TODO: validate data
 
     const { error } = await insertEvent(event);
@@ -42,6 +45,8 @@ export async function updateEvent(id, _prevState, formData) {
         dev_mode: formData.get("dev_mode") || false,
     };
 
+    // Revalidate fetch in the manage-event layout file
+    revalidateTag("event-info");
     // TODO: validate data
 
     const { error } = await updateEventById(event, id);
