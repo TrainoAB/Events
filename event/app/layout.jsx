@@ -23,11 +23,11 @@ export default function RootLayout({ children }) {
                         FormComponent={DevLoginForm}
                         cookie={"password"}
                         envPassword={"PASSWORD"}
-                        // TODO: Set disabled when site is live
-                        // TODO: Set enabled when you have ensured live works
-                        enabled={false}
+                        // TODO: Set disabled when site is live, or remove the component from
+                        // this file (it's used to prevent accessing event pages in the event layout)
+                        enabled={true}
                     >
-                    {children}
+                        {children}
                     </AuthLogin>
                 </body>
             </html>
