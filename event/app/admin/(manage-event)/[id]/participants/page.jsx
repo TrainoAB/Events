@@ -40,9 +40,21 @@ export default function ManageParticipantsPage({ params }) {
                 </li>
                 {list.map((item) => (
                     <li className="participants-item b-radius" key={item.email}>
-                        <p className="participants-item__name">{item.forename + ' ' + item.surname}</p>
-                        <p className="participants-item__email">{item.email}</p>
-                        <p className="participants-item__phone">{item.phone}</p>
+                        <div className="list-row-wrapper">
+                            <div className="mobile-row">Namn: </div>
+                            <p className="participants-item__name">{item.forename + ' ' + item.surname}</p>
+                        </div>
+
+                        <div className="participants-wrapper">
+                            <div className="list-row-wrapper">
+                                <div className="mobile-row"> Email: </div>
+                                <p className="participants-item__email">{item.email}</p>
+                            </div>
+                            <div className="list-row-wrapper">
+                                <div className="mobile-row">Telefon: </div>
+                                <p className="participants-item__phone">{item.phone}</p>
+                            </div>
+                        </div>
                     </li>
                 ))}
             </ul>

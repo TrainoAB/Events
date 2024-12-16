@@ -35,6 +35,18 @@
             &:hover {
                 border-color: gray;
             }
+
+            & .participants-wrapper {
+                width: 55%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        & .mobile-heading,
+        & .mobile-row {
+            display: none;
         }
     }
 }
@@ -49,3 +61,32 @@
     }
 }
 
+@media (max-width: 800px) {
+    #participants-page {
+        & .participants-list {
+            & .participants-list__headings {
+                display: none;
+            }
+
+            & .mobile-row {
+                display: contents;
+                padding: 0.5rem 1rem;
+                justify-content: center;
+                font-weight: bold;
+            }
+
+            & .participants-item {
+                flex-direction: column;
+
+                & .list-row-wrapper {
+                    display: block;
+                    gap: 1rem;
+                }
+
+                & .participants-wrapper {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
