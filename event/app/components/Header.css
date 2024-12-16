@@ -65,6 +65,10 @@
                 background: var(--white);
                 text-align: center;
                 z-index: 120;
+
+                .active {
+                    border-bottom: none;
+                }
             }
 
             .showmenu {
