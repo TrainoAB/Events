@@ -17,7 +17,7 @@ export default function ListToggle({ title1 = "Triathlon", title2 = "Olympiskt T
     };
 
     return (
-        <section className="list-toggle max-width">
+        <section className="list-toggle">
             <div className="list-toggle__titles">
                 <button onClick={handleToggle}
                         disabled={isShowFirst}
