@@ -5,6 +5,8 @@ import DevLoginForm from "./components/DevLoginForm";
 
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,13 +19,16 @@ export default function RootLayout({ children }) {
         <TrainoContextProvider>
             <html lang="en">
                 <body className={inter.className}>
-                    {/* <AuthLogin
+                    <AuthLogin
                         FormComponent={DevLoginForm}
                         cookie={"password"}
                         envPassword={"PASSWORD"}
-                    > */}
+                        // TODO: Set disabled when site is live
+                        // TODO: Set enabled when you have ensured live works
+                        enabled={false}
+                    >
                     {children}
-                    {/* </AuthLogin> */}
+                    </AuthLogin>
                 </body>
             </html>
         </TrainoContextProvider>
