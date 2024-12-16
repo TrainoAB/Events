@@ -19,10 +19,14 @@ export default function AddEventPage() {
     return (
         <main id="add-event-page" className="flex-col align-c">
             <h1 className="add-event-page__title">Lägg till Event</h1>
-            { state?.message ? <h2 className={state?.success ? "message-success" : "message-failure"}>
-                {state?.message}
-                {state?.message ? formRef.current?.reset() : <></>}
-            </h2> : <></> }
+            {state?.message ? (
+                <h2 className={state?.success ? "message-success" : "message-failure"}>
+                    {state?.message}
+                    {state?.message ? formRef.current?.reset() : <></>}
+                </h2>
+            ) : (
+                <></>
+            )}
 
             <form className="add-event-form flex-col" ref={formRef} action={formAction}>
                 <div className="input-wrapper">
@@ -35,7 +39,13 @@ export default function AddEventPage() {
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="start_date">Datum när eventet hålls</label>
-                    <input id="start_date" name="start_date" type="date" min={new Date().toLocaleDateString('sv-SE')} required />
+                    <input
+                        id="start_date"
+                        name="start_date"
+                        type="date"
+                        min={new Date().toLocaleDateString("sv-SE")}
+                        required
+                    />
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="start_time">Tid när eventet startar</label>
@@ -61,13 +71,21 @@ export default function AddEventPage() {
                     <label htmlFor="hide">Dölj eventet för vanliga användare</label>
                     <input id="hide" name="hide" type="checkbox" defaultChecked={true} />
                 </div>
+                <div className="checkbox-wrapper">
+                    <label htmlFor="dev_mode">
+                        Förhindra användare att komma åt eventsidor (Dev mode)
+                    </label>
+                    <input id="dev_mode" name="dev_mode" type="checkbox" defaultChecked={true} />
+                </div>
                 <div className="input-wrapper">
                     <label htmlFor="description">Beskrivning</label>
                     <textarea id="description" name="description" rows={10} cols={100} required />
                 </div>
 
                 <div className="add-event-form__buttons">
-                    <button type="reset" onClick={handleCancel}>Avbryt</button>
+                    <button type="reset" onClick={handleCancel}>
+                        Avbryt
+                    </button>
                     <button> Lägg till </button>
                 </div>
             </form>
