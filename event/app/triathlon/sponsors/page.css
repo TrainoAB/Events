@@ -60,3 +60,15 @@
         margin-inline: 0.5rem;
     }
 }
+
+@media (max-width: 800px) {
+    #sponsorspage {
+        & .sponsor-event {
+            padding: 6rem 0.5rem;
+
+            & .sponsor-event__form {
+                
+            }
+        }
+    }
+}
