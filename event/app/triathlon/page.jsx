@@ -129,7 +129,7 @@ export default function TriathlonPage() {
                     <TrainoFunnel />
                     <section className="featured-product flex-col align-c">
                         <div className="featured-product__wrapper">
-                            <div>
+                            <div className="product-card-wrapper">
                                 <ProductCard
                                     image={"/white-tshirt.png"}
                                     url={
@@ -137,7 +137,7 @@ export default function TriathlonPage() {
                                     }
                                 />
                             </div>
-                            <div>
+                            <div className="merch-text-wrapper">
                                 <h2 className="featured-product__title heading-size">
                                     Stöd TRAINO Triathlon med vår exklusiva merch!
                                 </h2>

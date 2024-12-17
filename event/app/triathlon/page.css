@@ -4,8 +4,11 @@
     position: relative;
     padding-bottom: 3rem;
 
+    & .video-container {
+        gap: 2rem;
+    }
+
     & .info-container {
-        padding-inline: 0.5rem;
         width: 100%;
 
         & .event-about {
@@ -67,6 +70,18 @@
         & .event-sponsors {
             gap: var(--gap);
             width: 100%;
+            width: 100% !important;
+            border-radius: var(--big-radius);
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 4rem;
+
+            & .event-sponsors__title {
+                font-size: 1.5em;
+                margin-bottom: 2rem;
+                text-transform: uppercase;
+            }
 
             & .event-sponsors__figure {
                 display: flex;
@@ -74,8 +89,19 @@
                 width: 100%;
                 flex-wrap: wrap;
 
+                flex-direction: row;
+                align-items: center;
+                gap: var(--gap);
+
                 & .event-sponsors__img {
+                    filter: grayscale(100%);
+                    opacity: 0.5;
                     width: 200px;
+                }
+
+                & .event-sponsors__img:hover {
+                    filter: grayscale(0%);
+                    opacity: 1;
                 }
             }
         }
@@ -86,29 +112,25 @@
             background: var(--white);
             border-radius: var(--big-radius);
             gap: var(--gap);
+
+            & .featured-product__wrapper {
+                width: 100%;
+                max-width: 60rem;
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                gap: 3rem;
+
+                & .featured-product__title {
+                    margin-bottom: 1rem;
+                }
+
+                & .link-btn {
+                    margin-top: 2rem;
+                    display: inline-block;
+                }
+            }
         }
     }
-}
-
-.featured-product__wrapper {
-    width: 100%;
-    max-width: 60rem;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 3rem;
-
-    & .link-btn {
-        margin-top: 2rem;
-        display: inline-block;
-    }
-}
-
-.featured-product__title {
-    margin-bottom: 1rem;
-}
-
-.video-container {
-    gap: 2rem;
 }
 
 @media (max-width: 1000px) {
@@ -127,21 +149,19 @@
 
         & .info-container {
             & .event-about {
+                padding: 1rem;
                 grid-template-areas:
                     "title"
                     "img  "
                     "info ";
 
-                & .event-about__title {
-                    text-align: center;
-                    grid-area: title;
-                }
-
                 & .event-about__info-wrapper {
                     gap: var(--gap);
+                    min-width: 100%;
 
-                    & .event-about__text {
+                    & .event-about__title {
                         text-align: center;
+                        grid-area: title;
                     }
 
                     & .event-about__link {
@@ -149,37 +169,31 @@
                     }
                 }
             }
-        }
-    }
-}
 
-.event-sponsors__title {
-    font-size: 1.5em;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-}
+            & .event-sponsors {
+                & .event-sponsors__figure {
+                    justify-content: center;
+                }
+            }
 
-.event-sponsors {
-    width: 100% !important;
-    border-radius: var(--big-radius);
-    background: white;
-    display: flex;
-    flex-direction: column;
-    padding: 4rem;
+            & .featured-product {
 
-    & .event-sponsors__figure {
-        flex-direction: row;
-        align-items: center;
-        gap: var(--gap);
 
-        & img {
-            filter: grayscale(100%);
-            opacity: 0.5;
-        }
+                & .featured-product__wrapper {
+                    grid-template-columns: 1fr;
+                    justify-items: center;
 
-        & img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+                    & .merch-text-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    & .featured-product__title {
+                        text-align: center;
+                    }
+                }
+            }
         }
     }
 }
