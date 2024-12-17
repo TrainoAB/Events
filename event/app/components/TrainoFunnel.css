@@ -11,3 +11,9 @@
         font-size: 2rem;
     }
 }
+
+@media (max-width: 1000px) {
+    .traino-funnel {
+        text-align: center;
+    }
+}
