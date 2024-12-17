@@ -37,7 +37,7 @@
     }
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1300px) {
     #admin-header {
         .admin-header-nav {
             display: block;
