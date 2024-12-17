@@ -54,7 +54,7 @@ export default function ManageRulesPage({ params }) {
     }
 
     const handleEditRule = (rule) => {
-        router.push(`/admin/${rule.eventId}/rules/${rule.id}/edit`);
+        router.push(`/admin/${rule.event_id}/rules/${rule.id}/edit`);
     }
 
     return (
