@@ -96,3 +96,11 @@
         margin-inline: 0.5rem;
     }
 }
+
+@media (max-width: 800px) {
+    #aboutpage {
+        & .volunteer {
+            padding: 6rem 0.5rem;
+        }
+    }
+}
