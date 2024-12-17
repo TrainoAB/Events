@@ -58,6 +58,7 @@
             .showmenu {
                 display: inline-table;
                 position: absolute;
+                height: 100vh;
             }
 
             #hamburger {
