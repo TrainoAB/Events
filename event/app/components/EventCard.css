@@ -61,3 +61,13 @@
 .event-card:hover .date {
     background: black;
 }
+
+@media (max-width: 500px) {
+    .event-card {
+        & .event-card__headings {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--small-gap);
+        }
+    }
+}
