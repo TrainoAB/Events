@@ -40,7 +40,10 @@
 
 @media (max-width: 750px) {
     .registered-participants {
-        width: 97%;
-        padding: 2rem 1rem;
+        padding: 4rem 2rem;
+        
+        & .registered-participants__title {
+            text-align: center;
+        }
     }
 }
