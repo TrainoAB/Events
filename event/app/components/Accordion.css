@@ -1,5 +1,4 @@
 .accordion {
-    width: 80%;
     cursor: pointer;
     padding: 2rem;
     text-align: left;
@@ -10,7 +9,7 @@
     & .accordion-panel {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
+        transition: max-height 0.2s ease-in-out;
 
         & .accordion__text {
             font-size: large;
@@ -38,7 +37,6 @@
 
 @media (max-width: 500px) {
     .accordion {
-        max-width: 90%;
         padding: 1rem;
 
         & .accordion__heading {
