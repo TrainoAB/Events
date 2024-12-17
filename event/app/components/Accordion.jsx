@@ -15,7 +15,7 @@ export default function Accordion({ heading, text }) {
     };
 
     return (
-        <div className="accordion max-width" onClick={handleToggle}>
+        <div className="accordion" onClick={handleToggle}>
             <h2 className="accordion__heading">
                 {isShowing ? (
                     <Image src={minus} className="accordion__image" width={32} height={32} alt="Hide content icon" />

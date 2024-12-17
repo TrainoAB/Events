@@ -23,7 +23,7 @@ export default function FAQPage() {
     };
 
     return (
-        <main id="faqpage" className="flex-col align-c">
+        <main id="faqpage" className="flex-col max-width align-c">
             <h1 className="faq__title">FAQ</h1>
 
             {faqs ? (
