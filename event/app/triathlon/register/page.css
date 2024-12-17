@@ -13,7 +13,7 @@
             gap: var(--small-gap);
 
             & label:not(.radio-wrapper)::after,
-            .gender-label::after {
+            & .gender-label::after {
                 content: "*";
             }
 
@@ -60,6 +60,14 @@
         & .register-form__submit {
             align-self: center;
             margin-top: 1rem;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #registerpage {
+        & .register-form {
+            width: 100%;
         }
     }
 }
