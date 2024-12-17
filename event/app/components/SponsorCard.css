@@ -54,6 +54,10 @@
         & .sponsor-card {
             flex-direction: column;
 
+            & .button {
+                align-self: center;
+            }
+
             & .sponsor-card__figure {
                 & img {
                     border-radius: var(--radius) var(--radius) 0 0;
