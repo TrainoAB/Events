@@ -53,11 +53,12 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1040px) {
     #header {
         .header-nav {
             display: block;
             align-content: center;
+            margin-top: 4.5rem;
 
             & .header-list {
                 display: none;
