@@ -5,11 +5,12 @@
     border-radius: 15px;
     background: var(--white);
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+    min-width: 100%;
 
     & .accordion-panel {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.2s ease-in-out;
+        transition: max-height 0.15s ease-in-out;
 
         & .accordion__text {
             font-size: large;
