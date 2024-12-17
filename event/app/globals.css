@@ -134,7 +134,7 @@ button {
     transition: var(--btn-transition);*/
 
     &:hover {
-        background: var(--mainpurple);
+        background-color: var(--mainpurple);
     }
 }
 
@@ -298,6 +298,10 @@ p {
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
+
+    &:hover {
+        background-color: hsl(from var(--light-green) h s calc(l - 5));
+    }
 }
 
 .delete-btn {
@@ -316,6 +320,10 @@ p {
         content: "";
         height: 1.5rem;
         width: 1.5rem;
+    }
+
+    &:hover {
+        background-color: hsl(from var(--warning-col) h s calc(l - 5));
     }
 }
 
