@@ -64,15 +64,18 @@ export default function ManageRulesPage({ params }) {
                 {rules?.length > 0 ? rules.map((rule, index) => (
                     <div className="rule-wrapper" key={index}>
                         <section className="rule-section-wrapper max-width" onClick={() => handleEditRule(rule)}>
-                            <div className="rule-number-wrapper">
-                                <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
-                                <hr/>
+                        <h2>{rule.topic}</h2>
+                        <h2>{rule.type}</h2>
+                            <div className="rule-topic-type-wrapper">
+                                <div className="rule-number-wrapper">
+                                    <h2 className="rule__number"> {setRuleNumber(index + 1)} </h2>
+                                    <hr/>
+                                </div>
+                                <div>
+                                <p className="rule__text"> {rule.rule} </p>
                             </div>
-                            <div>
-                            <h2>{rule.topic}</h2>
-                            <h2>{rule.type}</h2>
+                            
                             </div>
-                            <p className="rule__text"> {rule.rule} </p>
                         </section>
                         <button className="delete-btn" onClick={() => handleDeleteClick(rule)}> Radera </button>
                     </div>
