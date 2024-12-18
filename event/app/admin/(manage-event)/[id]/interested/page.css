@@ -20,7 +20,6 @@
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.267);
             background-color: var(--maincolor);
             color: var(--white);
-
         }
 
         & .interested-item {
@@ -39,10 +38,12 @@
     }
 }
 
+.event-indicator {
+    margin-bottom: 0;
+}
+
 @media (max-width: 1440px) {
     #interested-page {
-        margin-inline: 0.5rem;
-
         & .interested-page__title {
             font-size: 2.5rem;
         }
