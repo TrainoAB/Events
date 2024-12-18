@@ -51,10 +51,12 @@
     }
 }
 
+.event-indicator {
+    margin-bottom: 0;
+}
+
 @media (max-width: 1440px) {
     #participants-page {
-        margin-inline: 0.5rem;
-
         & .participants-page__title {
             font-size: 2.5rem;
         }
@@ -84,7 +86,8 @@
                 }
 
                 & .participants-wrapper {
-                    width: 100%;
+                    flex-direction: column;
+                    align-items: flex-start;
                 }
             }
         }
