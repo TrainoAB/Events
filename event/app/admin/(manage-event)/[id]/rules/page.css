@@ -12,15 +12,21 @@
             max-width: 60rem;
             gap: 0.5rem;
 
-            :hover {
+            &:hover {
                 cursor: pointer;
             }
 
             & .rule-section-wrapper {
                 display: flex;
-                gap: var(--large-gap);
+                gap: var(--gap);
+                flex-direction: column;
                 margin-left: 0.5rem;
                 margin-right: 0.5rem;
+
+                & .rule-topic-type-wrapper {
+                    display: flex;
+                    gap: var(--gap);
+                }
         
                 & .rule__number {
                     width: 1rem;
@@ -52,8 +58,21 @@
     }
 }
 
-@media (max-width: 1000px) {
+.event-indicator {
+    margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
     #manage-rules-page {
-        margin-inline: 0.5rem;
+        & .rule-list {
+            & .rule-wrapper {
+                & .rule-section-wrapper {
+                    & .rule-topic-type-wrapper {
+                        display: flex;
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
     }
 }
