@@ -53,3 +53,14 @@
         }
     }
 }
+
+@media (max-width: 530px) {
+    #edit-event-page {
+        & .edit-event-form {
+            & .checkbox-wrapper {
+                flex-wrap: wrap;
+                align-self: center;
+            }
+        }
+    }
+}
