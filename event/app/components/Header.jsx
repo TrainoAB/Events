@@ -33,7 +33,7 @@ export default function Header() {
             <nav className="header-nav">
                 <Link className="logo" href="/triathlon"></Link>
 
-                <ul className={showMenu ? `header-list showmenu` : "header-list"}>
+                <ul className={showMenu ? `header-list showmenu` : "header-list"} onClick={handleShowMenu}>
                     {finished ? (
                         <li
                             className={`${

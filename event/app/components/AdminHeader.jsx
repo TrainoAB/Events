@@ -18,7 +18,7 @@ export default function AdminHeader({ params }) {
     return (
         <header id="admin-header">
             <nav className="admin-header-nav">
-                <ul className={showMenu ? "admin-header-list showmenu" : "admin-header-list"}>
+                <ul className={showMenu ? "admin-header-list showmenu" : "admin-header-list"} onClick={handleShowMenu}>
                     <li className='admin-header-list__element'>
                         <Link href="/admin">Alla Event</Link>
                     </li>
