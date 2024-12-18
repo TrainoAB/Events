@@ -9,7 +9,6 @@
 
     & .add-winner-form {
         gap: var(--gap);
-        width: 60%;
 
         & .input-wrapper {
             display: flex;
