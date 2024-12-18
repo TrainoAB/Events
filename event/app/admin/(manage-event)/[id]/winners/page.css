@@ -5,6 +5,7 @@
 
     & .winners-list {
         gap: var(--gap);
+        font-size: 1rem;
 
         & .winners-wrapper {
             display: flex;
@@ -25,8 +26,11 @@
                 }
 
                 & .participant-info {
+                    font-size: 1.4rem;
+
                     & .winners-wrapper {
                         flex-direction: row;
+                        gap: 0.4rem;
                     }
                 }
             }
