@@ -8,7 +8,7 @@
 
     & .event-info {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--gap);
         width: 100%;
 
@@ -17,15 +17,38 @@
         }
     }
 
-    & .event-why {
+    & .event-details-wrapper {
         display: flex;
         flex-direction: column;
+        gap: var(--large-gap);
 
-        .event-why__list {
-            margin-left: 4rem;
-            
-            li {
-                list-style-type: circle;
+        & :is(.event-why, .event-for, .event-charity, .event-money) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap);
+            align-items: flex-start;
+            width: 100%;
+
+            &
+                :is(
+                    .event-why__wrapper,
+                    .event-for__wrapper,
+                    .event-charity__wrapper,
+                    .event-money__wrapper
+                ) {
+                display: flex;
+                flex-direction: column;
+                gap: var(--small-gap);
+            }
+        }
+
+        & .event-money {
+            & .event-money__list {
+                margin-left: 2rem;
+
+                & li {
+                    list-style-type: circle;
+                }
             }
         }
     }
@@ -89,18 +112,51 @@
             }
         }
     }
-}
 
-@media (max-width: 1000px) {
-    #aboutpage {
-        margin-inline: 0.5rem;
+    & .separator {
+        width: 100%;
+        height: 3px;
+        border-radius: 4px;
+        background: linear-gradient(to right, transparent, var(--maincolor), transparent);
     }
 }
 
 @media (max-width: 800px) {
     #aboutpage {
+        width: 100%;
+
+        & .event-info {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        & .event-details-wrapper {
+            & :is(.event-why, .event-for, .event-charity, .event-money) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            & .event-why {
+                & .event-why__wrapper {
+                    order: -1;
+                }
+            }
+
+            & .event-charity {
+                & .event-charity__wrapper {
+                    order: -1;
+                }
+            }
+        }
+
+        & .traino-funnel {
+            text-align: center;
+        }
+
         & .volunteer {
             padding: 6rem 0.5rem;
+
+            & .volunteer__title {
+                text-align: center;
+            }
         }
     }
 }
