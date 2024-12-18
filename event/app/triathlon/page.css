@@ -177,9 +177,12 @@
             }
 
             & .featured-product {
+                padding: 2rem 1rem;
+
                 & .featured-product__wrapper {
                     grid-template-columns: 1fr;
                     justify-items: center;
+                    width: auto;
 
                     & .merch-text-wrapper {
                         display: flex;
