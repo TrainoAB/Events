@@ -136,8 +136,8 @@
 @media (max-width: 1000px) {
     #eventpage {
         & .video-container {
-            padding-inline: 1rem;
-
+            width: 100%;
+            
             & h1.video-container__title {
                 height: 8rem;
             }
@@ -177,7 +177,7 @@
             }
 
             & .featured-product {
-
+                padding: 2rem;
 
                 & .featured-product__wrapper {
                     grid-template-columns: 1fr;
