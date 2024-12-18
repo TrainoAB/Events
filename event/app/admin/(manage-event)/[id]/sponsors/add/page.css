@@ -52,3 +52,11 @@
         }
     }
 }
+
+@media (max-width: 400px) {
+    #add-sponsor-page {
+        .checkbox-wrapper {
+            flex-wrap: wrap;
+        }
+    }
+}
