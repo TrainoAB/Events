@@ -49,9 +49,9 @@ export default function AboutPage() {
             </div>
             <section className="event-info">
                 <p className="event-info__description">
-                    TRAINO anordnar sitt första event som går av stapeln {eventDate ? eventDate : "..."}. Ett helt
-                    Triathlon, placerat i Stockholm. Det kommer även att finnas ett mini Triathlon kallat Olympiska
-                    Triathlon.
+                    TRAINO anordnar sitt första event som går av stapeln{" "}
+                    {eventDate ? eventDate : "..."}. Ett helt Triathlon, placerat i Stockholm. Det
+                    kommer även att finnas ett mini Triathlon kallat Olympiska Triathlon.
                 </p>
                 <figure className="event-info__figure">
                     <Image
@@ -64,81 +64,177 @@ export default function AboutPage() {
                 </figure>
             </section>
 
-            <section className="event-why">
-                <h2 className="heading-size">Varför gör vi TRAINO Triathlon?</h2>
-                <p>
-                    Vi tror på att träning är en väg till gemenskap, styrka och glädje. TRAINO Triathlon är skapat för att inspirera människor 
-                    i alla nivåer – från nybörjare till erfarna atleter – att utmana sig själva, sätta mål och ha roligt tillsammans. Vi är också 
-                    trötta på de höga anmälningsavgifter som ofta följer med liknande event. Därför strävar vi efter att hålla TRAINO Triathlon prisvärt, 
-                    utan att kompromissa på kvalitet, för att fler ska kunna delta och känna sig inkluderade.
-                </p>
-                <h2>För vem?</h2>
-                <p>
-                    Det här eventet är för alla som älskar att röra på sig – oavsett om du är en erfaren triathlet eller någon som vill testa något nytt. 
-                    Vi välkomnar deltagare från hela landet att vara med på en oförglömlig dag fylld av träning, inspiration och gemenskap.
-                </p>
-                <h2>Sponsrar vi välgörenhet?</h2>
-                <p>
-                    Ja, vi vill ge tillbaka! En del av intäkterna från TRAINO Triathlon kommer att gå till barn och ungdomars tillgång till idrott. 
-                    Genom att delta bidrar du inte bara till din egen utveckling, utan också till en större sak.
-                </p>
-                <h2>Vad går pengarna till?</h2>
-                <article>
-                    Deltagaravgifterna hjälper oss att:
-                    <ul className="event-why__list">
-                        <li>Arrangera ett högkvalitativt och säkert event,</li>
-                        <li>Täcka kostnader för tillstånd, utrustning och bemanning.</li>
-                        <li><p>Stötta välgörenhetsorganisationer och lokala projekt som gör skillnad.</p></li>
-                    </ul>
+            <div className="separator"></div>
+
+            <div className="event-details-wrapper">
+                <article className="event-why">
+                    <figure className="event-why__figure">
+                        <Image
+                            src={"https://picsum.photos/430/242?random=1"}
+                            width={430}
+                            height={242}
+                            alt="Karta som visar rutten för Triathlon tävlingen"
+                            className="event-info__image"
+                        />
+                    </figure>
+                    <div className="event-why__wrapper">
+                        <h2 className="heading-size">Varför gör vi TRAINO Triathlon?</h2>
+                        <p>
+                            Vi tror på att träning är en väg till gemenskap, styrka och glädje.
+                            TRAINO Triathlon är skapat för att inspirera människor i alla nivåer –
+                            från nybörjare till erfarna atleter – att utmana sig själva, sätta mål
+                            och ha roligt tillsammans. Vi är också trötta på de höga
+                            anmälningsavgifter som ofta följer med liknande event. Därför strävar vi
+                            efter att hålla TRAINO Triathlon prisvärt, utan att kompromissa på
+                            kvalitet, för att fler ska kunna delta och känna sig inkluderade.
+                        </p>
+                    </div>
                 </article>
-                <p>
-                    Vårt mål är att erbjuda ett tillgängligt och prisvärt event som fler kan delta i. Samtidigt säkerställer vi att varje krona 
-                    används effektivt för att skapa en fantastisk upplevelse för dig och bidra till välgörenhet. Observera att anmälan är 
-                    bindande och att vi inte erbjuder öppet köp.
-                </p>
-            </section>
-            
+
+                <div className="separator"></div>
+
+                <article className="event-for">
+                    <div className="event-for__wrapper">
+                        <h2 className="heading-size">För vem?</h2>
+                        <p>
+                            Det här eventet är för alla som älskar att röra på sig – oavsett om du
+                            är en erfaren triathlet eller någon som vill testa något nytt. Vi
+                            välkomnar deltagare från hela landet att vara med på en oförglömlig dag
+                            fylld av träning, inspiration och gemenskap.
+                        </p>
+                    </div>
+                    <figure className="event-for__figure">
+                        <Image
+                            src={"https://picsum.photos/430/242?random=2"}
+                            width={430}
+                            height={242}
+                            alt="Karta som visar rutten för Triathlon tävlingen"
+                            className="event-info__image"
+                        />
+                    </figure>
+                </article>
+
+                <div className="separator"></div>
+
+                <article className="event-charity">
+                    <figure className="event-charity__figure">
+                        <Image
+                            src={"https://picsum.photos/430/242?random=3"}
+                            width={430}
+                            height={242}
+                            alt="Karta som visar rutten för Triathlon tävlingen"
+                            className="event-info__image"
+                        />
+                    </figure>
+                    <div className="event-charity__wrapper">
+                        <h2 className="heading-size">Sponsrar vi välgörenhet?</h2>
+                        <p>
+                            Ja, vi vill ge tillbaka! En del av intäkterna från TRAINO Triathlon
+                            kommer att gå till barn och ungdomars tillgång till idrott. Genom att
+                            delta bidrar du inte bara till din egen utveckling, utan också till en
+                            större sak.
+                        </p>
+                    </div>
+                </article>
+
+                <div className="separator"></div>
+
+                <article className="event-money">
+                    <div className="event-money__wrapper">
+                        <h2 className="heading-size">Vad går pengarna till?</h2>
+                        <p>Deltagaravgifterna hjälper oss att:</p>
+                        <ul className="event-money__list">
+                            <li>Arrangera ett högkvalitativt och säkert event,</li>
+                            <li>Täcka kostnader för tillstånd, utrustning och bemanning.</li>
+                            <li>
+                                <p>
+                                    Stötta välgörenhetsorganisationer och lokala projekt som gör
+                                    skillnad.
+                                </p>
+                            </li>
+                        </ul>
+                        <p>
+                            Vårt mål är att erbjuda ett tillgängligt och prisvärt event som fler kan
+                            delta i. Samtidigt säkerställer vi att varje krona används effektivt för
+                            att skapa en fantastisk upplevelse för dig och bidra till välgörenhet.
+                            Observera att anmälan är bindande och att vi inte erbjuder öppet köp.
+                        </p>
+                    </div>
+                    <figure className="event-money__figure">
+                        <Image
+                            src={"https://picsum.photos/430/242?random=4"}
+                            width={430}
+                            height={242}
+                            alt="Karta som visar rutten för Triathlon tävlingen"
+                            className="event-info__image"
+                        />
+                    </figure>
+                </article>
+            </div>
+
+            <div className="separator"></div>
+
             <section className="event-image-gallery flex-col align-c">
                 <h2 className="event-image-gallery__title heading-size">Platsbilder</h2>
                 <ImageGallery images={LOCATION_IMAGES} />
             </section>
             <div className="traino-funnel flex-col align-c">
-                <p className="traino-funnel__text">Nu när du vet mer om eventet kan du börja träna inför det!</p>
+                <p className="traino-funnel__text">
+                    Nu när du vet mer om eventet kan du börja träna inför det!
+                </p>
                 <Link href="https://traino.nu/" className=" link-btn">
                     Träna
                 </Link>
             </div>
-            { event && !event.finished ? <section className="volunteer flex-col align-c">
-                <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
-                {state?.message ? (
-                    <h2 className={state?.success ? "message-success" : "message-failure"}>
-                        {state?.message}
-                        {state?.success ? formRef.current?.reset() : <></>}
-                    </h2>
-                ) : (
-                    <></>
-                )}
-                {event ? (
-                    <form className="volunteer-form flex-col align-c" ref={formRef} action={formAction}>
-                        <div className="input-wrapper">
-                            <label htmlFor="email">Email</label>
-                            <input id="email" name="email" type="email" required />
-                        </div>
-                        <div className="input-wrapper">
-                            <label htmlFor="phonenumber">Telefonnummer (Måste vara siffror)</label>
-                            <input id="phonenumber" name="phonenumber" type="tel" minLength={6} maxLength={12} pattern="[0-9]{6,12}" required />
-                        </div>
-                        <div className="input-wrapper">
-                            <input id="webpage" name="webpage" type="hidden" />
-                        </div>
-                        <button className="volunteer-form__submit " type="submit">
-                            Anmäl mig
-                        </button>
-                    </form>
-                ) : (
-                    <></>
-                )}
-            </section> : <></> }
+            {event && !event.finished ? (
+                <section className="volunteer flex-col align-c">
+                    <h2 className="volunteer__title heading-size">Anmäl Dig Som Volontär</h2>
+                    {state?.message ? (
+                        <h2 className={state?.success ? "message-success" : "message-failure"}>
+                            {state?.message}
+                            {state?.success ? formRef.current?.reset() : <></>}
+                        </h2>
+                    ) : (
+                        <></>
+                    )}
+                    {event ? (
+                        <form
+                            className="volunteer-form flex-col align-c"
+                            ref={formRef}
+                            action={formAction}
+                        >
+                            <div className="input-wrapper">
+                                <label htmlFor="email">Email</label>
+                                <input id="email" name="email" type="email" required />
+                            </div>
+                            <div className="input-wrapper">
+                                <label htmlFor="phonenumber">
+                                    Telefonnummer (Måste vara siffror)
+                                </label>
+                                <input
+                                    id="phonenumber"
+                                    name="phonenumber"
+                                    type="tel"
+                                    minLength={6}
+                                    maxLength={12}
+                                    pattern="[0-9]{6,12}"
+                                    required
+                                />
+                            </div>
+                            <div className="input-wrapper">
+                                <input id="webpage" name="webpage" type="hidden" />
+                            </div>
+                            <button className="volunteer-form__submit " type="submit">
+                                Anmäl mig
+                            </button>
+                        </form>
+                    ) : (
+                        <></>
+                    )}
+                </section>
+            ) : (
+                <></>
+            )}
         </main>
     );
 }
