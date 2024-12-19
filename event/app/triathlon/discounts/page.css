@@ -11,9 +11,3 @@
         }
     }
 }
-
-@media (max-width: 1000px) {
-    #discountspage {
-        margin-inline: 0.5rem;
-    }
-}
