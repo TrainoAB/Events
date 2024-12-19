@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-const databaseClient = createClient(databaseURL(), databaseKey(), { db: { schema: 'traino' } });
+const databaseClient = createClient(databaseURL(), databaseKey(), { db: { schema: 'events' } });
 
 function databaseURL() {
     return process.env?.DATABASE_URL;
