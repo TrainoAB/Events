@@ -37,12 +37,13 @@
 
         & .sponsor-card__discounts {
             display: flex;
-            gap: 3rem;
+            gap: var(--gap);
 
             & .sponsor-card__discount {
                 background-color: var(--secondary-light-grey-alternative);
                 border-radius: 30px;
                 padding: 0.8rem 1rem;
+                text-align: center;
             }
         }
     }
@@ -65,8 +66,10 @@
             }
 
             & .sponsor-card__figure {
+                width: auto;
+
                 & img {
-                    border-radius: var(--radius) var(--radius) 0 0;
+                    border-radius: var(--radius);
                     height: 16rem;
                 }
             }
@@ -74,6 +77,10 @@
             & .sponsor-card__discounts {
                 flex-wrap: wrap;
                 justify-content: center;
+
+                & .sponsor-card__discount {
+                    width: 100%;
+                }
             }
         }
     }

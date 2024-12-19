@@ -55,16 +55,19 @@
     }
 }
 
-@media (max-width: 1000px) {
-    #sponsorspage {
-        margin-inline: 0.5rem;
-    }
-}
-
 @media (max-width: 800px) {
     #sponsorspage {
+        & .sponsors__title {
+            font-size: 3.5rem;
+        }
+
         & .sponsor-event {
             padding: 6rem 0.5rem;
+
+            & .sponsor-event__title,
+            & .sponsor-event__cta {
+                text-align: center;
+            }
         }
     }
 }
