@@ -79,7 +79,6 @@
             & .showmenu {
                 display: inline-table;
                 position: fixed;
-                top: 0;
                 top: var(--top-offset);
             }
 

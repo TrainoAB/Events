@@ -17,8 +17,8 @@ export default function AdminHeader({ params }) {
 
     return (
         <header id="admin-header">
-            <nav className="admin-header-nav">
-                <ul className={showMenu ? "admin-header-list showmenu" : "admin-header-list"} onClick={handleShowMenu}>
+            <nav className="admin-header-nav" style={{position: showMenu && "fixed"}}>
+                <ul className={showMenu ? "admin-header-list showmenu" : "admin-header-list"} onClick={() => showMenu && handleShowMenu()}>
                     <li className='admin-header-list__element'>
                         <Link href="/admin">Alla Event</Link>
                     </li>
@@ -51,6 +51,7 @@ export default function AdminHeader({ params }) {
                 <div id="hamburger" onClick={handleShowMenu}>
                     <Image src={showMenu ? '/icon-x.svg' : '/icon-hamburger.svg'} width={20} height={20} alt="Hamburger menu icon" />
                 </div>
+                {showMenu ? <div className="nav-backdrop" onClick={handleShowMenu}></div> : <></>}
             </nav>
         </header>
     );
