@@ -55,11 +55,23 @@
 @media (max-width: 550px) {
     #rulespage {
         & .rules__title {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         & .rules__title-text {
             max-width: 100%;
+        }
+
+        & .rules-list-wrapper {
+            width: 100%;
+
+            & .rule-wrapper {
+                margin: 0;
+
+                & .rule-number-wrapper {
+                    gap: 2rem;
+                }
+            }
         }
     }
 }

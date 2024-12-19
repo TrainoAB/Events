@@ -66,6 +66,10 @@
 
 @media (max-width: 1000px) {
     #registerpage {
+        & .register-title {
+            font-size: 3.5rem;
+        }
+
         & .register-form {
             width: 100%;
         }

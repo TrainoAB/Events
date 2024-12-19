@@ -41,8 +41,6 @@
 
 @media (max-width: 1000px) {
     #winnerspage {
-        margin: 0 1rem;
-
         & .participants-list {
             width: 100%;
         }
@@ -104,8 +102,6 @@
 
 @media (max-width: 500px) {
     #winnerspage {
-        padding: 0;
-
         & .participants-list {
             & .participants-list__row {
                 font-size: 1.1rem;
