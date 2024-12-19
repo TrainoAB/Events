@@ -112,15 +112,15 @@ export default function Header() {
                         <Link href="/triathlon/merch">Merch</Link>
                     </li>
                 </ul>
-
-                <div id="hamburger" onClick={handleShowMenu}>
+                <div id="hamburger" onClick={handleShowMenu} style={{position: showMenu ? "fixed" : "absolute"}}>
                     <Image
                         src={showMenu ? "/icon-x.svg" : "/icon-hamburger.svg"}
                         width={20}
                         height={20}
                         alt="Hamburger menu"
-                    />
+                        />
                 </div>
+                {showMenu ? <div className="nav-backdrop" onClick={handleShowMenu}></div> : <></>}
             </nav>
         </header>
     );
