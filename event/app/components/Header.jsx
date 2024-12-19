@@ -30,10 +30,10 @@ export default function Header() {
 
     return (
         <header id="header">
-            <nav className="header-nav">
+            <nav className="header-nav" style={{position: showMenu && "fixed"}}>
                 <Link className="logo" href="/triathlon"></Link>
 
-                <ul className={showMenu ? `header-list showmenu` : "header-list"} onClick={handleShowMenu}>
+                <ul className={showMenu ? `header-list showmenu` : "header-list"} onClick={() => showMenu && handleShowMenu()}>
                     {finished ? (
                         <li
                             className={`${
@@ -112,15 +112,15 @@ export default function Header() {
                         <Link href="/triathlon/merch">Merch</Link>
                     </li>
                 </ul>
-
                 <div id="hamburger" onClick={handleShowMenu}>
                     <Image
                         src={showMenu ? "/icon-x.svg" : "/icon-hamburger.svg"}
                         width={20}
                         height={20}
                         alt="Hamburger menu"
-                    />
+                        />
                 </div>
+                {showMenu ? <div className="nav-backdrop" onClick={handleShowMenu}></div> : <></>}
             </nav>
         </header>
     );
