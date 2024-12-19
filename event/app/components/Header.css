@@ -4,13 +4,13 @@
     background: var(--white);
     z-index: 1000;
 
-    .header-nav {
+    & .header-nav {
         display: flex;
         width: 100%;
         max-width: 90rem;
         justify-content: space-between;
 
-        #hamburger {
+        & #hamburger {
             display: none;
         }
 
@@ -34,7 +34,7 @@
                 }
             }
 
-            .active {
+            & .active {
                 border-bottom: 4px solid var(--black);
                 color: var(--mainpurple);
             }
@@ -73,7 +73,7 @@
                 }
             }
 
-            .showmenu {
+            & .showmenu {
                 display: inline-table;
                 position: fixed;
                 top: 0;
@@ -88,7 +88,7 @@
                 backdrop-filter: brightness(0.4);
             }
 
-            #hamburger {
+            & #hamburger {
                 display: block;
                 position: absolute;
                 cursor: pointer;
